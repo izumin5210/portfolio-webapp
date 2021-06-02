@@ -31,7 +31,9 @@ export const useRenderedMarkdown = (content: string) => {
   return reactContent;
 };
 
-const MdH1: React.FC = ({ children }) => <h1 {...useMergedCss(useMdFormattingCss("#"), mdH1Css)}>{children}</h1>;
+const MdH1: React.VFC<{ children?: React.ReactNode }> = ({ children }) => (
+  <h1 {...useMergedCss(useMdFormattingCss("#"), mdH1Css)}>{children}</h1>
+);
 
 const mdH1Css = css`
   color: rgba(0, 0, 0, 0.84);
