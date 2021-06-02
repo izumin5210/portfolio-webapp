@@ -43,20 +43,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
   }
   return {
     props: { post: data.postByPath },
-    revalidate: 1,
+    revalidate: 10,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const query = "query PostPaths { posts { slug, publishedDate } }";
-  const data = await runQuery(query);
   return {
-    paths: data.posts.map((post: any) => ({
-      params: {
-        slug: post.slug,
-        date: post.publishedDate,
-      },
-    })),
+    paths: [],
     fallback: "blocking",
   };
 };
