@@ -20,6 +20,11 @@ export const useRenderedMarkdown = (content: string) => {
       createElement: React.createElement,
       components: {
         h1: MdH1,
+        h2: MdH2,
+        h3: MdH3,
+        h4: MdH4,
+        h5: MdH5,
+        h6: MdH6,
       },
     },
   });
@@ -31,20 +36,63 @@ export const useRenderedMarkdown = (content: string) => {
   return reactContent;
 };
 
-const MdH1: React.VFC<{ children?: React.ReactNode }> = ({ children }) => (
-  <h1 {...useMergedCss(useMdFormattingCss("#"), mdH1Css)}>{children}</h1>
+const MdH1: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h1 {...props} {...useMergedCss(textCss, mdH1Css, useMdFormattingCss("#"))} />
 );
 
-const mdH1Css = css`
+const MdH2: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h2 {...props} {...useMergedCss(textCss, mdH2Css, useMdFormattingCss("##"))} />
+);
+
+const MdH3: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h3 {...props} {...useMergedCss(textCss, mdH3Css, useMdFormattingCss("###"))} />
+);
+
+const MdH4: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h4 {...props} {...useMergedCss(textCss, mdH4Css, useMdFormattingCss("####"))} />
+);
+
+const MdH5: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h5 {...props} {...useMergedCss(textCss, mdH5Css, useMdFormattingCss("#####"))} />
+);
+
+const MdH6: React.VFC<{ children?: React.ReactNode }> = (props) => (
+  <h5 {...props} {...useMergedCss(textCss, mdH6Css, useMdFormattingCss("######"))} />
+);
+
+const textCss = css`
   color: rgba(0, 0, 0, 0.84);
+`;
+
+const mdH1Css = css`
   font-size: 36px;
+`;
+
+const mdH2Css = css`
+  font-size: 24px;
+`;
+
+const mdH3Css = css`
+  font-size: 21px;
+`;
+
+const mdH4Css = css`
+  font-size: 18px;
+`;
+
+const mdH5Css = css`
+  font-size: 16px;
+`;
+
+const mdH6Css = css`
+  font-size: 16px;
 `;
 
 const mdFormattingCss = css`
   &::before {
     content: var(--formatting-string);
-    padding-right: 8px;
-    font-size: 0.8em;
+    padding-right: 0.3em;
+    font-size: 0.6em;
     color: rgba(0, 0, 0, 0.6);
   }
 `;
