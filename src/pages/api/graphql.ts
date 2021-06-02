@@ -1,8 +1,9 @@
+import { promises as fs } from "fs";
+import * as path from "path";
 import { ApolloServer, Config, gql } from "apollo-server-micro";
 
 const typeDefs: Config["typeDefs"] = gql`
   type Query {
-    posts: [Post!]!
     postByPath(publishedDate: String!, slug: String!): Post
   }
   type Post {
@@ -13,22 +14,18 @@ const typeDefs: Config["typeDefs"] = gql`
   }
 `;
 
-const posts = [
-  {
-    slug: "test-post",
-    title: "Test post",
-    content: "# Test post\nHello, my blog!",
-    publishedDate: "2021-06-01",
-  },
-];
+const postsDir = path.join(process.cwd(), "_posts");
 
 const resolvers: Config["resolvers"] = {
   Query: {
-    posts: (_source, _args, _context, _info) => {
-      return posts;
-    },
     postByPath: (_source, args, _ccontext, _info) => {
-      return posts.find((post) => post.publishedDate === args.publishedDate && post.slug === args.slug);
+      const content = fs.readFile(path.join(postsDir, args.publishedDate, `${args.slug}.md`), "utf8");
+      return {
+        slug: args.slug,
+        publishedDate: args.publishedDate,
+        content,
+        title: "Title", // TODO
+      };
     },
   },
 };
