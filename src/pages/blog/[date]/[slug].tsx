@@ -1,28 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/dist/client/router";
-
-type Post = {
-  title: string;
-  content: string;
-  slug: string;
-  publishedDate: string;
-};
+import { Post, PostRoot } from "../../../components/blog";
 
 type Props = {
   post: Post;
 };
 
 const Entry = (props: Props) => {
-  const router = useRouter();
-
-  return (
-    <dl>
-      <dt>props</dt>
-      <dd>{JSON.stringify(props)}</dd>
-      <dt>router.query</dt>
-      <dd>{JSON.stringify(router.query)}</dd>
-    </dl>
-  );
+  return <PostRoot {...props} />;
 };
 
 type Params = {
