@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@compiled/react": "^0.6.12",
     "apollo-server-micro": "^2.25.0",
     "graphql": "^15.5.0",
     "linaria": "^2.1.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@compiled/webpack-loader": "^0.6.15",
     "@types/react": "17.0.8",
     "frolint": "^2.6.0",
     "typescript": "4.3.2"
