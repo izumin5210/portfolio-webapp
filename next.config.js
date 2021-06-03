@@ -1,3 +1,10 @@
-const withLinaria = require("next-linaria");
+module.exports = {
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.tsx?/,
+      use: ["@compiled/webpack-loader"],
+    });
 
-module.exports = withLinaria({});
+    return config;
+  },
+};
