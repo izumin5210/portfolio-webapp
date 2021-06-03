@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
-import { useRemark } from "react-remark";
 import { css, cx } from "linaria";
+import React, { ReactElement, useMemo } from "react";
+import rehypeReact from "rehype-react";
+import remarkParse from "remark-parse";
+import remarkToRehype from "remark-rehype";
+import unified from "unified";
 
 export type Post = {
   title: string;
@@ -10,13 +13,15 @@ export type Post = {
 };
 
 export const PostRoot: React.VFC<{ post: Post }> = ({ post }) => {
-  const rendered = useRenderedMarkdown(post.content);
+  const rendered = useRenderedMarkdownSync(post.content);
   return <article>{rendered}</article>;
 };
 
-export const useRenderedMarkdown = (content: string) => {
-  const [reactContent, setMarkdownSource] = useRemark({
-    rehypeReactOptions: {
+const getRenderer = () => {
+  return unified()
+    .use(remarkParse)
+    .use(remarkToRehype)
+    .use(rehypeReact, {
       createElement: React.createElement,
       components: {
         h1: MdH1,
@@ -26,14 +31,12 @@ export const useRenderedMarkdown = (content: string) => {
         h5: MdH5,
         h6: MdH6,
       },
-    },
-  });
+    });
+};
 
-  useEffect(() => {
-    setMarkdownSource(content);
-  }, [content, setMarkdownSource]);
-
-  return reactContent;
+export const useRenderedMarkdownSync = (content: string) => {
+  const renderer = useMemo(getRenderer, []);
+  return useMemo(() => renderer.processSync(content).result as ReactElement, [renderer, content]);
 };
 
 const MdH1: React.VFC<{ children?: React.ReactNode }> = (props) => (
