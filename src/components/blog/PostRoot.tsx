@@ -34,6 +34,7 @@ const getRenderer = () => {
         ul: MdUl as React.VFC<{ children?: React.ReactNode }>,
         ol: MdOl as React.VFC<{ children?: React.ReactNode }>,
         li: MdLi as React.VFC<{ children?: React.ReactNode }>,
+        blockquote: MdQuote as React.VFC<{ children?: React.ReactNode }>,
       },
     });
 };
@@ -143,6 +144,7 @@ const MdLi = styled.li`
 `;
 
 const nestedListCss = css`
+  margin-left: 16px;
   ol,
   ul {
     margin-left: 16px;
@@ -167,4 +169,13 @@ const MdOl = styled.ol`
   > li::before {
     content: counter(ordered-list) ".";
   }
+`;
+
+const MdQuote = styled.blockquote`
+  ${resetCss}
+  ${textCss}
+  ${mdFormattingCss}
+  margin-left: 16px;
+  border-left: 4px solid rgba(0, 0, 0, 0.48);
+  padding-left: 16px;
 `;
