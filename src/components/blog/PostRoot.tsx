@@ -48,7 +48,7 @@ const mdFormattingCss = css`
   ::before {
     padding-right: 0.3em;
     font-size: 0.75em;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.48);
   }
 `;
 
@@ -176,6 +176,6 @@ const MdQuote = styled.blockquote`
   ${textCss}
   ${mdFormattingCss}
   margin-left: 16px;
-  border-left: 4px solid rgba(0, 0, 0, 0.48);
+  border-left: 4px solid rgba(0, 0, 0, 0.12);
   padding-left: 16px;
 `;
