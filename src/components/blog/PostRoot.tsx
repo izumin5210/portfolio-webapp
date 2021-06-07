@@ -47,11 +47,18 @@ const mdFormattingCss = css`
   }
 `;
 
+const resetCss = css`
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+`;
+
 const textCss = css`
   color: rgba(0, 0, 0, 0.84);
 `;
 
 const MdH1 = styled.h1`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 36px;
@@ -61,6 +68,7 @@ const MdH1 = styled.h1`
 `;
 
 const MdH2 = styled.h2`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 24px;
@@ -70,6 +78,7 @@ const MdH2 = styled.h2`
 `;
 
 const MdH3 = styled.h3`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 21px;
@@ -79,6 +88,7 @@ const MdH3 = styled.h3`
 `;
 
 const MdH4 = styled.h4`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 18px;
@@ -88,6 +98,7 @@ const MdH4 = styled.h4`
 `;
 
 const MdH5 = styled.h5`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 16px;
@@ -97,6 +108,7 @@ const MdH5 = styled.h5`
 `;
 
 const MdH6 = styled.h6`
+  ${resetCss}
   ${textCss}
   ${mdFormattingCss}
   font-size: 16px;
