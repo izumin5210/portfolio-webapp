@@ -42,7 +42,7 @@ export const useRenderedMarkdownSync = (content: string) => {
 const mdFormattingCss = css`
   ::before {
     padding-right: 0.3em;
-    font-size: 0.6em;
+    font-size: 0.75em;
     color: rgba(0, 0, 0, 0.6);
   }
 `;
@@ -55,6 +55,7 @@ const resetCss = css`
 
 const textCss = css`
   color: rgba(0, 0, 0, 0.84);
+  line-height: 1.7;
 `;
 
 const MdH1 = styled.h1`
@@ -62,6 +63,7 @@ const MdH1 = styled.h1`
   ${textCss}
   ${mdFormattingCss}
   font-size: 36px;
+  margin: 32px 0 8px;
   ::before {
     content: "#";
   }
@@ -72,6 +74,7 @@ const MdH2 = styled.h2`
   ${textCss}
   ${mdFormattingCss}
   font-size: 24px;
+  margin: 24px 0 8px;
   ::before {
     content: "##";
   }
@@ -82,6 +85,7 @@ const MdH3 = styled.h3`
   ${textCss}
   ${mdFormattingCss}
   font-size: 21px;
+  margin: 21px 0 8px;
   ::before {
     content: "###";
   }
@@ -92,6 +96,7 @@ const MdH4 = styled.h4`
   ${textCss}
   ${mdFormattingCss}
   font-size: 18px;
+  margin: 18px 0 8px;
   ::before {
     content: "####";
   }
@@ -102,6 +107,7 @@ const MdH5 = styled.h5`
   ${textCss}
   ${mdFormattingCss}
   font-size: 16px;
+  margin: 16px 0 8px;
   ::before {
     content: "#####";
   }
@@ -112,6 +118,7 @@ const MdH6 = styled.h6`
   ${textCss}
   ${mdFormattingCss}
   font-size: 16px;
+  margin: 16px 0 8px;
   ::before {
     content: "#####";
   }
