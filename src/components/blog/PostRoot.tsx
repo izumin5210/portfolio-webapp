@@ -1,4 +1,4 @@
-import { css, cx } from "linaria";
+import { css, styled } from "@compiled/react";
 import React, { ReactElement, useMemo } from "react";
 import rehypeReact from "rehype-react";
 import remarkParse from "remark-parse";
@@ -24,12 +24,12 @@ const getRenderer = () => {
     .use(rehypeReact, {
       createElement: React.createElement,
       components: {
-        h1: MdH1,
-        h2: MdH2,
-        h3: MdH3,
-        h4: MdH4,
-        h5: MdH5,
-        h6: MdH6,
+        h1: MdH1 as React.VFC<{ children?: React.ReactNode }>,
+        h2: MdH2 as React.VFC<{ children?: React.ReactNode }>,
+        h3: MdH3 as React.VFC<{ children?: React.ReactNode }>,
+        h4: MdH4 as React.VFC<{ children?: React.ReactNode }>,
+        h5: MdH5 as React.VFC<{ children?: React.ReactNode }>,
+        h6: MdH6 as React.VFC<{ children?: React.ReactNode }>,
       },
     });
 };
@@ -39,89 +39,68 @@ export const useRenderedMarkdownSync = (content: string) => {
   return useMemo(() => renderer.processSync(content).result as ReactElement, [renderer, content]);
 };
 
-const MdH1: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h1 {...props} {...useMergedCss(textCss, mdH1Css, useMdFormattingCss("#"))} />
-);
-
-const MdH2: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h2 {...props} {...useMergedCss(textCss, mdH2Css, useMdFormattingCss("##"))} />
-);
-
-const MdH3: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h3 {...props} {...useMergedCss(textCss, mdH3Css, useMdFormattingCss("###"))} />
-);
-
-const MdH4: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h4 {...props} {...useMergedCss(textCss, mdH4Css, useMdFormattingCss("####"))} />
-);
-
-const MdH5: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h5 {...props} {...useMergedCss(textCss, mdH5Css, useMdFormattingCss("#####"))} />
-);
-
-const MdH6: React.VFC<{ children?: React.ReactNode }> = (props) => (
-  <h5 {...props} {...useMergedCss(textCss, mdH6Css, useMdFormattingCss("######"))} />
-);
-
-const textCss = css`
-  color: rgba(0, 0, 0, 0.84);
-`;
-
-const mdH1Css = css`
-  font-size: 36px;
-`;
-
-const mdH2Css = css`
-  font-size: 24px;
-`;
-
-const mdH3Css = css`
-  font-size: 21px;
-`;
-
-const mdH4Css = css`
-  font-size: 18px;
-`;
-
-const mdH5Css = css`
-  font-size: 16px;
-`;
-
-const mdH6Css = css`
-  font-size: 16px;
-`;
-
 const mdFormattingCss = css`
-  &::before {
-    content: var(--formatting-string);
+  ::before {
     padding-right: 0.3em;
     font-size: 0.6em;
     color: rgba(0, 0, 0, 0.6);
   }
 `;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Css = { className: string; style?: object } | string;
-const useMdFormattingCss = (formattingString: string): Css => {
-  return {
-    style: { "--formatting-string": `'${formattingString}'` },
-    className: mdFormattingCss,
-  };
-};
+const textCss = css`
+  color: rgba(0, 0, 0, 0.84);
+`;
 
-const useMergedCss = (...cssList: Css[]): Css => {
-  const classNames = [];
-  const styles = [];
-  for (const css of cssList) {
-    if (typeof css === "string") {
-      classNames.push(css);
-    } else {
-      classNames.push(css.className);
-      if (css.style) styles.push(css.style);
-    }
+const MdH1 = styled.h1`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 36px;
+  ::before {
+    content: "#";
   }
-  return {
-    className: cx(...classNames),
-    style: Object.assign({}, ...styles),
-  };
-};
+`;
+
+const MdH2 = styled.h2`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 24px;
+  ::before {
+    content: "##";
+  }
+`;
+
+const MdH3 = styled.h3`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 21px;
+  ::before {
+    content: "###";
+  }
+`;
+
+const MdH4 = styled.h4`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 18px;
+  ::before {
+    content: "####";
+  }
+`;
+
+const MdH5 = styled.h5`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 16px;
+  ::before {
+    content: "#####";
+  }
+`;
+
+const MdH6 = styled.h6`
+  ${textCss}
+  ${mdFormattingCss}
+  font-size: 16px;
+  ::before {
+    content: "#####";
+  }
+`;
