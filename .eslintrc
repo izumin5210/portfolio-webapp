@@ -1,6 +1,0 @@
-{
-  "extends": ["wantedly-typescript"],
-  "parserOptions": {
-    "project": ["./tsconfig.json"]
-  }
-}
