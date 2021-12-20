@@ -1,0 +1,80 @@
+mediaTypes:
+  - slide
+  - article
+  - oss
+  - podcast
+tags:
+  - GraphQL
+  - JavaScript
+  - Next.js
+  - ISUCON
+  - Protocol Buffers
+  - gRPC
+  - Go
+entries:
+  - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
+    publishedOn: '2021-11-27'
+    tags:
+      - GraphQL
+    mediaType: slide
+    title: GraphQL 導入の反省と再挑戦 / jsconf jp 2021
+  - url: https://github.com/proto-graphql/graphql-field-mask
+    publishedOn: '2021-10-24'
+    tags:
+      - GraphQL
+      - JavaScript
+    mediaType: oss
+    title: >-
+      GitHub - proto-graphql/graphql-field-mask: google.protobuf.FieldMask from
+      GraphQL query
+  - url: https://zenn.dev/izumin/articles/710eefc8172f66
+    publishedOn: '2021-09-27'
+    tags:
+      - GraphQL
+    mediaType: article
+    title: GraphQL の引数では「値を入れない」と「null を渡す」を区別できる
+  - url: https://zenn.dev/izumin/articles/fce4918f5f7946
+    publishedOn: '2021-09-21'
+    tags:
+      - Next.js
+      - JavaScript
+    mediaType: article
+    title: Next.js でページ遷移前後で共通するコンポーネントを残す
+  - url: https://github.com/izumin5210/graphql-fragment-mask
+    publishedOn: '2021-09-13'
+    tags:
+      - GraphQL
+      - JavaScript
+    mediaType: oss
+    title: >-
+      GitHub - izumin5210/graphql-fragment-mask: Mask GraphQL query result with
+      Fragment
+  - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
+    publishedOn: '2021-08-23'
+    tags:
+      - ISUCON
+    mediaType: podcast
+    title: '#ISUCON で100万点とって予選2位になるためにやったこと by Wantedly Engineering Podcast'
+  - url: >-
+      https://anchor.fm/wantedly-dev/episodes/Protocol-Buffers--w-izumin5210-e15hjri/a-a69p8u8
+    publishedOn: '2021-08-06'
+    tags:
+      - Protocol Buffers
+      - gRPC
+    mediaType: podcast
+    title: Protocol Buffers の書き方と管理方法 w/ @izumin5210 by Wantedly Engineering Podcast
+  - url: https://github.com/proto-graphql/proto-nexus
+    publishedOn: '2020-12-21'
+    tags:
+      - GraphQL
+      - JavaScript
+    mediaType: article
+    title: >-
+      GitHub - proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with
+      GraphQL Nexus
+  - url: https://zenn.dev/izumin/articles/4369181aa84f7b
+    publishedOn: '2020-12-25'
+    tags:
+      - Go
+    mediaType: article
+    title: Go 製 CLI にプラグイン機構を作る方法n選
