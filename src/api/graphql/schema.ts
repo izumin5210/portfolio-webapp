@@ -20,8 +20,10 @@ export const schema = new GraphQLSchema({
             mediaType: string;
           };
           const rawData = await fs.readFile(path.join(process.cwd(), "data.yml"), "utf-8");
-          const data = yaml.load(rawData) as { entries: Entry };
-          return data.entries;
+          const data = yaml.load(rawData) as { entries: Entry[] };
+          return data.entries.sort(
+            (e1, e2) => -(new Date(e1.publishedOn).getTime() - new Date(e2.publishedOn).getTime())
+          );
         },
       },
     },
