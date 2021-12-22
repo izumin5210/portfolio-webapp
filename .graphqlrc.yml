@@ -1,0 +1,7 @@
+schema: ${SCHEMA_ENDPOINT:./schema.graphql}
+extensions:
+  codegen:
+    generates:
+      ./schema.graphql:
+        plugins:
+          - schema-ast

@@ -1,0 +1,25 @@
+type ArticleEntry {
+  title: String!
+  url: String!
+}
+
+union Entry = ArticleEntry | OSSEntry | PodcastEntry | SlideEntry
+
+type OSSEntry {
+  title: String!
+  url: String!
+}
+
+type PodcastEntry {
+  title: String!
+  url: String!
+}
+
+type Query {
+  entries: [Entry!]!
+}
+
+type SlideEntry {
+  title: String!
+  url: String!
+}
