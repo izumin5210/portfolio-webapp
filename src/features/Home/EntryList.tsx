@@ -1,6 +1,6 @@
 import { useFragment } from "react-relay";
 import graphql from "babel-plugin-relay/macro";
-import { EntryListEntries$key } from "./__generated__/EntryListEntries.graphql";
+import type { EntryListEntries$key } from "./__generated__/EntryListEntries.graphql";
 
 type Props = {
   entries: EntryListEntries$key;
@@ -36,7 +36,9 @@ export function EntryList(props: Props) {
   return (
     <ul>
       {entries.entries.map((entry: any) => (
-        <li key={entry.title}>{entry.title}</li>
+        <li key={entry.title}>
+          <a href={entry.url}>{entry.title}</a>
+        </li>
       ))}
     </ul>
   );
