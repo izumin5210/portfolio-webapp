@@ -4,12 +4,10 @@
 
 import { ConcreteRequest } from "relay-runtime";
 
+import { FragmentRefs } from "relay-runtime";
 export type HomeQueryVariables = {};
 export type HomeQueryResponse = {
-  readonly entries: ReadonlyArray<{
-    readonly title?: string | undefined;
-    readonly url?: string | undefined;
-  }>;
+  readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
 };
 export type HomeQuery = {
   readonly response: HomeQueryResponse;
@@ -18,6 +16,10 @@ export type HomeQuery = {
 
 /*
 query HomeQuery {
+  ...EntryListEntries
+}
+
+fragment EntryListEntries on Query {
   entries {
     __typename
     ... on ArticleEntry {
@@ -42,45 +44,21 @@ query HomeQuery {
 
 const node: ConcreteRequest = (function () {
   var v0 = [
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "title",
-        storageKey: null,
-      },
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "url",
-        storageKey: null,
-      },
-    ],
-    v1 = {
-      kind: "InlineFragment",
-      selections: v0 /*: any*/,
-      type: "ArticleEntry",
-      abstractKey: null,
+    {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "title",
+      storageKey: null,
     },
-    v2 = {
-      kind: "InlineFragment",
-      selections: v0 /*: any*/,
-      type: "SlideEntry",
-      abstractKey: null,
+    {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "url",
+      storageKey: null,
     },
-    v3 = {
-      kind: "InlineFragment",
-      selections: v0 /*: any*/,
-      type: "OSSEntry",
-      abstractKey: null,
-    },
-    v4 = {
-      kind: "InlineFragment",
-      selections: v0 /*: any*/,
-      type: "PodcastEntry",
-      abstractKey: null,
-    };
+  ];
   return {
     fragment: {
       argumentDefinitions: [],
@@ -89,14 +67,9 @@ const node: ConcreteRequest = (function () {
       name: "HomeQuery",
       selections: [
         {
-          alias: null,
           args: null,
-          concreteType: null,
-          kind: "LinkedField",
-          name: "entries",
-          plural: true,
-          selections: [v1 /*: any*/, v2 /*: any*/, v3 /*: any*/, v4 /*: any*/],
-          storageKey: null,
+          kind: "FragmentSpread",
+          name: "EntryListEntries",
         },
       ],
       type: "Query",
@@ -123,24 +96,44 @@ const node: ConcreteRequest = (function () {
               name: "__typename",
               storageKey: null,
             },
-            v1 /*: any*/,
-            v2 /*: any*/,
-            v3 /*: any*/,
-            v4 /*: any*/,
+            {
+              kind: "InlineFragment",
+              selections: v0 /*: any*/,
+              type: "ArticleEntry",
+              abstractKey: null,
+            },
+            {
+              kind: "InlineFragment",
+              selections: v0 /*: any*/,
+              type: "SlideEntry",
+              abstractKey: null,
+            },
+            {
+              kind: "InlineFragment",
+              selections: v0 /*: any*/,
+              type: "OSSEntry",
+              abstractKey: null,
+            },
+            {
+              kind: "InlineFragment",
+              selections: v0 /*: any*/,
+              type: "PodcastEntry",
+              abstractKey: null,
+            },
           ],
           storageKey: null,
         },
       ],
     },
     params: {
-      cacheID: "dca0f25e74ac570f92642e5d8213aae3",
+      cacheID: "1d1e13baa46778fe1ff8840d566beeee",
       id: null,
       metadata: {},
       name: "HomeQuery",
       operationKind: "query",
-      text: "query HomeQuery {\n  entries {\n    __typename\n    ... on ArticleEntry {\n      title\n      url\n    }\n    ... on SlideEntry {\n      title\n      url\n    }\n    ... on OSSEntry {\n      title\n      url\n    }\n    ... on PodcastEntry {\n      title\n      url\n    }\n  }\n}\n",
+      text: "query HomeQuery {\n  ...EntryListEntries\n}\n\nfragment EntryListEntries on Query {\n  entries {\n    __typename\n    ... on ArticleEntry {\n      title\n      url\n    }\n    ... on SlideEntry {\n      title\n      url\n    }\n    ... on OSSEntry {\n      title\n      url\n    }\n    ... on PodcastEntry {\n      title\n      url\n    }\n  }\n}\n",
     },
   };
 })();
-(node as any).hash = "7051a491108cb70214a931ce0023941c";
+(node as any).hash = "72710290f4b80f5dd0ab88d7e5cf88e4";
 export default node;
