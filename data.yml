@@ -1,80 +1,438 @@
 mediaTypes:
-  - slide
-  - article
-  - oss
-  - podcast
+  - name: article
+    urlPatterns:
+      - ^https://www.wantedly.com/.*/post_articles/\d+$
+      - ^https://zenn.dev/
+      - ^https://qiita.com/
+      - ^https://blog.izum.in/
+  - name: oss
+    urlPatterns:
+      - ^https://github.com/
+  - name: podcast
+    urlPatterns:
+      - ^https://anchor.fm/
+  - name: slide
+    urlPatterns:
+      - ^https://speakerdeck.com/
 tags:
-  - GraphQL
-  - JavaScript
-  - Next.js
-  - ISUCON
-  - Protocol Buffers
-  - gRPC
-  - Go
+  - name: Book
+  - name: Developer Productivity
+  - name: Go
+  - name: GraphQL
+  - name: ISUCON
+  - name: JavaScript
+  - name: Microservices Architecture
+  - name: Next.js
+    dependsOn:
+      - Web Frontend
+  - name: Protocol Buffers
+  - name: Ruby
+  - name: Ruby on Rails
+    dependsOn:
+      - Ruby
+  - name: Web Frontend
+  - name: gRPC
 entries:
   - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
     publishedOn: '2021-11-27'
     tags:
       - GraphQL
-    mediaType: slide
+      - Microservices Architecture
     title: GraphQL 導入の反省と再挑戦 / jsconf jp 2021
+    mediaType: slide
   - url: https://github.com/proto-graphql/graphql-field-mask
     publishedOn: '2021-10-24'
     tags:
       - GraphQL
       - JavaScript
-    mediaType: oss
+      - Protocol Buffers
     title: >-
       GitHub - proto-graphql/graphql-field-mask: google.protobuf.FieldMask from
       GraphQL query
+    mediaType: oss
   - url: https://zenn.dev/izumin/articles/710eefc8172f66
     publishedOn: '2021-09-27'
     tags:
       - GraphQL
-    mediaType: article
     title: GraphQL の引数では「値を入れない」と「null を渡す」を区別できる
+    mediaType: article
   - url: https://zenn.dev/izumin/articles/fce4918f5f7946
     publishedOn: '2021-09-21'
     tags:
-      - Next.js
       - JavaScript
-    mediaType: article
+      - Next.js
+      - Web Frontend
     title: Next.js でページ遷移前後で共通するコンポーネントを残す
+    mediaType: article
   - url: https://github.com/izumin5210/graphql-fragment-mask
     publishedOn: '2021-09-13'
     tags:
       - GraphQL
       - JavaScript
-    mediaType: oss
     title: >-
       GitHub - izumin5210/graphql-fragment-mask: Mask GraphQL query result with
       Fragment
+    mediaType: oss
   - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
     publishedOn: '2021-08-23'
     tags:
       - ISUCON
-    mediaType: podcast
     title: '#ISUCON で100万点とって予選2位になるためにやったこと by Wantedly Engineering Podcast'
+    mediaType: podcast
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/Protocol-Buffers--w-izumin5210-e15hjri/a-a69p8u8
     publishedOn: '2021-08-06'
     tags:
       - Protocol Buffers
       - gRPC
-    mediaType: podcast
     title: Protocol Buffers の書き方と管理方法 w/ @izumin5210 by Wantedly Engineering Podcast
+    mediaType: podcast
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/311135
+    publishedOn: '2021-02-24'
+    tags:
+      - Microservices Architecture
+    title: マイクロサービス共通ライブラリで “Governance through code” を実現する | Wantedly Engineer Blog
+    mediaType: article
+  - url: https://zenn.dev/izumin/articles/4369181aa84f7b
+    publishedOn: '2020-12-25'
+    tags:
+      - Go
+    title: Go 製 CLI にプラグイン機構を作る方法n選
+    mediaType: article
   - url: https://github.com/proto-graphql/proto-nexus
     publishedOn: '2020-12-21'
     tags:
       - GraphQL
       - JavaScript
-    mediaType: article
     title: >-
       GitHub - proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with
       GraphQL Nexus
-  - url: https://zenn.dev/izumin/articles/4369181aa84f7b
-    publishedOn: '2020-12-25'
+    mediaType: oss
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/297850
+    publishedOn: '2020-12-11'
+    tags:
+      - GraphQL
+      - Web Frontend
+    title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編 | Wantedly Engineer Blog
+    mediaType: article
+  - url: https://speakerdeck.com/izumin5210/number-gocon-sendai-2020
+    publishedOn: '2020-10-10'
     tags:
       - Go
+    title: 'HTTP クライアントを作ろうとして学ぶ、使いやすいインタフェース  / #GoCon_Sendai 2020'
+    mediaType: slide
+  - url: https://github.com/wantedly/pb-serializer
+    publishedOn: '2020-05-17'
+    tags:
+      - Protocol Buffers
+      - Ruby
+    title: >-
+      GitHub - wantedly/pb-serializer: Serialize Ruby objects to Protocol
+      Buffers
+    mediaType: oss
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/170571
+    publishedOn: '2019-12-25'
+    tags:
+      - Go
+    title: 'subee - #golang で快適に Pub/Sub するためのフレームワーク | Wantedly Engineer Blog'
     mediaType: article
-    title: Go 製 CLI にプラグイン機構を作る方法n選
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
+    publishedOn: '2019-12-17'
+    tags:
+      - Ruby
+      - Ruby on Rails
+    title: >-
+      rails runner と NoMethodError - 使い回すスクリプトは rake task にしよう | Wantedly
+      Engineer Blog
+    mediaType: article
+  - url: >-
+      https://blog.izum.in/os-signal-%E3%81%AB%E5%BF%9C%E3%81%98%E3%81%A6%E3%81%84%E3%81%84%E6%84%9F%E3%81%98%E3%81%AB%E3%81%AA%E3%82%8B-context-a704780ec664
+    publishedOn: '2019-12-16'
+    tags:
+      - Go
+    title: os.Signal に応じていい感じになる context
+    mediaType: article
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/197571
+    publishedOn: '2019-12-04'
+    tags:
+      - Go
+    title: '`*sql.DB` を観察する #golang | Wantedly Engineer Blog'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/b0bd3fa21aed6ab6bef5
+    publishedOn: '2019-12-02'
+    tags:
+      - Developer Productivity
+    title: Homebrew Taps 自動更新で比べる CircleCI Orbs と GitHub Actions - Qiita
+    mediaType: article
+  - url: https://github.com/izumin5210/hx
+    publishedOn: '2019-11-08'
+    tags:
+      - Go
+    title: >-
+      GitHub - izumin5210/hx: 🌏 Developer-friendly, Real-World-ready and
+      extensible HTTP client for Go
+    mediaType: oss
+  - url: https://github.com/srvc/appctx
+    publishedOn: '2019-09-18'
+    tags:
+      - Go
+    title: 'GitHub - srvc/appctx: 🌏 Utilities for context.Context'
+    mediaType: oss
+  - url: https://blog.izum.in/reviewdog-on-github-actions-c5d5ba705eb7
+    publishedOn: '2019-08-16'
+    tags:
+      - Go
+    title: GitHub Actions で reviewdog を動かす
+    mediaType: article
+  - url: https://speakerdeck.com/izumin5210/golang-dot-tokyo-number-25
+    publishedOn: '2019-07-18'
+    tags:
+      - Go
+    title: '今あらためて読み直したい Go 基礎知識 その2 / golang.tokyo #25'
+    mediaType: slide
+  - url: >-
+      https://blog.izum.in/running-lean-%E5%AE%9F%E8%B7%B5%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0-596d9bf815fd
+    publishedOn: '2019-05-27'
+    tags:
+      - Book
+    title: “Running Lean — 実践リーンスタートアップ” を読んだ
+    mediaType: article
+  - url: https://github.com/izumin5210/pubee
+    publishedOn: '2019-05-26'
+    tags:
+      - Go
+    title: 'GitHub - izumin5210/pubee: Pluggable Pub/Sub Publisher'
+    mediaType: oss
+  - url: https://speakerdeck.com/izumin5210/pubsub-internal
+    publishedOn: '2019-05-20'
+    tags:
+      - Go
+    title: '`cloud.google.com/go/pubsub` internal'
+    mediaType: slide
+  - url: >-
+      https://speakerdeck.com/izumin5210/techniques-that-support-building-cli-tools-2019-spring
+    publishedOn: '2019-05-20'
+    tags:
+      - Go
+    title: >-
+      CLI ツール開発を支える技術 2019春 / Techniques that support building CLI tools, 2019
+      Spring
+    mediaType: slide
+  - url: >-
+      https://speakerdeck.com/izumin5210/case-studies-of-designing-developer-friendly-libraries-number-gocon
+    publishedOn: '2019-05-18'
+    tags:
+      - Go
+    title: 'Case studies of designing developer friendly libraries #gocon'
+    mediaType: slide
+  - url: https://github.com/wantedly/subee
+    publishedOn: '2019-02-20'
+    tags:
+      - Go
+    title: >-
+      GitHub - wantedly/subee: ✉️ 🐝 It's not only a bee, but a message -
+      Pub/Sub Worker Framework Implementation
+    mediaType: oss
+  - url: https://blog.izum.in/talk-about-plugin-in-gocon2018autumn-fb5e6bc5fc93
+    publishedOn: '2018-12-25'
+    tags:
+      - Go
+    title: '#gocon で Plugin の話をした + 補遺'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/ed1c0100a45366c3b75e
+    publishedOn: '2018-12-25'
+    tags:
+      - Go
+    title: 'grapi :  #golang で interface driven かつボイラプレートに悩まされない API 開発 - Qiita'
+    mediaType: article
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/139554
+    publishedOn: '2018-12-20'
+    tags:
+      - Go
+    title: '`Wrap(err)` in our production #golang | Wantedly Engineer Blog'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/2613364e29c0e25844aa
+    publishedOn: '2018-12-17'
+    tags:
+      - Go
+    title: 'wire に `-: cannot find package "pattern=." in any of:` って言われたら - Qiita'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/25a27d4f3c5078588f79
+    publishedOn: '2018-12-15'
+    tags:
+      - Go
+    title: 'ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ - Qiita'
+    mediaType: article
+  - url: >-
+      https://blog.izum.in/understand-understand-golang-org-x-tools-analysis-b7a3aba7ae4
+    publishedOn: '2018-12-10'
+    tags:
+      - Go
+    title: 'golang.org/x/tools/analysis を理解する #golang #golangtokyo'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/7604f290785bc3f8f86a
+    publishedOn: '2018-12-05'
+    tags:
+      - Go
+    title: '技術選択編 - #golang で CLI 作るときにいつもつかうやつ - Qiita'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/d2e352de1e541ff97079
+    publishedOn: '2018-11-30'
+    tags:
+      - Developer Productivity
+    title: Pane (tmux) - Window (vim) の移動をシームレスにする - Ctrl-h を殺さない ver. - Qiita
+    mediaType: article
+  - url: >-
+      https://speakerdeck.com/izumin5210/consider-pluggable-cli-tool-implementation-number-gocon
+    publishedOn: '2018-11-25'
+    tags:
+      - Go
+    title: 'Consider pluggable CLI tool implementation #gocon'
+    mediaType: slide
+  - url: https://qiita.com/izumin5210/items/b06a81002a6934c05185
+    publishedOn: '2018-11-24'
+    tags:
+      - Go
+    title: cobra / pflags でフラグをパースせずに args に残す - Qiita
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/7cdefe52cc54794c85fc
+    publishedOn: '2018-11-19'
+    tags:
+      - Go
+    title: "http.Client の DNS resolver\_を差し替える - Qiita"
+    mediaType: article
+  - url: https://blog.izum.in/accepted-and-rejected-in-gocon2018autumn-3250ab4a94bc
+    publishedOn: '2018-11-15'
+    tags:
+      - Go
+    title: '#gocon とおったけどおちた'
+    mediaType: article
+  - url: https://blog.izum.in/wrap-err-in-production-143f94592b9a
+    publishedOn: '2018-11-09'
+    tags:
+      - Go
+    title: 'Wrap(err) in production という話をした #golang #gounco'
+    mediaType: article
+  - url: https://blog.izum.in/painting-go-test-outputs-4fcabb7a47db
+    publishedOn: '2018-11-04'
+    tags:
+      - Go
+    title: '`go test` に色を付けるツールを作った #golang'
+    mediaType: article
+  - url: https://qiita.com/izumin5210/items/59a29371809e36d64e04
+    publishedOn: '2018-10-01'
+    tags:
+      - Go
+    title: gex で Go プロジェクトの開発用ツールの依存を管理する - Qiita
+    mediaType: article
+  - url: https://github.com/srvc/wraperr
+    publishedOn: '2018-09-12'
+    tags:
+      - Go
+    title: 'GitHub - srvc/wraperr: Check that error return value are wrapped'
+    mediaType: oss
+  - url: https://speakerdeck.com/izumin5210/builderscon-tokyo-2018
+    publishedOn: '2018-09-08'
+    tags:
+      - Microservices Architecture
+      - Ruby
+      - Ruby on Rails
+    title: 'すべてが gem になる - サービス密結合からの段階的脱却 #builderscon / builderscon tokyo 2018'
+    mediaType: slide
+  - url: https://blog.izum.in/builderscon-2018-abstract-5982a36e441
+    publishedOn: '2018-09-08'
+    tags:
+      - Microservices Architecture
+      - Ruby
+      - Ruby on Rails
+    title: '#builderscon で「すべてが gem になる — サービス密結合からの段階的脱却」という話をします'
+    mediaType: article
+  - url: https://github.com/izumin5210/gex
+    publishedOn: '2018-08-27'
+    tags:
+      - Go
+    title: >-
+      GitHub - izumin5210/gex: The implementation of "clarify best practice for
+      tool dependencies".
+    mediaType: oss
+  - url: https://github.com/izumin5210/gex
+    publishedOn: '2018-08-27'
+    tags:
+      - Go
+    title: >-
+      GitHub - izumin5210/gex: The implementation of "clarify best practice for
+      tool dependencies".
+    mediaType: oss
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/132270
+    publishedOn: '2018-08-27'
+    tags:
+      - Go
+    title: >-
+      Go 1.11 の modules・vgo を試す - 実際に使っていく上で考えないといけないこと #golang | Wantedly
+      Engineer Blog
+    mediaType: article
+  - url: https://blog.izum.in/orm-and-query-builders-in-golang-1281c7c1e99f
+    publishedOn: '2018-08-07'
+    tags:
+      - Go
+    title: Go の ORM / query builder 消耗日記
+    mediaType: article
+  - url: >-
+      https://speakerdeck.com/izumin5210/context-dot-context-is-not-just-for-cancelation
+    publishedOn: '2018-07-26'
+    tags:
+      - Go
+    title: context.Context is not just for cancelation
+    mediaType: slide
+  - url: https://speakerdeck.com/izumin5210/splitting-db-on-rails
+    publishedOn: '2018-05-12'
+    tags:
+      - Ruby
+      - Ruby on Rails
+    title: Splitting DB on "Rails"
+    mediaType: slide
+  - url: https://qiita.com/izumin5210/items/e008f74091275f3db8cc
+    publishedOn: '2018-04-18'
+    tags:
+      - Developer Productivity
+    title: スライドにソースコードを貼る 2018 Spring - Qiita
+    mediaType: article
+  - url: >-
+      https://speakerdeck.com/izumin5210/grapi-bulding-json-api-server-with-grpc-gateway-for-microservices
+    publishedOn: '2018-04-15'
+    tags:
+      - Go
+      - Protocol Buffers
+      - gRPC
+    title: 'grapi: Bulding JSON API server with grpc-gateway for microservices'
+    mediaType: slide
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/115474
+    publishedOn: '2018-04-11'
+    tags:
+      - Go
+      - Protocol Buffers
+      - gRPC
+    title: 「Go + grpc-gateway で作る JSON API サーバ速習会」を開催しました | Wantedly Engineer Blog
+    mediaType: article
+  - url: https://github.com/izumin5210/grapi
+    publishedOn: '2018-03-07'
+    tags:
+      - Go
+      - Protocol Buffers
+      - gRPC
+    title: >-
+      GitHub - izumin5210/grapi: 😮 A surprisingly easy API server and generator
+      in gRPC and Go
+    mediaType: oss
+  - url: https://blog.izum.in/isucon7-final-cf6e75758164
+    publishedOn: '2017-12-29'
+    tags:
+      - ISUCON
+    title: '#isucon 7 本戦 10位だった'
+    mediaType: article
+  - url: https://blog.izum.in/isucon7-qualify-c8b93933b241
+    publishedOn: '2017-11-06'
+    tags:
+      - ISUCON
+    title: ISUCON7予選1日目を3位通過した
+    mediaType: article
