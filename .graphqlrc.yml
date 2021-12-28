@@ -1,4 +1,5 @@
 schema: ${SCHEMA_ENDPOINT:./schema.graphql}
+documents: "src/**/*.{ts,tsx}"
 extensions:
   codegen:
     generates:

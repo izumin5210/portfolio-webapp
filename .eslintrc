@@ -1,8 +1,10 @@
 {
   "extends": [
-    "wantedly-typescript"
+    "wantedly-typescript",
+    "plugin:relay/strict"
   ],
   "parserOptions": {
     "project": ["./tsconfig.json"]
-  }
+  },
+  "plugins": ["relay"]
 }
