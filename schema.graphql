@@ -1,4 +1,5 @@
 type ArticleEntry {
+  tags: [String!]!
   title: String!
   url: String!
 }
@@ -36,6 +37,7 @@ type EntryEdge {
 }
 
 type OSSEntry {
+  tags: [String!]!
   title: String!
   url: String!
 }
@@ -66,6 +68,7 @@ type PageInfo {
 }
 
 type PodcastEntry {
+  tags: [String!]!
   title: String!
   url: String!
 }
@@ -95,6 +98,7 @@ type Query {
 }
 
 type SlideEntry {
+  tags: [String!]!
   title: String!
   url: String!
 }

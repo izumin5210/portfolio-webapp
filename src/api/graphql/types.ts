@@ -1,4 +1,4 @@
-import { GraphQLNonNull, GraphQLObjectType, GraphQLString, GraphQLUnionType } from "graphql";
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString, GraphQLUnionType } from "graphql";
 import { connectionDefinitions } from "graphql-relay";
 
 export const ArticleEntry = new GraphQLObjectType({
@@ -6,6 +6,7 @@ export const ArticleEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
   },
 });
 
@@ -14,6 +15,7 @@ export const SlideEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
   },
 });
 
@@ -22,6 +24,7 @@ export const OSSEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
   },
 });
 
@@ -30,6 +33,7 @@ export const PodcastEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
   },
 });
 
