@@ -9,8 +9,7 @@ export type EntryListEntries = {
   readonly entries: {
     readonly edges: ReadonlyArray<{
       readonly node: {
-        readonly title?: string | undefined;
-        readonly url?: string | undefined;
+        readonly " $fragmentRefs": FragmentRefs<"EntryItem">;
       } | null;
     } | null> | null;
   };
@@ -23,23 +22,7 @@ export type EntryListEntries$key = {
 };
 
 const node: ReaderFragment = (function () {
-  var v0 = ["entries"],
-    v1 = [
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "title",
-        storageKey: null,
-      },
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "url",
-        storageKey: null,
-      },
-    ];
+  var v0 = ["entries"];
   return {
     argumentDefinitions: [
       {
@@ -108,28 +91,9 @@ const node: ReaderFragment = (function () {
                     storageKey: null,
                   },
                   {
-                    kind: "InlineFragment",
-                    selections: v1 /*: any*/,
-                    type: "ArticleEntry",
-                    abstractKey: null,
-                  },
-                  {
-                    kind: "InlineFragment",
-                    selections: v1 /*: any*/,
-                    type: "SlideEntry",
-                    abstractKey: null,
-                  },
-                  {
-                    kind: "InlineFragment",
-                    selections: v1 /*: any*/,
-                    type: "OSSEntry",
-                    abstractKey: null,
-                  },
-                  {
-                    kind: "InlineFragment",
-                    selections: v1 /*: any*/,
-                    type: "PodcastEntry",
-                    abstractKey: null,
+                    args: null,
+                    kind: "FragmentSpread",
+                    name: "EntryItem",
                   },
                 ],
                 storageKey: null,
@@ -177,5 +141,5 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "46994b8119426e2f5cc94f07ded54d31";
+(node as any).hash = "f713eb72200e220935b37400af179db0";
 export default node;

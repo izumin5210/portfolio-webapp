@@ -25,27 +25,32 @@ query EntryListPaginationQuery(
   ...EntryListEntries
 }
 
+fragment EntryItem on Entry {
+  __isEntry: __typename
+  ... on ArticleEntry {
+    title
+    url
+  }
+  ... on SlideEntry {
+    title
+    url
+  }
+  ... on OSSEntry {
+    title
+    url
+  }
+  ... on PodcastEntry {
+    title
+    url
+  }
+}
+
 fragment EntryListEntries on Query {
   entries(first: $count, after: $cursor) {
     edges {
       node {
         __typename
-        ... on ArticleEntry {
-          title
-          url
-        }
-        ... on SlideEntry {
-          title
-          url
-        }
-        ... on OSSEntry {
-          title
-          url
-        }
-        ... on PodcastEntry {
-          title
-          url
-        }
+        ...EntryItem
       }
       cursor
     }
@@ -152,6 +157,10 @@ const node: ConcreteRequest = (function () {
                       storageKey: null,
                     },
                     {
+                      kind: "TypeDiscriminator",
+                      abstractKey: "__isEntry",
+                    },
+                    {
                       kind: "InlineFragment",
                       selections: v2 /*: any*/,
                       type: "ArticleEntry",
@@ -228,14 +237,14 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "a923205d53baf2876ce703d3af622bd5",
+      cacheID: "4eb64d8ed30e546f1b90d77a3080aa2b",
       id: null,
       metadata: {},
       name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on ArticleEntry {\n          title\n          url\n        }\n        ... on SlideEntry {\n          title\n          url\n        }\n        ... on OSSEntry {\n          title\n          url\n        }\n        ... on PodcastEntry {\n          title\n          url\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n  }\n  ... on SlideEntry {\n    title\n    url\n  }\n  ... on OSSEntry {\n    title\n    url\n  }\n  ... on PodcastEntry {\n    title\n    url\n  }\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ...EntryItem\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     },
   };
 })();
-(node as any).hash = "46994b8119426e2f5cc94f07ded54d31";
+(node as any).hash = "f713eb72200e220935b37400af179db0";
 export default node;
