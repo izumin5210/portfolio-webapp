@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const withLinaria = require("next-linaria");
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -8,3 +12,5 @@ module.exports = {
     ignoreBuildErrors: true,
   },
 };
+
+module.exports = withLinaria(nextConfig);
