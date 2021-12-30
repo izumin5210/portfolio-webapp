@@ -31,5 +31,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     schema,
   });
 
-  await sendResult(result, res);
+  await new Promise<void>((resolve) => {
+    setTimeout(async () => {
+      await sendResult(result, res);
+      resolve();
+    }, 1000);
+  });
 }

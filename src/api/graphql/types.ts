@@ -1,4 +1,5 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLString, GraphQLUnionType } from "graphql";
+import { connectionDefinitions } from "graphql-relay";
 
 export const ArticleEntry = new GraphQLObjectType({
   name: "ArticleEntry",
@@ -47,4 +48,8 @@ export const Entry = new GraphQLUnionType({
         return "PodcastEntry";
     }
   },
+});
+
+export const { connectionType: EntryConnection } = connectionDefinitions({
+  nodeType: Entry,
 });

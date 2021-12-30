@@ -1,7 +1,8 @@
 import * as fs from "fs/promises";
-import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLSchema } from "graphql";
-import path from "path";
+import { GraphQLNonNull, GraphQLObjectType, GraphQLSchema } from "graphql";
+import { connectionArgs, connectionFromArray } from "graphql-relay";
 import yaml from "js-yaml";
+import path from "path";
 import * as types from "./types";
 
 export const schema = new GraphQLSchema({
@@ -10,8 +11,9 @@ export const schema = new GraphQLSchema({
     name: "Query",
     fields: {
       entries: {
-        type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(types.Entry))),
-        async resolve() {
+        type: new GraphQLNonNull(types.EntryConnection),
+        args: connectionArgs,
+        async resolve(_root, args) {
           type Entry = {
             title: string;
             url: string;
@@ -21,9 +23,10 @@ export const schema = new GraphQLSchema({
           };
           const rawData = await fs.readFile(path.join(process.cwd(), "data.yml"), "utf-8");
           const data = yaml.load(rawData) as { entries: Entry[] };
-          return data.entries.sort(
+          const entries = data.entries.sort(
             (e1, e2) => -(new Date(e1.publishedOn).getTime() - new Date(e2.publishedOn).getTime())
           );
+          return connectionFromArray(entries, args);
         },
       },
     },

@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps<{
   initialRecords: any;
 }> = async () => {
   const env = initRelayEnvironment();
-  const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, {}).toPromise();
+  const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, { count: 20, cursor: null }).toPromise();
   const initialRecords = env.getStore().getSource().toJSON();
 
   return {
