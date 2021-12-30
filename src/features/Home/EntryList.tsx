@@ -47,7 +47,7 @@ export function EntryList(props: Props) {
           );
         })}
       </ul>
-      {hasNext ? <button onClick={() => loadNext(10)}>Load more</button> : null}
+      {hasNext ? <button onClick={() => loadNext(20)}>Load more</button> : null}
     </>
   );
 }
