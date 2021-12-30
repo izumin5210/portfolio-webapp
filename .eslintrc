@@ -6,5 +6,8 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["relay"]
+  "plugins": ["relay"],
+  "rules": {
+    "relay/generated-flow-types": "off"
+  }
 }

@@ -4,7 +4,7 @@ import { EntryList } from "./EntryList";
 import type { HomeQueryResponse } from "./__generated__/HomeQuery.graphql";
 
 export const HomeQuery = graphql`
-  query HomeQuery {
+  query HomeQuery($cursor: String, $count: Int!) {
     ...EntryListEntries
   }
 `;

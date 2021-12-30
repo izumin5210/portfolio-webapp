@@ -5,22 +5,22 @@
 import { ConcreteRequest } from "relay-runtime";
 
 import { FragmentRefs } from "relay-runtime";
-export type HomeQueryVariables = {
+export type EntryListPaginationQueryVariables = {
+  count?: number | null | undefined;
   cursor?: string | null | undefined;
-  count: number;
 };
-export type HomeQueryResponse = {
+export type EntryListPaginationQueryResponse = {
   readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
 };
-export type HomeQuery = {
-  readonly response: HomeQueryResponse;
-  readonly variables: HomeQueryVariables;
+export type EntryListPaginationQuery = {
+  readonly response: EntryListPaginationQueryResponse;
+  readonly variables: EntryListPaginationQueryVariables;
 };
 
 /*
-query HomeQuery(
+query EntryListPaginationQuery(
+  $count: Int
   $cursor: String
-  $count: Int!
 ) {
   ...EntryListEntries
 }
@@ -58,17 +58,19 @@ fragment EntryListEntries on Query {
 */
 
 const node: ConcreteRequest = (function () {
-  var v0 = {
-      defaultValue: null,
-      kind: "LocalArgument",
-      name: "count",
-    },
-    v1 = {
-      defaultValue: null,
-      kind: "LocalArgument",
-      name: "cursor",
-    },
-    v2 = [
+  var v0 = [
+      {
+        defaultValue: null,
+        kind: "LocalArgument",
+        name: "count",
+      },
+      {
+        defaultValue: null,
+        kind: "LocalArgument",
+        name: "cursor",
+      },
+    ],
+    v1 = [
       {
         kind: "Variable",
         name: "after",
@@ -80,7 +82,7 @@ const node: ConcreteRequest = (function () {
         variableName: "count",
       },
     ],
-    v3 = [
+    v2 = [
       {
         alias: null,
         args: null,
@@ -98,10 +100,10 @@ const node: ConcreteRequest = (function () {
     ];
   return {
     fragment: {
-      argumentDefinitions: [v0 /*: any*/, v1 /*: any*/],
+      argumentDefinitions: v0 /*: any*/,
       kind: "Fragment",
       metadata: null,
-      name: "HomeQuery",
+      name: "EntryListPaginationQuery",
       selections: [
         {
           args: null,
@@ -114,13 +116,13 @@ const node: ConcreteRequest = (function () {
     },
     kind: "Request",
     operation: {
-      argumentDefinitions: [v1 /*: any*/, v0 /*: any*/],
+      argumentDefinitions: v0 /*: any*/,
       kind: "Operation",
-      name: "HomeQuery",
+      name: "EntryListPaginationQuery",
       selections: [
         {
           alias: null,
-          args: v2 /*: any*/,
+          args: v1 /*: any*/,
           concreteType: "EntryConnection",
           kind: "LinkedField",
           name: "entries",
@@ -151,25 +153,25 @@ const node: ConcreteRequest = (function () {
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v2 /*: any*/,
                       type: "ArticleEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v2 /*: any*/,
                       type: "SlideEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v2 /*: any*/,
                       type: "OSSEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v2 /*: any*/,
                       type: "PodcastEntry",
                       abstractKey: null,
                     },
@@ -216,7 +218,7 @@ const node: ConcreteRequest = (function () {
         },
         {
           alias: null,
-          args: v2 /*: any*/,
+          args: v1 /*: any*/,
           filters: null,
           handle: "connection",
           key: "EntryListEntries_entries",
@@ -226,14 +228,14 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "c0b909026e3af33ba9464c9b4756540c",
+      cacheID: "a923205d53baf2876ce703d3af622bd5",
       id: null,
       metadata: {},
-      name: "HomeQuery",
+      name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query HomeQuery(\n  $cursor: String\n  $count: Int!\n) {\n  ...EntryListEntries\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on ArticleEntry {\n          title\n          url\n        }\n        ... on SlideEntry {\n          title\n          url\n        }\n        ... on OSSEntry {\n          title\n          url\n        }\n        ... on PodcastEntry {\n          title\n          url\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ... on ArticleEntry {\n          title\n          url\n        }\n        ... on SlideEntry {\n          title\n          url\n        }\n        ... on OSSEntry {\n          title\n          url\n        }\n        ... on PodcastEntry {\n          title\n          url\n        }\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     },
   };
 })();
-(node as any).hash = "a88e6412493d3e5b6978c285b879b359";
+(node as any).hash = "46994b8119426e2f5cc94f07ded54d31";
 export default node;
