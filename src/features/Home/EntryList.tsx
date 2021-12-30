@@ -1,3 +1,4 @@
+import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import { Suspense as _Suspense, SuspenseProps } from "react";
 import { usePaginationFragment } from "react-relay";
@@ -36,7 +37,7 @@ export function EntryList(props: Props) {
 
   return (
     <>
-      <ul>
+      <Ul>
         {data.entries?.edges?.map((edge, idx) => {
           const key = `item-${idx}`;
           if (edge?.node == null) return null;
@@ -46,8 +47,13 @@ export function EntryList(props: Props) {
             </Suspense>
           );
         })}
-      </ul>
+      </Ul>
       {hasNext ? <button onClick={() => loadNext(20)}>Load more</button> : null}
     </>
   );
 }
+
+const Ul = styled.ul`
+  padding: 0;
+  margin: 0;
+`;
