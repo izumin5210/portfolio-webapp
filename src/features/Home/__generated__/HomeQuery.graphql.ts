@@ -30,18 +30,22 @@ fragment EntryItem on Entry {
   ... on ArticleEntry {
     title
     url
+    tags
   }
   ... on SlideEntry {
     title
     url
+    tags
   }
   ... on OSSEntry {
     title
     url
+    tags
   }
   ... on PodcastEntry {
     title
     url
+    tags
   }
 }
 
@@ -98,6 +102,13 @@ const node: ConcreteRequest = (function () {
         args: null,
         kind: "ScalarField",
         name: "url",
+        storageKey: null,
+      },
+      {
+        alias: null,
+        args: null,
+        kind: "ScalarField",
+        name: "tags",
         storageKey: null,
       },
     ];
@@ -235,12 +246,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "e5ebee1ae2f5d1325089e088e208819e",
+      cacheID: "958d135e529163c55a7107cb441b8d6a",
       id: null,
       metadata: {},
       name: "HomeQuery",
       operationKind: "query",
-      text: "query HomeQuery(\n  $cursor: String\n  $count: Int!\n) {\n  ...EntryListEntries\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n  }\n  ... on SlideEntry {\n    title\n    url\n  }\n  ... on OSSEntry {\n    title\n    url\n  }\n  ... on PodcastEntry {\n    title\n    url\n  }\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ...EntryItem\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+      text: "query HomeQuery(\n  $cursor: String\n  $count: Int!\n) {\n  ...EntryListEntries\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n  }\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ...EntryItem\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     },
   };
 })();

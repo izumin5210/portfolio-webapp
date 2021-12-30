@@ -30,18 +30,22 @@ fragment EntryItem on Entry {
   ... on ArticleEntry {
     title
     url
+    tags
   }
   ... on SlideEntry {
     title
     url
+    tags
   }
   ... on OSSEntry {
     title
     url
+    tags
   }
   ... on PodcastEntry {
     title
     url
+    tags
   }
 }
 
@@ -100,6 +104,13 @@ const node: ConcreteRequest = (function () {
         args: null,
         kind: "ScalarField",
         name: "url",
+        storageKey: null,
+      },
+      {
+        alias: null,
+        args: null,
+        kind: "ScalarField",
+        name: "tags",
         storageKey: null,
       },
     ];
@@ -237,12 +248,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "4eb64d8ed30e546f1b90d77a3080aa2b",
+      cacheID: "75ef6df4ec4eeebf4ef7ad87d9f90822",
       id: null,
       metadata: {},
       name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n  }\n  ... on SlideEntry {\n    title\n    url\n  }\n  ... on OSSEntry {\n    title\n    url\n  }\n  ... on PodcastEntry {\n    title\n    url\n  }\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ...EntryItem\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n  }\n}\n\nfragment EntryListEntries on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      node {\n        __typename\n        ...EntryItem\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     },
   };
 })();
