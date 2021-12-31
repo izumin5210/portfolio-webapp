@@ -135,7 +135,7 @@ const YearLi = styled.li`
   column-gap: 8px;
 
   list-style: none;
-  color: rgba(0, 0, 0, 0.24);
+  color: rgba(0, 0, 0, 0.56);
 
   ${caption}
   font-weight: 400;
