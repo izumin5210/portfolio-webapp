@@ -1,5 +1,8 @@
+import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
+import { useRouter } from "next/router";
+import React, { useMemo } from "react";
 import { useFragment } from "react-relay";
 import { body1, caption } from "../../lib/styles/typo";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
@@ -36,6 +39,12 @@ export function EntryItem(props: Props) {
     `,
     props.entry
   );
+  const router = useRouter();
+
+  const selectedTags = useMemo(() => {
+    const q = router.query.tags ?? [];
+    return new Set(Array.isArray(q) ? q : [q]);
+  }, [router.query.tags]);
 
   return (
     <EntryLi key={data.title}>
@@ -43,9 +52,22 @@ export function EntryItem(props: Props) {
         {data.title}
         <TagsUl>
           {data.tags?.map((tag) => (
-            <TagLi key={tag}>
-              <TagAnchor>{tag}</TagAnchor>
-            </TagLi>
+            <Tag
+              key={tag}
+              Component="li"
+              text={tag}
+              onClick={(e) => {
+                e.preventDefault();
+                if (selectedTags.has(tag)) {
+                  const newTags = new Set(selectedTags);
+                  newTags.delete(tag);
+                  void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
+                } else {
+                  void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
+                }
+              }}
+              aria-checked={selectedTags.has(tag)}
+            />
           ))}
         </TagsUl>
       </EntryAnchor>
@@ -62,7 +84,7 @@ const EntryAnchor = styled.a`
   display: block;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background 300ms;
+  transition: all 300ms;
   ${body1}
   color: rgba(0, 0, 0, 0.86);
 
@@ -71,28 +93,52 @@ const EntryAnchor = styled.a`
   }
 `;
 
+function Tag({
+  text,
+  Component,
+  onClick,
+  ...props
+}: {
+  text: string;
+  Component: keyof JSX.IntrinsicElements;
+  onClick?: React.MouseEventHandler;
+}) {
+  return (
+    <Component className={tagCss} {...props} onClick={onClick}>
+      {text}
+    </Component>
+  );
+}
+
 const TagsUl = styled.ul`
   display: inline-flex;
   padding: 0;
+
+  & > li {
+    margin-left: 8px;
+  }
 `;
 
-const TagLi = styled.li`
+const tagCss = css`
   ${caption}
   flex: 0 0 auto;
   list-style: none;
-
-  margin-left: 8px;
-`;
-
-const TagAnchor = styled.a`
-  display: block;
   border-radius: 9999vh;
   padding: 2px 8px;
-  background: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
   color: rgba(0, 0, 0, 0.86);
+  transition: all 300ms;
 
   &:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-      linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+    background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
+      linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  }
+
+  &[aria-checked="true"] {
+    background: linear-gradient(rgb(248, 187, 208), rgb(248, 187, 208));
+    &:hover {
+      background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
+        linear-gradient(rgb(248, 187, 208), rgb(248, 187, 208));
+    }
   }
 `;
