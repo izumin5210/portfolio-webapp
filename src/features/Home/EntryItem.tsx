@@ -74,23 +74,24 @@ export function EntryItem(props: Props) {
         </EntryTitle>
         <TagsUl>
           {data.tags?.map((tag) => (
-            <Tag
-              key={tag}
-              as="li"
-              text={`#${tag}`}
-              onClick={(e: React.MouseEvent<HTMLLIElement>) => {
-                e.preventDefault();
-                if (selectedTags.has(tag)) {
-                  const newTags = new Set(selectedTags);
-                  newTags.delete(tag);
-                  void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
-                } else {
-                  void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
-                }
-              }}
-              role="button"
-              aria-pressed={selectedTags.has(tag)}
-            />
+            <li key={tag}>
+              <Tag
+                as="button"
+                text={`#${tag}`}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.preventDefault();
+                  if (selectedTags.has(tag)) {
+                    const newTags = new Set(selectedTags);
+                    newTags.delete(tag);
+                    void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
+                  } else {
+                    void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
+                  }
+                }}
+                role="button"
+                aria-pressed={selectedTags.has(tag)}
+              />
+            </li>
           ))}
         </TagsUl>
       </EntryAnchor>
@@ -142,6 +143,7 @@ const EntryPublishedOn = styled.time`
 
 const TagsUl = styled.ul`
   display: flex;
+  list-style: none;
   padding: 0;
 
   & > li:not(:first-child) {
