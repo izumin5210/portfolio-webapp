@@ -89,30 +89,35 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
   return (
     <>
       <Ul>
-        {data.edges?.map((edge, idx, arr) => {
-          const key = `item-${idx}`;
-          if (edge?.node == null) return null;
+        {data.edges
+          ?.flatMap((edge, idx, arr) => {
+            if (edge?.node == null) return null;
 
-          const prev = arr[idx - 1]?.node;
+            const prev = arr[idx - 1]?.node;
 
-          let year: number | undefined;
-          const currentPublishedOn = new Date(edge.node.publishedOn as string);
-          if (prev != null) {
-            const prevPublishedOn = new Date(prev.publishedOn as string);
-            if (prevPublishedOn.getFullYear() !== currentPublishedOn.getFullYear()) {
-              year = currentPublishedOn.getFullYear();
+            let year: number | undefined;
+            const currentPublishedOn = new Date(edge.node.publishedOn as string);
+            if (prev != null) {
+              const prevPublishedOn = new Date(prev.publishedOn as string);
+              if (prevPublishedOn.getFullYear() !== currentPublishedOn.getFullYear()) {
+                year = currentPublishedOn.getFullYear();
+              }
             }
-          }
 
-          return (
-            <>
-              {year ? <YearLi key={`year-${year}`}>{year}</YearLi> : null}
+            return year ? [year, edge.node] : edge.node;
+          })
+          .filter((n): n is NonNullable<typeof n> => n != null)
+          .map((node, idx) => {
+            if (typeof node === "number") {
+              return <YearLi key={`year-${node}`}>{node}</YearLi>;
+            }
+            const key = `item-${idx}`;
+            return (
               <Suspense fallback={<Loading />} key={key}>
-                <EntryItem entry={edge.node} />
+                <EntryItem entry={node} />
               </Suspense>
-            </>
-          );
-        })}
+            );
+          })}
       </Ul>
       {props.hasNext ? <button onClick={() => props.loadNext()}>Load more</button> : null}
     </>
@@ -121,7 +126,7 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
 
 const Ul = styled.ul`
   padding: 0;
-  margin: 0;
+  margin: 8px;
 `;
 
 const YearLi = styled.li`
