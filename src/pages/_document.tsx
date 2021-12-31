@@ -9,10 +9,10 @@ class MyDocument extends Document {
 
   public render() {
     return (
-      <Html>
+      <Html lang="ja">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
             rel="stylesheet"
           />
         </Head>
