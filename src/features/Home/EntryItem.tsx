@@ -19,21 +19,25 @@ export function EntryItem(props: Props) {
           title
           url
           tags
+          publishedOn
         }
         ... on SlideEntry {
           title
           url
           tags
+          publishedOn
         }
         ... on OSSEntry {
           title
           url
           tags
+          publishedOn
         }
         ... on PodcastEntry {
           title
           url
           tags
+          publishedOn
         }
       }
     `,
@@ -46,16 +50,19 @@ export function EntryItem(props: Props) {
     return new Set(Array.isArray(q) ? q : [q]);
   }, [router.query.tags]);
 
+  const publishedOn = data.publishedOn as string;
+
   return (
     <EntryLi key={data.title}>
       <EntryAnchor href={data.url}>
-        {data.title}
+        <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
+        <EntryTitle>{data.title}</EntryTitle>
         <TagsUl>
           {data.tags?.map((tag) => (
             <Tag
               key={tag}
               Component="li"
-              text={tag}
+              text={`#${tag}`}
               onClick={(e) => {
                 e.preventDefault();
                 if (selectedTags.has(tag)) {
@@ -82,15 +89,28 @@ const EntryLi = styled.li`
 
 const EntryAnchor = styled.a`
   display: block;
-  padding: 8px 16px;
+  padding: 12px 16px;
   border-radius: 4px;
   transition: all 300ms;
-  ${body1}
   color: rgba(0, 0, 0, 0.86);
 
   &:hover {
     background: rgba(0, 0, 0, 0.04);
   }
+`;
+
+const EntryTitle = styled.p`
+  ${body1}
+  padding: 0px;
+  margin: 0px;
+`;
+
+const EntryPublishedOn = styled.time`
+  display: block;
+  ${caption}
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.56);
 `;
 
 function Tag({
@@ -111,10 +131,10 @@ function Tag({
 }
 
 const TagsUl = styled.ul`
-  display: inline-flex;
+  display: flex;
   padding: 0;
 
-  & > li {
+  & > li:not(:first-child) {
     margin-left: 8px;
   }
 `;
@@ -125,7 +145,7 @@ const tagCss = css`
   list-style: none;
   border-radius: 9999vh;
   padding: 2px 8px;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
   color: rgba(0, 0, 0, 0.86);
   transition: all 300ms;
 
@@ -134,7 +154,7 @@ const tagCss = css`
 
   &:hover {
     background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
-      linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+      linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
   }
 
   &[aria-checked="true"] {

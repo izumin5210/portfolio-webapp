@@ -9,6 +9,7 @@ export type EntryItem = {
   readonly title?: string | undefined;
   readonly url?: string | undefined;
   readonly tags?: ReadonlyArray<string> | undefined;
+  readonly publishedOn?: unknown | undefined;
   readonly " $refType": "EntryItem";
 };
 export type EntryItem$data = EntryItem;
@@ -38,6 +39,13 @@ const node: ReaderFragment = (function () {
       args: null,
       kind: "ScalarField",
       name: "tags",
+      storageKey: null,
+    },
+    {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "publishedOn",
       storageKey: null,
     },
   ];
@@ -76,5 +84,5 @@ const node: ReaderFragment = (function () {
     abstractKey: "__isEntry",
   };
 })();
-(node as any).hash = "e8d3db65caba9cbeb4e5611336ed57c0";
+(node as any).hash = "834fced1f5dcfe78dce5218fe670a7ba";
 export default node;
