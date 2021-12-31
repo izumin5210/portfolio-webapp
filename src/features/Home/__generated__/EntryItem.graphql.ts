@@ -10,6 +10,11 @@ export type EntryItem = {
   readonly url?: string | undefined;
   readonly tags?: ReadonlyArray<string> | undefined;
   readonly publishedOn?: unknown | undefined;
+  readonly source?:
+    | {
+        readonly name: string;
+      }
+    | undefined;
   readonly " $refType": "EntryItem";
 };
 export type EntryItem$data = EntryItem;
@@ -48,6 +53,24 @@ const node: ReaderFragment = (function () {
       name: "publishedOn",
       storageKey: null,
     },
+    {
+      alias: null,
+      args: null,
+      concreteType: "EntrySource",
+      kind: "LinkedField",
+      name: "source",
+      plural: false,
+      selections: [
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "name",
+          storageKey: null,
+        },
+      ],
+      storageKey: null,
+    },
   ];
   return {
     argumentDefinitions: [],
@@ -84,5 +107,5 @@ const node: ReaderFragment = (function () {
     abstractKey: "__isEntry",
   };
 })();
-(node as any).hash = "834fced1f5dcfe78dce5218fe670a7ba";
+(node as any).hash = "6b55abf148282052f79049c6523a195f";
 export default node;
