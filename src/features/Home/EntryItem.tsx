@@ -129,6 +129,9 @@ const tagCss = css`
   color: rgba(0, 0, 0, 0.86);
   transition: all 300ms;
 
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+
   &:hover {
     background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
       linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
