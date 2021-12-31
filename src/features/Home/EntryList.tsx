@@ -133,7 +133,6 @@ const YearLi = styled.li`
   color: rgba(0, 0, 0, 0.24);
 
   ${caption}
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
 
   &:before,
