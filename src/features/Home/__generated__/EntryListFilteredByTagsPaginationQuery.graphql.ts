@@ -5,25 +5,27 @@
 import { ConcreteRequest } from "relay-runtime";
 
 import { FragmentRefs } from "relay-runtime";
-export type EntryListPaginationQueryVariables = {
+export type EntryListFilteredByTagsPaginationQueryVariables = {
   count?: number | null | undefined;
   cursor?: string | null | undefined;
   first: number;
+  tags: Array<string>;
 };
-export type EntryListPaginationQueryResponse = {
-  readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
+export type EntryListFilteredByTagsPaginationQueryResponse = {
+  readonly " $fragmentRefs": FragmentRefs<"EntryListEntriesByTags">;
 };
-export type EntryListPaginationQuery = {
-  readonly response: EntryListPaginationQueryResponse;
-  readonly variables: EntryListPaginationQueryVariables;
+export type EntryListFilteredByTagsPaginationQuery = {
+  readonly response: EntryListFilteredByTagsPaginationQueryResponse;
+  readonly variables: EntryListFilteredByTagsPaginationQueryVariables;
 };
 
 /*
-query EntryListPaginationQuery(
+query EntryListFilteredByTagsPaginationQuery(
   $count: Int
   $cursor: String
+  $tags: [String!]!
 ) {
-  ...EntryListEntries_19XkED
+  ...EntryListEntriesByTags_2gAuHF
 }
 
 fragment EntryItem on Entry {
@@ -50,8 +52,8 @@ fragment EntryItem on Entry {
   }
 }
 
-fragment EntryListEntries_19XkED on Query {
-  entries(first: $count, after: $cursor) {
+fragment EntryListEntriesByTags_2gAuHF on Query {
+  entriesByTags(first: $count, after: $cursor, tags: $tags) {
     edges {
       __typename
       cursor
@@ -94,8 +96,18 @@ const node: ConcreteRequest = (function () {
         kind: "LocalArgument",
         name: "first",
       },
+      {
+        defaultValue: null,
+        kind: "LocalArgument",
+        name: "tags",
+      },
     ],
-    v1 = [
+    v1 = {
+      kind: "Variable",
+      name: "tags",
+      variableName: "tags",
+    },
+    v2 = [
       {
         kind: "Variable",
         name: "after",
@@ -106,15 +118,16 @@ const node: ConcreteRequest = (function () {
         name: "first",
         variableName: "count",
       },
+      v1 /*: any*/,
     ],
-    v2 = {
+    v3 = {
       alias: null,
       args: null,
       kind: "ScalarField",
       name: "__typename",
       storageKey: null,
     },
-    v3 = [
+    v4 = [
       {
         alias: null,
         args: null,
@@ -142,7 +155,7 @@ const node: ConcreteRequest = (function () {
       argumentDefinitions: v0 /*: any*/,
       kind: "Fragment",
       metadata: null,
-      name: "EntryListPaginationQuery",
+      name: "EntryListFilteredByTagsPaginationQuery",
       selections: [
         {
           args: [
@@ -156,9 +169,10 @@ const node: ConcreteRequest = (function () {
               name: "first",
               variableName: "first",
             },
+            v1 /*: any*/,
           ],
           kind: "FragmentSpread",
-          name: "EntryListEntries",
+          name: "EntryListEntriesByTags",
         },
       ],
       type: "Query",
@@ -168,14 +182,14 @@ const node: ConcreteRequest = (function () {
     operation: {
       argumentDefinitions: v0 /*: any*/,
       kind: "Operation",
-      name: "EntryListPaginationQuery",
+      name: "EntryListFilteredByTagsPaginationQuery",
       selections: [
         {
           alias: null,
-          args: v1 /*: any*/,
+          args: v2 /*: any*/,
           concreteType: "EntryConnection",
           kind: "LinkedField",
-          name: "entries",
+          name: "entriesByTags",
           plural: false,
           selections: [
             {
@@ -186,7 +200,7 @@ const node: ConcreteRequest = (function () {
               name: "edges",
               plural: true,
               selections: [
-                v2 /*: any*/,
+                v3 /*: any*/,
                 {
                   alias: null,
                   args: null,
@@ -202,32 +216,32 @@ const node: ConcreteRequest = (function () {
                   name: "node",
                   plural: false,
                   selections: [
-                    v2 /*: any*/,
+                    v3 /*: any*/,
                     {
                       kind: "TypeDiscriminator",
                       abstractKey: "__isEntry",
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v4 /*: any*/,
                       type: "ArticleEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v4 /*: any*/,
                       type: "SlideEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v4 /*: any*/,
                       type: "OSSEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v3 /*: any*/,
+                      selections: v4 /*: any*/,
                       type: "PodcastEntry",
                       abstractKey: null,
                     },
@@ -267,24 +281,24 @@ const node: ConcreteRequest = (function () {
         },
         {
           alias: null,
-          args: v1 /*: any*/,
-          filters: null,
+          args: v2 /*: any*/,
+          filters: ["tags"],
           handle: "connection",
-          key: "EntryListEntries_entries",
+          key: "EntryListEntries_entriesByTags",
           kind: "LinkedHandle",
-          name: "entries",
+          name: "entriesByTags",
         },
       ],
     },
     params: {
-      cacheID: "29d7e925815a1966debd8057a21659f1",
+      cacheID: "06bce5a76a0de560dd36d172158cbcd1",
       id: null,
       metadata: {},
-      name: "EntryListPaginationQuery",
+      name: "EntryListFilteredByTagsPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries_19XkED\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n  }\n}\n\nfragment EntryListEntries_19XkED on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ...EntryItem\n    }\n  }\n}\n",
+      text: "query EntryListFilteredByTagsPaginationQuery(\n  $count: Int\n  $cursor: String\n  $tags: [String!]!\n) {\n  ...EntryListEntriesByTags_2gAuHF\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n  }\n}\n\nfragment EntryListEntriesByTags_2gAuHF on Query {\n  entriesByTags(first: $count, after: $cursor, tags: $tags) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ...EntryItem\n    }\n  }\n}\n",
     },
   };
 })();
-(node as any).hash = "2a9d210b6a559ec63713aa0f6dbefafb";
+(node as any).hash = "d703fcd6070cdf48ac8b73d9f86520e7";
 export default node;
