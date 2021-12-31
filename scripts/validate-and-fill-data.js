@@ -30,6 +30,7 @@ const rawData = fs.readFileSync(datafile, "utf-8");
 
 /**
  * @typedef Entry
+ * @property {string | undefined} title
  * @property {string} url
  * @property {string} publishedOn
  * @property {Source | undefined} source
@@ -73,6 +74,31 @@ function inferSource(entry) {
 
 /**
  * @param {Entry} entry
+ * @return {string | undefined}
+ */
+function refineTitle(entry) {
+  if (entry.title == null) return entry.title;
+  switch (entry.source?.name) {
+    case "GitHub": {
+      return entry.title.replace(/^GitHub - /, "");
+    }
+    case "Qiita": {
+      return entry.title.replace(/ - Qiita$/, "");
+    }
+    case "Wantedly Engineer Blog": {
+      return entry.title.replace(/ \| Wantedly Engineer Blog$/, "");
+    }
+    case "Wantedly Engineering Podcast": {
+      return entry.title.replace(/ by Wantedly Engineering Podcast$/, "");
+    }
+    default: {
+      return entry.title;
+    }
+  }
+}
+
+/**
+ * @param {Entry} entry
  */
 function validateEntry(entry) {
   const warnings = [];
@@ -105,15 +131,22 @@ function validateEntry(entry) {
 void Promise.all(
   data.entries.map((entry) => {
     return (
-      ogs({ url: entry.url })
+      ogs({ url: entry.url, timeout: 10 * 1000 })
         .then(({ result }) => {
           if (result.success) {
             return { ...entry, title: result.ogTitle };
           }
-          throw result.error;
+          // eslint-disable-next-line no-console
+          console.error(`failed to fetch title: ${entry.url}`);
+          return entry;
         })
-        // fill mediaType
+        .catch(() => {
+          // eslint-disable-next-line no-console
+          console.error(`failed to fetch title: ${entry.url}`);
+          return entry;
+        })
         .then((entry) => ({ ...entry, source: inferSource(entry) }))
+        .then((entry) => ({ ...entry, title: refineTitle(entry) }))
         // sort tags
         .then((entry) => ({ ...entry, tags: entry.tags.sort() }))
         // validate
@@ -151,4 +184,9 @@ void Promise.all(
       }),
       "utf-8"
     );
+  })
+  .catch((e) => {
+    // eslint-disable-next-line no-console
+    console.error(e);
+    process.exit(1);
   });

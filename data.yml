@@ -62,8 +62,8 @@ entries:
       - JavaScript
       - Protocol Buffers
     title: >-
-      GitHub - proto-graphql/graphql-field-mask: google.protobuf.FieldMask from
-      GraphQL query
+      proto-graphql/graphql-field-mask: google.protobuf.FieldMask from GraphQL
+      query
     mediaType: oss
     source:
       name: GitHub
@@ -96,9 +96,7 @@ entries:
     tags:
       - GraphQL
       - JavaScript
-    title: >-
-      GitHub - izumin5210/graphql-fragment-mask: Mask GraphQL query result with
-      Fragment
+    title: 'izumin5210/graphql-fragment-mask: Mask GraphQL query result with Fragment'
     mediaType: oss
     source:
       name: GitHub
@@ -108,7 +106,7 @@ entries:
     publishedOn: '2021-08-23'
     tags:
       - ISUCON
-    title: '#ISUCON で100万点とって予選2位になるためにやったこと by Wantedly Engineering Podcast'
+    title: '#ISUCON で100万点とって予選2位になるためにやったこと'
     mediaType: podcast
     source:
       name: Wantedly Engineering Podcast
@@ -120,7 +118,7 @@ entries:
     tags:
       - Protocol Buffers
       - gRPC
-    title: Protocol Buffers の書き方と管理方法 w/ @izumin5210 by Wantedly Engineering Podcast
+    title: Protocol Buffers の書き方と管理方法 w/ @izumin5210
     mediaType: podcast
     source:
       name: Wantedly Engineering Podcast
@@ -130,7 +128,7 @@ entries:
     publishedOn: '2021-02-24'
     tags:
       - Microservices Architecture
-    title: マイクロサービス共通ライブラリで “Governance through code” を実現する | Wantedly Engineer Blog
+    title: マイクロサービス共通ライブラリで “Governance through code” を実現する
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -152,8 +150,8 @@ entries:
       - GraphQL
       - JavaScript
     title: >-
-      GitHub - proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with
-      GraphQL Nexus
+      proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with GraphQL
+      Nexus
     mediaType: oss
     source:
       name: GitHub
@@ -164,7 +162,7 @@ entries:
     tags:
       - GraphQL
       - Web Frontend
-    title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編 | Wantedly Engineer Blog
+    title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -185,9 +183,7 @@ entries:
     tags:
       - Protocol Buffers
       - Ruby
-    title: >-
-      GitHub - wantedly/pb-serializer: Serialize Ruby objects to Protocol
-      Buffers
+    title: 'wantedly/pb-serializer: Serialize Ruby objects to Protocol Buffers'
     mediaType: oss
     source:
       name: GitHub
@@ -197,7 +193,7 @@ entries:
     publishedOn: '2019-12-25'
     tags:
       - Go
-    title: 'subee - #golang で快適に Pub/Sub するためのフレームワーク | Wantedly Engineer Blog'
+    title: 'subee - #golang で快適に Pub/Sub するためのフレームワーク'
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -208,9 +204,7 @@ entries:
     tags:
       - Ruby
       - Ruby on Rails
-    title: >-
-      rails runner と NoMethodError - 使い回すスクリプトは rake task にしよう | Wantedly
-      Engineer Blog
+    title: rails runner と NoMethodError - 使い回すスクリプトは rake task にしよう
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -231,7 +225,7 @@ entries:
     publishedOn: '2019-12-04'
     tags:
       - Go
-    title: '`*sql.DB` を観察する #golang | Wantedly Engineer Blog'
+    title: '`*sql.DB` を観察する #golang'
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -241,7 +235,7 @@ entries:
     publishedOn: '2019-12-02'
     tags:
       - Developer Productivity
-    title: Homebrew Taps 自動更新で比べる CircleCI Orbs と GitHub Actions - Qiita
+    title: Homebrew Taps 自動更新で比べる CircleCI Orbs と GitHub Actions
     mediaType: article
     source:
       name: Qiita
@@ -252,8 +246,8 @@ entries:
     tags:
       - Go
     title: >-
-      GitHub - izumin5210/hx: 🌏 Developer-friendly, Real-World-ready and
-      extensible HTTP client for Go
+      izumin5210/hx: 🌏 Developer-friendly, Real-World-ready and extensible HTTP
+      client for Go
     mediaType: oss
     source:
       name: GitHub
@@ -263,7 +257,7 @@ entries:
     publishedOn: '2019-09-18'
     tags:
       - Go
-    title: 'GitHub - srvc/appctx: 🌏 Utilities for context.Context'
+    title: 'srvc/appctx: 🌏 Utilities for context.Context'
     mediaType: oss
     source:
       name: GitHub
@@ -304,7 +298,7 @@ entries:
     publishedOn: '2019-05-26'
     tags:
       - Go
-    title: 'GitHub - izumin5210/pubee: Pluggable Pub/Sub Publisher'
+    title: 'izumin5210/pubee: Pluggable Pub/Sub Publisher'
     mediaType: oss
     source:
       name: GitHub
@@ -349,8 +343,8 @@ entries:
     tags:
       - Go
     title: >-
-      GitHub - wantedly/subee: ✉️ 🐝 It's not only a bee, but a message -
-      Pub/Sub Worker Framework Implementation
+      wantedly/subee: ✉️ 🐝 It's not only a bee, but a message - Pub/Sub Worker
+      Framework Implementation
     mediaType: oss
     source:
       name: GitHub
@@ -370,7 +364,7 @@ entries:
     publishedOn: '2018-12-25'
     tags:
       - Go
-    title: 'grapi :  #golang で interface driven かつボイラプレートに悩まされない API 開発 - Qiita'
+    title: 'grapi :  #golang で interface driven かつボイラプレートに悩まされない API 開発'
     mediaType: article
     source:
       name: Qiita
@@ -380,7 +374,7 @@ entries:
     publishedOn: '2018-12-20'
     tags:
       - Go
-    title: '`Wrap(err)` in our production #golang | Wantedly Engineer Blog'
+    title: '`Wrap(err)` in our production #golang'
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -390,7 +384,7 @@ entries:
     publishedOn: '2018-12-17'
     tags:
       - Go
-    title: 'wire に `-: cannot find package "pattern=." in any of:` って言われたら - Qiita'
+    title: 'wire に `-: cannot find package "pattern=." in any of:` って言われたら'
     mediaType: article
     source:
       name: Qiita
@@ -400,7 +394,7 @@ entries:
     publishedOn: '2018-12-15'
     tags:
       - Go
-    title: 'ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ - Qiita'
+    title: 'ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ'
     mediaType: article
     source:
       name: Qiita
@@ -421,7 +415,7 @@ entries:
     publishedOn: '2018-12-05'
     tags:
       - Go
-    title: '技術選択編 - #golang で CLI 作るときにいつもつかうやつ - Qiita'
+    title: '技術選択編 - #golang で CLI 作るときにいつもつかうやつ'
     mediaType: article
     source:
       name: Qiita
@@ -431,7 +425,7 @@ entries:
     publishedOn: '2018-11-30'
     tags:
       - Developer Productivity
-    title: Pane (tmux) - Window (vim) の移動をシームレスにする - Ctrl-h を殺さない ver. - Qiita
+    title: Pane (tmux) - Window (vim) の移動をシームレスにする - Ctrl-h を殺さない ver.
     mediaType: article
     source:
       name: Qiita
@@ -452,7 +446,7 @@ entries:
     publishedOn: '2018-11-24'
     tags:
       - Go
-    title: cobra / pflags でフラグをパースせずに args に残す - Qiita
+    title: cobra / pflags でフラグをパースせずに args に残す
     mediaType: article
     source:
       name: Qiita
@@ -462,7 +456,7 @@ entries:
     publishedOn: '2018-11-19'
     tags:
       - Go
-    title: "http.Client の DNS resolver\_を差し替える - Qiita"
+    title: "http.Client の DNS resolver\_を差し替える"
     mediaType: article
     source:
       name: Qiita
@@ -502,7 +496,7 @@ entries:
     publishedOn: '2018-10-01'
     tags:
       - Go
-    title: gex で Go プロジェクトの開発用ツールの依存を管理する - Qiita
+    title: gex で Go プロジェクトの開発用ツールの依存を管理する
     mediaType: article
     source:
       name: Qiita
@@ -512,7 +506,7 @@ entries:
     publishedOn: '2018-09-12'
     tags:
       - Go
-    title: 'GitHub - srvc/wraperr: Check that error return value are wrapped'
+    title: 'srvc/wraperr: Check that error return value are wrapped'
     mediaType: oss
     source:
       name: GitHub
@@ -547,8 +541,8 @@ entries:
     tags:
       - Go
     title: >-
-      GitHub - izumin5210/gex: The implementation of "clarify best practice for
-      tool dependencies".
+      izumin5210/gex: The implementation of "clarify best practice for tool
+      dependencies".
     mediaType: oss
     source:
       name: GitHub
@@ -559,8 +553,8 @@ entries:
     tags:
       - Go
     title: >-
-      GitHub - izumin5210/gex: The implementation of "clarify best practice for
-      tool dependencies".
+      izumin5210/gex: The implementation of "clarify best practice for tool
+      dependencies".
     mediaType: oss
     source:
       name: GitHub
@@ -570,9 +564,7 @@ entries:
     publishedOn: '2018-08-27'
     tags:
       - Go
-    title: >-
-      Go 1.11 の modules・vgo を試す - 実際に使っていく上で考えないといけないこと #golang | Wantedly
-      Engineer Blog
+    title: 'Go 1.11 の modules・vgo を試す - 実際に使っていく上で考えないといけないこと #golang'
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -614,7 +606,7 @@ entries:
     publishedOn: '2018-04-18'
     tags:
       - Developer Productivity
-    title: スライドにソースコードを貼る 2018 Spring - Qiita
+    title: スライドにソースコードを貼る 2018 Spring
     mediaType: article
     source:
       name: Qiita
@@ -639,7 +631,7 @@ entries:
       - Go
       - Protocol Buffers
       - gRPC
-    title: 「Go + grpc-gateway で作る JSON API サーバ速習会」を開催しました | Wantedly Engineer Blog
+    title: 「Go + grpc-gateway で作る JSON API サーバ速習会」を開催しました
     mediaType: article
     source:
       name: Wantedly Engineer Blog
@@ -652,8 +644,8 @@ entries:
       - Protocol Buffers
       - gRPC
     title: >-
-      GitHub - izumin5210/grapi: 😮 A surprisingly easy API server and generator
-      in gRPC and Go
+      izumin5210/grapi: 😮 A surprisingly easy API server and generator in gRPC
+      and Go
     mediaType: oss
     source:
       name: GitHub
