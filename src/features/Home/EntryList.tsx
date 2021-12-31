@@ -139,6 +139,7 @@ const YearLi = styled.li`
 
   ${caption}
   font-weight: 400;
+  font-style: italic;
 
   &:before,
   &:after {
