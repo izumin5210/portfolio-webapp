@@ -108,7 +108,6 @@ const EntryTitle = styled.p`
 const EntryPublishedOn = styled.time`
   display: block;
   ${caption}
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.56);
 `;
@@ -149,7 +148,6 @@ const tagCss = css`
   color: rgba(0, 0, 0, 0.86);
   transition: all 300ms;
 
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
 
   &:hover {

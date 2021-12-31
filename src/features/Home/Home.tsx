@@ -55,7 +55,6 @@ const InfoWrapper = styled.div`
 const NameHeading = styled.h1`
   ${heading5}
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
   color: rgba(0, 0, 0, 0.86);
   margin: 0;
   padding: 0;
@@ -64,7 +63,6 @@ const NameHeading = styled.h1`
 const ShortDescription = styled.p`
   ${body1}
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
   color: rgba(0, 0, 0, 0.86);
   margin: 0;
   padding: 0;

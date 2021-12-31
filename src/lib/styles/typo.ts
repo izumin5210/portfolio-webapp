@@ -1,46 +1,59 @@
-const baseFontSize = 16;
+const fontSizeBase = 16;
+/** @see https://ics.media/entry/200317/ */
+const fontFamilyBase = '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif';
+const fontFamilyNormal = `Lato, ${fontFamilyBase}`;
+const fontFamilyHead = `Poppins, ${fontFamilyBase}`;
 
 export const heading1 = {
-  fontSize: `${baseFontSize * 6}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 6}px`,
   lineHeight: 1.167,
 };
 
 export const heading2 = {
-  fontSize: `${baseFontSize * 3.75}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 3.75}px`,
   lineHeight: 1.2,
 };
 
 export const heading3 = {
-  fontSize: `${baseFontSize * 3}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 3}px`,
   lineHeight: 1.167,
 };
 
 export const heading4 = {
-  fontSize: `${baseFontSize * 2.125}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 2.125}px`,
   lineHeight: 1.235,
 };
 
 export const heading5 = {
-  fontSize: `${baseFontSize * 1.5}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 1.5}px`,
   lineHeight: 1.334,
 };
 
 export const heading6 = {
-  fontSize: `${baseFontSize * 1.25}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 1.25}px`,
   lineHeight: 1.6,
 };
 
 export const body1 = {
-  fontSize: `${baseFontSize}px`,
+  fontFamily: fontFamilyNormal,
+  fontSize: `${fontSizeBase}px`,
   lineHeight: 1.5,
 };
 
 export const body2 = {
-  fontSize: `${baseFontSize * 0.875}px`,
+  fontFamily: fontFamilyNormal,
+  fontSize: `${fontSizeBase * 0.875}px`,
   lineHeight: 1.43,
 };
 
 export const caption = {
-  fontSize: `${baseFontSize * 0.75}px`,
+  fontFamily: fontFamilyHead,
+  fontSize: `${fontSizeBase * 0.75}px`,
   lineHeight: 1.66,
 };
