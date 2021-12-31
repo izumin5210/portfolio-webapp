@@ -127,7 +127,8 @@ const EntryCite = styled.cite`
   color: rgba(0, 0, 0, 0.56);
 
   &:before {
-    content: " - ";
+    content: "-";
+    margin: 0 8px;
   }
 `;
 
