@@ -1,5 +1,6 @@
 type ArticleEntry {
   publishedOn: Date!
+  source: EntrySource!
   tags: [String!]!
   title: String!
   url: String!
@@ -42,8 +43,13 @@ type EntryEdge {
   node: Entry
 }
 
+type EntrySource {
+  name: String!
+}
+
 type OSSEntry {
   publishedOn: Date!
+  source: EntrySource!
   tags: [String!]!
   title: String!
   url: String!
@@ -76,6 +82,7 @@ type PageInfo {
 
 type PodcastEntry {
   publishedOn: Date!
+  source: EntrySource!
   tags: [String!]!
   title: String!
   url: String!
@@ -129,6 +136,7 @@ type Query {
 
 type SlideEntry {
   publishedOn: Date!
+  source: EntrySource!
   tags: [String!]!
   title: String!
   url: String!
