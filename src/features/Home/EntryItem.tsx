@@ -66,7 +66,7 @@ export function EntryItem(props: Props) {
 
   return (
     <EntryLi key={data.title}>
-      <EntryAnchor href={data.url}>
+      <EntryAnchor href={data.url} rel="noopener noreferrer" target="_blank">
         <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
         <EntryTitle>
           {data.title}
