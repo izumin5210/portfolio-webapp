@@ -6,20 +6,29 @@ import type { HomeQuery as HomeQueryType } from "../features/Home/__generated__/
 import { initRelayEnvironment } from "../lib/RelayEnvironment";
 
 const HomePage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return props.queryResult ? <Home queryResult={props.queryResult} /> : null;
+  return props.queryResult ? <Home queryResult={props.queryResult} filteredByTags={props.filteredByTags} /> : null;
 };
 
 export const getServerSideProps: GetServerSideProps<{
   queryResult: HomeQueryType["response"] | undefined;
+  filteredByTags: boolean;
   initialRecords: any;
-}> = async () => {
+}> = async (ctx) => {
   const env = initRelayEnvironment();
-  const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, { count: 20, cursor: null }).toPromise();
+  const tags = (ctx.query.tags ?? []) as string[];
+  const filteredByTags = tags.length > 0;
+  const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, {
+    count: 20,
+    cursor: null,
+    tags,
+    filteredByTags,
+  }).toPromise();
   const initialRecords = env.getStore().getSource().toJSON();
 
   return {
     props: {
       queryResult,
+      filteredByTags,
       initialRecords,
     },
   };

@@ -8,6 +8,7 @@
   },
   "plugins": ["relay"],
   "rules": {
+    "no-undef": "off",
     "relay/generated-flow-types": "off"
   }
 }

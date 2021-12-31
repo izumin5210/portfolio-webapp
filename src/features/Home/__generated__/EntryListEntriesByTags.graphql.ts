@@ -3,25 +3,25 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
-import EntryListPaginationQuery from "./EntryListPaginationQuery.graphql";
+import EntryListFilteredByTagsPaginationQuery from "./EntryListFilteredByTagsPaginationQuery.graphql";
 import { FragmentRefs } from "relay-runtime";
-export type EntryListEntries = {
-  readonly entries: {
+export type EntryListEntriesByTags = {
+  readonly entriesByTags: {
     readonly edges: ReadonlyArray<{
       readonly __typename: string;
     } | null> | null;
     readonly " $fragmentRefs": FragmentRefs<"EntryListView">;
   };
-  readonly " $refType": "EntryListEntries";
+  readonly " $refType": "EntryListEntriesByTags";
 };
-export type EntryListEntries$data = EntryListEntries;
-export type EntryListEntries$key = {
-  readonly " $data"?: EntryListEntries$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
+export type EntryListEntriesByTags$data = EntryListEntriesByTags;
+export type EntryListEntriesByTags$key = {
+  readonly " $data"?: EntryListEntriesByTags$data | undefined;
+  readonly " $fragmentRefs": FragmentRefs<"EntryListEntriesByTags">;
 };
 
 const node: ReaderFragment = (function () {
-  var v0 = ["entries"],
+  var v0 = ["entriesByTags"],
     v1 = {
       alias: null,
       args: null,
@@ -45,6 +45,11 @@ const node: ReaderFragment = (function () {
         kind: "LocalArgument",
         name: "first",
       },
+      {
+        defaultValue: null,
+        kind: "LocalArgument",
+        name: "tags",
+      },
     ],
     kind: "Fragment",
     metadata: {
@@ -66,17 +71,23 @@ const node: ReaderFragment = (function () {
           path: v0 /*: any*/,
         },
         fragmentPathInResult: [],
-        operation: EntryListPaginationQuery,
+        operation: EntryListFilteredByTagsPaginationQuery,
       },
     },
-    name: "EntryListEntries",
+    name: "EntryListEntriesByTags",
     selections: [
       {
-        alias: "entries",
-        args: null,
+        alias: "entriesByTags",
+        args: [
+          {
+            kind: "Variable",
+            name: "tags",
+            variableName: "tags",
+          },
+        ],
         concreteType: "EntryConnection",
         kind: "LinkedField",
-        name: "__EntryListEntries_entries_connection",
+        name: "__EntryListEntries_entriesByTags_connection",
         plural: false,
         selections: [
           {
@@ -146,5 +157,5 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "2a9d210b6a559ec63713aa0f6dbefafb";
+(node as any).hash = "d703fcd6070cdf48ac8b73d9f86520e7";
 export default node;
