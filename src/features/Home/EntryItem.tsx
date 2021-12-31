@@ -110,8 +110,10 @@ const EntryAnchor = styled.a`
   border-radius: 4px;
   transition: all 300ms;
   color: rgba(0, 0, 0, 0.86);
+  outline: none;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background: rgba(0, 0, 0, 0.04);
   }
 `;

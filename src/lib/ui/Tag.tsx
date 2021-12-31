@@ -31,7 +31,8 @@ const tagCss = css`
 
   font-weight: 400;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
       linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
   }
@@ -39,7 +40,8 @@ const tagCss = css`
   &[aria-pressed="true"] {
     color: rgba(255, 255, 255, 0.84);
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     }
