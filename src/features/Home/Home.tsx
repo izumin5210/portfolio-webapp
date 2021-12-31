@@ -45,7 +45,7 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0 80px;
+  margin: 84px 0 48px;
 `;
 
 const InfoWrapper = styled.div`
