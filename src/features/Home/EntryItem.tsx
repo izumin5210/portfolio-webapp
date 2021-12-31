@@ -158,10 +158,11 @@ const tagCss = css`
   }
 
   &[aria-checked="true"] {
-    background: linear-gradient(rgb(248, 187, 208), rgb(248, 187, 208));
+    color: rgba(255, 255, 255, 0.84);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     &:hover {
-      background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
-        linear-gradient(rgb(248, 187, 208), rgb(248, 187, 208));
+      background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     }
   }
 `;
