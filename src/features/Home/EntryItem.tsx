@@ -1,10 +1,10 @@
-import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import { useFragment } from "react-relay";
 import { body1, caption } from "../../lib/styles/typo";
+import { Tag } from "../../lib/ui/Tag";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
 
 type Props = {
@@ -76,9 +76,9 @@ export function EntryItem(props: Props) {
           {data.tags?.map((tag) => (
             <Tag
               key={tag}
-              Component="li"
+              as="li"
               text={`#${tag}`}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLLIElement>) => {
                 e.preventDefault();
                 if (selectedTags.has(tag)) {
                   const newTags = new Set(selectedTags);
@@ -88,7 +88,8 @@ export function EntryItem(props: Props) {
                   void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
                 }
               }}
-              aria-checked={selectedTags.has(tag)}
+              role="button"
+              aria-pressed={selectedTags.has(tag)}
             />
           ))}
         </TagsUl>
@@ -139,55 +140,11 @@ const EntryPublishedOn = styled.time`
   color: rgba(0, 0, 0, 0.56);
 `;
 
-function Tag({
-  text,
-  Component,
-  onClick,
-  ...props
-}: {
-  text: string;
-  Component: keyof JSX.IntrinsicElements;
-  onClick?: React.MouseEventHandler;
-}) {
-  return (
-    <Component className={tagCss} {...props} onClick={onClick}>
-      {text}
-    </Component>
-  );
-}
-
 const TagsUl = styled.ul`
   display: flex;
   padding: 0;
 
   & > li:not(:first-child) {
     margin-left: 8px;
-  }
-`;
-
-const tagCss = css`
-  ${caption}
-  flex: 0 0 auto;
-  list-style: none;
-  border-radius: 9999vh;
-  padding: 2px 8px;
-  background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
-  color: rgba(0, 0, 0, 0.86);
-  transition: all 300ms;
-
-  font-weight: 400;
-
-  &:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04)),
-      linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
-  }
-
-  &[aria-checked="true"] {
-    color: rgba(255, 255, 255, 0.84);
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    &:hover {
-      background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    }
   }
 `;
