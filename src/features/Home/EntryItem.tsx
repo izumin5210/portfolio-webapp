@@ -20,24 +20,36 @@ export function EntryItem(props: Props) {
           url
           tags
           publishedOn
+          source {
+            name
+          }
         }
         ... on SlideEntry {
           title
           url
           tags
           publishedOn
+          source {
+            name
+          }
         }
         ... on OSSEntry {
           title
           url
           tags
           publishedOn
+          source {
+            name
+          }
         }
         ... on PodcastEntry {
           title
           url
           tags
           publishedOn
+          source {
+            name
+          }
         }
       }
     `,
@@ -56,7 +68,10 @@ export function EntryItem(props: Props) {
     <EntryLi key={data.title}>
       <EntryAnchor href={data.url}>
         <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
-        <EntryTitle>{data.title}</EntryTitle>
+        <EntryTitle>
+          {data.title}
+          <EntryCite>{data.source?.name}</EntryCite>
+        </EntryTitle>
         <TagsUl>
           {data.tags?.map((tag) => (
             <Tag
@@ -103,6 +118,18 @@ const EntryTitle = styled.p`
   ${body1}
   padding: 0px;
   margin: 0px;
+`;
+
+const EntryCite = styled.cite`
+  display: inline;
+  ${caption}
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.56);
+
+  &:before {
+    content: "-";
+    margin: 0 8px;
+  }
 `;
 
 const EntryPublishedOn = styled.time`

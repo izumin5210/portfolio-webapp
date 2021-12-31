@@ -11,9 +11,15 @@ const datafile = path.join(process.cwd(), "data.yml");
 const rawData = fs.readFileSync(datafile, "utf-8");
 
 /**
- * @typedef MediaType
+ * @typedef Source
  * @property {string} name
- * @property {string[]} urlPatterns
+ * @property {string} type
+ * @property {string} urlPattern
+ */
+
+/**
+ * @typedef SourceType
+ * @property {string} name
  */
 
 /**
@@ -24,16 +30,18 @@ const rawData = fs.readFileSync(datafile, "utf-8");
 
 /**
  * @typedef Entry
+ * @property {string | undefined} title
  * @property {string} url
  * @property {string} publishedOn
- * @property {string | undefined} mediaType
+ * @property {Source | undefined} source
  * @property {string[]} tags
  */
 
 /**
  * @typedef Schema
  * @property {Tag[]} tags
- * @property {MediaType[]} mediaTypes
+ * @property {Source[]} sources
+ * @property {SourceType[]} sourceTypes
  * @property {Entry[]} entries
  */
 
@@ -54,14 +62,37 @@ for (const tag of data.tags) {
 
 /**
  * @param {Entry} entry
+ * @return {Source | undefined}
+ */
+function inferSource(entry) {
+  for (const src of data.sources) {
+    if (new RegExp(src.urlPattern).test(entry.url)) {
+      return { ...src };
+    }
+  }
+}
+
+/**
+ * @param {Entry} entry
  * @return {string | undefined}
  */
-function inferMediaType(entry) {
-  for (const mt of data.mediaTypes) {
-    for (const urlPat of mt.urlPatterns) {
-      if (new RegExp(urlPat).test(entry.url)) {
-        return mt.name;
-      }
+function refineTitle(entry) {
+  if (entry.title == null) return entry.title;
+  switch (entry.source?.name) {
+    case "GitHub": {
+      return entry.title.replace(/^GitHub - /, "");
+    }
+    case "Qiita": {
+      return entry.title.replace(/ - Qiita$/, "");
+    }
+    case "Wantedly Engineer Blog": {
+      return entry.title.replace(/ \| Wantedly Engineer Blog$/, "");
+    }
+    case "Wantedly Engineering Podcast": {
+      return entry.title.replace(/ by Wantedly Engineering Podcast$/, "");
+    }
+    default: {
+      return entry.title;
     }
   }
 }
@@ -87,8 +118,8 @@ function validateEntry(entry) {
       }
     }
   }
-  if (entry.mediaType == null) {
-    warnings.push(`failed to determine media type`);
+  if (entry.source == null) {
+    warnings.push(`failed to determine source`);
   }
 
   if (warnings.length > 0) {
@@ -100,15 +131,22 @@ function validateEntry(entry) {
 void Promise.all(
   data.entries.map((entry) => {
     return (
-      ogs({ url: entry.url })
+      ogs({ url: entry.url, timeout: 10 * 1000 })
         .then(({ result }) => {
           if (result.success) {
             return { ...entry, title: result.ogTitle };
           }
-          throw result.error;
+          // eslint-disable-next-line no-console
+          console.error(`failed to fetch title: ${entry.url}`);
+          return entry;
         })
-        // fill mediaType
-        .then((entry) => ({ ...entry, mediaType: inferMediaType(entry) }))
+        .catch(() => {
+          // eslint-disable-next-line no-console
+          console.error(`failed to fetch title: ${entry.url}`);
+          return entry;
+        })
+        .then((entry) => ({ ...entry, source: inferSource(entry) }))
+        .then((entry) => ({ ...entry, title: refineTitle(entry) }))
         // sort tags
         .then((entry) => ({ ...entry, tags: entry.tags.sort() }))
         // validate
@@ -127,9 +165,14 @@ void Promise.all(
       datafile,
       yaml.dump({
         ...data,
-        mediaTypes: data.mediaTypes.sort((mt1, mt2) => {
-          if (mt1.name < mt2.name) return -1;
-          if (mt1.name > mt2.name) return 1;
+        sources: data.sources.sort((s1, s2) => {
+          if (s1.name < s2.name) return -1;
+          if (s1.name > s2.name) return 1;
+          return 0;
+        }),
+        sourceTypes: data.sourceTypes.sort((s1, s2) => {
+          if (s1.name < s2.name) return -1;
+          if (s1.name > s2.name) return 1;
           return 0;
         }),
         tags: data.tags.sort((t1, t2) => {
@@ -141,4 +184,9 @@ void Promise.all(
       }),
       "utf-8"
     );
+  })
+  .catch((e) => {
+    // eslint-disable-next-line no-console
+    console.error(e);
+    process.exit(1);
   });

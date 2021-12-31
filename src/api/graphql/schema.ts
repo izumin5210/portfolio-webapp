@@ -10,7 +10,7 @@ type Entry = {
   url: string;
   publishedOn: string;
   tags: string[];
-  mediaType: string;
+  source: { name: string; type: string };
 };
 
 type Tag = {
