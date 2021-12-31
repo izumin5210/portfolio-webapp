@@ -26,7 +26,7 @@ export const Home: React.VFC<{ queryResult: HomeQueryResponse; filteredByTags: b
     <>
       <Header>
         <AvatarWrapper>
-          <Image src="/izumin.png" width={80} height={80} quality={100} layout="fixed" />
+          <Image src="/izumin.png" alt="izumin521t0" width={80} height={80} quality={100} layout="fixed" />
         </AvatarWrapper>
         <InfoWrapper>
           <NameHeading>@izumin5210</NameHeading>
