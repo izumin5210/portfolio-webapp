@@ -32,21 +32,25 @@ fragment EntryItem on Entry {
     title
     url
     tags
+    publishedOn
   }
   ... on SlideEntry {
     title
     url
     tags
+    publishedOn
   }
   ... on OSSEntry {
     title
     url
     tags
+    publishedOn
   }
   ... on PodcastEntry {
     title
     url
     tags
+    publishedOn
   }
 }
 
@@ -71,6 +75,18 @@ fragment EntryListView on EntryConnection {
   edges {
     node {
       __typename
+      ... on ArticleEntry {
+        publishedOn
+      }
+      ... on SlideEntry {
+        publishedOn
+      }
+      ... on OSSEntry {
+        publishedOn
+      }
+      ... on PodcastEntry {
+        publishedOn
+      }
       ...EntryItem
     }
   }
@@ -115,6 +131,13 @@ const node: ConcreteRequest = (function () {
       storageKey: null,
     },
     v3 = [
+      {
+        alias: null,
+        args: null,
+        kind: "ScalarField",
+        name: "publishedOn",
+        storageKey: null,
+      },
       {
         alias: null,
         args: null,
@@ -277,12 +300,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "29d7e925815a1966debd8057a21659f1",
+      cacheID: "a992fb35b3fd7bee92ca526fbb0c164a",
       id: null,
       metadata: {},
       name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries_19XkED\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n  }\n}\n\nfragment EntryListEntries_19XkED on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ...EntryItem\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries_19XkED\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    url\n    tags\n    publishedOn\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n    publishedOn\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n    publishedOn\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n    publishedOn\n  }\n}\n\nfragment EntryListEntries_19XkED on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
     },
   };
 })();

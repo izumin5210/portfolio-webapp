@@ -8,6 +8,7 @@ import { FragmentRefs } from "relay-runtime";
 export type EntryListView = {
   readonly edges: ReadonlyArray<{
     readonly node: {
+      readonly publishedOn?: unknown | undefined;
       readonly " $fragmentRefs": FragmentRefs<"EntryItem">;
     } | null;
   } | null> | null;
@@ -19,42 +20,77 @@ export type EntryListView$key = {
   readonly " $fragmentRefs": FragmentRefs<"EntryListView">;
 };
 
-const node: ReaderFragment = {
-  argumentDefinitions: [],
-  kind: "Fragment",
-  metadata: null,
-  name: "EntryListView",
-  selections: [
+const node: ReaderFragment = (function () {
+  var v0 = [
     {
       alias: null,
       args: null,
-      concreteType: "EntryEdge",
-      kind: "LinkedField",
-      name: "edges",
-      plural: true,
-      selections: [
-        {
-          alias: null,
-          args: null,
-          concreteType: null,
-          kind: "LinkedField",
-          name: "node",
-          plural: false,
-          selections: [
-            {
-              args: null,
-              kind: "FragmentSpread",
-              name: "EntryItem",
-            },
-          ],
-          storageKey: null,
-        },
-      ],
+      kind: "ScalarField",
+      name: "publishedOn",
       storageKey: null,
     },
-  ],
-  type: "EntryConnection",
-  abstractKey: null,
-};
-(node as any).hash = "9f02d5d54061b3c4a269a8243a50ca6a";
+  ];
+  return {
+    argumentDefinitions: [],
+    kind: "Fragment",
+    metadata: null,
+    name: "EntryListView",
+    selections: [
+      {
+        alias: null,
+        args: null,
+        concreteType: "EntryEdge",
+        kind: "LinkedField",
+        name: "edges",
+        plural: true,
+        selections: [
+          {
+            alias: null,
+            args: null,
+            concreteType: null,
+            kind: "LinkedField",
+            name: "node",
+            plural: false,
+            selections: [
+              {
+                kind: "InlineFragment",
+                selections: v0 /*: any*/,
+                type: "ArticleEntry",
+                abstractKey: null,
+              },
+              {
+                kind: "InlineFragment",
+                selections: v0 /*: any*/,
+                type: "SlideEntry",
+                abstractKey: null,
+              },
+              {
+                kind: "InlineFragment",
+                selections: v0 /*: any*/,
+                type: "OSSEntry",
+                abstractKey: null,
+              },
+              {
+                kind: "InlineFragment",
+                selections: v0 /*: any*/,
+                type: "PodcastEntry",
+                abstractKey: null,
+              },
+              {
+                args: null,
+                kind: "FragmentSpread",
+                name: "EntryItem",
+              },
+            ],
+            storageKey: null,
+          },
+        ],
+        storageKey: null,
+      },
+    ],
+    type: "EntryConnection",
+    abstractKey: null,
+  };
+})();
+(node as any).hash = "b97411bfa362a5fc9aa96335b7353f83";
 export default node;

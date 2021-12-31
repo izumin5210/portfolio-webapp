@@ -2,6 +2,7 @@ import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import { Suspense as _Suspense, SuspenseProps } from "react";
 import { useFragment, usePaginationFragment } from "react-relay";
+import { caption } from "../../lib/styles/typo";
 import { EntryItem } from "./EntryItem";
 import type { EntryListEntries$key } from "./__generated__/EntryListEntries.graphql";
 import { EntryListEntriesByTags$key } from "./__generated__/EntryListEntriesByTags.graphql";
@@ -66,6 +67,18 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
       fragment EntryListView on EntryConnection {
         edges {
           node {
+            ... on ArticleEntry {
+              publishedOn
+            }
+            ... on SlideEntry {
+              publishedOn
+            }
+            ... on OSSEntry {
+              publishedOn
+            }
+            ... on PodcastEntry {
+              publishedOn
+            }
             ...EntryItem
           }
         }
@@ -76,13 +89,28 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
   return (
     <>
       <Ul>
-        {data.edges?.map((edge, idx) => {
+        {data.edges?.map((edge, idx, arr) => {
           const key = `item-${idx}`;
           if (edge?.node == null) return null;
+
+          const prev = arr[idx - 1]?.node;
+
+          let year: number | undefined;
+          const currentPublishedOn = new Date(edge.node.publishedOn as string);
+          if (prev != null) {
+            const prevPublishedOn = new Date(prev.publishedOn as string);
+            if (prevPublishedOn.getFullYear() !== currentPublishedOn.getFullYear()) {
+              year = currentPublishedOn.getFullYear();
+            }
+          }
+
           return (
-            <Suspense fallback={<Loading />} key={key}>
-              <EntryItem entry={edge.node} />
-            </Suspense>
+            <>
+              {year ? <YearLi key={`year-${year}`}>{year}</YearLi> : null}
+              <Suspense fallback={<Loading />} key={key}>
+                <EntryItem entry={edge.node} />
+              </Suspense>
+            </>
           );
         })}
       </Ul>
@@ -94,4 +122,25 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
 const Ul = styled.ul`
   padding: 0;
   margin: 0;
+`;
+
+const YearLi = styled.li`
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  list-style: none;
+  color: rgba(0, 0, 0, 0.24);
+
+  ${caption}
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+
+  &:before,
+  &:after {
+    content: " ";
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+  }
 `;
