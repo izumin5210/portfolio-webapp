@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-site",
+  "name": "portfolio-webapp",
   "private": true,
   "scripts": {
     "dev": "next dev",
