@@ -3,6 +3,26 @@ name: CI
 on: [push]
 
 jobs:
+  ensure-git-status-clean:
+    runs-on: ubuntu-latest
+    name: Clean
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version-file: '.node-version'
+        cache: 'yarn'
+    - run: yarn --frozen-lockfile
+    - run: yarn clean
+    - run: yarn generate
+    - name: Check there is no diff
+      run: |
+        if test -n "$(git status --porcelain)"; then
+          git status
+          git diff
+          exit 1
+        fi
+
   lint:
     runs-on: ubuntu-latest
     name: Lint
