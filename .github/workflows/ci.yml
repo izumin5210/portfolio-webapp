@@ -15,7 +15,7 @@ jobs:
     - run: yarn --frozen-lockfile
     - run: yarn clean
     - run: yarn generate
-    - run: yarn prettier --write src/**/__generated__
+    - run: yarn prettier --write src
     - name: Check there is no diff
       run: |
         if test -n "$(git status --porcelain)"; then
