@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { RelayEnvironmentProvider } from "react-relay";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
+import { caption } from "../lib/styles/typo";
 import "../styles/globals.css";
 
 const siteName = "izum.in";
@@ -43,6 +44,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       ) : null}
       <Main>
         <Component {...pageProps} />
+        <Footer>
+          This site uses Google Analytics. For more information, please refer to{" "}
+          <FooterAnchor
+            href="https://policies.google.com/technologies/partner-sites?hl=ja"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Google Analytics Terms of Use
+          </FooterAnchor>
+          .
+        </Footer>
       </Main>
     </RelayEnvironmentProvider>
   );
@@ -51,6 +63,21 @@ function MyApp({ Component, pageProps }: AppProps) {
 const Main = styled.main`
   margin: 0 auto;
   max-width: 960px;
+`;
+
+const Footer = styled.footer`
+  padding: 8px;
+  ${caption}
+  color: rgba(0, 0, 0, 0.84);
+`;
+
+const FooterAnchor = styled.a`
+  &:hover,
+  &:focus,
+  &:active {
+    color: #00bcd4;
+  }
+  text-decoration: underline;
 `;
 
 export default MyApp;
