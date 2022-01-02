@@ -65,7 +65,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
+    - uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+    - uses: 'google-github-actions/setup-gcloud@v0'
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
