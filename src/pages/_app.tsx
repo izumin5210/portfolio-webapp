@@ -32,12 +32,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}" />
           <Script strategy="afterInteractive">
             {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-          gtag('config', '${gaId}');
-        `}
+              gtag('config', '${gaId}');
+            `}
           </Script>
         </>
       ) : null}
