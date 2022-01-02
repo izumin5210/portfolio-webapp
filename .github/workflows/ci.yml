@@ -77,5 +77,5 @@ jobs:
     - run: gcloud auth configure-docker
     - uses: actions/checkout@v2
     - run: |
-        docker build -t gcr.io/izumin-portfolio/portfolio-webapp:${{ github.sha }}
+        docker build -t gcr.io/izumin-portfolio/portfolio-webapp:${{ github.sha }} .
         docker push gcr.io/izumin-portfolio/portfolio-webapp:${{ github.sha }}
