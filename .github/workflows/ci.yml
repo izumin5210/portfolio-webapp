@@ -103,7 +103,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
-    needs: [ensure-git-status-clean, lint, typecheck, test, ebuild]
+    needs: [ensure-git-status-clean, lint, typecheck, test, build]
     # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     permissions:
       contents: 'read'
