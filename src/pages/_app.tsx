@@ -68,7 +68,7 @@ const Main = styled.main`
 const Footer = styled.footer`
   padding: 8px;
   ${caption}
-  color: rgba(0, 0, 0, 0.84);
+  color: rgba(0, 0, 0, 0.56);
 `;
 
 const FooterAnchor = styled.a`
@@ -78,6 +78,7 @@ const FooterAnchor = styled.a`
     color: #00bcd4;
   }
   text-decoration: underline;
+  transition: all 300ms;
 `;
 
 export default MyApp;
