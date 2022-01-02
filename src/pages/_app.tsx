@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       {process.env.NODE_ENV === "production" ? (
         <>
-          <Script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}" />
+          <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
           <Script strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
