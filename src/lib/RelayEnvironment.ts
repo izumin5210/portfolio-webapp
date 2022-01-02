@@ -2,7 +2,10 @@ import { useMemo } from "react";
 import { Environment, FetchFunction, Network, RecordSource, Store } from "relay-runtime";
 
 const fetchQuery: FetchFunction = async (operation, variables, _cacheConfig, _uploadables) => {
-  const response = await fetch("http://localhost:3000/api/graphql", {
+  const url = `${
+    typeof window === "undefined" ? `http://0.0.0.0:${process.env.PORT || 3000}` : location.origin
+  }/api/graphql`;
+  const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
