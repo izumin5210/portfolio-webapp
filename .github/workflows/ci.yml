@@ -75,6 +75,7 @@ jobs:
       with:
         workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+        access_token_lifetime: 600s
     - uses: 'google-github-actions/setup-gcloud@v0'
     - run: |
         gcloud auth configure-docker
