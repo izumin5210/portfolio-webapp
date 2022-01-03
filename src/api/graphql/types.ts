@@ -1,4 +1,11 @@
-import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString, GraphQLUnionType } from "graphql";
+import {
+  GraphQLBoolean,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLUnionType,
+} from "graphql";
 import { connectionDefinitions } from "graphql-relay";
 import { GraphQLDate } from "graphql-scalars";
 
@@ -19,6 +26,7 @@ export const ArticleEntry = new GraphQLObjectType({
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
 });
 
@@ -30,6 +38,7 @@ export const SlideEntry = new GraphQLObjectType({
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
 });
 
@@ -41,6 +50,7 @@ export const OSSEntry = new GraphQLObjectType({
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
 });
 
@@ -52,6 +62,7 @@ export const PodcastEntry = new GraphQLObjectType({
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
 });
 
