@@ -4,7 +4,12 @@
 
 const fs = require("fs");
 
-const { PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER, PHASE_DEVELOPMENT_SERVER } = require("next/constants");
+const {
+  PHASE_PRODUCTION_BUILD,
+  PHASE_PRODUCTION_SERVER,
+  PHASE_DEVELOPMENT_SERVER,
+  PHASE_TEST,
+} = require("next/constants");
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore @types/next-linaria does not exist
 const withLinaria = require("next-linaria");
@@ -56,6 +61,7 @@ function getGitSha(phase) {
     case PHASE_PRODUCTION_SERVER:
       sha = fs.readFileSync(path.join(__dirname, ".next", "BUILD_ID"), "utf-8").trimEnd();
       break;
+    case PHASE_TEST:
     case PHASE_DEVELOPMENT_SERVER:
       sha = execSync("git describe --always --dirty").toString("utf-8").trim();
       break;
