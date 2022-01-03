@@ -37,6 +37,9 @@ tags:
     dependsOn:
       - Web Frontend
   - name: Protocol Buffers
+  - name: React
+    dependsOn:
+      - Web Frontend
   - name: Ruby
   - name: Ruby on Rails
     dependsOn:
@@ -55,6 +58,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://github.com/proto-graphql/graphql-field-mask
     publishedOn: '2021-10-24'
     tags:
@@ -69,6 +73,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://zenn.dev/izumin/articles/710eefc8172f66
     publishedOn: '2021-09-27'
     tags:
@@ -79,6 +84,7 @@ entries:
       name: Zenn
       type: article
       urlPattern: ^https://zenn.dev/
+    picked: false
   - url: https://zenn.dev/izumin/articles/fce4918f5f7946
     publishedOn: '2021-09-21'
     tags:
@@ -91,6 +97,7 @@ entries:
       name: Zenn
       type: article
       urlPattern: ^https://zenn.dev/
+    picked: false
   - url: https://github.com/izumin5210/graphql-fragment-mask
     publishedOn: '2021-09-13'
     tags:
@@ -102,6 +109,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
     publishedOn: '2021-08-23'
     tags:
@@ -112,6 +120,7 @@ entries:
       name: Wantedly Engineering Podcast
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
+    picked: true
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/Protocol-Buffers--w-izumin5210-e15hjri/a-a69p8u8
     publishedOn: '2021-08-06'
@@ -124,12 +133,25 @@ entries:
       name: Wantedly Engineering Podcast
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/311135
     publishedOn: '2021-02-24'
     tags:
       - Microservices Architecture
     title: マイクロサービス共通ライブラリで “Governance through code” を実現する
     mediaType: article
+    source:
+      name: Wantedly Engineer Blog
+      type: article
+      urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/302873
+    publishedOn: '2021-01-20'
+    tags:
+      - React
+      - Web Frontend
+    picked: true
+    title: React でデザインシステムを正しく実装する - コンポーネントカタログを超えて
     source:
       name: Wantedly Engineer Blog
       type: article
@@ -144,6 +166,7 @@ entries:
       name: Zenn
       type: article
       urlPattern: ^https://zenn.dev/
+    picked: false
   - url: https://github.com/proto-graphql/proto-nexus
     publishedOn: '2020-12-21'
     tags:
@@ -157,10 +180,12 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: true
   - url: https://www.wantedly.com/companies/wantedly/post_articles/297850
     publishedOn: '2020-12-11'
     tags:
       - GraphQL
+      - React
       - Web Frontend
     title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編
     mediaType: article
@@ -168,6 +193,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://speakerdeck.com/izumin5210/number-gocon-sendai-2020
     publishedOn: '2020-10-10'
     tags:
@@ -178,6 +204,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://github.com/wantedly/pb-serializer
     publishedOn: '2020-05-17'
     tags:
@@ -189,6 +216,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: true
   - url: https://www.wantedly.com/companies/wantedly/post_articles/170571
     publishedOn: '2019-12-25'
     tags:
@@ -199,6 +227,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
     publishedOn: '2019-12-17'
     tags:
@@ -210,6 +239,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: >-
       https://blog.izum.in/os-signal-%E3%81%AB%E5%BF%9C%E3%81%98%E3%81%A6%E3%81%84%E3%81%84%E6%84%9F%E3%81%98%E3%81%AB%E3%81%AA%E3%82%8B-context-a704780ec664
     publishedOn: '2019-12-16'
@@ -221,6 +251,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/197571
     publishedOn: '2019-12-04'
     tags:
@@ -231,6 +262,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://qiita.com/izumin5210/items/b0bd3fa21aed6ab6bef5
     publishedOn: '2019-12-02'
     tags:
@@ -241,6 +273,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://github.com/izumin5210/hx
     publishedOn: '2019-11-08'
     tags:
@@ -253,6 +286,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://github.com/srvc/appctx
     publishedOn: '2019-09-18'
     tags:
@@ -263,6 +297,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://blog.izum.in/reviewdog-on-github-actions-c5d5ba705eb7
     publishedOn: '2019-08-16'
     tags:
@@ -273,6 +308,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://speakerdeck.com/izumin5210/golang-dot-tokyo-number-25
     publishedOn: '2019-07-18'
     tags:
@@ -283,6 +319,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: >-
       https://blog.izum.in/running-lean-%E5%AE%9F%E8%B7%B5%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0-596d9bf815fd
     publishedOn: '2019-05-27'
@@ -294,6 +331,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://github.com/izumin5210/pubee
     publishedOn: '2019-05-26'
     tags:
@@ -304,6 +342,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://speakerdeck.com/izumin5210/pubsub-internal
     publishedOn: '2019-05-20'
     tags:
@@ -314,6 +353,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: >-
       https://speakerdeck.com/izumin5210/techniques-that-support-building-cli-tools-2019-spring
     publishedOn: '2019-05-20'
@@ -327,6 +367,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: >-
       https://speakerdeck.com/izumin5210/case-studies-of-designing-developer-friendly-libraries-number-gocon
     publishedOn: '2019-05-18'
@@ -338,6 +379,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://github.com/wantedly/subee
     publishedOn: '2019-02-20'
     tags:
@@ -350,6 +392,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://blog.izum.in/talk-about-plugin-in-gocon2018autumn-fb5e6bc5fc93
     publishedOn: '2018-12-25'
     tags:
@@ -360,6 +403,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://qiita.com/izumin5210/items/ed1c0100a45366c3b75e
     publishedOn: '2018-12-25'
     tags:
@@ -370,6 +414,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/139554
     publishedOn: '2018-12-20'
     tags:
@@ -380,6 +425,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://qiita.com/izumin5210/items/2613364e29c0e25844aa
     publishedOn: '2018-12-17'
     tags:
@@ -390,6 +436,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/25a27d4f3c5078588f79
     publishedOn: '2018-12-15'
     tags:
@@ -400,6 +447,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: >-
       https://blog.izum.in/understand-understand-golang-org-x-tools-analysis-b7a3aba7ae4
     publishedOn: '2018-12-10'
@@ -411,6 +459,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://qiita.com/izumin5210/items/7604f290785bc3f8f86a
     publishedOn: '2018-12-05'
     tags:
@@ -421,6 +470,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/d2e352de1e541ff97079
     publishedOn: '2018-11-30'
     tags:
@@ -431,6 +481,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: >-
       https://speakerdeck.com/izumin5210/consider-pluggable-cli-tool-implementation-number-gocon
     publishedOn: '2018-11-25'
@@ -442,6 +493,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/b06a81002a6934c05185
     publishedOn: '2018-11-24'
     tags:
@@ -452,6 +504,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/7cdefe52cc54794c85fc
     publishedOn: '2018-11-19'
     tags:
@@ -462,6 +515,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://blog.izum.in/accepted-and-rejected-in-gocon2018autumn-3250ab4a94bc
     publishedOn: '2018-11-15'
     tags:
@@ -472,6 +526,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://blog.izum.in/wrap-err-in-production-143f94592b9a
     publishedOn: '2018-11-09'
     tags:
@@ -482,6 +537,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://blog.izum.in/painting-go-test-outputs-4fcabb7a47db
     publishedOn: '2018-11-04'
     tags:
@@ -492,6 +548,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://qiita.com/izumin5210/items/59a29371809e36d64e04
     publishedOn: '2018-10-01'
     tags:
@@ -502,6 +559,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: https://github.com/srvc/wraperr
     publishedOn: '2018-09-12'
     tags:
@@ -512,6 +570,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://speakerdeck.com/izumin5210/builderscon-tokyo-2018
     publishedOn: '2018-09-08'
     tags:
@@ -524,6 +583,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://blog.izum.in/builderscon-2018-abstract-5982a36e441
     publishedOn: '2018-09-08'
     tags:
@@ -536,6 +596,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://github.com/izumin5210/gex
     publishedOn: '2018-08-27'
     tags:
@@ -548,6 +609,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://github.com/izumin5210/gex
     publishedOn: '2018-08-27'
     tags:
@@ -560,6 +622,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/132270
     publishedOn: '2018-08-27'
     tags:
@@ -570,6 +633,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://blog.izum.in/orm-and-query-builders-in-golang-1281c7c1e99f
     publishedOn: '2018-08-07'
     tags:
@@ -580,6 +644,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: >-
       https://speakerdeck.com/izumin5210/context-dot-context-is-not-just-for-cancelation
     publishedOn: '2018-07-26'
@@ -591,6 +656,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://speakerdeck.com/izumin5210/splitting-db-on-rails
     publishedOn: '2018-05-12'
     tags:
@@ -602,6 +668,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/e008f74091275f3db8cc
     publishedOn: '2018-04-18'
     tags:
@@ -612,6 +679,7 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
   - url: >-
       https://speakerdeck.com/izumin5210/grapi-bulding-json-api-server-with-grpc-gateway-for-microservices
     publishedOn: '2018-04-15'
@@ -625,6 +693,7 @@ entries:
       name: SpeakerDeck
       type: slide
       urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/115474
     publishedOn: '2018-04-11'
     tags:
@@ -637,6 +706,7 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - url: https://github.com/izumin5210/grapi
     publishedOn: '2018-03-07'
     tags:
@@ -651,6 +721,7 @@ entries:
       name: GitHub
       type: oss
       urlPattern: ^https://github.com/
+    picked: true
   - url: https://blog.izum.in/isucon7-final-cf6e75758164
     publishedOn: '2017-12-29'
     tags:
@@ -661,6 +732,7 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
   - url: https://blog.izum.in/isucon7-qualify-c8b93933b241
     publishedOn: '2017-11-06'
     tags:
@@ -671,3 +743,4 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false

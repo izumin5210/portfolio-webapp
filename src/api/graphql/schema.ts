@@ -11,6 +11,7 @@ type Entry = {
   publishedOn: string;
   tags: string[];
   source: { name: string; type: string };
+  picked: boolean;
 };
 
 type Tag = {
@@ -47,6 +48,12 @@ export const schema = new GraphQLSchema({
         async resolve(_root, { tags, ...args }) {
           const entries = fetchEntries().filter((e) => (tags as string[]).every((tag) => e.tags.includes(tag)));
           return connectionFromArray(entries, args);
+        },
+      },
+      pickedEntries: {
+        type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(types.Entry))),
+        async resolve(_root, _args) {
+          return fetchEntries().filter((e) => e.picked);
         },
       },
     },

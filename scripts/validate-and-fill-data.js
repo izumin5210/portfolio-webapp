@@ -35,6 +35,7 @@ const rawData = fs.readFileSync(datafile, "utf-8");
  * @property {string} publishedOn
  * @property {Source | undefined} source
  * @property {string[]} tags
+ * @property {boolean} picked
  */
 
 /**
@@ -103,7 +104,7 @@ function refineTitle(entry) {
 function validateEntry(entry) {
   const warnings = [];
 
-  for (const attr of ["title", "tags", "publishedOn"]) {
+  for (const attr of ["title", "tags", "publishedOn", "picked"]) {
     if (/** @type {any} */ (entry)[attr] == null) {
       warnings.push(`${attr} is required`);
     }
@@ -147,6 +148,7 @@ void Promise.all(
         })
         .then((entry) => ({ ...entry, source: inferSource(entry) }))
         .then((entry) => ({ ...entry, title: refineTitle(entry) }))
+        .then((entry) => ({ ...entry, picked: entry.picked ?? false }))
         // sort tags
         .then((entry) => ({ ...entry, tags: entry.tags.sort() }))
         // validate
