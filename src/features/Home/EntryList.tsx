@@ -133,6 +133,7 @@ const YearLi = styled.li`
   display: flex;
   align-items: center;
   column-gap: 8px;
+  padding: 0 16px;
 
   list-style: none;
   color: rgba(0, 0, 0, 0.56);
@@ -144,7 +145,7 @@ const YearLi = styled.li`
   &:before,
   &:after {
     content: " ";
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
     width: 100%;
     height: 100%;
   }
