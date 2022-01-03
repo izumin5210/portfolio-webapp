@@ -45,15 +45,22 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Main>
         <Component {...pageProps} />
         <Footer>
-          This site uses Google Analytics. For more information, please refer to{" "}
-          <FooterAnchor
+          &copy; 2022{" "}
+          <a href="https://github.com/izumin5210" rel="noopener noreferrer" target="_blank">
+            izumin5210
+          </a>
+          <br />
+          This site uses{" "}
+          <a
             href="https://policies.google.com/technologies/partner-sites?hl=ja"
             rel="noopener noreferrer"
             target="_blank"
           >
-            Google Analytics Terms of Use
-          </FooterAnchor>
+            Google Analytics
+          </a>
           .
+          <br />
+          built at {process.env.BUILT_AT} ({process.env.GIT_SHA})
         </Footer>
       </Main>
     </RelayEnvironmentProvider>
@@ -69,16 +76,17 @@ const Footer = styled.footer`
   padding: 8px;
   ${caption}
   color: rgba(0, 0, 0, 0.56);
-`;
+  text-align: center;
 
-const FooterAnchor = styled.a`
-  &:hover,
-  &:focus,
-  &:active {
-    color: #00bcd4;
+  & a {
+    &:hover,
+    &:focus,
+    &:active {
+      color: #00bcd4;
+    }
+    text-decoration: underline;
+    transition: all 300ms;
   }
-  text-decoration: underline;
-  transition: all 300ms;
 `;
 
 export default MyApp;
