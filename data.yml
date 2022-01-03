@@ -26,8 +26,10 @@ sourceTypes:
   - name: podcast
   - name: slide
 tags:
+  - name: Android
   - name: Book
   - name: Developer Productivity
+  - name: Docker
   - name: Go
   - name: GraphQL
   - name: ISUCON
@@ -36,10 +38,14 @@ tags:
   - name: Next.js
     dependsOn:
       - Web Frontend
+  - name: Node.js
+    dependsOn:
+      - JavaScript
   - name: Protocol Buffers
   - name: React
     dependsOn:
       - Web Frontend
+  - name: Redis
   - name: Ruby
   - name: Ruby on Rails
     dependsOn:
@@ -287,6 +293,17 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+  - url: https://github.com/izumin5210/redisync
+    publishedOn: '2019-09-19'
+    tags:
+      - Go
+      - Redis
+    title: 'izumin5210/redisync: Synchronization primitives with Redis'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
   - url: https://github.com/srvc/appctx
     publishedOn: '2019-09-18'
     tags:
@@ -426,6 +443,16 @@ entries:
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+  - url: https://speakerdeck.com/izumin5210/how-to-manage-tool-dependencies-in-go
+    publishedOn: '2018-12-18'
+    tags:
+      - Go
+    title: How to manage tool dependencies in Go
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/2613364e29c0e25844aa
     publishedOn: '2018-12-17'
     tags:
@@ -505,6 +532,19 @@ entries:
       type: article
       urlPattern: ^https://qiita.com/
     picked: false
+  - url: https://speakerdeck.com/izumin5210/deploy-web-frontend-app-with-buildkit
+    publishedOn: '2018-11-21'
+    tags:
+      - Docker
+      - JavaScript
+      - Node.js
+      - Web Frontend
+    title: Deploy Web-frontend app with BuildKit
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/7cdefe52cc54794c85fc
     publishedOn: '2018-11-19'
     tags:
@@ -549,6 +589,16 @@ entries:
       type: article
       urlPattern: ^https://blog.izum.in/
     picked: false
+  - url: https://speakerdeck.com/izumin5210/wrap-err-in-production
+    publishedOn: '2018-10-19'
+    tags:
+      - Go
+    title: '`Wrap(err)` in production'
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://qiita.com/izumin5210/items/59a29371809e36d64e04
     publishedOn: '2018-10-01'
     tags:
@@ -559,6 +609,17 @@ entries:
       name: Qiita
       type: article
       urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/params-deep-dive
+    publishedOn: '2018-09-27'
+    tags:
+      - Ruby
+      - Ruby on Rails
+    title: '`params` deep dive'
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
     picked: false
   - url: https://github.com/srvc/wraperr
     publishedOn: '2018-09-12'
@@ -610,19 +671,6 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
-  - url: https://github.com/izumin5210/gex
-    publishedOn: '2018-08-27'
-    tags:
-      - Go
-    title: >-
-      izumin5210/gex: The implementation of "clarify best practice for tool
-      dependencies".
-    mediaType: oss
-    source:
-      name: GitHub
-      type: oss
-      urlPattern: ^https://github.com/
-    picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/132270
     publishedOn: '2018-08-27'
     tags:
@@ -633,6 +681,17 @@ entries:
       name: Wantedly Engineer Blog
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/tips-for-develoepr-friendly-testing-number-golangtokyo
+    publishedOn: '2018-08-21'
+    tags:
+      - Go
+    title: 'Tips for develoepr-friendly testing #golangtokyo'
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
     picked: false
   - url: https://blog.izum.in/orm-and-query-builders-in-golang-1281c7c1e99f
     publishedOn: '2018-08-07'
@@ -664,6 +723,17 @@ entries:
       - Ruby on Rails
     title: Splitting DB on "Rails"
     mediaType: slide
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/preferences-as-a-service-for-mobile-apps-and-microservices
+    publishedOn: '2018-04-19'
+    tags:
+      - Microservices Architecture
+    title: Preferences as a Service - for mobile apps and microservices
     source:
       name: SpeakerDeck
       type: slide
@@ -707,6 +777,17 @@ entries:
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+  - url: https://speakerdeck.com/izumin5210/create-your-strongest-markdown-syntax
+    publishedOn: '2018-03-20'
+    tags:
+      - JavaScript
+      - Node.js
+    title: 君だけの最強の markdown をつくろう / Create your strongest markdown syntax
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
   - url: https://github.com/izumin5210/grapi
     publishedOn: '2018-03-07'
     tags:
@@ -733,6 +814,38 @@ entries:
       type: article
       urlPattern: ^https://blog.izum.in/
     picked: false
+  - url: https://qiita.com/izumin5210/items/d51c28631c39392c6b16
+    publishedOn: '2017-12-24'
+    tags:
+      - Go
+      - Redis
+    title: Go で Redis の Sorted Set を楽に扱いたい
+    source:
+      name: Qiita
+      type: article
+      urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://qiita.com/izumin5210/items/cf14a1ea58fb82d36bb2
+    publishedOn: '2017-12-17'
+    tags:
+      - Docker
+    title: 複数の言語の runtime を持つ Docker image を作る
+    source:
+      name: Qiita
+      type: article
+      urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://github.com/izumin5210/ro
+    publishedOn: '2017-11-23'
+    tags:
+      - Go
+      - Redis
+    title: 'izumin5210/ro: Redis Objects to Go'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
   - url: https://blog.izum.in/isucon7-qualify-c8b93933b241
     publishedOn: '2017-11-06'
     tags:
@@ -743,4 +856,263 @@ entries:
       name: blog.izum.in
       type: article
       urlPattern: ^https://blog.izum.in/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/consider-better-error-handling-for-web-apps
+    publishedOn: '2017-11-05'
+    tags:
+      - Go
+    title: Consider better error handling for web apps
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://github.com/izumin5210/scaffold
+    publishedOn: '2017-07-25'
+    tags:
+      - Go
+    title: 'izumin5210/scaffold: Customizable templates generator, inspired by Rails'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/performance-of-rendering-over-10k-items-using-react
+    publishedOn: '2017-05-10'
+    tags:
+      - React
+      - Web Frontend
+    title: Performance of rendering over 10k items using React
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://github.com/izumin5210/tomatone
+    publishedOn: '2016-12-06'
+    tags:
+      - React
+      - Web Frontend
+    title: 'izumin5210/tomatone: Simple pomodoro timer in your menubar'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/predictable-state-container-and-databinding
+    publishedOn: '2016-11-24'
+    tags:
+      - Android
+    title: “Predictable state container” and DataBinding
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/mockretrofit
+    publishedOn: '2016-05-27'
+    tags:
+      - Android
+    title: MockRetrofit
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/rx-java-rxandroid-plugins-with-unittesting
+    publishedOn: '2016-03-16'
+    tags:
+      - Android
+    title: Rx{Java,RxAndroid}Plugins with UnitTesting
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/whats-the-difference-between-javascript-and-java
+    publishedOn: '2016-02-19'
+    tags:
+      - Android
+    title: What's the difference between JavaScript and Java?
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/example-of-testscheduler-and-testsubject-in-spock
+    publishedOn: '2016-01-22'
+    tags:
+      - Android
+    title: Example of TestScheduler and TestSubject (in Spock)
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://qiita.com/izumin5210/items/2784576d86ce6b9b51e6
+    publishedOn: '2015-12-31'
+    tags:
+      - Android
+    title: Butter Knife、今までありがとう。 Data Binding、これからよろしく。
+    source:
+      name: Qiita
+      type: article
+      urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://qiita.com/izumin5210/items/549fd15d97e9fc3b1ef7
+    publishedOn: '2015-12-06'
+    tags:
+      - Android
+    title: 'Droidux: ReduxをAndroidに持ち込んで状態管理から解放されよう！'
+    source:
+      name: Qiita
+      type: article
+      urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://github.com/izumin5210/Droidux
+    publishedOn: '2015-11-05'
+    tags:
+      - Android
+    title: >-
+      izumin5210/Droidux: "Predictable state container" implementation, inspired
+      by Redux.
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/spock-for-android-app-testing
+    publishedOn: '2015-10-13'
+    tags:
+      - Android
+    title: Groovy/Spock for Android app testing
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/promisified-ble-client
+    publishedOn: '2015-09-16'
+    tags:
+      - Android
+    title: Promisified BLE Client
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://github.com/izumin5210/Bletia
+    publishedOn: '2015-09-15'
+    tags:
+      - Android
+    title: 'izumin5210/Bletia: Promisified BLE library for Android.'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/tsurai-ble-on-android
+    publishedOn: '2015-09-07'
+    tags:
+      - Android
+    title: つらくない（？） Bluetooth Low Energy on Android / TSURAI BLE on Android
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/why-dont-you-use-enum
+    publishedOn: '2015-08-11'
+    tags:
+      - Android
+    title: Why don't you use enum ?
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/introduction-to-apt
+    publishedOn: '2015-07-14'
+    tags:
+      - Android
+    title: Introduction to APT
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: >-
+      https://speakerdeck.com/izumin5210/client-development-using-json-schema-number-kanrk06
+    publishedOn: '2015-07-11'
+    tags:
+      - Ruby
+      - Ruby on Rails
+    title: 'API server/client development using JSON Schema #kanrk06'
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://qiita.com/izumin5210/items/8ae78cb4f4bd325bccb4
+    publishedOn: '2015-07-07'
+    tags:
+      - Web Frontend
+    title: エンジニアはもう一度CSSとちゃんと向き合ってみよう - 詳細度編
+    source:
+      name: Qiita
+      type: article
+      urlPattern: ^https://qiita.com/
+    picked: false
+  - url: https://github.com/izumin5210/json-schema-mockifier
+    publishedOn: '2015-06-10'
+    tags:
+      - JavaScript
+    title: >-
+      izumin5210/json-schema-mockifier: Generate mock object from JSON Schema
+      (HyperSchema v4).
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: https://github.com/izumin5210/json-schema-parser
+    publishedOn: '2015-06-10'
+    tags:
+      - JavaScript
+    title: >-
+      izumin5210/json-schema-parser: Parse JSON Schema and resolve `$ref`
+      fields.
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: https://speakerdeck.com/izumin5210/border-left-1dp-solid-number-666666
+    publishedOn: '2015-05-13'
+    tags:
+      - Android
+    title: 'border-left: 1dp solid #666666;'
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: false
+  - url: https://github.com/izumin5210/rspec-validator_spec_helper
+    publishedOn: '2014-12-27'
+    tags:
+      - Ruby
+      - Ruby on Rails
+    title: >-
+      izumin5210/rspec-validator_spec_helper: Provide dummy class for validator
+      spec
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
     picked: false
