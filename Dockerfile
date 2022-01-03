@@ -37,6 +37,7 @@ COPY ./src/ /app/src
 
 ENV NODE_ENV production
 
+ARG GIT_SHA
 RUN yarn build
 
 #  App

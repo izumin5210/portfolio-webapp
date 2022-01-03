@@ -59,6 +59,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             Google Analytics
           </a>
           .
+          <br />
+          built at {process.env.BUILT_AT} ({process.env.GIT_SHA})
         </Footer>
       </Main>
     </RelayEnvironmentProvider>
