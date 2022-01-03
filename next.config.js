@@ -2,11 +2,14 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const { PHASE_PRODUCTION_BUILD } = require("next/constants");
+const fs = require("fs");
+
+const { PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER, PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore @types/next-linaria does not exist
 const withLinaria = require("next-linaria");
 const { execSync } = require("child_process");
+const path = require("path");
 
 /**
  * @param {string} phase
@@ -14,6 +17,8 @@ const { execSync } = require("child_process");
  * @returns {import('next').NextConfig}
  */
 module.exports = (phase, { defaultConfig }) => {
+  const gitSha = getGitSha(phase);
+
   /** @type {import('next').NextConfig} */
   let nextConfig = {
     ...defaultConfig,
@@ -25,9 +30,10 @@ module.exports = (phase, { defaultConfig }) => {
       ignoreBuildErrors: true,
     },
     env: {
-      GIT_SHA: getGitSha(phase),
+      GIT_SHA: gitSha,
       BUILT_AT: new Date().toISOString(),
     },
+    generateBuildId: () => gitSha,
   };
 
   nextConfig = withLinaria(nextConfig);
@@ -40,10 +46,20 @@ module.exports = (phase, { defaultConfig }) => {
  * @returns {String}
  */
 function getGitSha(phase) {
-  const sha =
-    phase === PHASE_PRODUCTION_BUILD
-      ? process.env.GIT_SHA
-      : execSync("git describe --always --dirty").toString("utf-8").trim();
+  /** @type {string|undefined} */
+  let sha;
+
+  switch (phase) {
+    case PHASE_PRODUCTION_BUILD:
+      sha = process.env.GIT_SHA;
+      break;
+    case PHASE_PRODUCTION_SERVER:
+      sha = fs.readFileSync(path.join(__dirname, ".next", "BUILD_ID"), "utf-8").trimEnd();
+      break;
+    case PHASE_DEVELOPMENT_SERVER:
+      sha = execSync("git describe --always --dirty").toString("utf-8").trim();
+      break;
+  }
 
   if (sha === undefined) throw new Error("GIT_SHA is required");
 
