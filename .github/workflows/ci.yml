@@ -107,6 +107,7 @@ jobs:
         dotNext=${{ github.workspace }}/.next
         docker cp ${containerId}:/app/.next ${dotNext}
         find ${dotNext}/static -name '*.*.map' | xargs rm -v
+        gcloud components install beta
         gcloud alpha storage cp ${dotNext}/static gs://izumin-portfolio-webapp-assets/${{ steps.vars.outputs.git-sha }}/_next/static
     # Temp fix
     # https://github.com/docker/build-push-action/issues/252
