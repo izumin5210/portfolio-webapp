@@ -17,6 +17,9 @@ export const getServerSideProps: GetServerSideProps<{
   const env = initRelayEnvironment();
   const tags = (ctx.query.tags ?? []) as string[];
   const filteredByTags = tags.length > 0;
+  if (tags.includes("error")) {
+    throw new Error("unknown error");
+  }
   const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, {
     count: 20,
     cursor: null,

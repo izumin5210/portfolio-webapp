@@ -22,6 +22,7 @@
     "jest.config.js",
     "jest.setup.js",
     "next.config.js",
+    "sentry.*.config.js",
     "scripts/*"
   ],
   "exclude": ["node_modules"]
