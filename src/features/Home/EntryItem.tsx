@@ -77,7 +77,7 @@ export function EntryItem(props: Props) {
             <li key={tag}>
               <Tag
                 as="button"
-                text={`#${tag}`}
+                text={tag}
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.preventDefault();
                   if (selectedTags.has(tag)) {
@@ -150,5 +150,9 @@ const TagsUl = styled.ul`
 
   & > li:not(:first-child) {
     margin-left: 8px;
+  }
+
+  & > li > button:before {
+    content: "#";
   }
 `;
