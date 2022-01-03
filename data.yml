@@ -37,6 +37,9 @@ tags:
     dependsOn:
       - Web Frontend
   - name: Protocol Buffers
+  - name: React
+    dependsOn:
+      - Web Frontend
   - name: Ruby
   - name: Ruby on Rails
     dependsOn:
@@ -142,6 +145,17 @@ entries:
       type: article
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/302873
+    publishedOn: '2021-01-20'
+    tags:
+      - React
+      - Web Frontend
+    picked: true
+    title: React でデザインシステムを正しく実装する - コンポーネントカタログを超えて
+    source:
+      name: Wantedly Engineer Blog
+      type: article
+      urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
   - url: https://zenn.dev/izumin/articles/4369181aa84f7b
     publishedOn: '2020-12-25'
     tags:
@@ -171,6 +185,7 @@ entries:
     publishedOn: '2020-12-11'
     tags:
       - GraphQL
+      - React
       - Web Frontend
     title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編
     mediaType: article
