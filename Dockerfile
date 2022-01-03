@@ -31,7 +31,7 @@ COPY ./package.json ./yarn.lock /app/
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=yarn-cache,sharing=shared \
   yarn install --frozen-lockfile --no-progress
 
-COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml /app/
+COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
 COPY ./public/ /app/public
 COPY ./src/ /app/src
 
