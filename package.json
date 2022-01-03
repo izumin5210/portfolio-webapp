@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
+    "@sentry/nextjs": "^6.16.1",
     "@types/js-yaml": "^4.0.5",
     "@types/react-relay": "^11.0.3",
     "@types/relay-runtime": "^12.0.1",
