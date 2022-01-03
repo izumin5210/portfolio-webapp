@@ -15,6 +15,7 @@ const {
 const withLinaria = require("next-linaria");
 const { execSync } = require("child_process");
 const path = require("path");
+const { withSentryConfig } = require("@sentry/nextjs");
 
 /**
  * @param {string} phase
@@ -42,6 +43,7 @@ module.exports = (phase, { defaultConfig }) => {
   };
 
   nextConfig = withLinaria(nextConfig);
+  nextConfig = /** @type {*} */ (withSentryConfig(/** @type {*} */ (nextConfig), { silent: true }));
 
   return nextConfig;
 };

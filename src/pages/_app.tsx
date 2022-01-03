@@ -12,7 +12,7 @@ const url = "https://izum.in/";
 const description = "Masayuki Izumi is a software engineer specializing in Web frontend and backend technologies";
 const gaId = "G-SE8VNVJKBN";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
   const environment = useInitRelayEnvironment(pageProps.initialRecords);
 
   return (
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </>
       ) : null}
       <Main>
-        <Component {...pageProps} />
+        <Component {...pageProps} err={err} />
         <Footer>
           &copy; 2022{" "}
           <a href="https://github.com/izumin5210" rel="noopener noreferrer" target="_blank">
