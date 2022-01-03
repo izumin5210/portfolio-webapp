@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+gpg --quiet --batch --yes --decrypt --passphrase="$DOTENV_ENCRYPTION_SECRET" \
+  --output .env .env.gpg

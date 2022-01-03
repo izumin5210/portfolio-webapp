@@ -38,7 +38,7 @@ COPY ./src/ /app/src
 ENV NODE_ENV production
 
 ARG GIT_SHA
-RUN yarn build
+RUN --mount=type=secret,id=dotenv,dst=/app/.env yarn build
 
 #  App
 #-----------------------------------------------
