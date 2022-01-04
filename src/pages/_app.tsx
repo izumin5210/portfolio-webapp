@@ -10,7 +10,7 @@ import "../styles/globals.css";
 const siteName = "izum.in";
 const url = "https://izum.in/";
 const description = "Masayuki Izumi is a software engineer specializing in Web frontend and backend technologies";
-const gaId = process.env.GOOGLE_ANALYTICS_TRACKING_ID;
+const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
 
 function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
   const environment = useInitRelayEnvironment(pageProps.initialRecords);
