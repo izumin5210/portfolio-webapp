@@ -125,6 +125,8 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
+    - id: vars
+      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
@@ -133,4 +135,4 @@ jobs:
     - uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
         service: 'portfolio-webapp'
-        image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ github.sha }}'
+        image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}'
