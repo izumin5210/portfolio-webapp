@@ -2,10 +2,10 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const fs = require("fs");
-const path = require("path");
-const yaml = require("js-yaml");
-const ogs = require("open-graph-scraper");
+import fs from "fs";
+import path from "path";
+import yaml from "js-yaml";
+import ogs from "open-graph-scraper";
 
 const datafile = path.join(process.cwd(), "data.yml");
 const rawData = fs.readFileSync(datafile, "utf-8");
