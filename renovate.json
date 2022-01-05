@@ -1,0 +1,24 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPaths": ["package.json"],
+      "postUpdateOptions": ["yarnDedupeHighest"]
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "bump",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "pin",
+      "labels": ["devDependencies"]
+    }
+  ]
+}
