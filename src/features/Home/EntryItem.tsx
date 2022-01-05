@@ -15,7 +15,7 @@ export function EntryItem(props: Props) {
   const data = useFragment(
     graphql`
       fragment EntryItem on Entry {
-        ... on ArticleEntry {
+        ... on ExternalArticleEntry {
           title
           url
           tags

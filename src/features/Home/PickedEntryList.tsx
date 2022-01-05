@@ -9,7 +9,7 @@ export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$k
     graphql`
       fragment PickedEntryListEntries on Query {
         pickedEntries {
-          ... on ArticleEntry {
+          ... on ExternalArticleEntry {
             title
             url
             source {
