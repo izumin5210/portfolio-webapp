@@ -19,7 +19,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/react-relay": "^11.0.3",
     "@types/relay-runtime": "^12.0.1",
-    "graphql": "^15.0.0",
+    "graphql": "^15.8.0",
     "graphql-helix": "^1.11.0",
     "graphql-relay": "^0.9.0",
     "graphql-scalars": "^1.14.1",
