@@ -43,9 +43,15 @@ module.exports = (phase, { defaultConfig }) => {
       GIT_SHA: gitSha,
       BUILT_AT: new Date().toISOString(),
     },
-    generateBuildId: () => gitSha,
-    assetPrefix: `${assetUrlBase}/${gitSha}`,
   };
+
+  if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
+    nextConfig = {
+      ...nextConfig,
+      generateBuildId: () => gitSha,
+      assetPrefix: `${assetUrlBase}/${gitSha}`,
+    };
+  }
 
   nextConfig = withLinaria(nextConfig);
   nextConfig = /** @type {*} */ (withSentryConfig(/** @type {*} */ (nextConfig), { silent: true }));
