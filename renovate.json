@@ -2,12 +2,7 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPaths": ["**"],
-      "enabled": false
-    },
-    {
       "matchPaths": ["package.json"],
-      "enabled": true,
       "postUpdateOptions": ["yarnDedupeHighest"]
     },
     {
