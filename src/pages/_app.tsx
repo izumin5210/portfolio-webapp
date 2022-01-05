@@ -60,7 +60,15 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
           </a>
           .
           <br />
-          built at {process.env.BUILT_AT} ({process.env.GIT_SHA})
+          built at {process.env.BUILT_AT} (
+          <a
+            href={`https://github.com/izumin5210/portfolio-webapp/commit/${process.env.GIT_SHA}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {process.env.GIT_SHA}
+          </a>
+          )
         </Footer>
       </Main>
     </RelayEnvironmentProvider>
