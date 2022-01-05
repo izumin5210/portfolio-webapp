@@ -3,25 +3,25 @@ sources:
     type: oss
     urlPattern: ^https://github.com/
   - name: Qiita
-    type: article
+    type: externalArticle
     urlPattern: ^https://qiita.com/
   - name: SpeakerDeck
     type: slide
     urlPattern: ^https://speakerdeck.com/
   - name: Wantedly Engineer Blog
-    type: article
+    type: externalArticle
     urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
   - name: Wantedly Engineering Podcast
     type: podcast
     urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
   - name: Zenn
-    type: article
+    type: externalArticle
     urlPattern: ^https://zenn.dev/
   - name: blog.izum.in
-    type: article
+    type: externalArticle
     urlPattern: ^https://blog.izum.in/
 sourceTypes:
-  - name: article
+  - name: externalArticle
   - name: oss
   - name: podcast
   - name: slide
@@ -88,7 +88,7 @@ entries:
     mediaType: article
     source:
       name: Zenn
-      type: article
+      type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
   - url: https://zenn.dev/izumin/articles/fce4918f5f7946
@@ -101,7 +101,7 @@ entries:
     mediaType: article
     source:
       name: Zenn
-      type: article
+      type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
   - url: https://github.com/izumin5210/graphql-fragment-mask
@@ -148,7 +148,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/302873
@@ -160,7 +160,7 @@ entries:
     title: React でデザインシステムを正しく実装する - コンポーネントカタログを超えて
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
   - url: https://zenn.dev/izumin/articles/4369181aa84f7b
     publishedOn: '2020-12-25'
@@ -170,7 +170,7 @@ entries:
     mediaType: article
     source:
       name: Zenn
-      type: article
+      type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
   - url: https://github.com/proto-graphql/proto-nexus
@@ -197,7 +197,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://speakerdeck.com/izumin5210/number-gocon-sendai-2020
@@ -231,7 +231,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
@@ -243,7 +243,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: >-
@@ -255,7 +255,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/197571
@@ -266,7 +266,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://qiita.com/izumin5210/items/b0bd3fa21aed6ab6bef5
@@ -277,7 +277,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://github.com/izumin5210/hx
@@ -323,7 +323,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://speakerdeck.com/izumin5210/golang-dot-tokyo-number-25
@@ -346,7 +346,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://github.com/izumin5210/pubee
@@ -418,7 +418,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://qiita.com/izumin5210/items/ed1c0100a45366c3b75e
@@ -429,7 +429,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://www.wantedly.com/companies/wantedly/post_articles/139554
@@ -440,7 +440,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://speakerdeck.com/izumin5210/how-to-manage-tool-dependencies-in-go
@@ -461,7 +461,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://qiita.com/izumin5210/items/25a27d4f3c5078588f79
@@ -472,7 +472,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: >-
@@ -484,7 +484,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://qiita.com/izumin5210/items/7604f290785bc3f8f86a
@@ -495,7 +495,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://qiita.com/izumin5210/items/d2e352de1e541ff97079
@@ -506,7 +506,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: >-
@@ -529,7 +529,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://speakerdeck.com/izumin5210/deploy-web-frontend-app-with-buildkit
@@ -553,7 +553,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://blog.izum.in/accepted-and-rejected-in-gocon2018autumn-3250ab4a94bc
@@ -564,7 +564,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://blog.izum.in/wrap-err-in-production-143f94592b9a
@@ -575,7 +575,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://blog.izum.in/painting-go-test-outputs-4fcabb7a47db
@@ -586,7 +586,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://speakerdeck.com/izumin5210/wrap-err-in-production
@@ -607,7 +607,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://speakerdeck.com/izumin5210/params-deep-dive
@@ -655,7 +655,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://github.com/izumin5210/gex
@@ -679,7 +679,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: >-
@@ -701,7 +701,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: >-
@@ -747,7 +747,7 @@ entries:
     mediaType: article
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: >-
@@ -774,7 +774,7 @@ entries:
     mediaType: article
     source:
       name: Wantedly Engineer Blog
-      type: article
+      type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
   - url: https://speakerdeck.com/izumin5210/create-your-strongest-markdown-syntax
@@ -811,7 +811,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: https://qiita.com/izumin5210/items/d51c28631c39392c6b16
@@ -822,7 +822,7 @@ entries:
     title: Go で Redis の Sorted Set を楽に扱いたい
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://qiita.com/izumin5210/items/cf14a1ea58fb82d36bb2
@@ -832,7 +832,7 @@ entries:
     title: 複数の言語の runtime を持つ Docker image を作る
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://github.com/izumin5210/ro
@@ -854,7 +854,7 @@ entries:
     mediaType: article
     source:
       name: blog.izum.in
-      type: article
+      type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
   - url: >-
@@ -962,7 +962,7 @@ entries:
     title: Butter Knife、今までありがとう。 Data Binding、これからよろしく。
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://qiita.com/izumin5210/items/549fd15d97e9fc3b1ef7
@@ -972,7 +972,7 @@ entries:
     title: 'Droidux: ReduxをAndroidに持ち込んで状態管理から解放されよう！'
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://github.com/izumin5210/Droidux
@@ -1066,7 +1066,7 @@ entries:
     title: エンジニアはもう一度CSSとちゃんと向き合ってみよう - 詳細度編
     source:
       name: Qiita
-      type: article
+      type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
   - url: https://github.com/izumin5210/json-schema-mockifier
