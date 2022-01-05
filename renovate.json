@@ -1,5 +1,29 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPaths": ["**"],
+      "enabled": false
+    },
+    {
+      "matchPaths": ["package.json"],
+      "enabled": true,
+      "postUpdateOptions": ["yarnDedupeHighest"]
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "bump",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "pin",
+      "labels": ["devDependencies"]
+    }
   ]
 }
