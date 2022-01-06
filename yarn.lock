@@ -2728,12 +2728,14 @@ babel-plugin-polyfill-regenerator@^0.3.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.0"
 
-babel-plugin-relay@12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-12.0.0.tgz#cdce02494b69e9477a4507f9972f8473081b732d"
-  integrity sha512-fQWmS3YEu1smPx4xrn+7RyzDAlgVDG5q2m5cb+qC/Tr2+gANkxqGtQ+YPiOX6g4rgdbE+7a6RT3lViBExYBVKw==
+babel-plugin-relay@13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-13.0.0.tgz#352944bd67c6dc03ae99f1ebe1fc4d7f660f8d3d"
+  integrity sha512-i8qh7aFQrR6B6d75VeXe7H02Aq9LqXDGnamy1Pwiuj7cwq6Sbc8fhNh364CQPBQhA9oGMWppbIDLKmZi28hkPg==
   dependencies:
     babel-plugin-macros "^2.0.0"
+    cosmiconfig "^5.0.5"
+    graphql "15.3.0"
 
 babel-plugin-syntax-trailing-function-commas@^7.0.0-beta.0:
   version "7.0.0-beta.0"
@@ -3472,7 +3474,7 @@ cosmiconfig@7.0.1, cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-cosmiconfig@^5.1.0:
+cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.1.tgz#040f726809c591e77a17c0a3626ca45b4f168b1a"
   integrity sha512-H65gsXo1SKjf8zmrJ67eJk8aIRKV5ff2D4uKZIBZShbhGSpEmsQOPW/SKMKYhSTrqR7ufy6RP69rPogdaPh/kA==
@@ -4938,6 +4940,11 @@ graphql-ws@^5.4.1:
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.5.5.tgz#f375486d3f196e2a2527b503644693ae3a8670a9"
   integrity sha512-hvyIS71vs4Tu/yUYHPvGXsTgo0t3arU820+lT5VjZS2go0ewp2LqyCgxEN56CzOG7Iys52eRhHBiD1gGRdiQtw==
+
+graphql@15.3.0:
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 "graphql@^14.0.0 || ^15.0.0", graphql@^15.0.0:
   version "15.8.0"

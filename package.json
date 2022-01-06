@@ -43,7 +43,7 @@
     "@types/open-graph-scraper": "4.8.1",
     "@types/react": "17.0.37",
     "babel-plugin-macros": "3.1.0",
-    "babel-plugin-relay": "12.0.0",
+    "babel-plugin-relay": "13.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.7",
     "eslint-plugin-relay": "1.8.3",
