@@ -18,6 +18,18 @@ export const EntrySource = new GraphQLObjectType({
   },
 });
 
+export const ArticleEntry = new GraphQLObjectType({
+  name: "ArticleEntry",
+  fields: {
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    path: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    publishedOn: { type: new GraphQLNonNull(Date) },
+    source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
+  },
+});
+
 export const ExternalArticleEntry = new GraphQLObjectType({
   name: "ExternalArticleEntry",
   fields: {
@@ -68,9 +80,11 @@ export const PodcastEntry = new GraphQLObjectType({
 
 export const Entry = new GraphQLUnionType({
   name: "Entry",
-  types: [ExternalArticleEntry, SlideEntry, OSSEntry, PodcastEntry],
+  types: [ArticleEntry, ExternalArticleEntry, SlideEntry, OSSEntry, PodcastEntry],
   resolveType(source) {
     switch (source.source.type) {
+      case "article":
+        return "ArticleEntry";
       case "externalArticle":
         return "ExternalArticleEntry";
       case "slide":

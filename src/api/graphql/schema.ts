@@ -7,10 +7,11 @@ import * as types from "./types";
 
 type Entry = {
   title: string;
-  url: string;
+  url?: string;
+  path?: string;
   publishedOn: string;
   tags: string[];
-  source: { name: string; type: string };
+  source?: { name: string; type: string };
   picked: boolean;
 };
 
