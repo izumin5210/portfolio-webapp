@@ -166,8 +166,12 @@ async function loadArticleEntries() {
         title: /** @type{string} */ (result.data.title),
         publishedOn: /** @type{string} */ (result.data.publishedOn),
         tags: /** @type{string[]} */ (result.data.tags),
-        path: `/articles/${path.basename(filename)}`,
+        path: `/articles/${path.basename(filename, ".md")}`,
         picked: false,
+        source: {
+          type: "article",
+          name: "izum.in/blog",
+        },
       };
     })
   );
