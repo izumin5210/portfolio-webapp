@@ -57,7 +57,7 @@ entries:
     publishedOn: 2022-01-05T00:00:00.000Z
     tags:
       - test
-    path: /articles/example
+    path: /blog/example
     picked: false
     source:
       type: article
