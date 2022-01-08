@@ -55,6 +55,12 @@ const node: ReaderFragment = (function () {
               {
                 kind: "InlineFragment",
                 selections: v0 /*: any*/,
+                type: "ArticleEntry",
+                abstractKey: null,
+              },
+              {
+                kind: "InlineFragment",
+                selections: v0 /*: any*/,
                 type: "ExternalArticleEntry",
                 abstractKey: null,
               },
@@ -92,5 +98,5 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "ab5a7051f1646ee2f29c03398028a668";
+(node as any).hash = "f74d6580afb5ea16392a5fa89bd3abf9";
 export default node;

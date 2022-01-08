@@ -67,6 +67,9 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
       fragment EntryListView on EntryConnection {
         edges {
           node {
+            ... on ArticleEntry {
+              publishedOn
+            }
             ... on ExternalArticleEntry {
               publishedOn
             }

@@ -30,6 +30,15 @@ query EntryListFilteredByTagsPaginationQuery(
 
 fragment EntryItem on Entry {
   __isEntry: __typename
+  ... on ArticleEntry {
+    title
+    path
+    tags
+    publishedOn
+    source {
+      name
+    }
+  }
   ... on ExternalArticleEntry {
     title
     url
@@ -89,6 +98,9 @@ fragment EntryListView on EntryConnection {
   edges {
     node {
       __typename
+      ... on ArticleEntry {
+        publishedOn
+      }
       ... on ExternalArticleEntry {
         publishedOn
       }
@@ -155,21 +167,48 @@ const node: ConcreteRequest = (function () {
       name: "__typename",
       storageKey: null,
     },
-    v4 = [
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "publishedOn",
-        storageKey: null,
-      },
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "title",
-        storageKey: null,
-      },
+    v4 = {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "publishedOn",
+      storageKey: null,
+    },
+    v5 = {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "title",
+      storageKey: null,
+    },
+    v6 = {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "tags",
+      storageKey: null,
+    },
+    v7 = {
+      alias: null,
+      args: null,
+      concreteType: "EntrySource",
+      kind: "LinkedField",
+      name: "source",
+      plural: false,
+      selections: [
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "name",
+          storageKey: null,
+        },
+      ],
+      storageKey: null,
+    },
+    v8 = [
+      v4 /*: any*/,
+      v5 /*: any*/,
       {
         alias: null,
         args: null,
@@ -177,31 +216,8 @@ const node: ConcreteRequest = (function () {
         name: "url",
         storageKey: null,
       },
-      {
-        alias: null,
-        args: null,
-        kind: "ScalarField",
-        name: "tags",
-        storageKey: null,
-      },
-      {
-        alias: null,
-        args: null,
-        concreteType: "EntrySource",
-        kind: "LinkedField",
-        name: "source",
-        plural: false,
-        selections: [
-          {
-            alias: null,
-            args: null,
-            kind: "ScalarField",
-            name: "name",
-            storageKey: null,
-          },
-        ],
-        storageKey: null,
-      },
+      v6 /*: any*/,
+      v7 /*: any*/,
     ];
   return {
     fragment: {
@@ -276,25 +292,43 @@ const node: ConcreteRequest = (function () {
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v4 /*: any*/,
+                      selections: [
+                        v4 /*: any*/,
+                        v5 /*: any*/,
+                        {
+                          alias: null,
+                          args: null,
+                          kind: "ScalarField",
+                          name: "path",
+                          storageKey: null,
+                        },
+                        v6 /*: any*/,
+                        v7 /*: any*/,
+                      ],
+                      type: "ArticleEntry",
+                      abstractKey: null,
+                    },
+                    {
+                      kind: "InlineFragment",
+                      selections: v8 /*: any*/,
                       type: "ExternalArticleEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v4 /*: any*/,
+                      selections: v8 /*: any*/,
                       type: "SlideEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v4 /*: any*/,
+                      selections: v8 /*: any*/,
                       type: "OSSEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v4 /*: any*/,
+                      selections: v8 /*: any*/,
                       type: "PodcastEntry",
                       abstractKey: null,
                     },
@@ -344,12 +378,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "610c3c5bd714b279844f42b599cd9335",
+      cacheID: "b50e7ab19002e0cfda78c063dc9eaa3c",
       id: null,
       metadata: {},
       name: "EntryListFilteredByTagsPaginationQuery",
       operationKind: "query",
-      text: "query EntryListFilteredByTagsPaginationQuery(\n  $count: Int\n  $cursor: String\n  $tags: [String!]!\n) {\n  ...EntryListEntriesByTags_2gAuHF\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntriesByTags_2gAuHF on Query {\n  entriesByTags(first: $count, after: $cursor, tags: $tags) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
+      text: "query EntryListFilteredByTagsPaginationQuery(\n  $count: Int\n  $cursor: String\n  $tags: [String!]!\n) {\n  ...EntryListEntriesByTags_2gAuHF\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntriesByTags_2gAuHF on Query {\n  entriesByTags(first: $count, after: $cursor, tags: $tags) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
     },
   };
 })();
