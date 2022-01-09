@@ -19,6 +19,10 @@
       "matchDepTypes": ["devDependencies"],
       "rangeStrategy": "pin",
       "labels": ["devDependencies"]
+    },
+    {
+      "matchSourceUrlPrefixes": ["https://github.com/facebook/relay"],
+      "groupName": "Relay monorepo packages"
     }
   ]
 }
