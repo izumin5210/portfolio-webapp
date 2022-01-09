@@ -1,4 +1,5 @@
 type ArticleEntry {
+  body: String!
   path: String!
   picked: Boolean!
   publishedOn: Date!
@@ -101,6 +102,7 @@ type PodcastEntry {
 }
 
 type Query {
+  articleEntryByPath(path: String!): ArticleEntry
   entries(
     """
     Returns the items in the list that come after the specified cursor.
