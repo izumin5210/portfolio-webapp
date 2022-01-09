@@ -7,10 +7,11 @@ import * as types from "./types";
 
 type Entry = {
   title: string;
-  url: string;
+  url?: string;
+  path?: string;
   publishedOn: string;
   tags: string[];
-  source: { name: string; type: string };
+  source?: { name: string; type: string };
   picked: boolean;
 };
 
@@ -54,6 +55,15 @@ export const schema = new GraphQLSchema({
         type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(types.Entry))),
         async resolve(_root, _args) {
           return fetchEntries().filter((e) => e.picked);
+        },
+      },
+      articleEntryByPath: {
+        type: types.ArticleEntry,
+        args: {
+          path: { type: new GraphQLNonNull(GraphQLString) },
+        },
+        async resolve(_root, { path }) {
+          return fetchEntries().find((entry) => entry.path === path);
         },
       },
     },

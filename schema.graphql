@@ -1,9 +1,19 @@
+type ArticleEntry {
+  body: String!
+  path: String!
+  picked: Boolean!
+  publishedOn: Date!
+  source: EntrySource!
+  tags: [String!]!
+  title: String!
+}
+
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar Date
 
-union Entry = ExternalArticleEntry | OSSEntry | PodcastEntry | SlideEntry
+union Entry = ArticleEntry | ExternalArticleEntry | OSSEntry | PodcastEntry | SlideEntry
 
 """
 A connection to a list of items.
@@ -92,6 +102,7 @@ type PodcastEntry {
 }
 
 type Query {
+  articleEntryByPath(path: String!): ArticleEntry
   entries(
     """
     Returns the items in the list that come after the specified cursor.

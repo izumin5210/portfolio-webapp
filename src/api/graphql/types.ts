@@ -8,6 +8,8 @@ import {
 } from "graphql";
 import { connectionDefinitions } from "graphql-relay";
 import { GraphQLDate } from "graphql-scalars";
+import path from "path";
+import * as fs from "fs/promises";
 
 export const Date = GraphQLDate;
 
@@ -15,6 +17,24 @@ export const EntrySource = new GraphQLObjectType({
   name: "EntrySource",
   fields: {
     name: { type: new GraphQLNonNull(GraphQLString) },
+  },
+});
+
+export const ArticleEntry = new GraphQLObjectType({
+  name: "ArticleEntry",
+  fields: {
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    body: {
+      type: new GraphQLNonNull(GraphQLString),
+      resolve(root): Promise<string> {
+        return fs.readFile(path.join(process.cwd(), `${root.path.replace("/blog/", "/_articles/")}.md`), "utf-8");
+      },
+    },
+    path: { type: new GraphQLNonNull(GraphQLString) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    publishedOn: { type: new GraphQLNonNull(Date) },
+    source: { type: new GraphQLNonNull(EntrySource) },
+    picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
 });
 
@@ -68,9 +88,11 @@ export const PodcastEntry = new GraphQLObjectType({
 
 export const Entry = new GraphQLUnionType({
   name: "Entry",
-  types: [ExternalArticleEntry, SlideEntry, OSSEntry, PodcastEntry],
+  types: [ArticleEntry, ExternalArticleEntry, SlideEntry, OSSEntry, PodcastEntry],
   resolveType(source) {
     switch (source.source.type) {
+      case "article":
+        return "ArticleEntry";
       case "externalArticle":
         return "ExternalArticleEntry";
       case "slide":

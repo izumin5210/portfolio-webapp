@@ -9,6 +9,10 @@ export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$k
     graphql`
       fragment PickedEntryListEntries on Query {
         pickedEntries {
+          ... on ArticleEntry {
+            title
+            path
+          }
           ... on ExternalArticleEntry {
             title
             url
@@ -48,7 +52,7 @@ export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$k
         const key = `pickedEntry-${idx}`;
         return (
           <li key={key}>
-            <PickedEntryItemAnchor href={entry.url}>
+            <PickedEntryItemAnchor href={entry.url ?? entry.path}>
               <PickedEntryTitle>{entry.title}</PickedEntryTitle>
               <PickedEntryCite>{entry.source?.name}</PickedEntryCite>
             </PickedEntryItemAnchor>

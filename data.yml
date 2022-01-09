@@ -53,6 +53,15 @@ tags:
   - name: Web Frontend
   - name: gRPC
 entries:
+  - title: Example article
+    publishedOn: 2022-01-05T00:00:00.000Z
+    tags:
+      - test
+    path: /blog/example
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
   - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
     publishedOn: '2021-11-27'
     tags:

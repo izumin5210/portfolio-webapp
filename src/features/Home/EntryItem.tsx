@@ -15,6 +15,15 @@ export function EntryItem(props: Props) {
   const data = useFragment(
     graphql`
       fragment EntryItem on Entry {
+        ... on ArticleEntry {
+          title
+          path
+          tags
+          publishedOn
+          source {
+            name
+          }
+        }
         ... on ExternalArticleEntry {
           title
           url
@@ -66,7 +75,7 @@ export function EntryItem(props: Props) {
 
   return (
     <EntryLi key={data.title}>
-      <EntryAnchor href={data.url} rel="noopener noreferrer" target="_blank">
+      <EntryAnchor href={data.url ?? data.path} rel="noopener noreferrer" target="_blank">
         <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
         <EntryTitle>
           {data.title}

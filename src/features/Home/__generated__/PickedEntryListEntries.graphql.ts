@@ -8,6 +8,7 @@ import { FragmentRefs } from "relay-runtime";
 export type PickedEntryListEntries = {
   readonly pickedEntries: ReadonlyArray<{
     readonly title?: string | undefined;
+    readonly path?: string | undefined;
     readonly url?: string | undefined;
     readonly source?:
       | {
@@ -24,40 +25,41 @@ export type PickedEntryListEntries$key = {
 };
 
 const node: ReaderFragment = (function () {
-  var v0 = [
-    {
+  var v0 = {
       alias: null,
       args: null,
       kind: "ScalarField",
       name: "title",
       storageKey: null,
     },
-    {
-      alias: null,
-      args: null,
-      kind: "ScalarField",
-      name: "url",
-      storageKey: null,
-    },
-    {
-      alias: null,
-      args: null,
-      concreteType: "EntrySource",
-      kind: "LinkedField",
-      name: "source",
-      plural: false,
-      selections: [
-        {
-          alias: null,
-          args: null,
-          kind: "ScalarField",
-          name: "name",
-          storageKey: null,
-        },
-      ],
-      storageKey: null,
-    },
-  ];
+    v1 = [
+      v0 /*: any*/,
+      {
+        alias: null,
+        args: null,
+        kind: "ScalarField",
+        name: "url",
+        storageKey: null,
+      },
+      {
+        alias: null,
+        args: null,
+        concreteType: "EntrySource",
+        kind: "LinkedField",
+        name: "source",
+        plural: false,
+        selections: [
+          {
+            alias: null,
+            args: null,
+            kind: "ScalarField",
+            name: "name",
+            storageKey: null,
+          },
+        ],
+        storageKey: null,
+      },
+    ];
   return {
     argumentDefinitions: [],
     kind: "Fragment",
@@ -74,25 +76,40 @@ const node: ReaderFragment = (function () {
         selections: [
           {
             kind: "InlineFragment",
-            selections: v0 /*: any*/,
+            selections: [
+              v0 /*: any*/,
+              {
+                alias: null,
+                args: null,
+                kind: "ScalarField",
+                name: "path",
+                storageKey: null,
+              },
+            ],
+            type: "ArticleEntry",
+            abstractKey: null,
+          },
+          {
+            kind: "InlineFragment",
+            selections: v1 /*: any*/,
             type: "ExternalArticleEntry",
             abstractKey: null,
           },
           {
             kind: "InlineFragment",
-            selections: v0 /*: any*/,
+            selections: v1 /*: any*/,
             type: "SlideEntry",
             abstractKey: null,
           },
           {
             kind: "InlineFragment",
-            selections: v0 /*: any*/,
+            selections: v1 /*: any*/,
             type: "OSSEntry",
             abstractKey: null,
           },
           {
             kind: "InlineFragment",
-            selections: v0 /*: any*/,
+            selections: v1 /*: any*/,
             type: "PodcastEntry",
             abstractKey: null,
           },
@@ -104,5 +121,5 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "b6c5f839e0e8e5826e61532231fd3c00";
+(node as any).hash = "ac0df1df19aaede54d94c8f031e34d8b";
 export default node;
