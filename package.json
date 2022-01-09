@@ -18,7 +18,7 @@
     "@sentry/nextjs": "^6.16.1",
     "@types/js-yaml": "^4.0.5",
     "@types/react-relay": "^11.0.3",
-    "@types/relay-runtime": "^12.0.1",
+    "@types/relay-runtime": "^12.0.2",
     "graphql": "^16.2.0",
     "graphql-helix": "^1.11.0",
     "graphql-relay": "^0.10.0",
