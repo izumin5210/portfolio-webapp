@@ -11,7 +11,7 @@
     "clean": "rimraf src/**/__generated__/**/*",
     "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
     "generate": "run-p generate:*",
-    "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ --language typescript --watchman false"
+    "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ "
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
