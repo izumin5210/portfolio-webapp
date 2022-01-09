@@ -8,6 +8,7 @@ import { FragmentRefs } from "relay-runtime";
 export type EntryListView = {
   readonly edges: ReadonlyArray<{
     readonly node: {
+      readonly __typename: string;
       readonly publishedOn?: unknown | undefined;
       readonly " $fragmentRefs": FragmentRefs<"EntryItem">;
     } | null;
@@ -52,6 +53,13 @@ const node: ReaderFragment = (function () {
             name: "node",
             plural: false,
             selections: [
+              {
+                alias: null,
+                args: null,
+                kind: "ScalarField",
+                name: "__typename",
+                storageKey: null,
+              },
               {
                 kind: "InlineFragment",
                 selections: v0 /*: any*/,
@@ -98,5 +106,5 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "f74d6580afb5ea16392a5fa89bd3abf9";
+(node as any).hash = "33c6f43391822db580bcee0d61c3b255";
 export default node;

@@ -67,6 +67,7 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
       fragment EntryListView on EntryConnection {
         edges {
           node {
+            __typename
             ... on ArticleEntry {
               publishedOn
             }
@@ -93,6 +94,10 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
     <>
       <Ul>
         {data.edges
+          ?.filter((edge) => {
+            // TODO: skip article entries in prod while under development
+            return process.env.NODE_ENV !== "production" || edge?.node?.__typename !== "ArticleEntry";
+          })
           ?.flatMap((edge, idx, arr) => {
             if (edge?.node == null) return null;
 
