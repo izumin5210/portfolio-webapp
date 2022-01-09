@@ -52,7 +52,7 @@ export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$k
         const key = `pickedEntry-${idx}`;
         return (
           <li key={key}>
-            <PickedEntryItemAnchor href={entry.url ?? data.path}>
+            <PickedEntryItemAnchor href={entry.url ?? entry.path}>
               <PickedEntryTitle>{entry.title}</PickedEntryTitle>
               <PickedEntryCite>{entry.source?.name}</PickedEntryCite>
             </PickedEntryItemAnchor>
