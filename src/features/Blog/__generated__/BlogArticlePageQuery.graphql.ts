@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4f7ab461717efc15124e05bb1b2ce57e>>
+ * @generated SignedSource<<f367d1d2920c9c971fe9a54af7d1274e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,14 +9,14 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from "relay-runtime";
+import { FragmentRefs } from "relay-runtime";
 export type BlogArticlePageQuery$variables = {
   articlePath: string;
 };
 export type BlogArticlePageQueryVariables = BlogArticlePageQuery$variables;
 export type BlogArticlePageQuery$data = {
   readonly articleEntryByPath: {
-    readonly title: string;
-    readonly body: string;
+    readonly " $fragmentSpreads": FragmentRefs<"BlogArticle">;
   } | null;
 };
 export type BlogArticlePageQueryResponse = BlogArticlePageQuery$data;
@@ -35,35 +35,9 @@ const node: ConcreteRequest = (function () {
     ],
     v1 = [
       {
-        alias: null,
-        args: [
-          {
-            kind: "Variable",
-            name: "path",
-            variableName: "articlePath",
-          },
-        ],
-        concreteType: "ArticleEntry",
-        kind: "LinkedField",
-        name: "articleEntryByPath",
-        plural: false,
-        selections: [
-          {
-            alias: null,
-            args: null,
-            kind: "ScalarField",
-            name: "title",
-            storageKey: null,
-          },
-          {
-            alias: null,
-            args: null,
-            kind: "ScalarField",
-            name: "body",
-            storageKey: null,
-          },
-        ],
-        storageKey: null,
+        kind: "Variable",
+        name: "path",
+        variableName: "articlePath",
       },
     ];
   return {
@@ -72,7 +46,24 @@ const node: ConcreteRequest = (function () {
       kind: "Fragment",
       metadata: null,
       name: "BlogArticlePageQuery",
-      selections: v1 /*: any*/,
+      selections: [
+        {
+          alias: null,
+          args: v1 /*: any*/,
+          concreteType: "ArticleEntry",
+          kind: "LinkedField",
+          name: "articleEntryByPath",
+          plural: false,
+          selections: [
+            {
+              args: null,
+              kind: "FragmentSpread",
+              name: "BlogArticle",
+            },
+          ],
+          storageKey: null,
+        },
+      ],
       type: "Query",
       abstractKey: null,
     },
@@ -81,19 +72,45 @@ const node: ConcreteRequest = (function () {
       argumentDefinitions: v0 /*: any*/,
       kind: "Operation",
       name: "BlogArticlePageQuery",
-      selections: v1 /*: any*/,
+      selections: [
+        {
+          alias: null,
+          args: v1 /*: any*/,
+          concreteType: "ArticleEntry",
+          kind: "LinkedField",
+          name: "articleEntryByPath",
+          plural: false,
+          selections: [
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "title",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "body",
+              storageKey: null,
+            },
+          ],
+          storageKey: null,
+        },
+      ],
     },
     params: {
-      cacheID: "3fc2b97b7c6243eb4d2b243f00ab6d74",
+      cacheID: "768ba7a3331e9dcab4611a6f5b6499a2",
       id: null,
       metadata: {},
       name: "BlogArticlePageQuery",
       operationKind: "query",
-      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    title\n    body\n  }\n}\n",
+      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n}\n",
     },
   };
 })();
 
-(node as any).hash = "83e59fe4b8f60eda57fa84184660f517";
+(node as any).hash = "2bcae5a3a631c6f03e6e6f65d20cca67";
 
 export default node;
