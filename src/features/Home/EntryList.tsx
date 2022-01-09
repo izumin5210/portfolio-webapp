@@ -24,7 +24,7 @@ export function EntryList(props: { entries: EntryListEntries$key }) {
     graphql`
       fragment EntryListEntries on Query
       @refetchable(queryName: "EntryListPaginationQuery")
-      @argumentDefinitions(first: { type: "Int!" }, cursor: { type: "String" }) {
+      @argumentDefinitions(count: { type: "Int!" }, cursor: { type: "String" }) {
         entries(first: $count, after: $cursor) @connection(key: "EntryListEntries_entries") {
           edges {
             __typename
@@ -47,7 +47,7 @@ export function EntryListFilteredByTags(props: { entriesByTags: EntryListEntries
     graphql`
       fragment EntryListEntriesByTags on Query
       @refetchable(queryName: "EntryListFilteredByTagsPaginationQuery")
-      @argumentDefinitions(first: { type: "Int!" }, cursor: { type: "String" }, tags: { type: "[String!]!" }) {
+      @argumentDefinitions(count: { type: "Int!" }, cursor: { type: "String" }, tags: { type: "[String!]!" }) {
         entriesByTags(first: $count, after: $cursor, tags: $tags) @connection(key: "EntryListEntries_entriesByTags") {
           edges {
             __typename
