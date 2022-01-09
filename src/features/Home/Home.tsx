@@ -10,8 +10,8 @@ import type { HomeQueryResponse } from "./__generated__/HomeQuery.graphql";
 export const HomeQuery = graphql`
   query HomeQuery($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
     ...PickedEntryListEntries
-    ...EntryListEntries @arguments(cursor: $cursor, first: $count) @skip(if: $filteredByTags)
-    ...EntryListEntriesByTags @arguments(cursor: $cursor, first: $count, tags: $tags) @include(if: $filteredByTags)
+    ...EntryListEntries @arguments(cursor: $cursor, count: $count) @skip(if: $filteredByTags)
+    ...EntryListEntriesByTags @arguments(cursor: $cursor, count: $count, tags: $tags) @include(if: $filteredByTags)
   }
 `;
 

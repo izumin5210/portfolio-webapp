@@ -1,27 +1,30 @@
+/**
+ * @generated SignedSource<<33408f548245cc6e2f6cc49fa4f141a0>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type EntryItem = {
-  readonly title?: string | undefined;
-  readonly path?: string | undefined;
-  readonly tags?: ReadonlyArray<string> | undefined;
-  readonly publishedOn?: unknown | undefined;
-  readonly source?:
-    | {
-        readonly name: string;
-      }
-    | undefined;
-  readonly url?: string | undefined;
-  readonly " $refType": "EntryItem";
+export type EntryItem$data = {
+  readonly title?: string;
+  readonly path?: string;
+  readonly tags?: ReadonlyArray<string>;
+  readonly publishedOn?: any;
+  readonly source?: {
+    readonly name: string;
+  };
+  readonly url?: string;
+  readonly " $fragmentType": "EntryItem";
 };
-export type EntryItem$data = EntryItem;
+export type EntryItem = EntryItem$data;
 export type EntryItem$key = {
-  readonly " $data"?: EntryItem$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"EntryItem">;
+  readonly " $data"?: EntryItem$data;
+  readonly " $fragmentSpreads": FragmentRefs<"EntryItem">;
 };
 
 const node: ReaderFragment = (function () {
@@ -130,5 +133,7 @@ const node: ReaderFragment = (function () {
     abstractKey: "__isEntry",
   };
 })();
+
 (node as any).hash = "c13203cd7e600b6dc48c675d0ea02725";
+
 export default node;

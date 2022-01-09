@@ -1,23 +1,28 @@
+/**
+ * @generated SignedSource<<d20e456ea403bd27b7543bdd48041667>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-import EntryListPaginationQuery from "./EntryListPaginationQuery.graphql";
+import { ReaderFragment, RefetchableFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type EntryListEntries = {
+export type EntryListEntries$data = {
   readonly entries: {
     readonly edges: ReadonlyArray<{
       readonly __typename: string;
     } | null> | null;
-    readonly " $fragmentRefs": FragmentRefs<"EntryListView">;
+    readonly " $fragmentSpreads": FragmentRefs<"EntryListView">;
   };
-  readonly " $refType": "EntryListEntries";
+  readonly " $fragmentType": "EntryListEntries";
 };
-export type EntryListEntries$data = EntryListEntries;
+export type EntryListEntries = EntryListEntries$data;
 export type EntryListEntries$key = {
-  readonly " $data"?: EntryListEntries$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
+  readonly " $data"?: EntryListEntries$data;
+  readonly " $fragmentSpreads": FragmentRefs<"EntryListEntries">;
 };
 
 const node: ReaderFragment = (function () {
@@ -32,18 +37,14 @@ const node: ReaderFragment = (function () {
   return {
     argumentDefinitions: [
       {
-        kind: "RootArgument",
+        defaultValue: null,
+        kind: "LocalArgument",
         name: "count",
       },
       {
         defaultValue: null,
         kind: "LocalArgument",
         name: "cursor",
-      },
-      {
-        defaultValue: null,
-        kind: "LocalArgument",
-        name: "first",
       },
     ],
     kind: "Fragment",
@@ -66,7 +67,7 @@ const node: ReaderFragment = (function () {
           path: v0 /*: any*/,
         },
         fragmentPathInResult: [],
-        operation: EntryListPaginationQuery,
+        operation: require("./EntryListPaginationQuery.graphql"),
       },
     },
     name: "EntryListEntries",
@@ -109,6 +110,11 @@ const node: ReaderFragment = (function () {
             storageKey: null,
           },
           {
+            args: null,
+            kind: "FragmentSpread",
+            name: "EntryListView",
+          },
+          {
             alias: null,
             args: null,
             concreteType: "PageInfo",
@@ -133,11 +139,6 @@ const node: ReaderFragment = (function () {
             ],
             storageKey: null,
           },
-          {
-            args: null,
-            kind: "FragmentSpread",
-            name: "EntryListView",
-          },
         ],
         storageKey: null,
       },
@@ -146,5 +147,7 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "2a9d210b6a559ec63713aa0f6dbefafb";
+
+(node as any).hash = "224c81c45ac78942fca6e5fa6e05573e";
+
 export default node;

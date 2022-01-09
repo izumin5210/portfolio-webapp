@@ -1,27 +1,30 @@
+/**
+ * @generated SignedSource<<c922626466300f992ad6f6f892067514>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type PickedEntryListEntries = {
+export type PickedEntryListEntries$data = {
   readonly pickedEntries: ReadonlyArray<{
-    readonly title?: string | undefined;
-    readonly path?: string | undefined;
-    readonly url?: string | undefined;
-    readonly source?:
-      | {
-          readonly name: string;
-        }
-      | undefined;
+    readonly title?: string;
+    readonly path?: string;
+    readonly url?: string;
+    readonly source?: {
+      readonly name: string;
+    };
   }>;
-  readonly " $refType": "PickedEntryListEntries";
+  readonly " $fragmentType": "PickedEntryListEntries";
 };
-export type PickedEntryListEntries$data = PickedEntryListEntries;
+export type PickedEntryListEntries = PickedEntryListEntries$data;
 export type PickedEntryListEntries$key = {
-  readonly " $data"?: PickedEntryListEntries$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"PickedEntryListEntries">;
+  readonly " $data"?: PickedEntryListEntries$data;
+  readonly " $fragmentSpreads": FragmentRefs<"PickedEntryListEntries">;
 };
 
 const node: ReaderFragment = (function () {
@@ -121,5 +124,7 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
+
 (node as any).hash = "ac0df1df19aaede54d94c8f031e34d8b";
+
 export default node;

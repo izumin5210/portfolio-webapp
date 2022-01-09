@@ -1,24 +1,29 @@
+/**
+ * @generated SignedSource<<2ee1f80304982372d446fea8a84efbf8>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type EntryListView = {
+export type EntryListView$data = {
   readonly edges: ReadonlyArray<{
     readonly node: {
       readonly __typename: string;
-      readonly publishedOn?: unknown | undefined;
-      readonly " $fragmentRefs": FragmentRefs<"EntryItem">;
+      readonly publishedOn?: any;
+      readonly " $fragmentSpreads": FragmentRefs<"EntryItem">;
     } | null;
   } | null> | null;
-  readonly " $refType": "EntryListView";
+  readonly " $fragmentType": "EntryListView";
 };
-export type EntryListView$data = EntryListView;
+export type EntryListView = EntryListView$data;
 export type EntryListView$key = {
-  readonly " $data"?: EntryListView$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"EntryListView">;
+  readonly " $data"?: EntryListView$data;
+  readonly " $fragmentSpreads": FragmentRefs<"EntryListView">;
 };
 
 const node: ReaderFragment = (function () {
@@ -106,5 +111,7 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
+
 (node as any).hash = "33c6f43391822db580bcee0d61c3b255";
+
 export default node;
