@@ -124,6 +124,12 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+    environment:
+      name: production
+      url: https://izum.in
+    concurrency:
+      group: production
+      cancel-in-progress: true
     steps:
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
