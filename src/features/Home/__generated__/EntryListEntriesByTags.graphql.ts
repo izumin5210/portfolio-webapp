@@ -1,23 +1,28 @@
+/**
+ * @generated SignedSource<<b5326c2c8c6b01afe01c75107a3263fc>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-import EntryListFilteredByTagsPaginationQuery from "./EntryListFilteredByTagsPaginationQuery.graphql";
+import { ReaderFragment, RefetchableFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type EntryListEntriesByTags = {
+export type EntryListEntriesByTags$data = {
   readonly entriesByTags: {
     readonly edges: ReadonlyArray<{
       readonly __typename: string;
     } | null> | null;
-    readonly " $fragmentRefs": FragmentRefs<"EntryListView">;
+    readonly " $fragmentSpreads": FragmentRefs<"EntryListView">;
   };
-  readonly " $refType": "EntryListEntriesByTags";
+  readonly " $fragmentType": "EntryListEntriesByTags";
 };
-export type EntryListEntriesByTags$data = EntryListEntriesByTags;
+export type EntryListEntriesByTags = EntryListEntriesByTags$data;
 export type EntryListEntriesByTags$key = {
-  readonly " $data"?: EntryListEntriesByTags$data | undefined;
-  readonly " $fragmentRefs": FragmentRefs<"EntryListEntriesByTags">;
+  readonly " $data"?: EntryListEntriesByTags$data;
+  readonly " $fragmentSpreads": FragmentRefs<"EntryListEntriesByTags">;
 };
 
 const node: ReaderFragment = (function () {
@@ -32,18 +37,14 @@ const node: ReaderFragment = (function () {
   return {
     argumentDefinitions: [
       {
-        kind: "RootArgument",
+        defaultValue: null,
+        kind: "LocalArgument",
         name: "count",
       },
       {
         defaultValue: null,
         kind: "LocalArgument",
         name: "cursor",
-      },
-      {
-        defaultValue: null,
-        kind: "LocalArgument",
-        name: "first",
       },
       {
         defaultValue: null,
@@ -71,7 +72,7 @@ const node: ReaderFragment = (function () {
           path: v0 /*: any*/,
         },
         fragmentPathInResult: [],
-        operation: EntryListFilteredByTagsPaginationQuery,
+        operation: require("./EntryListFilteredByTagsPaginationQuery.graphql"),
       },
     },
     name: "EntryListEntriesByTags",
@@ -120,6 +121,11 @@ const node: ReaderFragment = (function () {
             storageKey: null,
           },
           {
+            args: null,
+            kind: "FragmentSpread",
+            name: "EntryListView",
+          },
+          {
             alias: null,
             args: null,
             concreteType: "PageInfo",
@@ -144,11 +150,6 @@ const node: ReaderFragment = (function () {
             ],
             storageKey: null,
           },
-          {
-            args: null,
-            kind: "FragmentSpread",
-            name: "EntryListView",
-          },
         ],
         storageKey: null,
       },
@@ -157,5 +158,7 @@ const node: ReaderFragment = (function () {
     abstractKey: null,
   };
 })();
-(node as any).hash = "d703fcd6070cdf48ac8b73d9f86520e7";
+
+(node as any).hash = "accd672d512caabf67b9fdd797b5a50a";
+
 export default node;

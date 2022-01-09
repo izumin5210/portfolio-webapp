@@ -1,121 +1,28 @@
+/**
+ * @generated SignedSource<<6fd7b18084304ada5ed7af41cea3239c>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type EntryListPaginationQueryVariables = {
-  count?: number | null | undefined;
-  cursor?: string | null | undefined;
-  first: number;
+export type EntryListPaginationQuery$variables = {
+  count: number;
+  cursor?: string | null;
 };
-export type EntryListPaginationQueryResponse = {
-  readonly " $fragmentRefs": FragmentRefs<"EntryListEntries">;
+export type EntryListPaginationQueryVariables = EntryListPaginationQuery$variables;
+export type EntryListPaginationQuery$data = {
+  readonly " $fragmentSpreads": FragmentRefs<"EntryListEntries">;
 };
+export type EntryListPaginationQueryResponse = EntryListPaginationQuery$data;
 export type EntryListPaginationQuery = {
-  readonly response: EntryListPaginationQueryResponse;
-  readonly variables: EntryListPaginationQueryVariables;
+  variables: EntryListPaginationQueryVariables;
+  response: EntryListPaginationQuery$data;
 };
-
-/*
-query EntryListPaginationQuery(
-  $count: Int
-  $cursor: String
-) {
-  ...EntryListEntries_19XkED
-}
-
-fragment EntryItem on Entry {
-  __isEntry: __typename
-  ... on ArticleEntry {
-    title
-    path
-    tags
-    publishedOn
-    source {
-      name
-    }
-  }
-  ... on ExternalArticleEntry {
-    title
-    url
-    tags
-    publishedOn
-    source {
-      name
-    }
-  }
-  ... on SlideEntry {
-    title
-    url
-    tags
-    publishedOn
-    source {
-      name
-    }
-  }
-  ... on OSSEntry {
-    title
-    url
-    tags
-    publishedOn
-    source {
-      name
-    }
-  }
-  ... on PodcastEntry {
-    title
-    url
-    tags
-    publishedOn
-    source {
-      name
-    }
-  }
-}
-
-fragment EntryListEntries_19XkED on Query {
-  entries(first: $count, after: $cursor) {
-    edges {
-      __typename
-      cursor
-      node {
-        __typename
-      }
-    }
-    ...EntryListView
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
-
-fragment EntryListView on EntryConnection {
-  edges {
-    node {
-      __typename
-      ... on ArticleEntry {
-        publishedOn
-      }
-      ... on ExternalArticleEntry {
-        publishedOn
-      }
-      ... on SlideEntry {
-        publishedOn
-      }
-      ... on OSSEntry {
-        publishedOn
-      }
-      ... on PodcastEntry {
-        publishedOn
-      }
-      ...EntryItem
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function () {
   var v0 = [
@@ -128,11 +35,6 @@ const node: ConcreteRequest = (function () {
         defaultValue: null,
         kind: "LocalArgument",
         name: "cursor",
-      },
-      {
-        defaultValue: null,
-        kind: "LocalArgument",
-        name: "first",
       },
     ],
     v1 = [
@@ -217,13 +119,13 @@ const node: ConcreteRequest = (function () {
           args: [
             {
               kind: "Variable",
-              name: "cursor",
-              variableName: "cursor",
+              name: "count",
+              variableName: "count",
             },
             {
               kind: "Variable",
-              name: "first",
-              variableName: "first",
+              name: "cursor",
+              variableName: "cursor",
             },
           ],
           kind: "FragmentSpread",
@@ -273,10 +175,6 @@ const node: ConcreteRequest = (function () {
                   selections: [
                     v2 /*: any*/,
                     {
-                      kind: "TypeDiscriminator",
-                      abstractKey: "__isEntry",
-                    },
-                    {
                       kind: "InlineFragment",
                       selections: [
                         v3 /*: any*/,
@@ -317,6 +215,10 @@ const node: ConcreteRequest = (function () {
                       selections: v7 /*: any*/,
                       type: "PodcastEntry",
                       abstractKey: null,
+                    },
+                    {
+                      kind: "TypeDiscriminator",
+                      abstractKey: "__isEntry",
                     },
                   ],
                   storageKey: null,
@@ -364,14 +266,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "e0f9267524181d2d9d39d437ffadeb8c",
+      cacheID: "55b6c4a8ebbd473dc174b39255f8d6e2",
       id: null,
       metadata: {},
       name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  ...EntryListEntries_19XkED\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntries_19XkED on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int!\n  $cursor: String\n) {\n  ...EntryListEntries_1G22uz\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntries_1G22uz on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
     },
   };
 })();
-(node as any).hash = "2a9d210b6a559ec63713aa0f6dbefafb";
+
+(node as any).hash = "224c81c45ac78942fca6e5fa6e05573e";
+
 export default node;
