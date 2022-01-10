@@ -6,7 +6,7 @@ import { RelayEnvironmentProvider } from "react-relay";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
 import { backgroundColor, colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
-import "../styles/globals.css";
+import "sanitize.css";
 
 const siteName = "izum.in";
 const url = "https://izum.in/";
@@ -105,6 +105,7 @@ const Footer = styled.footer`
       border-bottom: 1px dashed ${colors.gray500};
     }
     border-radius: 4px;
+    color: ${colors.text};
     text-decoration: none;
     transition: all 300ms;
   }

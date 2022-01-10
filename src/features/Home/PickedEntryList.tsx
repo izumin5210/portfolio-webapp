@@ -79,6 +79,8 @@ const PickedEntryItemAnchor = styled.a`
   cursor: pointer;
   transition: all 300ms;
   border-radius: 4px;
+  color: ${colors.text};
+  text-decoration: none;
   &:hover,
   &:focus-visible {
     background: ${backgroundColor({ state: "hover" })};
