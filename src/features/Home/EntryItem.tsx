@@ -129,7 +129,7 @@ const EntryAnchor = styled.a`
   &:focus {
     background: ${backgroundColor({ state: "focus" })};
   }
-  &:active {
+  &:active:not(:has(:active)) {
     background: ${backgroundColor({ state: "pressed" })};
   }
   &:focus-visible {
