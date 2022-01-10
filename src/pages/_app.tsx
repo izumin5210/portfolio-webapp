@@ -6,6 +6,7 @@ import { RelayEnvironmentProvider } from "react-relay";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
 import { backgroundColor, colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
+import "sanitize.css";
 
 const siteName = "izum.in";
 const url = "https://izum.in/";
