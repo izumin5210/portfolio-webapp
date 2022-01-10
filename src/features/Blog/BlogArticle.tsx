@@ -181,15 +181,23 @@ const A = styled.a`
   &:active {
     background: ${backgroundColor({ state: "pressed" })};
   }
+  &:hover,
+  &:focus,
+  &:active {
+    &:before {
+      border-bottom: 1px solid transparent;
+    }
+  }
   position: relative;
   &:before {
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     content: "";
     width: 100%;
-    border-bottom: 1px dashed ${colors.gray500};
+    transition: all 300ms;
+    border-bottom: 1px solid ${colors.blue700};
   }
-  color: ${colors.blue900};
+  color: ${colors.blue700};
   border-radius: 4px;
   text-decoration: none;
   transition: all 300ms;
