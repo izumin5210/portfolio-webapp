@@ -218,6 +218,7 @@ const Code = styled.code`
   background: #2e3440;
   white-space: pre;
   hyphens: none;
+  border-radius: 4px;
   &:before,
   &:after {
     content: "\`";
@@ -246,8 +247,8 @@ const Pre = styled.pre`
   white-space: pre;
   hyphens: none;
   tab-size: 4;
-  padding: 8px 16px;
   border-radius: 4px;
+  padding: 8px 16px;
 
   &:before,
   &:after {
