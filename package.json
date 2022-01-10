@@ -11,7 +11,9 @@
     "clean": "rimraf src/**/__generated__/**/*",
     "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
     "generate": "run-p generate:*",
-    "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ "
+    "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
@@ -33,17 +35,24 @@
     "unified": "^10.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
     "@graphql-codegen/cli": "2.3.1",
     "@graphql-codegen/schema-ast": "2.4.1",
     "@linaria/babel-preset": "3.0.0-beta.15",
     "@linaria/core": "3.0.0-beta.15",
     "@linaria/shaker": "3.0.0-beta.15",
     "@linaria/webpack-loader": "3.0.0-beta.16",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@types/node": "17.0.0",
     "@types/open-graph-scraper": "4.8.1",
     "@types/react": "17.0.38",
+    "@types/relay-test-utils": "^6.0.5",
+    "babel-loader": "^8.2.3",
     "babel-plugin-macros": "3.1.0",
     "babel-plugin-relay": "13.0.0",
     "eslint": "7.32.0",
@@ -57,6 +66,7 @@
     "react-test-renderer": "17.0.2",
     "relay-compiler": "13.0.0",
     "relay-compiler-language-typescript": "15.0.0",
+    "relay-test-utils": "^13.0.0",
     "remark-extract-frontmatter": "3.2.0",
     "remark-frontmatter": "4.0.1",
     "remark-stringify": "10.0.2",
