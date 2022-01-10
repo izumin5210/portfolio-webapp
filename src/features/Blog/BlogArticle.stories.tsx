@@ -68,9 +68,19 @@ In hac habitasse platea dictumst. Suspendisse posuere, tortor quis condimentum l
     1. nested ordered list item
 - list item 3
 
-\`\`\`ts
-const message: string = "this is a codeblock";
-console.log(message);
+\`\`\`tsx
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <main>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </main>
+  );
+}
 \`\`\`
 
 1. ordered list item 1
