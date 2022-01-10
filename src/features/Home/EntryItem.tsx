@@ -3,6 +3,7 @@ import graphql from "babel-plugin-relay/macro";
 import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import { useFragment } from "react-relay";
+import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, caption } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
@@ -118,12 +119,12 @@ const EntryAnchor = styled.a`
   padding: 12px 16px;
   border-radius: 4px;
   transition: all 300ms;
-  color: rgba(0, 0, 0, 0.86);
+  color: ${colors.text};
   outline: none;
 
   &:hover,
   &:focus-visible {
-    background: rgba(0, 0, 0, 0.04);
+    background: ${backgroundColor({ state: "hover" })};
   }
 `;
 
@@ -137,7 +138,7 @@ const EntryCite = styled.cite`
   display: inline;
   ${caption}
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.56);
+  color: ${colors.textLowEmphasis};
 
   &:before {
     content: "-";
@@ -149,7 +150,7 @@ const EntryPublishedOn = styled.time`
   display: block;
   ${caption}
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.56);
+  color: ${colors.textLowEmphasis};
 `;
 
 const TagsUl = styled.ul`

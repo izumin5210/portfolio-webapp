@@ -3,6 +3,7 @@ import graphql from "babel-plugin-relay/macro";
 import { PickedEntryListEntries$key } from "./__generated__/PickedEntryListEntries.graphql";
 import { styled } from "@linaria/react";
 import { body1, caption } from "../../lib/styles/typo";
+import { backgroundColor, colors } from "../../lib/styles/colors";
 
 export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$key }) {
   const data = useFragment(
@@ -80,7 +81,7 @@ const PickedEntryItemAnchor = styled.a`
   border-radius: 4px;
   &:hover,
   &:focus-visible {
-    background: rgba(0, 0, 0, 0.04);
+    background: ${backgroundColor({ state: "hover" })};
   }
 `;
 
@@ -95,5 +96,5 @@ const PickedEntryCite = styled.cite`
   display: block;
   ${caption}
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.56);
+  color: ${colors.textLowEmphasis};
 `;

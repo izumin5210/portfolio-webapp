@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { RelayEnvironmentProvider } from "react-relay";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
+import { colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
 import "../styles/globals.css";
 
@@ -83,7 +84,7 @@ const Main = styled.main`
 const Footer = styled.footer`
   padding: 8px;
   ${caption}
-  color: rgba(0, 0, 0, 0.56);
+  color: ${colors.textLowEmphasis};
   text-align: center;
 
   & a {
