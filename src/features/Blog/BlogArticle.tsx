@@ -77,7 +77,7 @@ const Article = styled.article`
 `;
 
 const headingMarkerStyle = {
-  marginRight: "4px",
+  marginRight: "8px",
   color: colors.textDisabled,
   fontSize: "0.7em",
   fontWeight: "400",
