@@ -55,6 +55,7 @@ function h2d(h: string): number {
   return parseInt(h, 16);
 }
 
+// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 const baseColors = {
   black: "#000000",
   white: "#ffffff",
