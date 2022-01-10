@@ -7,6 +7,7 @@ import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
 import { backgroundColor, colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
 import "sanitize.css";
+import { css } from "@linaria/core";
 
 const siteName = "izum.in";
 const url = "https://izum.in/";
@@ -44,6 +45,7 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
         </>
       ) : null}
       <Main>
+        <EnvRibbon />
         <Component {...pageProps} err={err} />
         <Footer>
           &copy; 2022{" "}
@@ -123,6 +125,28 @@ const Footer = styled.footer`
     text-decoration: none;
     transition: background 300ms;
   }
+`;
+
+function EnvRibbon() {
+  // FIXME: stop using NODE_ENV
+  if (process.env.NODE_ENV === "production") return null;
+  return <div className={ribbonCss}>{process.env.NODE_ENV}</div>;
+}
+
+const ribbonCss = css`
+  position: fixed;
+  overflow: hidden;
+  top: 16px;
+  right: -24px;
+  z-index: 10000;
+  ${caption};
+  width: 108px;
+  height: 24px;
+  line-height: 24px;
+  color: ${colors.textLight};
+  transform: rotate(45deg);
+  text-align: center;
+  background-color: ${colors.gray600};
 `;
 
 export default MyApp;
