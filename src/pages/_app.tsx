@@ -104,6 +104,7 @@ const Footer = styled.footer`
       border-bottom: 1px dashed ${colors.gray500};
     }
     border-radius: 4px;
+    color: ${colors.text};
     text-decoration: none;
     transition: all 300ms;
   }

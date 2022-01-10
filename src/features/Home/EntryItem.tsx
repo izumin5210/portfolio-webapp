@@ -120,6 +120,7 @@ const EntryAnchor = styled.a`
   border-radius: 4px;
   transition: all 300ms;
   color: ${colors.text};
+  text-decoration: none;
   outline: none;
 
   &:hover,
