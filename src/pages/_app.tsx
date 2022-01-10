@@ -1,13 +1,13 @@
+import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import { RelayEnvironmentProvider } from "react-relay";
+import "sanitize.css";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
 import { backgroundColor, colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
-import "sanitize.css";
-import { css } from "@linaria/core";
 
 const siteName = "izum.in";
 const url = "https://izum.in/";
