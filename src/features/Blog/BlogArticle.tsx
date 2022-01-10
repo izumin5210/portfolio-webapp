@@ -7,7 +7,7 @@ import rehypeReact from "rehype-react";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { colors } from "../../lib/styles/colors";
+import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, body2, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
@@ -169,7 +169,29 @@ const Ol = styled.ol`
   }
 `;
 
-const A = styled.a``;
+const A = styled.a`
+  &:hover {
+    background: ${backgroundColor({ state: "hover" })};
+  }
+  &:focus {
+    background: ${backgroundColor({ state: "focus" })};
+  }
+  &:active {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  position: relative;
+  &:before {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    border-bottom: 1px dashed ${colors.gray500};
+  }
+  color: ${colors.blue900};
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 300ms;
+`;
 const Strong = styled.strong`
   &:before,
   &:after {
