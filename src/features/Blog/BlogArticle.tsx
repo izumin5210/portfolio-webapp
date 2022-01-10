@@ -88,7 +88,6 @@ const listStyle = {
   listStyle: "none",
   "li:before": {
     color: colors.textLowEmphasis,
-    marginRight: "8px",
   },
   paddingLeft: "12px",
   "ul, ol": {
@@ -101,6 +100,7 @@ const H1 = styled.h1`
   &:before {
     ${headingMarkerStyle}
     content: "#";
+    margin-right: 8px;
   }
 `;
 
@@ -109,6 +109,7 @@ const H2 = styled.h2`
   &:before {
     ${headingMarkerStyle}
     content: "##";
+    margin-right: 8px;
   }
 `;
 
@@ -117,6 +118,7 @@ const H3 = styled.h3`
   &:before {
     ${headingMarkerStyle}
     content: "###";
+    margin-right: 8px;
   }
 `;
 
@@ -125,6 +127,7 @@ const H4 = styled.h4`
   &:before {
     ${headingMarkerStyle}
     content: "####";
+    margin-right: 4px;
   }
 `;
 
@@ -133,6 +136,7 @@ const H5 = styled.h5`
   &:before {
     ${headingMarkerStyle}
     content: "#####";
+    margin-right: 4px;
   }
 `;
 
@@ -141,6 +145,7 @@ const H6 = styled.h1`
   &:before {
     ${headingMarkerStyle}
     content: "######";
+    margin-right: 4px;
   }
 `;
 
