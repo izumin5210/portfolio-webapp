@@ -77,7 +77,6 @@ const Article = styled.article`
 `;
 
 const headingMarkerStyle = {
-  marginRight: "8px",
   color: colors.textDisabled,
   fontSize: "0.7em",
   fontWeight: "400",
@@ -161,6 +160,7 @@ const Ul = styled.ul`
   ${listStyle}
   & > li:before {
     content: "-";
+    margin-right: 8px;
   }
 `;
 
@@ -169,6 +169,7 @@ const Ol = styled.ol`
   counter-reset: ol-counter;
   & > li {
     counter-increment: ol-counter;
+    margin-right: 4px;
   }
   & > li:before {
     content: counter(ol-counter) ". ";
