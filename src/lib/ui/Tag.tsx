@@ -27,22 +27,40 @@ const tagCss = css`
   border-radius: 9999vh;
   padding: 2px 8px;
   background: ${backgroundColor({ color: colors.gray200 })};
-  color: ${colors.text};
+  color: ${colors.textLowEmphasis};
+  position: relative;
   transition: all 300ms;
 
-  font-weight: 400;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999vh;
+    top: 0;
+    left: 0;
+    background: ${backgroundColor({ state: "hover" })};
+    opacity: 0;
+    transition: all 300ms;
+  }
 
   &:hover,
   &:focus-visible {
-    background: ${backgroundColor({ color: colors.gray200, state: "hover" })};
+    color: ${colors.text};
+    &:after {
+      opacity: 1;
+    }
   }
 
   &[aria-pressed="true"] {
-    color: ${colors.textLight};
+    color: ${colors.textLightLowEmphasis};
     background: ${backgroundColor({ color: colors.gray500, theme: "dark" })};
     &:hover,
     &:focus-visible {
-      background: ${backgroundColor({ color: colors.gray500, state: "hover", theme: "dark" })};
+      color: ${colors.textLight};
+    }
+    &:after {
+      background: ${backgroundColor({ state: "hover", theme: "dark" })};
     }
   }
 `;
