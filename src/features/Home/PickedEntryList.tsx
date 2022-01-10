@@ -77,13 +77,24 @@ const PickedEntryItemAnchor = styled.a`
   display: block;
   padding: 12px 16px;
   cursor: pointer;
-  transition: all 300ms;
+  transition: background 300ms;
   border-radius: 4px;
   color: ${colors.text};
   text-decoration: none;
-  &:hover,
-  &:focus-visible {
+  &:hover {
     background: ${backgroundColor({ state: "hover" })};
+  }
+  &:focus {
+    background: ${backgroundColor({ state: "focus" })};
+  }
+  &:active {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  &:focus-visible {
+    outline: 2px solid ${colors.blue700};
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
   }
 `;
 

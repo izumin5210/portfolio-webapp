@@ -186,6 +186,12 @@ const A = styled.a`
   &:active {
     background: ${backgroundColor({ state: "pressed" })};
   }
+  &:focus-visible {
+    outline: 2px solid ${colors.blue700};
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
   &:hover,
   &:focus,
   &:active {

@@ -118,14 +118,25 @@ const EntryAnchor = styled.a`
   display: block;
   padding: 12px 16px;
   border-radius: 4px;
-  transition: all 300ms;
+  transition: background 300ms;
   color: ${colors.text};
   text-decoration: none;
   outline: none;
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
     background: ${backgroundColor({ state: "hover" })};
+  }
+  &:focus {
+    background: ${backgroundColor({ state: "focus" })};
+  }
+  &:active {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  &:focus-visible {
+    outline: 2px solid ${colors.blue700};
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
   }
 `;
 
