@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { RelayEnvironmentProvider } from "react-relay";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
+import { backgroundColor, colors } from "../lib/styles/colors";
 import { caption } from "../lib/styles/typo";
 import "../styles/globals.css";
 
@@ -60,7 +61,7 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
           </a>
           .
           <br />
-          built at {process.env.BUILT_AT} (
+          built at {process.env.BUILT_AT}{" "}
           <a
             href={`https://github.com/izumin5210/portfolio-webapp/commit/${process.env.GIT_SHA}`}
             rel="noopener noreferrer"
@@ -68,7 +69,6 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
           >
             {process.env.GIT_SHA}
           </a>
-          )
         </Footer>
       </Main>
     </RelayEnvironmentProvider>
@@ -83,16 +83,29 @@ const Main = styled.main`
 const Footer = styled.footer`
   padding: 8px;
   ${caption}
-  color: rgba(0, 0, 0, 0.56);
+  color: ${colors.textLowEmphasis};
   text-align: center;
 
   & a {
-    &:hover,
-    &:focus,
-    &:active {
-      color: #00bcd4;
+    &:hover {
+      background: ${backgroundColor({ state: "hover" })};
     }
-    text-decoration: underline;
+    &:focus {
+      background: ${backgroundColor({ state: "focus" })};
+    }
+    &:active {
+      background: ${backgroundColor({ state: "pressed" })};
+    }
+    position: relative;
+    &:before {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      width: 100%;
+      border-bottom: 1px dashed ${colors.gray500};
+    }
+    border-radius: 4px;
+    text-decoration: none;
     transition: all 300ms;
   }
 `;

@@ -2,6 +2,7 @@ import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import Image from "next/image";
 import React, { Suspense as _Suspense, SuspenseProps } from "react";
+import { colors } from "../../lib/styles/colors";
 import { body1, heading5 } from "../../lib/styles/typo";
 import { EntryList, EntryListFilteredByTags } from "./EntryList";
 import { PickedEntryList } from "./PickedEntryList";
@@ -64,7 +65,7 @@ const InfoWrapper = styled.div`
 const NameHeading = styled.h1`
   ${heading5}
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.86);
+  color: ${colors.text};
   margin: 0;
   padding: 0;
 `;
@@ -72,7 +73,7 @@ const NameHeading = styled.h1`
 const ShortDescription = styled.p`
   ${body1}
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.86);
+  color: ${colors.text};
   margin: 0;
   padding: 0;
 `;
@@ -85,7 +86,7 @@ const AvatarWrapper = styled.div`
 
 const H2 = styled.h2`
   ${heading5}
-  color: rgba(0, 0, 0, 0.86);
+  color: ${colors.text};
   margin: 48px 16px 8px;
   padding: 0;
 `;
