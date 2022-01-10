@@ -6,6 +6,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import remarkFrontmatter from "remark-frontmatter";
 import { unified } from "unified";
 import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, body2, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
@@ -36,6 +37,7 @@ function useMarkdownProcessor(text: string) {
   useEffect(() => {
     void unified()
       .use(remarkParse)
+      .use(remarkFrontmatter)
       .use(remarkRehype)
       .use(rehypePrism) // FIXME: should import only used syntax
       .use(rehypeReact, {
