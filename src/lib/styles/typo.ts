@@ -95,7 +95,7 @@ export const button = {
 };
 
 export const caption = {
-  fontFamily: fontFamilyHead,
+  fontFamily: fontFamilyNormal,
   fontWeight: "400",
   fontSize: "13px",
   letterSpacing: "0.4px",
