@@ -29,7 +29,7 @@ const tagCss = css`
   background: ${backgroundColor({ color: colors.gray200 })};
   color: ${colors.textLowEmphasis};
   position: relative;
-  transition: all 300ms;
+  transition: color 300ms;
 
   &:after {
     content: "";
@@ -39,28 +39,48 @@ const tagCss = css`
     border-radius: 9999vh;
     top: 0;
     left: 0;
-    background: ${backgroundColor({ state: "hover" })};
-    opacity: 0;
-    transition: all 300ms;
+    transition: background 300ms;
   }
 
   &:hover,
+  &:active,
+  &:focus,
   &:focus-visible {
     color: ${colors.text};
-    &:after {
-      opacity: 1;
-    }
+  }
+  &:hover:after {
+    background: ${backgroundColor({ state: "hover" })};
+  }
+  &:active:after {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  &:focus:after {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  &:focus-visible:after {
+    outline: 2px solid ${colors.blue700};
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
   }
 
   &[aria-pressed="true"] {
     color: ${colors.textLightLowEmphasis};
     background: ${backgroundColor({ color: colors.gray500, theme: "dark" })};
     &:hover,
+    &:active,
+    &:focus,
     &:focus-visible {
       color: ${colors.textLight};
     }
-    &:after {
+    &:hover:after {
       background: ${backgroundColor({ state: "hover", theme: "dark" })};
+    }
+    &:active:after {
+      background: ${backgroundColor({ state: "pressed", theme: "dark" })};
+    }
+    &:focus:after {
+      background: ${backgroundColor({ state: "pressed", theme: "dark" })};
     }
   }
 `;

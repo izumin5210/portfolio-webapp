@@ -96,18 +96,32 @@ const Footer = styled.footer`
     &:active {
       background: ${backgroundColor({ state: "pressed" })};
     }
+    &:focus-visible {
+      outline: 2px solid ${colors.blue700};
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
     position: relative;
     &:before {
       position: absolute;
-      bottom: 0;
+      bottom: 2px;
       content: "";
       width: 100%;
-      border-bottom: 1px dashed ${colors.gray500};
+      transition: all 300ms;
+      border-bottom: 1px dotted ${colors.gray500};
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      &:before {
+        border-bottom: 1px dotted transparent;
+      }
     }
     border-radius: 4px;
-    color: ${colors.text};
+    color: ${colors.textLowEmphasis};
     text-decoration: none;
-    transition: all 300ms;
+    transition: background 300ms;
   }
 `;
 
