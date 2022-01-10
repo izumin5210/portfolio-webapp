@@ -1,5 +1,6 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import { useFragment } from "react-relay";
@@ -76,35 +77,37 @@ export function EntryItem(props: Props) {
 
   return (
     <EntryLi key={data.title}>
-      <EntryAnchor href={data.url ?? data.path} rel="noopener noreferrer" target="_blank">
-        <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
-        <EntryTitle>
-          {data.title}
-          <EntryCite>{data.source?.name}</EntryCite>
-        </EntryTitle>
-        <TagsUl>
-          {data.tags?.map((tag) => (
-            <li key={tag}>
-              <Tag
-                as="button"
-                text={tag}
-                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.preventDefault();
-                  if (selectedTags.has(tag)) {
-                    const newTags = new Set(selectedTags);
-                    newTags.delete(tag);
-                    void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
-                  } else {
-                    void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
-                  }
-                }}
-                role="button"
-                aria-pressed={selectedTags.has(tag)}
-              />
-            </li>
-          ))}
-        </TagsUl>
-      </EntryAnchor>
+      <Link href={data.url ?? data.path ?? ""} passHref>
+        <EntryAnchor {...(data.url ? { rel: "noopener noreferrer", target: "_blank" } : {})}>
+          <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
+          <EntryTitle>
+            {data.title}
+            <EntryCite>{data.source?.name}</EntryCite>
+          </EntryTitle>
+          <TagsUl>
+            {data.tags?.map((tag) => (
+              <li key={tag}>
+                <Tag
+                  as="button"
+                  text={tag}
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    e.preventDefault();
+                    if (selectedTags.has(tag)) {
+                      const newTags = new Set(selectedTags);
+                      newTags.delete(tag);
+                      void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
+                    } else {
+                      void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
+                    }
+                  }}
+                  role="button"
+                  aria-pressed={selectedTags.has(tag)}
+                />
+              </li>
+            ))}
+          </TagsUl>
+        </EntryAnchor>
+      </Link>
     </EntryLi>
   );
 }
