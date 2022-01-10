@@ -86,6 +86,14 @@ export const body2 = {
   lineHeight: 1.43,
 };
 
+export const button = {
+  fontFamily: fontFamilyNormal,
+  fontWeight: "500",
+  fontSize: "15px",
+  letterSpacing: "1.25px",
+  lineHeight: 1.75,
+};
+
 export const caption = {
   fontFamily: fontFamilyHead,
   fontWeight: "400",
