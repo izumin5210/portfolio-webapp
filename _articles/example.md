@@ -4,7 +4,7 @@ publishedOn: 2022-01-05
 tags: ['test']
 ---
 
-# Example article
+## Example article
 
 - foo
 - bar

@@ -69,6 +69,9 @@ const baseColors = {
   gray700: "#616161",
   gray800: "#424242",
   gray900: "#212121",
+  blue700: "#1976d2",
+  blue800: "#1565c0",
+  blue900: "#0d47a1",
 } as const;
 
 export const colors = {

@@ -63,7 +63,9 @@ In hac habitasse platea dictumst. Suspendisse posuere, tortor quis condimentum l
 ###### Heading level 6
 
 - list item 1
+    - nested list item 2
 - list item 2
+    1. nested ordered list item
 - list item 3
 
 \`\`\`ts
@@ -72,7 +74,9 @@ console.log(message);
 \`\`\`
 
 1. ordered list item 1
+    - nested list item 1
 1. ordered list item 2
+    1. nested ordered list item
 1. ordered list item 3
 
 THis is a [link text](./).
