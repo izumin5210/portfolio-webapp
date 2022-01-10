@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { backgroundColor, colors } from "../styles/colors";
-import { caption } from "../styles/typo";
+import { subtitle2 } from "../styles/typo";
 
 interface Props<Comp extends React.ElementType> {
   text: string;
@@ -19,7 +19,7 @@ export function Tag<Comp extends React.ElementType = "button">({ text, as, ...pr
 }
 
 const tagCss = css`
-  ${caption}
+  ${subtitle2}
   flex: 0 0 auto;
   border: none;
   outline: none;
