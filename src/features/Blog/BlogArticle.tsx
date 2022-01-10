@@ -6,7 +6,8 @@ import rehypeReact from "rehype-react";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { body2, heading1, heading2, heading3, heading4, heading5, heading6 } from "../../lib/styles/typo";
+import { colors } from "../../lib/styles/colors";
+import { body1, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
 export function BlogArticle(props: { article: BlogArticle$key }) {
@@ -67,12 +68,12 @@ function useMarkdownProcessor(text: string) {
 }
 
 const Article = styled.article`
-  color: rgba(0, 0, 0, 0.86);
+  color: ${colors.text};
 `;
 
 const headingMarkerStyle = {
   marginRight: "4px",
-  color: "rgba(0, 0, 0, 0.56)",
+  color: colors.textDisabled,
   fontSize: "0.7em",
   fontWeight: "400",
   letterSpacing: "-0.08em",
@@ -81,8 +82,8 @@ const headingMarkerStyle = {
 const listStyle = {
   listStyle: "none",
   "li:before": {
-    color: "rgba(0, 0, 0, 0.56)",
-    marginRight: "4px",
+    color: colors.textLowEmphasis,
+    marginRight: "8px",
   },
   paddingLeft: "12px",
   "ul, ol": {
@@ -91,7 +92,7 @@ const listStyle = {
 };
 
 const H1 = styled.h1`
-  ${heading1}
+  ${heading3}
   &:before {
     ${headingMarkerStyle}
     content: "#";
@@ -99,7 +100,7 @@ const H1 = styled.h1`
 `;
 
 const H2 = styled.h2`
-  ${heading2}
+  ${heading4}
   &:before {
     ${headingMarkerStyle}
     content: "##";
@@ -107,7 +108,7 @@ const H2 = styled.h2`
 `;
 
 const H3 = styled.h3`
-  ${heading3}
+  ${heading5}
   &:before {
     ${headingMarkerStyle}
     content: "###";
@@ -115,7 +116,7 @@ const H3 = styled.h3`
 `;
 
 const H4 = styled.h4`
-  ${heading4}
+  ${heading6}
   &:before {
     ${headingMarkerStyle}
     content: "####";
@@ -123,7 +124,7 @@ const H4 = styled.h4`
 `;
 
 const H5 = styled.h5`
-  ${heading5}
+  ${subtitle1}
   &:before {
     ${headingMarkerStyle}
     content: "#####";
@@ -131,7 +132,7 @@ const H5 = styled.h5`
 `;
 
 const H6 = styled.h1`
-  ${heading6}
+  ${subtitle2}
   &:before {
     ${headingMarkerStyle}
     content: "######";
@@ -139,17 +140,17 @@ const H6 = styled.h1`
 `;
 
 const P = styled.p`
-  ${body2}
+  ${body1}
 `;
 
 const Li = styled.li`
-  ${body2}
+  ${body1}
 `;
 
 const Ul = styled.ul`
   ${listStyle}
-  li:before {
-    content: "*";
+  & > li:before {
+    content: "-";
   }
 `;
 
@@ -161,6 +162,7 @@ const Ol = styled.ol`
   }
   & > li:before {
     content: counter(ol-counter) ". ";
+    font-size: 0.8em;
   }
 `;
 
@@ -169,14 +171,14 @@ const Strong = styled.strong`
   &:before,
   &:after {
     content: "**";
-    color: rgba(0, 0, 0, 0.56);
+    color: ${colors.textDisabled};
   }
 `;
 const Em = styled.em`
   &:before,
   &:after {
     content: "_";
-    color: rgba(0, 0, 0, 0.56);
+    color: ${colors.textDisabled};
   }
 `;
 const Pre = styled.pre`
@@ -192,9 +194,9 @@ const Code = styled.code`
   &:before,
   &:after {
     content: "\`";
-    color: rgba(0, 0, 0, 0.56);
+    color: ${colors.textDisabled};
   }
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.1);
+  background: ${colors.gray200};
 `;
 const Blockquote = styled.blockquote``;
