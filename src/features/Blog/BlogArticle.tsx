@@ -2,12 +2,13 @@ import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import { createElement, Fragment, ReactElement, useEffect, useState } from "react";
 import { useFragment } from "react-relay";
+import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { colors } from "../../lib/styles/colors";
-import { body1, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
+import { body1, body2, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
 export function BlogArticle(props: { article: BlogArticle$key }) {
@@ -36,6 +37,7 @@ function useMarkdownProcessor(text: string) {
     void unified()
       .use(remarkParse)
       .use(remarkRehype)
+      .use(rehypePrism) // FIXME: should import only used syntax
       .use(rehypeReact, {
         createElement,
         Fragment,
@@ -69,6 +71,7 @@ function useMarkdownProcessor(text: string) {
 
 const Article = styled.article`
   color: ${colors.text};
+  ${body2}
 `;
 
 const headingMarkerStyle = {
@@ -181,6 +184,23 @@ const Em = styled.em`
     color: ${colors.textDisabled};
   }
 `;
+
+const Blockquote = styled.blockquote``;
+
+const Code = styled.code`
+  ${body2}
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  color: #f8f8f2;
+  background: #2e3440;
+  white-space: pre;
+  hyphens: none;
+  &:before,
+  &:after {
+    content: "\`";
+    color: ${colors.textLightLowEmphasis};
+  }
+`;
+
 const Pre = styled.pre`
   & code {
     &:before,
@@ -189,14 +209,105 @@ const Pre = styled.pre`
     }
     background: none;
   }
-`;
-const Code = styled.code`
+
+  & > code {
+    display: block;
+    padding: 0;
+  }
+
+  ${body2}
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  color: #f8f8f2;
+  background: #2e3440;
+  white-space: pre;
+  hyphens: none;
+  tab-size: 4;
+  padding: 8px 16px;
+  border-radius: 4px;
+
   &:before,
   &:after {
-    content: "\`";
-    color: ${colors.textDisabled};
+    display: block;
+    content: "\`\`\`";
+    color: ${colors.textLightLowEmphasis};
   }
-  border-radius: 4px;
-  background: ${colors.gray200};
+
+  // copy from https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-nord.css
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #636f88;
+  }
+
+  .token.punctuation {
+    color: #81a1c1;
+  }
+
+  .namespace {
+    opacity: 0.7;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: #81a1c1;
+  }
+
+  .token.number {
+    color: #b48ead;
+  }
+
+  .token.boolean {
+    color: #81a1c1;
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: #a3be8c;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string,
+  .token.variable {
+    color: #81a1c1;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.function,
+  .token.class-name {
+    color: #88c0d0;
+  }
+
+  .token.keyword {
+    color: #81a1c1;
+  }
+
+  .token.regex,
+  .token.important {
+    color: #ebcb8b;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
+  }
+
+  .token.entity {
+    cursor: help;
+  }
 `;
-const Blockquote = styled.blockquote``;
