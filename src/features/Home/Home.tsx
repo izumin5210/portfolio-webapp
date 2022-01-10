@@ -1,9 +1,8 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
-import Image from "next/image";
 import React, { Suspense as _Suspense, SuspenseProps } from "react";
 import { colors } from "../../lib/styles/colors";
-import { body1, heading5 } from "../../lib/styles/typo";
+import { heading5 } from "../../lib/styles/typo";
 import { EntryList, EntryListFilteredByTags } from "./EntryList";
 import { PickedEntryList } from "./PickedEntryList";
 import type { HomeQueryResponse } from "./__generated__/HomeQuery.graphql";
@@ -27,16 +26,6 @@ export const Home: React.VFC<{ queryResult: HomeQueryResponse; filteredByTags: b
 }) => {
   return (
     <>
-      <Header>
-        <AvatarWrapper>
-          <Image src="/izumin.png" alt="izumin521t0" width={80} height={80} quality={100} layout="fixed" />
-        </AvatarWrapper>
-        <InfoWrapper>
-          <NameHeading>@izumin5210</NameHeading>
-          <ShortDescription>Software Engineer</ShortDescription>
-        </InfoWrapper>
-      </Header>
-
       <H2>Pickup</H2>
       <Suspense fallback={<p>loading...</p>}>
         <PickedEntryList pickedEntries={queryResult} />
@@ -49,40 +38,6 @@ export const Home: React.VFC<{ queryResult: HomeQueryResponse; filteredByTags: b
     </>
   );
 };
-
-const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 84px 0 32px;
-  margin: 0;
-`;
-
-const InfoWrapper = styled.div`
-  margin-left: 16px;
-`;
-
-const NameHeading = styled.h1`
-  ${heading5}
-  font-weight: 400;
-  color: ${colors.text};
-  margin: 0;
-  padding: 0;
-`;
-
-const ShortDescription = styled.p`
-  ${body1}
-  font-weight: 400;
-  color: ${colors.text};
-  margin: 0;
-  padding: 0;
-`;
-
-const AvatarWrapper = styled.div`
-  grid-area: avatar;
-  border-radius: 9999vh;
-  box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
-`;
 
 const H2 = styled.h2`
   ${heading5}
