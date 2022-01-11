@@ -91,7 +91,7 @@ function useMarkdownProcessor(text: string) {
 const Article = styled.article`
   color: ${colors.text};
   ${body2}
-  margin-top: 48px;
+  margin: 48px 16px 8px;
 `;
 
 const Aside = styled.aside``;
