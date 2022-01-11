@@ -6,6 +6,7 @@ type ArticleEntry {
   source: EntrySource!
   tags: [String!]!
   title: String!
+  updatedOn: Date!
 }
 
 """
