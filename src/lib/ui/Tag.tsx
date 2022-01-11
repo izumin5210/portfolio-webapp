@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { backgroundColor, colors } from "../styles/colors";
-import { subtitle2 } from "../styles/typo";
+import { caption, fontFamilyHead } from "../styles/typo";
 
 interface Props<Comp extends React.ElementType> {
   text: string;
@@ -19,7 +19,9 @@ export function Tag<Comp extends React.ElementType = "button">({ text, as, ...pr
 }
 
 const tagCss = css`
-  ${subtitle2}
+  ${caption}
+  font-family: ${fontFamilyHead};
+  line-height: 1.25;
   flex: 0 0 auto;
   border: none;
   outline: none;

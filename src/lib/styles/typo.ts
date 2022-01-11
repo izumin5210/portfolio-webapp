@@ -1,7 +1,7 @@
 /** @see https://ics.media/entry/200317/ */
 const fontFamilyBase = '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif';
-const fontFamilyNormal = `Lato, ${fontFamilyBase}`;
-const fontFamilyHead = `Poppins, ${fontFamilyBase}`;
+export const fontFamilyNormal = `Lato, ${fontFamilyBase}`;
+export const fontFamilyHead = `Poppins, ${fontFamilyBase}`;
 
 // Generated from Type scale generator
 // See https://material.io/design/typography/the-type-system.html#type-scale
