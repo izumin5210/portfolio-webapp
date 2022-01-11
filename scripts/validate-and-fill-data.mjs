@@ -165,6 +165,7 @@ async function loadArticleEntries() {
       return {
         title: /** @type{string} */ (result.data.title),
         publishedOn: /** @type{string} */ (result.data.publishedOn),
+        updatedOn: /** @type{string} */ (result.data.updatedOn),
         tags: /** @type{string[]} */ (result.data.tags),
         path: `/blog/${path.basename(filename, ".md")}`,
         picked: false,
