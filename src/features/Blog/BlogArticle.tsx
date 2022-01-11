@@ -9,8 +9,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { backgroundColor, colors } from "../../lib/styles/colors";
-import { body1, body2, heading3, heading4, heading5, heading6 } from "../../lib/styles/typo";
-import { Tag } from "../../lib/ui/Tag";
+import { body1, body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
 export function BlogArticle(props: { article: BlogArticle$key }) {
@@ -30,19 +29,28 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
   return (
     <Article>
       <Aside>
-        <TimesP>
-          Published <Time dateTime={data.publishedOn}>{data.publishedOn}</Time> / Updated{" "}
-          <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
-        </TimesP>
+        <DatesUl>
+          <li>
+            Published <Time dateTime={data.publishedOn}>{data.publishedOn}</Time>
+          </li>
+          <li>
+            Updated <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
+          </li>
+        </DatesUl>
         <TagsUl>
           {data.tags.map((tag) => (
-            <li key={tag}>
-              <Tag as="button" text={tag} />
-            </li>
+            <>
+              <li key={tag}>
+                <Tag href="/">React</Tag>
+              </li>
+              <li key={tag}>
+                <Tag href="/">GraphQL</Tag>
+              </li>
+            </>
           ))}
         </TagsUl>
       </Aside>
-      <H1>{data.title}</H1>
+      <H1 className="title">{data.title}</H1>
       {body}
     </Article>
   );
@@ -96,28 +104,62 @@ const Article = styled.article`
 
 const Aside = styled.aside``;
 
-const TagsUl = styled.ul`
+const DatesUl = styled.ul`
   display: flex;
+  ${subtitle2}
   list-style: none;
   padding: 0;
-  margin: 8px 0 0;
+  margin: 0;
 
   & > li {
-    &:not(:first-child) {
-      margin-left: 8px;
-    }
-    & > button {
-      &:before {
-        content: "#";
-      }
+    color: ${colors.textLowEmphasis};
+
+    &:not(:last-child):after {
+      content: "/";
+      margin: 0 4px;
     }
   }
 `;
 
-const TimesP = styled.p`
+const TagsUl = styled.ul`
+  display: flex;
+  ${subtitle2}
+  list-style: none;
   padding: 0;
-  margin: 0;
-  color: ${colors.textLowEmphasis};
+  margin: 2px 0 0 -8px;
+
+  & > li {
+    &:not(:last-child) {
+      margin-right: -4px;
+    }
+  }
+`;
+
+const Tag = styled.a`
+  &:hover {
+    background: ${backgroundColor({ state: "hover" })};
+  }
+  &:focus {
+    background: ${backgroundColor({ state: "focus" })};
+  }
+  &:active {
+    background: ${backgroundColor({ state: "pressed" })};
+  }
+  &:focus-visible {
+    outline: 2px solid ${colors.blue700};
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
+  &:before {
+    content: "#";
+    color: ${colors.textLowEmphasis};
+  }
+  color: ${colors.text};
+  border-radius: 9999vh;
+  padding: 2px 8px;
+  text-decoration: none;
+  transition: all 300ms;
 `;
 
 const Time = styled.time`
@@ -151,6 +193,10 @@ const H1 = styled.h1`
     ${headingMarkerStyle}
     content: "#";
     margin-right: 8px;
+  }
+
+  &.title {
+    margin-top: 8px;
   }
 `;
 
