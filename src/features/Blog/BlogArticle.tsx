@@ -35,11 +35,11 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
           <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
         </TimesP>
         <TagsUl>
-          <li>
-            {data.tags.map((tag) => (
-              <Tag as="button" key={tag} text={tag} />
-            ))}
-          </li>
+          {data.tags.map((tag) => (
+            <li key={tag}>
+              <Tag as="button" text={tag} />
+            </li>
+          ))}
         </TagsUl>
       </Aside>
       <H1>{data.title}</H1>
@@ -102,9 +102,14 @@ const TagsUl = styled.ul`
   padding: 0;
   margin: 8px 0 0;
 
-  & > li > button {
-    &:before {
-      content: "#";
+  & > li {
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+    & > button {
+      &:before {
+        content: "#";
+      }
     }
   }
 `;
