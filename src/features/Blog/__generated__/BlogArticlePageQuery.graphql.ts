@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f367d1d2920c9c971fe9a54af7d1274e>>
+ * @generated SignedSource<<f0bff3742a9f5a8b5da8cb53075b2813>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -95,18 +95,39 @@ const node: ConcreteRequest = (function () {
               name: "body",
               storageKey: null,
             },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "publishedOn",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "updatedOn",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "tags",
+              storageKey: null,
+            },
           ],
           storageKey: null,
         },
       ],
     },
     params: {
-      cacheID: "768ba7a3331e9dcab4611a6f5b6499a2",
+      cacheID: "f38b5e8a876f79d2de0afc363f91905a",
       id: null,
       metadata: {},
       name: "BlogArticlePageQuery",
       operationKind: "query",
-      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n}\n",
+      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags\n}\n",
     },
   };
 })();

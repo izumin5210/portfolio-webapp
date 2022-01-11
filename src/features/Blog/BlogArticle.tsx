@@ -4,12 +4,13 @@ import { createElement, Fragment, ReactElement, useEffect, useState } from "reac
 import { useFragment } from "react-relay";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
+import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import remarkFrontmatter from "remark-frontmatter";
 import { unified } from "unified";
 import { backgroundColor, colors } from "../../lib/styles/colors";
-import { body1, body2, heading3, heading4, heading5, heading6, subtitle1, subtitle2 } from "../../lib/styles/typo";
+import { body1, body2, heading3, heading4, heading5, heading6 } from "../../lib/styles/typo";
+import { Tag } from "../../lib/ui/Tag";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
 export function BlogArticle(props: { article: BlogArticle$key }) {
@@ -18,6 +19,9 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
       fragment BlogArticle on ArticleEntry {
         title
         body
+        publishedOn
+        updatedOn
+        tags
       }
     `,
     props.article
@@ -25,6 +29,19 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
   const body = useMarkdownProcessor(data.body);
   return (
     <Article>
+      <Aside>
+        <TimesP>
+          Published <Time dateTime={data.publishedOn}>{data.publishedOn}</Time> / Updated{" "}
+          <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
+        </TimesP>
+        <TagsUl>
+          <li>
+            {data.tags.map((tag) => (
+              <Tag as="button" key={tag} text={tag} />
+            ))}
+          </li>
+        </TagsUl>
+      </Aside>
       <H1>{data.title}</H1>
       {body}
     </Article>
@@ -74,6 +91,32 @@ function useMarkdownProcessor(text: string) {
 const Article = styled.article`
   color: ${colors.text};
   ${body2}
+  margin-top: 48px;
+`;
+
+const Aside = styled.aside``;
+
+const TagsUl = styled.ul`
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+
+  & > li > button {
+    &:before {
+      content: "#";
+    }
+  }
+`;
+
+const TimesP = styled.p`
+  padding: 0;
+  margin: 0;
+  color: ${colors.textLowEmphasis};
+`;
+
+const Time = styled.time`
+  color: ${colors.text};
 `;
 
 const headingMarkerStyle = {
@@ -91,11 +134,14 @@ const listStyle = {
   paddingLeft: "12px",
   "ul, ol": {
     paddingLeft: "24px",
+    margin: "0",
   },
+  margin: "16px 0 0",
 };
 
 const H1 = styled.h1`
   ${heading3}
+  margin: 40px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "#";
@@ -105,6 +151,7 @@ const H1 = styled.h1`
 
 const H2 = styled.h2`
   ${heading4}
+  margin: 40px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "##";
@@ -114,6 +161,7 @@ const H2 = styled.h2`
 
 const H3 = styled.h3`
   ${heading5}
+  margin: 32px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "###";
@@ -123,6 +171,7 @@ const H3 = styled.h3`
 
 const H4 = styled.h4`
   ${heading6}
+  margin: 24px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "####";
@@ -131,7 +180,8 @@ const H4 = styled.h4`
 `;
 
 const H5 = styled.h5`
-  ${subtitle1}
+  ${heading6}
+  margin: 16px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "#####";
@@ -140,7 +190,8 @@ const H5 = styled.h5`
 `;
 
 const H6 = styled.h1`
-  ${subtitle2}
+  ${heading6}
+  margin: 16px 0 0;
   &:before {
     ${headingMarkerStyle}
     content: "######";
@@ -150,6 +201,7 @@ const H6 = styled.h1`
 
 const P = styled.p`
   ${body1}
+  margin: 16px 0 0;
 `;
 
 const Li = styled.li`
@@ -214,6 +266,7 @@ const A = styled.a`
   text-decoration: none;
   transition: all 300ms;
 `;
+
 const Strong = styled.strong`
   &:before,
   &:after {
@@ -221,6 +274,7 @@ const Strong = styled.strong`
     color: ${colors.textDisabled};
   }
 `;
+
 const Em = styled.em`
   &:before,
   &:after {
@@ -269,6 +323,7 @@ const Pre = styled.pre`
   tab-size: 4;
   border-radius: 4px;
   padding: 8px 16px;
+  margin: 16px 0 0;
 
   &:before,
   &:after {
