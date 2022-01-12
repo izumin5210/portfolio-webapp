@@ -41,6 +41,9 @@ ENV NODE_ENV production
 ARG GIT_SHA
 RUN --mount=type=secret,id=dotenv,dst=/app/.env yarn build && rm -rf .next/static/**/*.map
 
+RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=yarn-cache,sharing=shared \
+  yarn install --frozen-lockfile --no-progress --production
+
 #  App
 #-----------------------------------------------
 ENTRYPOINT ["/usr/bin/tini", "--"]
