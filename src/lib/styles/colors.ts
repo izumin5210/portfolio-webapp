@@ -25,7 +25,7 @@ type ValueOf<T> = T extends Record<any, infer V> ? V : never;
 type DeepKeys<T> = ValueOf<JoinedKeyMap<KeyMap<T>>>;
 type OpacityKey = DeepKeys<typeof opacities>;
 
-function colorWithOpacity(rgb: `#${string}`, opacity: OpacityKey) {
+export function colorWithOpacity(rgb: `#${string}`, opacity: OpacityKey) {
   const m = rgb.match(rgbPat);
   if (m == null) throw new Error(`invalid color format: ${rgb}`);
   return `rgba(${h2d(m[1])},${h2d(m[2])},${h2d(m[3])},${getOpacity(opacity)})`;
