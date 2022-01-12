@@ -35,6 +35,7 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=yarn-cache,sharing
 COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
 COPY ./public/ /app/public
 COPY ./src/ /app/src
+COPY ./_articles/ /app/_articles
 
 ENV NODE_ENV production
 
