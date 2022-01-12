@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e8cfb5f4368cbe0ef4398d4be288b1c6>>
+ * @generated SignedSource<<2eced056efd5ebba84b18592f19ff6b8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -36,6 +36,12 @@ const node: ConcreteRequest = (function () {
       nullable: false,
       plural: false,
       type: "String",
+    },
+    v2 = {
+      enumValues: null,
+      nullable: false,
+      plural: false,
+      type: "Date",
     };
   return {
     fragment: {
@@ -92,13 +98,34 @@ const node: ConcreteRequest = (function () {
               name: "body",
               storageKey: null,
             },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "publishedOn",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "updatedOn",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "tags",
+              storageKey: null,
+            },
           ],
           storageKey: 'articleEntryByPath(path:"test-path")',
         },
       ],
     },
     params: {
-      cacheID: "7925ab752f2efa0352fd23958dfdcc75",
+      cacheID: "2c1da5e2fc57bbe45f6e7e32e1ab043a",
       id: null,
       metadata: {
         relayTestingSelectionTypeInfo: {
@@ -109,12 +136,20 @@ const node: ConcreteRequest = (function () {
             type: "ArticleEntry",
           },
           "articleEntryByPath.body": v1 /*: any*/,
+          "articleEntryByPath.publishedOn": v2 /*: any*/,
+          "articleEntryByPath.tags": {
+            enumValues: null,
+            nullable: false,
+            plural: true,
+            type: "String",
+          },
           "articleEntryByPath.title": v1 /*: any*/,
+          "articleEntryByPath.updatedOn": v2 /*: any*/,
         },
       },
       name: "BlogArticleTestQuery",
       operationKind: "query",
-      text: 'query BlogArticleTestQuery {\n  articleEntryByPath(path: "test-path") {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n}\n',
+      text: 'query BlogArticleTestQuery {\n  articleEntryByPath(path: "test-path") {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags\n}\n',
     },
   };
 })();
