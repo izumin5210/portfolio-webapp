@@ -39,14 +39,9 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
         </DatesUl>
         <TagsUl>
           {data.tags.map((tag) => (
-            <>
-              <li key={tag}>
-                <Tag href="/">React</Tag>
-              </li>
-              <li key={tag}>
-                <Tag href="/">GraphQL</Tag>
-              </li>
-            </>
+            <li key={tag}>
+              <Tag href="/">{tag}</Tag>
+            </li>
           ))}
         </TagsUl>
       </Aside>
