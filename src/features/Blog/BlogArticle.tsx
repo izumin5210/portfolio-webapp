@@ -8,7 +8,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { backgroundColor, colors } from "../../lib/styles/colors";
+import { backgroundColor, colors, colorWithOpacity } from "../../lib/styles/colors";
 import { body1, body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
@@ -276,15 +276,6 @@ const Ol = styled.ol`
 `;
 
 const A = styled.a`
-  &:hover {
-    background: ${backgroundColor({ state: "hover" })};
-  }
-  &:focus {
-    background: ${backgroundColor({ state: "focus" })};
-  }
-  &:active {
-    background: ${backgroundColor({ state: "pressed" })};
-  }
   &:focus-visible {
     outline: 2px solid ${colors.blue700};
   }
@@ -292,7 +283,6 @@ const A = styled.a`
     outline: 0;
   }
   &:hover,
-  &:focus,
   &:active {
     &:before {
       border-bottom: 1px solid transparent;
@@ -301,13 +291,13 @@ const A = styled.a`
   position: relative;
   &:before {
     position: absolute;
-    bottom: 2px;
+    bottom: 1px;
     content: "";
     width: 100%;
     transition: all 300ms;
-    border-bottom: 1px solid ${colors.blue700};
+    border-bottom: 1px solid ${colorWithOpacity(colors.blue700, "text.lowEmphasis")};
   }
-  color: ${colors.blue700};
+  color: ${colorWithOpacity(colors.blue700, "text.highEmphasis")};
   border-radius: 4px;
   text-decoration: none;
   transition: all 300ms;

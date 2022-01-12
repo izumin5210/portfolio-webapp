@@ -3,7 +3,7 @@ import { styled } from "@linaria/react";
 import Image from "next/image";
 import { ReactNode } from "react";
 import "sanitize.css";
-import { backgroundColor, colors } from "./lib/styles/colors";
+import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
 
 export function Layout(props: { children: ReactNode }) {
@@ -95,15 +95,6 @@ const Footer = styled.footer`
   text-align: center;
 
   & a {
-    &:hover {
-      background: ${backgroundColor({ state: "hover" })};
-    }
-    &:focus {
-      background: ${backgroundColor({ state: "focus" })};
-    }
-    &:active {
-      background: ${backgroundColor({ state: "pressed" })};
-    }
     &:focus-visible {
       outline: 2px solid ${colors.blue700};
     }
@@ -113,21 +104,20 @@ const Footer = styled.footer`
     position: relative;
     &:before {
       position: absolute;
-      bottom: 2px;
+      bottom: 1px;
       content: "";
       width: 100%;
       transition: all 300ms;
-      border-bottom: 1px dotted ${colors.gray500};
+      border-bottom: 1px solid ${colors.textLowEmphasis};
     }
     &:hover,
-    &:focus,
     &:active {
       &:before {
-        border-bottom: 1px dotted transparent;
+        border-bottom: 1px solid transparent;
       }
     }
     border-radius: 4px;
-    color: ${colors.textLowEmphasis};
+    color: ${colors.text};
     text-decoration: none;
     transition: background 300ms;
   }
