@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
-import { createElement, Fragment, ReactElement, useEffect, useState } from "react";
+import { createElement, Fragment, useMemo } from "react";
 import { useFragment } from "react-relay";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
@@ -52,10 +52,8 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
 }
 
 function useMarkdownProcessor(text: string) {
-  const [Content, setContent] = useState<ReactElement | null>(null);
-
-  useEffect(() => {
-    void unified()
+  return useMemo(() => {
+    const processor = unified()
       .use(remarkParse)
       .use(remarkFrontmatter)
       .use(remarkRehype)
@@ -81,14 +79,10 @@ function useMarkdownProcessor(text: string) {
           pre: Pre,
           blockquote: Blockquote,
         },
-      })
-      .process(text)
-      .then((file) => {
-        setContent(file.result);
       });
+    const file = processor.processSync(text);
+    return file.result;
   }, [text]);
-
-  return Content;
 }
 
 const Article = styled.article`
