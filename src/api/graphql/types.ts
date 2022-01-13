@@ -27,7 +27,10 @@ export const ArticleEntry = new GraphQLObjectType({
     body: {
       type: new GraphQLNonNull(GraphQLString),
       resolve(root): Promise<string> {
-        return fs.readFile(path.join(process.cwd(), `${root.path.replace("/blog/", "/_articles/")}.md`), "utf-8");
+        const filename = `${root.path
+          .replace("/blog/", "/_articles/")
+          .replace(/\/(\d{4})\/(\d{2})\/(\d{2})\//, "/$1-$2-$3-")}.md`;
+        return fs.readFile(path.join(process.cwd(), filename), "utf-8");
       },
     },
     path: { type: new GraphQLNonNull(GraphQLString) },

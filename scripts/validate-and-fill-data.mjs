@@ -160,14 +160,16 @@ async function loadArticleEntries() {
   const filenames = await fs.readdir(dir);
   return Promise.all(
     filenames.map(async (filename) => {
+      const [_basename, publishedOn, pathSuffix] =
+        path.basename(filename, ".md").match(/(\d{4}-\d{2}-\d{2})-(.*)/) ?? [];
       const body = await fs.readFile(path.join(dir, filename), { encoding: "utf8" });
       const result = await processor.process(body);
       return {
         title: /** @type{string} */ (result.data.title),
-        publishedOn: /** @type{string} */ (result.data.publishedOn),
+        publishedOn,
         updatedOn: /** @type{string} */ (result.data.updatedOn),
         tags: /** @type{string[]} */ (result.data.tags),
-        path: `/blog/${path.basename(filename, ".md")}`,
+        path: `/blog/${publishedOn.replace(/-/g, "/")}/${pathSuffix}`,
         picked: false,
         source: {
           type: "article",

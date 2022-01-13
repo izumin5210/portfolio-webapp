@@ -54,11 +54,11 @@ tags:
   - name: gRPC
 entries:
   - title: Example article
-    publishedOn: 2022-01-05T00:00:00.000Z
+    publishedOn: '2022-01-05'
     updatedOn: 2022-01-10T00:00:00.000Z
     tags:
       - test
-    path: /blog/example
+    path: /blog/2022/01/05/example
     picked: false
     source:
       type: article
