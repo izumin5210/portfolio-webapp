@@ -69,6 +69,7 @@ function useMarkdownProcessor(text: string) {
           h5: H5,
           h6: H6,
           p: P,
+          img: Img,
           ul: Ul,
           ol: Ol,
           li: Li,
@@ -242,6 +243,13 @@ const H6 = styled.h1`
 const P = styled.p`
   ${body1}
   margin: 16px 0 0;
+`;
+
+const Img = styled.img`
+  display: block;
+  margin: 16px auto 0;
+  max-width: 100%;
+  max-height: 500px;
 `;
 
 const Li = styled.li`

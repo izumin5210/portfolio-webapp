@@ -61,6 +61,8 @@ In hac habitasse platea dictumst. Suspendisse posuere, tortor quis condimentum l
 
 #### Heading level 4
 
+![image](https://dummyimage.com/600x400/bdbdbd/000000)
+
 ##### Heading level 5
 
 ###### Heading level 6
@@ -102,6 +104,8 @@ This is a \`inline code block\`.
 
 > This is a quoted paragrapph.
 
+![large image](https://dummyimage.com/1600x1200/bdbdbd/000000)
+![long image](https://dummyimage.com/600x2400/bdbdbd/000000)
 `,
   },
 };
