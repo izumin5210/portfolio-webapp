@@ -90,6 +90,7 @@ const AvatarWrapper = styled.div`
 `;
 
 const Footer = styled.footer`
+  margin-top: 96px;
   padding: 8px;
   ${caption}
   color: ${colors.textLowEmphasis};
