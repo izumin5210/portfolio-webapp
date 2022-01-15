@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import "sanitize.css";
 import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
+import { textLinkCss } from "./lib/ui/TextLink";
 
 export function Layout(props: { children: ReactNode }) {
   return (
@@ -95,31 +96,7 @@ const Footer = styled.footer`
   text-align: center;
 
   & a {
-    &:focus-visible {
-      outline: 2px solid ${colors.blue700};
-    }
-    &:focus:not(:focus-visible) {
-      outline: 0;
-    }
-    position: relative;
-    &:before {
-      position: absolute;
-      bottom: 1px;
-      content: "";
-      width: 100%;
-      transition: all 300ms;
-      border-bottom: 1px solid ${colors.textLowEmphasis};
-    }
-    &:hover,
-    &:active {
-      &:before {
-        border-bottom: 1px solid transparent;
-      }
-    }
-    border-radius: 4px;
-    color: ${colors.text};
-    text-decoration: none;
-    transition: background 300ms;
+    ${textLinkCss(colors.black)}
   }
 `;
 
