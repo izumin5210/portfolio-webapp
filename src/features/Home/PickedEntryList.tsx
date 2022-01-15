@@ -84,9 +84,6 @@ const PickedEntryItemAnchor = styled.a`
   &:hover {
     background: ${backgroundColor({ state: "hover" })};
   }
-  &:focus {
-    background: ${backgroundColor({ state: "focus" })};
-  }
   &:active {
     background: ${backgroundColor({ state: "pressed" })};
   }

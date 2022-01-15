@@ -129,9 +129,6 @@ const EntryAnchor = styled.a`
   &:hover {
     background: ${backgroundColor({ state: "hover" })};
   }
-  &:focus {
-    background: ${backgroundColor({ state: "focus" })};
-  }
   &:active:not(:has(:active)) {
     background: ${backgroundColor({ state: "pressed" })};
   }
