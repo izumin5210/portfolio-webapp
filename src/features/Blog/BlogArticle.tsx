@@ -1,6 +1,7 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
-import { createElement, Fragment, useMemo } from "react";
+import Link from "next/link";
+import React, { createElement, Fragment, useMemo } from "react";
 import { useFragment } from "react-relay";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
@@ -74,7 +75,7 @@ function useMarkdownProcessor(text: string) {
           ul: Ul,
           ol: Ol,
           li: Li,
-          a: A,
+          a: TextLink,
           strong: Strong,
           em: Em,
           code: Code,
@@ -277,6 +278,19 @@ const Ol = styled.ol`
     font-size: 0.8em;
   }
 `;
+
+function TextLink({
+  href,
+  children,
+  ...props
+}: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
+  const isExternalLink = /^https?:\/\//.test(href ?? "");
+  return (
+    <Link href={href ?? ""} passHref {...props}>
+      <A {...(isExternalLink ? { rel: "noopener noreferrer", target: "_blank" } : {})}>{children}</A>
+    </Link>
+  );
+}
 
 const A = styled.a`
   ${textLinkCss()}
