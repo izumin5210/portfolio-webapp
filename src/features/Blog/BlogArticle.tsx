@@ -8,8 +8,9 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { backgroundColor, colors, colorWithOpacity } from "../../lib/styles/colors";
+import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
+import { textLinkCss } from "../../lib/ui/TextLink";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
 export function BlogArticle(props: { article: BlogArticle$key }) {
@@ -278,31 +279,7 @@ const Ol = styled.ol`
 `;
 
 const A = styled.a`
-  &:focus-visible {
-    outline: 2px solid ${colors.blue700};
-  }
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
-  &:hover,
-  &:active {
-    &:before {
-      border-bottom: 1px solid transparent;
-    }
-  }
-  position: relative;
-  &:before {
-    position: absolute;
-    bottom: 1px;
-    content: "";
-    width: 100%;
-    transition: all 300ms;
-    border-bottom: 1px solid ${colorWithOpacity(colors.blue700, "text.lowEmphasis")};
-  }
-  color: ${colorWithOpacity(colors.blue700, "text.highEmphasis")};
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 300ms;
+  ${textLinkCss()}
 `;
 
 const Strong = styled.strong`
