@@ -10,6 +10,9 @@ type ExtractPathParams<T extends string> = T extends `[...${infer U}]`
   ? Record<U, string>
   : never;
 
+/**
+ * @see https://zenn.dev/panda_program/articles/typescript-nextjs-routing
+ */
 type PathParams<T extends string> = UnionToIntersection<
   ExtractPathParams<SplitPaths<TrimTrailingIndex<TrimLeadingSlash<T>>>>
 >;
