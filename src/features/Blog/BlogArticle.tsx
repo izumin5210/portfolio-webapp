@@ -9,6 +9,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import { getPath } from "../../lib/next-typed-routes";
 import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
@@ -28,6 +29,7 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
     props.article
   );
   const body = useMarkdownProcessor(data.body);
+
   return (
     <Article>
       <Aside>
@@ -42,7 +44,9 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
         <TagsUl>
           {data.tags.map((tag) => (
             <li key={tag}>
-              <Tag href="/">{tag}</Tag>
+              <Link href={getPath("/", { query: { tags: [tag] } })} passHref>
+                <Tag>{tag}</Tag>
+              </Link>
             </li>
           ))}
         </TagsUl>
