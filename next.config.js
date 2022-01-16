@@ -43,6 +43,9 @@ module.exports = (phase, { defaultConfig }) => {
       GIT_SHA: gitSha,
       BUILT_AT: new Date().toISOString(),
     },
+    rewrites() {
+      return [{ source: "/blog/feed", destination: "/api/blog/feed" }];
+    },
   };
 
   if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
