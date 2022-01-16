@@ -4,7 +4,7 @@ type ArticleEntry {
   picked: Boolean!
   publishedOn: Date!
   source: EntrySource!
-  tags: [String!]!
+  tags: [EntryTag!]!
   title: String!
   updatedOn: Date!
 }
@@ -50,11 +50,16 @@ type EntrySource {
   name: String!
 }
 
+type EntryTag {
+  displayName: String!
+  name: String!
+}
+
 type ExternalArticleEntry {
   picked: Boolean!
   publishedOn: Date!
   source: EntrySource!
-  tags: [String!]!
+  tags: [EntryTag!]!
   title: String!
   url: String!
 }
@@ -63,7 +68,7 @@ type OSSEntry {
   picked: Boolean!
   publishedOn: Date!
   source: EntrySource!
-  tags: [String!]!
+  tags: [EntryTag!]!
   title: String!
   url: String!
 }
@@ -97,7 +102,7 @@ type PodcastEntry {
   picked: Boolean!
   publishedOn: Date!
   source: EntrySource!
-  tags: [String!]!
+  tags: [EntryTag!]!
   title: String!
   url: String!
 }
@@ -154,7 +159,7 @@ type SlideEntry {
   picked: Boolean!
   publishedOn: Date!
   source: EntrySource!
-  tags: [String!]!
+  tags: [EntryTag!]!
   title: String!
   url: String!
 }
