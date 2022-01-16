@@ -4,7 +4,7 @@
 
 import type * as typesindex from "../pages/index";
 export type Routes = {
-  "/blog/[...path]": {
+  "/blog/[year]/[month]/[day]/[path]": {
     query: {};
   };
   "/": {
