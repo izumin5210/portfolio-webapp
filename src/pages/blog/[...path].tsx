@@ -3,8 +3,8 @@ import React from "react";
 import { fetchQuery } from "react-relay";
 import { BlogArticlePage, BlogArticlePageQuery } from "../../features/Blog/BlogArticlePage";
 import { BlogArticlePageQuery as BlogArticlePageQueryType } from "../../features/Blog/__generated__/BlogArticlePageQuery.graphql";
+import { getPath } from "../../lib/next-typed-routes";
 import { initRelayEnvironment } from "../../lib/RelayEnvironment";
-import { getPath } from "../../lib/typed-path-helper";
 
 const BlogArticle = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return props.queryResult ? <BlogArticlePage queryResult={props.queryResult} /> : null;
