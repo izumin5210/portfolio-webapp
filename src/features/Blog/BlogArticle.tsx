@@ -155,7 +155,7 @@ const Tag = styled.a`
   border-radius: 9999vh;
   padding: 2px 8px;
   text-decoration: none;
-  transition: all 300ms;
+  transition: background 300ms;
 `;
 
 const Time = styled.time`
