@@ -179,7 +179,7 @@ async function loadArticleEntries() {
         title: /** @type{string} */ (result.data.title),
         publishedOn,
         updatedOn: /** @type{string} */ (result.data.updatedOn),
-        tags: /** @type{Tag[]} */ (result.data.tags),
+        tags: /** @type{string[]} */ (result.data.tags).map((name) => /** @type{Tag} */ ({ name })),
         path: `/blog/${publishedOn.replace(/-/g, "/")}/${pathSuffix}`,
         picked: false,
         source: {
@@ -210,16 +210,19 @@ void Promise.all([
         })
         .then((entry) => ({ ...entry, source: inferSource(entry) }))
         .then((entry) => ({ ...entry, title: refineTitle(entry) }))
-        .then((entry) => ({ ...entry, picked: entry.picked ?? false }))
-        .then((entry) => ({
-          ...entry,
-          tags: entry.tags.map(({ name }) => /** @type {Tag} */ ({ name, displayName: tagByName[name].displayName })),
-        }));
+        .then((entry) => ({ ...entry, picked: entry.picked ?? false }));
     })
   ),
   loadArticleEntries(),
 ])
   .then(([entries1, entries2]) => [...entries1, ...entries2])
+  // fill displayName of tags
+  .then((entries) =>
+    entries.map((entry) => ({
+      ...entry,
+      tags: entry.tags.map(({ name }) => /** @type {Tag} */ ({ name, displayName: tagByName[name].displayName })),
+    }))
+  )
   // sort tags
   .then((entries) =>
     entries.map((entry) => ({
