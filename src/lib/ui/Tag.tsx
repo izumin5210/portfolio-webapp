@@ -52,7 +52,6 @@ const tagCss = css`
 
   &:hover,
   &:active,
-  &:focus,
   &:focus-visible {
     color: ${colors.text};
   }
@@ -60,9 +59,6 @@ const tagCss = css`
     background: ${backgroundColor({ state: "hover" })};
   }
   &:active:after {
-    background: ${backgroundColor({ state: "pressed" })};
-  }
-  &:focus:after {
     background: ${backgroundColor({ state: "pressed" })};
   }
   &:focus-visible:after {
@@ -85,9 +81,6 @@ const tagCss = css`
       background: ${backgroundColor({ state: "hover", theme: "dark" })};
     }
     &:active:after {
-      background: ${backgroundColor({ state: "pressed", theme: "dark" })};
-    }
-    &:focus:after {
       background: ${backgroundColor({ state: "pressed", theme: "dark" })};
     }
   }
