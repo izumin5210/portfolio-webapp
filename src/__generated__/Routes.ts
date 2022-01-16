@@ -2,7 +2,7 @@
 
 /* eslint-disable */
 
-import type * as typesindex from "./pages/index";
+import type * as typesindex from "../pages/index";
 export type Routes = {
   "/blog/[...path]": {
     query: {};

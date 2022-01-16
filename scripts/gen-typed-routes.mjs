@@ -60,7 +60,7 @@ const ast = [
           undefined,
           ts.factory.createNamespaceImport(ts.factory.createIdentifier(pageTypeIdentFromPath(routeDef.path)))
         ),
-        ts.factory.createStringLiteral(`./pages/${routeDef.path}`),
+        ts.factory.createStringLiteral(`../pages/${routeDef.path}`),
         undefined
       );
     }),
