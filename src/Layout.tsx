@@ -1,6 +1,7 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
+import Link from "next/link";
 import { ReactNode } from "react";
 import "sanitize.css";
 import { colors } from "./lib/styles/colors";
@@ -16,8 +17,17 @@ export function Layout(props: { children: ReactNode }) {
           <Image src="/izumin.png" alt="izumin521t0" width={80} height={80} quality={100} layout="fixed" />
         </AvatarWrapper>
         <InfoWrapper>
-          <NameHeading>@izumin5210</NameHeading>
-          <ShortDescription>Software Engineer</ShortDescription>
+          <NameHeading>
+            <Link href="/" passHref>
+              <a>izum.in</a>
+            </Link>
+          </NameHeading>
+          <ShortDescription>
+            <Link href="https://github.com/izumin5210" passHref>
+              @izumin5210
+            </Link>{" "}
+            - Software Engineer
+          </ShortDescription>
         </InfoWrapper>
       </Header>
       {props.children}
@@ -56,11 +66,11 @@ const Main = styled.main`
 `;
 
 const Header = styled.header`
+  margin: 0;
+  padding: 84px 0 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 84px 0 32px;
-  margin: 0;
 `;
 
 const InfoWrapper = styled.div`
@@ -70,17 +80,26 @@ const InfoWrapper = styled.div`
 const NameHeading = styled.h1`
   ${heading5}
   font-weight: 400;
-  color: ${colors.text};
   margin: 0;
   padding: 0;
+
+  a {
+    color: ${colors.text};
+    text-decoration: none;
+  }
 `;
 
 const ShortDescription = styled.p`
   ${body1}
   font-weight: 400;
-  color: ${colors.text};
+  color: ${colors.textLowEmphasis};
   margin: 0;
   padding: 0;
+
+  a {
+    color: ${colors.text};
+    text-decoration: none;
+  }
 `;
 
 const AvatarWrapper = styled.div`
