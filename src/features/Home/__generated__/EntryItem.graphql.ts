@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<33408f548245cc6e2f6cc49fa4f141a0>>
+ * @generated SignedSource<<28ef985d566ab3f1bd2c746bcbb51995>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,7 +13,10 @@ import { FragmentRefs } from "relay-runtime";
 export type EntryItem$data = {
   readonly title?: string;
   readonly path?: string;
-  readonly tags?: ReadonlyArray<string>;
+  readonly tags?: ReadonlyArray<{
+    readonly name: string;
+    readonly displayName: string;
+  }>;
   readonly publishedOn?: any;
   readonly source?: {
     readonly name: string;
@@ -39,35 +42,46 @@ const node: ReaderFragment = (function () {
       alias: null,
       args: null,
       kind: "ScalarField",
-      name: "tags",
+      name: "name",
       storageKey: null,
     },
     v2 = {
+      alias: null,
+      args: null,
+      concreteType: "EntryTag",
+      kind: "LinkedField",
+      name: "tags",
+      plural: true,
+      selections: [
+        v1 /*: any*/,
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "displayName",
+          storageKey: null,
+        },
+      ],
+      storageKey: null,
+    },
+    v3 = {
       alias: null,
       args: null,
       kind: "ScalarField",
       name: "publishedOn",
       storageKey: null,
     },
-    v3 = {
+    v4 = {
       alias: null,
       args: null,
       concreteType: "EntrySource",
       kind: "LinkedField",
       name: "source",
       plural: false,
-      selections: [
-        {
-          alias: null,
-          args: null,
-          kind: "ScalarField",
-          name: "name",
-          storageKey: null,
-        },
-      ],
+      selections: [v1 /*: any*/],
       storageKey: null,
     },
-    v4 = [
+    v5 = [
       v0 /*: any*/,
       {
         alias: null,
@@ -76,9 +90,9 @@ const node: ReaderFragment = (function () {
         name: "url",
         storageKey: null,
       },
-      v1 /*: any*/,
       v2 /*: any*/,
       v3 /*: any*/,
+      v4 /*: any*/,
     ];
   return {
     argumentDefinitions: [],
@@ -97,34 +111,34 @@ const node: ReaderFragment = (function () {
             name: "path",
             storageKey: null,
           },
-          v1 /*: any*/,
           v2 /*: any*/,
           v3 /*: any*/,
+          v4 /*: any*/,
         ],
         type: "ArticleEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v4 /*: any*/,
+        selections: v5 /*: any*/,
         type: "ExternalArticleEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v4 /*: any*/,
+        selections: v5 /*: any*/,
         type: "SlideEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v4 /*: any*/,
+        selections: v5 /*: any*/,
         type: "OSSEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v4 /*: any*/,
+        selections: v5 /*: any*/,
         type: "PodcastEntry",
         abstractKey: null,
       },
@@ -134,6 +148,6 @@ const node: ReaderFragment = (function () {
   };
 })();
 
-(node as any).hash = "c13203cd7e600b6dc48c675d0ea02725";
+(node as any).hash = "92aff75ddddf17d20594a1ac89cc957a";
 
 export default node;

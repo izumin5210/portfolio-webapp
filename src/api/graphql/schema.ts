@@ -10,7 +10,7 @@ type Entry = {
   url?: string;
   path?: string;
   publishedOn: string;
-  tags: string[];
+  tags: { name: string; displayName: string }[];
   source?: { name: string; type: string };
   picked: boolean;
 };
@@ -47,7 +47,9 @@ export const schema = new GraphQLSchema({
           },
         },
         async resolve(_root, { tags, ...args }) {
-          const entries = fetchEntries().filter((e) => (tags as string[]).every((tag) => e.tags.includes(tag)));
+          const entries = fetchEntries().filter((e) =>
+            (tags as string[]).every((tag) => e.tags.find((t) => t.name === tag))
+          );
           return connectionFromArray(entries, args);
         },
       },

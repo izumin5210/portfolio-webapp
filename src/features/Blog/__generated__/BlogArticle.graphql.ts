@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7470addfa69a5614af286a67554f440f>>
+ * @generated SignedSource<<e3a547e2f15c2007945a84285c3095d1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,10 @@ export type BlogArticle$data = {
   readonly body: string;
   readonly publishedOn: any;
   readonly updatedOn: any;
-  readonly tags: ReadonlyArray<string>;
+  readonly tags: ReadonlyArray<{
+    readonly name: string;
+    readonly displayName: string;
+  }>;
   readonly " $fragmentType": "BlogArticle";
 };
 export type BlogArticle = BlogArticle$data;
@@ -61,8 +64,26 @@ const node: ReaderFragment = {
     {
       alias: null,
       args: null,
-      kind: "ScalarField",
+      concreteType: "EntryTag",
+      kind: "LinkedField",
       name: "tags",
+      plural: true,
+      selections: [
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "name",
+          storageKey: null,
+        },
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "displayName",
+          storageKey: null,
+        },
+      ],
       storageKey: null,
     },
   ],
@@ -70,6 +91,6 @@ const node: ReaderFragment = {
   abstractKey: null,
 };
 
-(node as any).hash = "106febee3de6d2e42c6de598ed4e1715";
+(node as any).hash = "ed97927e1ca2b40d81d4773d6c5eed14";
 
 export default node;

@@ -31,6 +31,7 @@ const rawData = readFileSync(datafile, "utf-8");
 /**
  * @typedef Tag
  * @property {string} name
+ * @property {string} displayName
  * @property {string[] | undefined} dependsOn
  */
 
@@ -39,7 +40,7 @@ const rawData = readFileSync(datafile, "utf-8");
  * @property {string | undefined} title
  * @property {string} path
  * @property {string} publishedOn
- * @property {string[]} tags
+ * @property {Tag[]} tags
  * @property {boolean} picked
  */
 
@@ -49,7 +50,7 @@ const rawData = readFileSync(datafile, "utf-8");
  * @property {string} url
  * @property {string} publishedOn
  * @property {Source | undefined} source
- * @property {string[]} tags
+ * @property {Tag[]} tags
  * @property {boolean} picked
  */
 
@@ -70,9 +71,19 @@ const tagByName = data.tags.reduce(
 );
 
 for (const tag of data.tags) {
+  const warnings = [];
+
+  if (tag.name == null) warnings.push("name is required");
+  if (!tag.name.match(/^\w[\w\-]+$/)) warnings.push("name is invalid format");
+  if (tag.displayName == null) warnings.push("displayName is required");
   for (const dt of tag.dependsOn ?? []) {
     // eslint-disable-next-line no-console
-    if (tagByName[dt] == null) console.warn(`tag "${dt}" is not defined`);
+    if (tagByName[dt] == null) warnings.push(`dependent tag "${dt}" is not defined`);
+  }
+
+  if (warnings.length > 0) {
+    // eslint-disable-next-line no-console
+    console.warn(`${tag.name}\n${warnings.map((w) => `- ${w}`).join("\n")}\n`);
   }
 }
 
@@ -127,10 +138,10 @@ function validateEntry(entry) {
 
   for (const t of entry.tags) {
     // eslint-disable-next-line no-console
-    if (tagByName[t] == null) warnings.push(`tag "${t}" is not defined`);
-    for (const dt of tagByName[t]?.dependsOn ?? []) {
-      if (!entry.tags.includes(dt)) {
-        warnings.push(`tag "${dt}" is required because depended by "${t}"`);
+    if (tagByName[t.name] == null) warnings.push(`tag "${t.name}" is not defined`);
+    for (const dt of tagByName[t.name]?.dependsOn ?? []) {
+      if (!entry.tags.find((t) => t.name === dt)) {
+        warnings.push(`tag "${dt}" is required because depended by "${t.name}"`);
       }
     }
   }
@@ -168,7 +179,7 @@ async function loadArticleEntries() {
         title: /** @type{string} */ (result.data.title),
         publishedOn,
         updatedOn: /** @type{string} */ (result.data.updatedOn),
-        tags: /** @type{string[]} */ (result.data.tags),
+        tags: /** @type{string[]} */ (result.data.tags).map((name) => /** @type{Tag} */ ({ name })),
         path: `/blog/${publishedOn.replace(/-/g, "/")}/${pathSuffix}`,
         picked: false,
         source: {
@@ -205,8 +216,24 @@ void Promise.all([
   loadArticleEntries(),
 ])
   .then(([entries1, entries2]) => [...entries1, ...entries2])
+  // fill displayName of tags
+  .then((entries) =>
+    entries.map((entry) => ({
+      ...entry,
+      tags: entry.tags.map(({ name }) => /** @type {Tag} */ ({ name, displayName: tagByName[name].displayName })),
+    }))
+  )
   // sort tags
-  .then((entries) => entries.map((entry) => ({ ...entry, tags: entry.tags.sort() })))
+  .then((entries) =>
+    entries.map((entry) => ({
+      ...entry,
+      tags: entry.tags.sort((t1, t2) => {
+        if (t1.name < t2.name) return -1;
+        if (t1.name > t2.name) return 1;
+        return 0;
+      }),
+    }))
+  )
   // validate
   .then((entries) => {
     for (const entry of entries) {

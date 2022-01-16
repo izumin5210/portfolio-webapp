@@ -20,6 +20,14 @@ export const EntrySource = new GraphQLObjectType({
   },
 });
 
+export const EntryTag = new GraphQLObjectType({
+  name: "EntryTag",
+  fields: {
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    displayName: { type: new GraphQLNonNull(GraphQLString) },
+  },
+});
+
 export const ArticleEntry = new GraphQLObjectType({
   name: "ArticleEntry",
   fields: {
@@ -34,7 +42,7 @@ export const ArticleEntry = new GraphQLObjectType({
       },
     },
     path: { type: new GraphQLNonNull(GraphQLString) },
-    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     updatedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
@@ -47,7 +55,7 @@ export const ExternalArticleEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
-    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
     picked: { type: new GraphQLNonNull(GraphQLBoolean) },
@@ -59,7 +67,7 @@ export const SlideEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
-    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
     picked: { type: new GraphQLNonNull(GraphQLBoolean) },
@@ -71,7 +79,7 @@ export const OSSEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
-    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
     picked: { type: new GraphQLNonNull(GraphQLBoolean) },
@@ -83,7 +91,7 @@ export const PodcastEntry = new GraphQLObjectType({
   fields: {
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
-    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLString))) },
+    tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
     source: { type: new GraphQLNonNull(EntrySource) },
     picked: { type: new GraphQLNonNull(GraphQLBoolean) },

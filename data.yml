@@ -26,38 +26,59 @@ sourceTypes:
   - name: podcast
   - name: slide
 tags:
-  - name: Android
   - name: Book
-  - name: Developer Productivity
-  - name: Docker
-  - name: Go
-  - name: GraphQL
-  - name: ISUCON
-  - name: JavaScript
-  - name: Microservices Architecture
-  - name: Next.js
+    displayName: book
+  - name: android
+    displayName: Android
+  - name: developer-productivity
+    displayName: Developer Productivity
+  - name: docker
+    displayName: Docker
+  - name: go
+    displayName: Go
+  - name: graphql
+    displayName: GraphQL
+  - name: grpc
+    displayName: gRPC
+  - name: isucon
+    displayName: ISUCON
+  - name: javascript
+    displayName: JavaScript
+  - name: microservices
+    displayName: Microservices Architecture
+  - name: nextjs
+    displayName: Next.js
     dependsOn:
-      - Web Frontend
-  - name: Node.js
+      - web-frontend
+  - name: nodejs
+    displayName: Node.js
     dependsOn:
-      - JavaScript
-  - name: Protocol Buffers
-  - name: React
+      - javascript
+  - name: protobuf
+    displayName: Protocol Buffers
+  - name: rails
+    displayName: Ruby on Rails
     dependsOn:
-      - Web Frontend
-  - name: Redis
-  - name: Ruby
-  - name: Ruby on Rails
+      - ruby
+  - name: react
+    displayName: React
     dependsOn:
-      - Ruby
-  - name: Web Frontend
-  - name: gRPC
+      - web-frontend
+  - name: redis
+    displayName: Redis
+  - name: ruby
+    displayName: Ruby
+  - name: test
+    displayName: Test
+  - name: web-frontend
+    displayName: Web Frontend
 entries:
   - title: Example article
     publishedOn: '2022-01-05'
     updatedOn: 2022-01-10T00:00:00.000Z
     tags:
-      - test
+      - name: test
+        displayName: Test
     path: /blog/2022/01/05/example
     picked: false
     source:
@@ -66,8 +87,10 @@ entries:
   - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
     publishedOn: '2021-11-27'
     tags:
-      - GraphQL
-      - Microservices Architecture
+      - name: graphql
+        displayName: GraphQL
+      - name: microservices
+        displayName: Microservices Architecture
     title: GraphQL 導入の反省と再挑戦 / jsconf jp 2021
     mediaType: slide
     source:
@@ -78,9 +101,12 @@ entries:
   - url: https://github.com/proto-graphql/graphql-field-mask
     publishedOn: '2021-10-24'
     tags:
-      - GraphQL
-      - JavaScript
-      - Protocol Buffers
+      - name: graphql
+        displayName: GraphQL
+      - name: javascript
+        displayName: JavaScript
+      - name: protobuf
+        displayName: Protocol Buffers
     title: >-
       proto-graphql/graphql-field-mask: google.protobuf.FieldMask from GraphQL
       query
@@ -93,7 +119,8 @@ entries:
   - url: https://zenn.dev/izumin/articles/710eefc8172f66
     publishedOn: '2021-09-27'
     tags:
-      - GraphQL
+      - name: graphql
+        displayName: GraphQL
     title: GraphQL の引数では「値を入れない」と「null を渡す」を区別できる
     mediaType: article
     source:
@@ -104,9 +131,12 @@ entries:
   - url: https://zenn.dev/izumin/articles/fce4918f5f7946
     publishedOn: '2021-09-21'
     tags:
-      - JavaScript
-      - Next.js
-      - Web Frontend
+      - name: javascript
+        displayName: JavaScript
+      - name: nextjs
+        displayName: Next.js
+      - name: web-frontend
+        displayName: Web Frontend
     title: Next.js でページ遷移前後で共通するコンポーネントを残す
     mediaType: article
     source:
@@ -117,8 +147,10 @@ entries:
   - url: https://github.com/izumin5210/graphql-fragment-mask
     publishedOn: '2021-09-13'
     tags:
-      - GraphQL
-      - JavaScript
+      - name: graphql
+        displayName: GraphQL
+      - name: javascript
+        displayName: JavaScript
     title: 'izumin5210/graphql-fragment-mask: Mask GraphQL query result with Fragment'
     mediaType: oss
     source:
@@ -129,7 +161,8 @@ entries:
   - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
     publishedOn: '2021-08-23'
     tags:
-      - ISUCON
+      - name: isucon
+        displayName: ISUCON
     title: '#ISUCON で100万点とって予選2位になるためにやったこと'
     mediaType: podcast
     source:
@@ -141,8 +174,10 @@ entries:
       https://anchor.fm/wantedly-dev/episodes/Protocol-Buffers--w-izumin5210-e15hjri/a-a69p8u8
     publishedOn: '2021-08-06'
     tags:
-      - Protocol Buffers
-      - gRPC
+      - name: grpc
+        displayName: gRPC
+      - name: protobuf
+        displayName: Protocol Buffers
     title: Protocol Buffers の書き方と管理方法 w/ @izumin5210
     mediaType: podcast
     source:
@@ -153,7 +188,8 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/311135
     publishedOn: '2021-02-24'
     tags:
-      - Microservices Architecture
+      - name: microservices
+        displayName: Microservices Architecture
     title: マイクロサービス共通ライブラリで “Governance through code” を実現する
     mediaType: article
     source:
@@ -164,8 +200,10 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/302873
     publishedOn: '2021-01-20'
     tags:
-      - React
-      - Web Frontend
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
     picked: true
     title: React でデザインシステムを正しく実装する - コンポーネントカタログを超えて
     source:
@@ -175,7 +213,8 @@ entries:
   - url: https://zenn.dev/izumin/articles/4369181aa84f7b
     publishedOn: '2020-12-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: Go 製 CLI にプラグイン機構を作る方法n選
     mediaType: article
     source:
@@ -186,8 +225,10 @@ entries:
   - url: https://github.com/proto-graphql/proto-nexus
     publishedOn: '2020-12-21'
     tags:
-      - GraphQL
-      - JavaScript
+      - name: graphql
+        displayName: GraphQL
+      - name: javascript
+        displayName: JavaScript
     title: >-
       proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with GraphQL
       Nexus
@@ -200,9 +241,12 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/297850
     publishedOn: '2020-12-11'
     tags:
-      - GraphQL
-      - React
-      - Web Frontend
+      - name: graphql
+        displayName: GraphQL
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
     title: Apollo Client と SSR の罠 その1 - パフォーマンス改善編
     mediaType: article
     source:
@@ -213,7 +257,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/number-gocon-sendai-2020
     publishedOn: '2020-10-10'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'HTTP クライアントを作ろうとして学ぶ、使いやすいインタフェース  / #GoCon_Sendai 2020'
     mediaType: slide
     source:
@@ -224,8 +269,10 @@ entries:
   - url: https://github.com/wantedly/pb-serializer
     publishedOn: '2020-05-17'
     tags:
-      - Protocol Buffers
-      - Ruby
+      - name: protobuf
+        displayName: Protocol Buffers
+      - name: ruby
+        displayName: Ruby
     title: 'wantedly/pb-serializer: Serialize Ruby objects to Protocol Buffers'
     mediaType: oss
     source:
@@ -236,7 +283,8 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/170571
     publishedOn: '2019-12-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'subee - #golang で快適に Pub/Sub するためのフレームワーク'
     mediaType: article
     source:
@@ -247,8 +295,10 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
     publishedOn: '2019-12-17'
     tags:
-      - Ruby
-      - Ruby on Rails
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: rails runner と NoMethodError - 使い回すスクリプトは rake task にしよう
     mediaType: article
     source:
@@ -260,7 +310,8 @@ entries:
       https://blog.izum.in/os-signal-%E3%81%AB%E5%BF%9C%E3%81%98%E3%81%A6%E3%81%84%E3%81%84%E6%84%9F%E3%81%98%E3%81%AB%E3%81%AA%E3%82%8B-context-a704780ec664
     publishedOn: '2019-12-16'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: os.Signal に応じていい感じになる context
     mediaType: article
     source:
@@ -271,7 +322,8 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/197571
     publishedOn: '2019-12-04'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '`*sql.DB` を観察する #golang'
     mediaType: article
     source:
@@ -282,7 +334,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/b0bd3fa21aed6ab6bef5
     publishedOn: '2019-12-02'
     tags:
-      - Developer Productivity
+      - name: developer-productivity
+        displayName: Developer Productivity
     title: Homebrew Taps 自動更新で比べる CircleCI Orbs と GitHub Actions
     mediaType: article
     source:
@@ -293,7 +346,8 @@ entries:
   - url: https://github.com/izumin5210/hx
     publishedOn: '2019-11-08'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: >-
       izumin5210/hx: 🌏 Developer-friendly, Real-World-ready and extensible HTTP
       client for Go
@@ -306,8 +360,10 @@ entries:
   - url: https://github.com/izumin5210/redisync
     publishedOn: '2019-09-19'
     tags:
-      - Go
-      - Redis
+      - name: go
+        displayName: Go
+      - name: redis
+        displayName: Redis
     title: 'izumin5210/redisync: Synchronization primitives with Redis'
     source:
       name: GitHub
@@ -317,7 +373,8 @@ entries:
   - url: https://github.com/srvc/appctx
     publishedOn: '2019-09-18'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'srvc/appctx: 🌏 Utilities for context.Context'
     mediaType: oss
     source:
@@ -328,7 +385,8 @@ entries:
   - url: https://blog.izum.in/reviewdog-on-github-actions-c5d5ba705eb7
     publishedOn: '2019-08-16'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: GitHub Actions で reviewdog を動かす
     mediaType: article
     source:
@@ -339,7 +397,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/golang-dot-tokyo-number-25
     publishedOn: '2019-07-18'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '今あらためて読み直したい Go 基礎知識 その2 / golang.tokyo #25'
     mediaType: slide
     source:
@@ -351,7 +410,8 @@ entries:
       https://blog.izum.in/running-lean-%E5%AE%9F%E8%B7%B5%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0-596d9bf815fd
     publishedOn: '2019-05-27'
     tags:
-      - Book
+      - name: Book
+        displayName: book
     title: “Running Lean — 実践リーンスタートアップ” を読んだ
     mediaType: article
     source:
@@ -362,7 +422,8 @@ entries:
   - url: https://github.com/izumin5210/pubee
     publishedOn: '2019-05-26'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'izumin5210/pubee: Pluggable Pub/Sub Publisher'
     mediaType: oss
     source:
@@ -373,7 +434,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/pubsub-internal
     publishedOn: '2019-05-20'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '`cloud.google.com/go/pubsub` internal'
     mediaType: slide
     source:
@@ -385,7 +447,8 @@ entries:
       https://speakerdeck.com/izumin5210/techniques-that-support-building-cli-tools-2019-spring
     publishedOn: '2019-05-20'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: >-
       CLI ツール開発を支える技術 2019春 / Techniques that support building CLI tools, 2019
       Spring
@@ -399,7 +462,8 @@ entries:
       https://speakerdeck.com/izumin5210/case-studies-of-designing-developer-friendly-libraries-number-gocon
     publishedOn: '2019-05-18'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'Case studies of designing developer friendly libraries #gocon'
     mediaType: slide
     source:
@@ -410,7 +474,8 @@ entries:
   - url: https://github.com/wantedly/subee
     publishedOn: '2019-02-20'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: >-
       wantedly/subee: ✉️ 🐝 It's not only a bee, but a message - Pub/Sub Worker
       Framework Implementation
@@ -423,7 +488,8 @@ entries:
   - url: https://blog.izum.in/talk-about-plugin-in-gocon2018autumn-fb5e6bc5fc93
     publishedOn: '2018-12-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '#gocon で Plugin の話をした + 補遺'
     mediaType: article
     source:
@@ -434,7 +500,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/ed1c0100a45366c3b75e
     publishedOn: '2018-12-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'grapi :  #golang で interface driven かつボイラプレートに悩まされない API 開発'
     mediaType: article
     source:
@@ -445,7 +512,8 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/139554
     publishedOn: '2018-12-20'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '`Wrap(err)` in our production #golang'
     mediaType: article
     source:
@@ -456,7 +524,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/how-to-manage-tool-dependencies-in-go
     publishedOn: '2018-12-18'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: How to manage tool dependencies in Go
     source:
       name: SpeakerDeck
@@ -466,7 +535,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/2613364e29c0e25844aa
     publishedOn: '2018-12-17'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'wire に `-: cannot find package "pattern=." in any of:` って言われたら'
     mediaType: article
     source:
@@ -477,7 +547,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/25a27d4f3c5078588f79
     publishedOn: '2018-12-15'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ'
     mediaType: article
     source:
@@ -489,7 +560,8 @@ entries:
       https://blog.izum.in/understand-understand-golang-org-x-tools-analysis-b7a3aba7ae4
     publishedOn: '2018-12-10'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'golang.org/x/tools/analysis を理解する #golang #golangtokyo'
     mediaType: article
     source:
@@ -500,7 +572,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/7604f290785bc3f8f86a
     publishedOn: '2018-12-05'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '技術選択編 - #golang で CLI 作るときにいつもつかうやつ'
     mediaType: article
     source:
@@ -511,7 +584,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/d2e352de1e541ff97079
     publishedOn: '2018-11-30'
     tags:
-      - Developer Productivity
+      - name: developer-productivity
+        displayName: Developer Productivity
     title: Pane (tmux) - Window (vim) の移動をシームレスにする - Ctrl-h を殺さない ver.
     mediaType: article
     source:
@@ -523,7 +597,8 @@ entries:
       https://speakerdeck.com/izumin5210/consider-pluggable-cli-tool-implementation-number-gocon
     publishedOn: '2018-11-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'Consider pluggable CLI tool implementation #gocon'
     mediaType: slide
     source:
@@ -534,7 +609,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/b06a81002a6934c05185
     publishedOn: '2018-11-24'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: cobra / pflags でフラグをパースせずに args に残す
     mediaType: article
     source:
@@ -545,10 +621,14 @@ entries:
   - url: https://speakerdeck.com/izumin5210/deploy-web-frontend-app-with-buildkit
     publishedOn: '2018-11-21'
     tags:
-      - Docker
-      - JavaScript
-      - Node.js
-      - Web Frontend
+      - name: docker
+        displayName: Docker
+      - name: javascript
+        displayName: JavaScript
+      - name: nodejs
+        displayName: Node.js
+      - name: web-frontend
+        displayName: Web Frontend
     title: Deploy Web-frontend app with BuildKit
     source:
       name: SpeakerDeck
@@ -558,7 +638,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/7cdefe52cc54794c85fc
     publishedOn: '2018-11-19'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: "http.Client の DNS resolver\_を差し替える"
     mediaType: article
     source:
@@ -569,7 +650,8 @@ entries:
   - url: https://blog.izum.in/accepted-and-rejected-in-gocon2018autumn-3250ab4a94bc
     publishedOn: '2018-11-15'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '#gocon とおったけどおちた'
     mediaType: article
     source:
@@ -580,7 +662,8 @@ entries:
   - url: https://blog.izum.in/wrap-err-in-production-143f94592b9a
     publishedOn: '2018-11-09'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'Wrap(err) in production という話をした #golang #gounco'
     mediaType: article
     source:
@@ -591,7 +674,8 @@ entries:
   - url: https://blog.izum.in/painting-go-test-outputs-4fcabb7a47db
     publishedOn: '2018-11-04'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '`go test` に色を付けるツールを作った #golang'
     mediaType: article
     source:
@@ -602,7 +686,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/wrap-err-in-production
     publishedOn: '2018-10-19'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: '`Wrap(err)` in production'
     source:
       name: SpeakerDeck
@@ -612,7 +697,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/59a29371809e36d64e04
     publishedOn: '2018-10-01'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: gex で Go プロジェクトの開発用ツールの依存を管理する
     mediaType: article
     source:
@@ -623,8 +709,10 @@ entries:
   - url: https://speakerdeck.com/izumin5210/params-deep-dive
     publishedOn: '2018-09-27'
     tags:
-      - Ruby
-      - Ruby on Rails
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: '`params` deep dive'
     source:
       name: SpeakerDeck
@@ -634,7 +722,8 @@ entries:
   - url: https://github.com/srvc/wraperr
     publishedOn: '2018-09-12'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'srvc/wraperr: Check that error return value are wrapped'
     mediaType: oss
     source:
@@ -645,9 +734,12 @@ entries:
   - url: https://speakerdeck.com/izumin5210/builderscon-tokyo-2018
     publishedOn: '2018-09-08'
     tags:
-      - Microservices Architecture
-      - Ruby
-      - Ruby on Rails
+      - name: microservices
+        displayName: Microservices Architecture
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: 'すべてが gem になる - サービス密結合からの段階的脱却 #builderscon / builderscon tokyo 2018'
     mediaType: slide
     source:
@@ -658,9 +750,12 @@ entries:
   - url: https://blog.izum.in/builderscon-2018-abstract-5982a36e441
     publishedOn: '2018-09-08'
     tags:
-      - Microservices Architecture
-      - Ruby
-      - Ruby on Rails
+      - name: microservices
+        displayName: Microservices Architecture
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: '#builderscon で「すべてが gem になる — サービス密結合からの段階的脱却」という話をします'
     mediaType: article
     source:
@@ -671,7 +766,8 @@ entries:
   - url: https://github.com/izumin5210/gex
     publishedOn: '2018-08-27'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: >-
       izumin5210/gex: The implementation of "clarify best practice for tool
       dependencies".
@@ -684,7 +780,8 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/132270
     publishedOn: '2018-08-27'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'Go 1.11 の modules・vgo を試す - 実際に使っていく上で考えないといけないこと #golang'
     mediaType: article
     source:
@@ -696,7 +793,8 @@ entries:
       https://speakerdeck.com/izumin5210/tips-for-develoepr-friendly-testing-number-golangtokyo
     publishedOn: '2018-08-21'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'Tips for develoepr-friendly testing #golangtokyo'
     source:
       name: SpeakerDeck
@@ -706,7 +804,8 @@ entries:
   - url: https://blog.izum.in/orm-and-query-builders-in-golang-1281c7c1e99f
     publishedOn: '2018-08-07'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: Go の ORM / query builder 消耗日記
     mediaType: article
     source:
@@ -718,7 +817,8 @@ entries:
       https://speakerdeck.com/izumin5210/context-dot-context-is-not-just-for-cancelation
     publishedOn: '2018-07-26'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: context.Context is not just for cancelation
     mediaType: slide
     source:
@@ -729,8 +829,10 @@ entries:
   - url: https://speakerdeck.com/izumin5210/splitting-db-on-rails
     publishedOn: '2018-05-12'
     tags:
-      - Ruby
-      - Ruby on Rails
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: Splitting DB on "Rails"
     mediaType: slide
     source:
@@ -742,7 +844,8 @@ entries:
       https://speakerdeck.com/izumin5210/preferences-as-a-service-for-mobile-apps-and-microservices
     publishedOn: '2018-04-19'
     tags:
-      - Microservices Architecture
+      - name: microservices
+        displayName: Microservices Architecture
     title: Preferences as a Service - for mobile apps and microservices
     source:
       name: SpeakerDeck
@@ -752,7 +855,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/e008f74091275f3db8cc
     publishedOn: '2018-04-18'
     tags:
-      - Developer Productivity
+      - name: developer-productivity
+        displayName: Developer Productivity
     title: スライドにソースコードを貼る 2018 Spring
     mediaType: article
     source:
@@ -764,9 +868,12 @@ entries:
       https://speakerdeck.com/izumin5210/grapi-bulding-json-api-server-with-grpc-gateway-for-microservices
     publishedOn: '2018-04-15'
     tags:
-      - Go
-      - Protocol Buffers
-      - gRPC
+      - name: go
+        displayName: Go
+      - name: grpc
+        displayName: gRPC
+      - name: protobuf
+        displayName: Protocol Buffers
     title: 'grapi: Bulding JSON API server with grpc-gateway for microservices'
     mediaType: slide
     source:
@@ -777,9 +884,12 @@ entries:
   - url: https://www.wantedly.com/companies/wantedly/post_articles/115474
     publishedOn: '2018-04-11'
     tags:
-      - Go
-      - Protocol Buffers
-      - gRPC
+      - name: go
+        displayName: Go
+      - name: grpc
+        displayName: gRPC
+      - name: protobuf
+        displayName: Protocol Buffers
     title: 「Go + grpc-gateway で作る JSON API サーバ速習会」を開催しました
     mediaType: article
     source:
@@ -790,8 +900,10 @@ entries:
   - url: https://speakerdeck.com/izumin5210/create-your-strongest-markdown-syntax
     publishedOn: '2018-03-20'
     tags:
-      - JavaScript
-      - Node.js
+      - name: javascript
+        displayName: JavaScript
+      - name: nodejs
+        displayName: Node.js
     title: 君だけの最強の markdown をつくろう / Create your strongest markdown syntax
     source:
       name: SpeakerDeck
@@ -801,9 +913,12 @@ entries:
   - url: https://github.com/izumin5210/grapi
     publishedOn: '2018-03-07'
     tags:
-      - Go
-      - Protocol Buffers
-      - gRPC
+      - name: go
+        displayName: Go
+      - name: grpc
+        displayName: gRPC
+      - name: protobuf
+        displayName: Protocol Buffers
     title: >-
       izumin5210/grapi: 😮 A surprisingly easy API server and generator in gRPC
       and Go
@@ -816,7 +931,8 @@ entries:
   - url: https://blog.izum.in/isucon7-final-cf6e75758164
     publishedOn: '2017-12-29'
     tags:
-      - ISUCON
+      - name: isucon
+        displayName: ISUCON
     title: '#isucon 7 本戦 10位だった'
     mediaType: article
     source:
@@ -827,8 +943,10 @@ entries:
   - url: https://qiita.com/izumin5210/items/d51c28631c39392c6b16
     publishedOn: '2017-12-24'
     tags:
-      - Go
-      - Redis
+      - name: go
+        displayName: Go
+      - name: redis
+        displayName: Redis
     title: Go で Redis の Sorted Set を楽に扱いたい
     source:
       name: Qiita
@@ -838,7 +956,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/cf14a1ea58fb82d36bb2
     publishedOn: '2017-12-17'
     tags:
-      - Docker
+      - name: docker
+        displayName: Docker
     title: 複数の言語の runtime を持つ Docker image を作る
     source:
       name: Qiita
@@ -848,8 +967,10 @@ entries:
   - url: https://github.com/izumin5210/ro
     publishedOn: '2017-11-23'
     tags:
-      - Go
-      - Redis
+      - name: go
+        displayName: Go
+      - name: redis
+        displayName: Redis
     title: 'izumin5210/ro: Redis Objects to Go'
     source:
       name: GitHub
@@ -859,7 +980,8 @@ entries:
   - url: https://blog.izum.in/isucon7-qualify-c8b93933b241
     publishedOn: '2017-11-06'
     tags:
-      - ISUCON
+      - name: isucon
+        displayName: ISUCON
     title: ISUCON7予選1日目を3位通過した
     mediaType: article
     source:
@@ -871,7 +993,8 @@ entries:
       https://speakerdeck.com/izumin5210/consider-better-error-handling-for-web-apps
     publishedOn: '2017-11-05'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: Consider better error handling for web apps
     source:
       name: SpeakerDeck
@@ -881,7 +1004,8 @@ entries:
   - url: https://github.com/izumin5210/scaffold
     publishedOn: '2017-07-25'
     tags:
-      - Go
+      - name: go
+        displayName: Go
     title: 'izumin5210/scaffold: Customizable templates generator, inspired by Rails'
     source:
       name: GitHub
@@ -892,8 +1016,10 @@ entries:
       https://speakerdeck.com/izumin5210/performance-of-rendering-over-10k-items-using-react
     publishedOn: '2017-05-10'
     tags:
-      - React
-      - Web Frontend
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
     title: Performance of rendering over 10k items using React
     source:
       name: SpeakerDeck
@@ -903,8 +1029,10 @@ entries:
   - url: https://github.com/izumin5210/tomatone
     publishedOn: '2016-12-06'
     tags:
-      - React
-      - Web Frontend
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
     title: 'izumin5210/tomatone: Simple pomodoro timer in your menubar'
     source:
       name: GitHub
@@ -915,7 +1043,8 @@ entries:
       https://speakerdeck.com/izumin5210/predictable-state-container-and-databinding
     publishedOn: '2016-11-24'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: “Predictable state container” and DataBinding
     source:
       name: SpeakerDeck
@@ -925,7 +1054,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/mockretrofit
     publishedOn: '2016-05-27'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: MockRetrofit
     source:
       name: SpeakerDeck
@@ -936,7 +1066,8 @@ entries:
       https://speakerdeck.com/izumin5210/rx-java-rxandroid-plugins-with-unittesting
     publishedOn: '2016-03-16'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Rx{Java,RxAndroid}Plugins with UnitTesting
     source:
       name: SpeakerDeck
@@ -947,7 +1078,8 @@ entries:
       https://speakerdeck.com/izumin5210/whats-the-difference-between-javascript-and-java
     publishedOn: '2016-02-19'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: What's the difference between JavaScript and Java?
     source:
       name: SpeakerDeck
@@ -958,7 +1090,8 @@ entries:
       https://speakerdeck.com/izumin5210/example-of-testscheduler-and-testsubject-in-spock
     publishedOn: '2016-01-22'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Example of TestScheduler and TestSubject (in Spock)
     source:
       name: SpeakerDeck
@@ -968,7 +1101,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/2784576d86ce6b9b51e6
     publishedOn: '2015-12-31'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Butter Knife、今までありがとう。 Data Binding、これからよろしく。
     source:
       name: Qiita
@@ -978,7 +1112,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/549fd15d97e9fc3b1ef7
     publishedOn: '2015-12-06'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: 'Droidux: ReduxをAndroidに持ち込んで状態管理から解放されよう！'
     source:
       name: Qiita
@@ -988,7 +1123,8 @@ entries:
   - url: https://github.com/izumin5210/Droidux
     publishedOn: '2015-11-05'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: >-
       izumin5210/Droidux: "Predictable state container" implementation, inspired
       by Redux.
@@ -1000,7 +1136,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/spock-for-android-app-testing
     publishedOn: '2015-10-13'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Groovy/Spock for Android app testing
     source:
       name: SpeakerDeck
@@ -1010,7 +1147,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/promisified-ble-client
     publishedOn: '2015-09-16'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Promisified BLE Client
     source:
       name: SpeakerDeck
@@ -1020,7 +1158,8 @@ entries:
   - url: https://github.com/izumin5210/Bletia
     publishedOn: '2015-09-15'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: 'izumin5210/Bletia: Promisified BLE library for Android.'
     source:
       name: GitHub
@@ -1030,7 +1169,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/tsurai-ble-on-android
     publishedOn: '2015-09-07'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: つらくない（？） Bluetooth Low Energy on Android / TSURAI BLE on Android
     source:
       name: SpeakerDeck
@@ -1040,7 +1180,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/why-dont-you-use-enum
     publishedOn: '2015-08-11'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Why don't you use enum ?
     source:
       name: SpeakerDeck
@@ -1050,7 +1191,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/introduction-to-apt
     publishedOn: '2015-07-14'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: Introduction to APT
     source:
       name: SpeakerDeck
@@ -1061,8 +1203,10 @@ entries:
       https://speakerdeck.com/izumin5210/client-development-using-json-schema-number-kanrk06
     publishedOn: '2015-07-11'
     tags:
-      - Ruby
-      - Ruby on Rails
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: 'API server/client development using JSON Schema #kanrk06'
     source:
       name: SpeakerDeck
@@ -1072,7 +1216,8 @@ entries:
   - url: https://qiita.com/izumin5210/items/8ae78cb4f4bd325bccb4
     publishedOn: '2015-07-07'
     tags:
-      - Web Frontend
+      - name: web-frontend
+        displayName: Web Frontend
     title: エンジニアはもう一度CSSとちゃんと向き合ってみよう - 詳細度編
     source:
       name: Qiita
@@ -1082,7 +1227,8 @@ entries:
   - url: https://github.com/izumin5210/json-schema-mockifier
     publishedOn: '2015-06-10'
     tags:
-      - JavaScript
+      - name: javascript
+        displayName: JavaScript
     title: >-
       izumin5210/json-schema-mockifier: Generate mock object from JSON Schema
       (HyperSchema v4).
@@ -1094,7 +1240,8 @@ entries:
   - url: https://github.com/izumin5210/json-schema-parser
     publishedOn: '2015-06-10'
     tags:
-      - JavaScript
+      - name: javascript
+        displayName: JavaScript
     title: >-
       izumin5210/json-schema-parser: Parse JSON Schema and resolve `$ref`
       fields.
@@ -1106,7 +1253,8 @@ entries:
   - url: https://speakerdeck.com/izumin5210/border-left-1dp-solid-number-666666
     publishedOn: '2015-05-13'
     tags:
-      - Android
+      - name: android
+        displayName: Android
     title: 'border-left: 1dp solid #666666;'
     source:
       name: SpeakerDeck
@@ -1116,8 +1264,10 @@ entries:
   - url: https://github.com/izumin5210/rspec-validator_spec_helper
     publishedOn: '2014-12-27'
     tags:
-      - Ruby
-      - Ruby on Rails
+      - name: rails
+        displayName: Ruby on Rails
+      - name: ruby
+        displayName: Ruby
     title: >-
       izumin5210/rspec-validator_spec_helper: Provide dummy class for validator
       spec
