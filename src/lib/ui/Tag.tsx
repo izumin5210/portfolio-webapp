@@ -4,15 +4,21 @@ import { caption, fontFamilyHead } from "../styles/typo";
 
 interface Props<Comp extends React.ElementType> {
   text: string;
+  selected?: boolean;
   as?: Comp;
 }
 
 type TagProps<C extends React.ElementType> = Props<C> & Omit<React.ComponentPropsWithoutRef<C>, keyof Props<C>>;
 
-export function Tag<Comp extends React.ElementType = "button">({ text, as, ...props }: TagProps<Comp>) {
+export function Tag<Comp extends React.ElementType = "button">({
+  text,
+  selected = false,
+  as,
+  ...props
+}: TagProps<Comp>) {
   const Component = as || "button";
   return (
-    <Component className={tagCss} {...props}>
+    <Component className={tagCss} aria-selected={selected} {...props}>
       {text}
     </Component>
   );
@@ -46,7 +52,6 @@ const tagCss = css`
 
   &:hover,
   &:active,
-  &:focus,
   &:focus-visible {
     color: ${colors.text};
   }
@@ -56,9 +61,6 @@ const tagCss = css`
   &:active:after {
     background: ${backgroundColor({ state: "pressed" })};
   }
-  &:focus:after {
-    background: ${backgroundColor({ state: "pressed" })};
-  }
   &:focus-visible:after {
     outline: 2px solid ${colors.blue700};
   }
@@ -66,7 +68,7 @@ const tagCss = css`
     outline: 0;
   }
 
-  &[aria-pressed="true"] {
+  &[aria-selected="true"] {
     color: ${colors.textLightLowEmphasis};
     background: ${backgroundColor({ color: colors.gray500, theme: "dark" })};
     &:hover,
@@ -79,9 +81,6 @@ const tagCss = css`
       background: ${backgroundColor({ state: "hover", theme: "dark" })};
     }
     &:active:after {
-      background: ${backgroundColor({ state: "pressed", theme: "dark" })};
-    }
-    &:focus:after {
       background: ${backgroundColor({ state: "pressed", theme: "dark" })};
     }
   }
