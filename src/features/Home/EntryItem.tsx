@@ -20,7 +20,10 @@ export function EntryItem(props: Props) {
         ... on ArticleEntry {
           title
           path
-          tags
+          tags {
+            name
+            displayName
+          }
           publishedOn
           source {
             name
@@ -29,7 +32,10 @@ export function EntryItem(props: Props) {
         ... on ExternalArticleEntry {
           title
           url
-          tags
+          tags {
+            name
+            displayName
+          }
           publishedOn
           source {
             name
@@ -38,7 +44,10 @@ export function EntryItem(props: Props) {
         ... on SlideEntry {
           title
           url
-          tags
+          tags {
+            name
+            displayName
+          }
           publishedOn
           source {
             name
@@ -47,7 +56,10 @@ export function EntryItem(props: Props) {
         ... on OSSEntry {
           title
           url
-          tags
+          tags {
+            name
+            displayName
+          }
           publishedOn
           source {
             name
@@ -56,7 +68,10 @@ export function EntryItem(props: Props) {
         ... on PodcastEntry {
           title
           url
-          tags
+          tags {
+            name
+            displayName
+          }
           publishedOn
           source {
             name
@@ -86,22 +101,22 @@ export function EntryItem(props: Props) {
           </EntryTitle>
           <TagsUl>
             {data.tags?.map((tag) => (
-              <li key={tag}>
+              <li key={tag.name}>
                 <Tag
                   as="button"
-                  text={tag}
+                  text={tag.displayName}
                   onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                     e.preventDefault();
-                    if (selectedTags.has(tag)) {
+                    if (selectedTags.has(tag.name)) {
                       const newTags = new Set(selectedTags);
-                      newTags.delete(tag);
+                      newTags.delete(tag.name);
                       void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
                     } else {
-                      void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag] } });
+                      void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag.name] } });
                     }
                   }}
                   role="button"
-                  aria-pressed={selectedTags.has(tag)}
+                  aria-pressed={selectedTags.has(tag.name)}
                 />
               </li>
             ))}

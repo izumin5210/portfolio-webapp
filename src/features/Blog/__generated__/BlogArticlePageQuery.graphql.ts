@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f0bff3742a9f5a8b5da8cb53075b2813>>
+ * @generated SignedSource<<ecb88422c62f5123fb839f4e3a18f30c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -112,8 +112,26 @@ const node: ConcreteRequest = (function () {
             {
               alias: null,
               args: null,
-              kind: "ScalarField",
+              concreteType: "EntryTag",
+              kind: "LinkedField",
               name: "tags",
+              plural: true,
+              selections: [
+                {
+                  alias: null,
+                  args: null,
+                  kind: "ScalarField",
+                  name: "name",
+                  storageKey: null,
+                },
+                {
+                  alias: null,
+                  args: null,
+                  kind: "ScalarField",
+                  name: "displayName",
+                  storageKey: null,
+                },
+              ],
               storageKey: null,
             },
           ],
@@ -122,12 +140,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "f38b5e8a876f79d2de0afc363f91905a",
+      cacheID: "c4929246f26987e76cd3d3e8a19c3b62",
       id: null,
       metadata: {},
       name: "BlogArticlePageQuery",
       operationKind: "query",
-      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags\n}\n",
+      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags {\n    name\n    displayName\n  }\n}\n",
     },
   };
 })();

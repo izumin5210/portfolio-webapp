@@ -23,7 +23,10 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
         body
         publishedOn
         updatedOn
-        tags
+        tags {
+          name
+          displayName
+        }
       }
     `,
     props.article
@@ -43,9 +46,9 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
         </DatesUl>
         <TagsUl>
           {data.tags.map((tag) => (
-            <li key={tag}>
-              <Link href={getPath("/", { query: { tags: [tag] } })} passHref>
-                <Tag>{tag}</Tag>
+            <li key={tag.name}>
+              <Link href={getPath("/", { query: { tags: [tag.name] } })} passHref>
+                <Tag>{tag.displayName}</Tag>
               </Link>
             </li>
           ))}
