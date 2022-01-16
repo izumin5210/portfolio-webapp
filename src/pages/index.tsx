@@ -9,17 +9,22 @@ const HomePage = (props: InferGetServerSidePropsType<typeof getServerSideProps>)
   return props.queryResult ? <Home queryResult={props.queryResult} filteredByTags={props.filteredByTags} /> : null;
 };
 
+export type Query = {
+  tags?: string[];
+};
+
 export const getServerSideProps: GetServerSideProps<{
   queryResult: HomeQueryType["response"] | undefined;
   filteredByTags: boolean;
   initialRecords: any;
 }> = async (ctx) => {
-  const env = initRelayEnvironment();
-  const tags = (ctx.query.tags ?? []) as string[];
+  const query = ctx.query as Query;
+  const tags = (query.tags ?? []) as string[];
   const filteredByTags = tags.length > 0;
   if (tags.includes("error")) {
     throw new Error("unknown error");
   }
+  const env = initRelayEnvironment();
   const queryResult = await fetchQuery<HomeQueryType>(env, HomeQuery, {
     count: 20,
     cursor: null,
