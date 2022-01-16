@@ -48,7 +48,10 @@ Normal.args = {
     title: "Example article",
     publishedOn: "2021-01-04",
     updatedOn: "2021-01-11",
-    tags: ["React", "GraphQL"],
+    tags: [
+      { name: "react", displayName: "React" },
+      { name: "graphql", displayName: "GraphQL" },
+    ],
     body: `## Heading level 2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel diam sed orci scelerisque ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta est imperdiet sem mattis condimentum. Duis sodales enim id est mattis consequat. Nam congue velit tortor, nec hendrerit orci efficitur non. Morbi sit amet quam vehicula, eleifend lacus euismod, vestibulum ligula. Suspendisse congue urna in purus faucibus facilisis. Etiam aliquam pellentesque tortor mollis gravida.
