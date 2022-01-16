@@ -138,7 +138,7 @@ function EntryTag(props: { tag: EntryItemTag$key }) {
   }, [router, tag.name]);
 
   return (
-    <Tag as="button" text={tag.displayName} onClick={onClick} role="link" aria-pressed={selected} {...{ href: url }} />
+    <Tag as="button" text={tag.displayName} onClick={onClick} role="link" selected={selected} {...{ href: url }} />
   );
 }
 
