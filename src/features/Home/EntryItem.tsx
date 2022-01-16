@@ -8,6 +8,7 @@ import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, caption } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
+import { EntryItemTag$key } from "./__generated__/EntryItemTag.graphql";
 
 type Props = {
   entry: EntryItem$key;
@@ -22,7 +23,7 @@ export function EntryItem(props: Props) {
           path
           tags {
             name
-            displayName
+            ...EntryItemTag
           }
           publishedOn
           source {
@@ -34,7 +35,7 @@ export function EntryItem(props: Props) {
           url
           tags {
             name
-            displayName
+            ...EntryItemTag
           }
           publishedOn
           source {
@@ -46,7 +47,7 @@ export function EntryItem(props: Props) {
           url
           tags {
             name
-            displayName
+            ...EntryItemTag
           }
           publishedOn
           source {
@@ -58,7 +59,7 @@ export function EntryItem(props: Props) {
           url
           tags {
             name
-            displayName
+            ...EntryItemTag
           }
           publishedOn
           source {
@@ -70,7 +71,7 @@ export function EntryItem(props: Props) {
           url
           tags {
             name
-            displayName
+            ...EntryItemTag
           }
           publishedOn
           source {
@@ -81,12 +82,6 @@ export function EntryItem(props: Props) {
     `,
     props.entry
   );
-  const router = useRouter();
-
-  const selectedTags = useMemo(() => {
-    const q = router.query.tags ?? [];
-    return new Set(Array.isArray(q) ? q : [q]);
-  }, [router.query.tags]);
 
   const publishedOn = data.publishedOn as string;
 
@@ -102,28 +97,50 @@ export function EntryItem(props: Props) {
           <TagsUl>
             {data.tags?.map((tag) => (
               <li key={tag.name}>
-                <Tag
-                  as="button"
-                  text={tag.displayName}
-                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    if (selectedTags.has(tag.name)) {
-                      const newTags = new Set(selectedTags);
-                      newTags.delete(tag.name);
-                      void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
-                    } else {
-                      void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag.name] } });
-                    }
-                  }}
-                  role="button"
-                  aria-pressed={selectedTags.has(tag.name)}
-                />
+                <EntryTag tag={tag} />
               </li>
             ))}
           </TagsUl>
         </EntryAnchor>
       </Link>
     </EntryLi>
+  );
+}
+
+function EntryTag(props: { tag: EntryItemTag$key }) {
+  const router = useRouter();
+  const selectedTags = useMemo(() => {
+    const q = router.query.tags ?? [];
+    return new Set(Array.isArray(q) ? q : [q]);
+  }, [router.query.tags]);
+
+  const tag = useFragment(
+    graphql`
+      fragment EntryItemTag on EntryTag {
+        name
+        displayName
+      }
+    `,
+    props.tag
+  );
+
+  return (
+    <Tag
+      as="button"
+      text={tag.displayName}
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        if (selectedTags.has(tag.name)) {
+          const newTags = new Set(selectedTags);
+          newTags.delete(tag.name);
+          void router.push({ query: { ...router.query, tags: [...Array.from(newTags)] } });
+        } else {
+          void router.push({ query: { ...router.query, tags: [...Array.from(selectedTags), tag.name] } });
+        }
+      }}
+      role="button"
+      aria-pressed={selectedTags.has(tag.name)}
+    />
   );
 }
 

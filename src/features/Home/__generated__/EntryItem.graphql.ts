@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<28ef985d566ab3f1bd2c746bcbb51995>>
+ * @generated SignedSource<<f8359b32a9556e1e54eec506bfe49e6e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,7 @@ export type EntryItem$data = {
   readonly path?: string;
   readonly tags?: ReadonlyArray<{
     readonly name: string;
-    readonly displayName: string;
+    readonly " $fragmentSpreads": FragmentRefs<"EntryItemTag">;
   }>;
   readonly publishedOn?: any;
   readonly source?: {
@@ -55,11 +55,9 @@ const node: ReaderFragment = (function () {
       selections: [
         v1 /*: any*/,
         {
-          alias: null,
           args: null,
-          kind: "ScalarField",
-          name: "displayName",
-          storageKey: null,
+          kind: "FragmentSpread",
+          name: "EntryItemTag",
         },
       ],
       storageKey: null,
@@ -148,6 +146,6 @@ const node: ReaderFragment = (function () {
   };
 })();
 
-(node as any).hash = "92aff75ddddf17d20594a1ac89cc957a";
+(node as any).hash = "43860ab8cac161ded5d5e6ef0edd9da0";
 
 export default node;
