@@ -4,6 +4,7 @@ import { fetchQuery } from "react-relay";
 import { BlogArticlePage, BlogArticlePageQuery } from "../../features/Blog/BlogArticlePage";
 import { BlogArticlePageQuery as BlogArticlePageQueryType } from "../../features/Blog/__generated__/BlogArticlePageQuery.graphql";
 import { initRelayEnvironment } from "../../lib/RelayEnvironment";
+import { getPath } from "../../lib/typed-path-helper";
 
 const BlogArticle = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return props.queryResult ? <BlogArticlePage queryResult={props.queryResult} /> : null;
@@ -16,7 +17,8 @@ export const getServerSideProps: GetServerSideProps<
   },
   { path: string[] }
 > = async (ctx) => {
-  const articlePath = `/blog/${(ctx.params?.path ?? []).join("/")}`;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const articlePath = getPath("/blog/[...path]", { params: ctx.params! });
   const env = initRelayEnvironment();
 
   const queryResult = await fetchQuery<BlogArticlePageQueryType>(env, BlogArticlePageQuery, {
