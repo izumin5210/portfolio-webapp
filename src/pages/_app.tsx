@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
         <meta property="og:url" content={url} />
         <link rel="canonical" href={url} />
         <link rel="icon" href="/favicon.png" />
+        <link rel="alternate" type="application/rss+xml" href="/blog/feed" title="izum.in/blog" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Head>
       {process.env.NODE_ENV === "production" ? (
