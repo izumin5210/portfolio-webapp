@@ -59,6 +59,16 @@ export const schema = new GraphQLSchema({
           return fetchEntries().filter((e) => e.picked);
         },
       },
+      articleEntries: {
+        type: new GraphQLNonNull(types.ArticleEntryConnection),
+        args: connectionArgs,
+        async resolve(_root, args) {
+          return connectionFromArray(
+            fetchEntries().filter((e) => e.source?.type === "article"),
+            args
+          );
+        },
+      },
       articleEntryByPath: {
         type: types.ArticleEntry,
         args: {

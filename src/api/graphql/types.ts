@@ -120,3 +120,7 @@ export const Entry = new GraphQLUnionType({
 export const { connectionType: EntryConnection } = connectionDefinitions({
   nodeType: Entry,
 });
+
+export const { connectionType: ArticleEntryConnection } = connectionDefinitions({
+  nodeType: ArticleEntry,
+});
