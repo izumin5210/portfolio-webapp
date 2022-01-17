@@ -12,7 +12,7 @@ async function generateFeedXml() {
     id: "https://izum.in/blog",
     link: "https://izum.in/blog",
     title: "izum.in/blog",
-    description: "",
+    description: "@izumin5210 blog",
     copyright: "",
     generator: "izum.in",
     updated: process.env.BUILT_AT ? new Date(process.env.BUILT_AT) : new Date(),
