@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ecb88422c62f5123fb839f4e3a18f30c>>
+ * @generated SignedSource<<be7896294f59a083c73dcb41ac898e84>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,7 @@ export type BlogArticlePageQuery$variables = {
 export type BlogArticlePageQueryVariables = BlogArticlePageQuery$variables;
 export type BlogArticlePageQuery$data = {
   readonly articleEntryByPath: {
-    readonly " $fragmentSpreads": FragmentRefs<"BlogArticle">;
+    readonly " $fragmentSpreads": FragmentRefs<"BlogArticlePageHead" | "BlogArticle">;
   } | null;
 };
 export type BlogArticlePageQueryResponse = BlogArticlePageQuery$data;
@@ -58,6 +58,11 @@ const node: ConcreteRequest = (function () {
             {
               args: null,
               kind: "FragmentSpread",
+              name: "BlogArticlePageHead",
+            },
+            {
+              args: null,
+              kind: "FragmentSpread",
               name: "BlogArticle",
             },
           ],
@@ -86,6 +91,13 @@ const node: ConcreteRequest = (function () {
               args: null,
               kind: "ScalarField",
               name: "title",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
+              name: "path",
               storageKey: null,
             },
             {
@@ -140,16 +152,16 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "c4929246f26987e76cd3d3e8a19c3b62",
+      cacheID: "c14997f615ff3832336f5b2f03bb7999",
       id: null,
       metadata: {},
       name: "BlogArticlePageQuery",
       operationKind: "query",
-      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags {\n    name\n    displayName\n  }\n}\n",
+      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticlePageHead\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags {\n    name\n    displayName\n  }\n}\n\nfragment BlogArticlePageHead on ArticleEntry {\n  title\n  path\n}\n",
     },
   };
 })();
 
-(node as any).hash = "2bcae5a3a631c6f03e6e6f65d20cca67";
+(node as any).hash = "4683b18a382a6db6e39069a9ecd3b5fd";
 
 export default node;

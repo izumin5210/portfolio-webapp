@@ -18,12 +18,12 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
     <RelayEnvironmentProvider environment={environment}>
       <Head>
         <title>{siteName}</title>
-        <meta name="description" content={description} />
-        <meta property="og:title" content={siteName} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={url} />
-        <link rel="canonical" href={url} />
+        <meta property="og:title" content={siteName} key="title" />
+        <meta property="og:description" name="description" content={description} key="description" />
+        <meta property="og:type" content="website" key="type" />
+        <meta property="og:url" content={url} key="url" />
+        <meta property="og:site_name" content="izum.in" key="site_name" />
+        <link rel="canonical" href={url} key="canonical" />
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate" type="application/rss+xml" href="/blog/feed" title="izum.in/blog" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
