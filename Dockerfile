@@ -28,6 +28,7 @@ RUN apt-get update \
 
 #  yarn
 #-----------------------------------------------
+ENV CI true
 COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
 COPY ./.yarn /app/.yarn
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
