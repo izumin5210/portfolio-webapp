@@ -31,7 +31,7 @@ RUN apt-get update \
 COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
 COPY ./.yarn /app/.yarn
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
-  yarn install --frozen-lockfile --no-progress
+  yarn install --immutable
 
 COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
 COPY ./public/ /app/public
