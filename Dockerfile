@@ -28,7 +28,8 @@ RUN apt-get update \
 
 #  yarn
 #-----------------------------------------------
-COPY ./package.json ./yarn.lock /app/
+COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
+COPY ./.yarn /app/.yarn
 RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=yarn-cache,sharing=shared \
   yarn install --frozen-lockfile --no-progress
 
