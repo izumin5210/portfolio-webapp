@@ -11,7 +11,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { getPath } from "../../lib/next-typed-routes";
 import { backgroundColor, colors } from "../../lib/styles/colors";
-import { body1, body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
+import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
 
@@ -247,7 +247,7 @@ const H6 = styled.h1`
 `;
 
 const P = styled.p`
-  ${body1}
+  ${body2}
   margin: 16px 0 0;
 `;
 
@@ -259,7 +259,7 @@ const Img = styled.img`
 `;
 
 const Li = styled.li`
-  ${body1}
+  ${body2}
 `;
 
 const Ul = styled.ul`
