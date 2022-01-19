@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "clean": "rimraf src/**/__generated__/**/*",
     "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
-    "generate": "run-p generate:*",
+    "generate": "run-p 'generate:*'",
     "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
     "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
     "storybook": "start-storybook -p 6006",
