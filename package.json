@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "clean": "rimraf src/**/__generated__/**/*",
     "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
-    "generate": "run-p generate:*",
+    "generate": "run-p 'generate:*'",
     "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
     "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
     "storybook": "start-storybook -p 6006",
@@ -73,6 +73,7 @@
     "next-linaria": "1.0.1-beta",
     "npm-run-all": "4.1.5",
     "open-graph-scraper": "4.11.0",
+    "prettier": "^2.5.1",
     "react-test-renderer": "17.0.2",
     "relay-compiler": "13.0.1",
     "relay-compiler-language-typescript": "15.0.0",
@@ -81,5 +82,6 @@
     "remark-stringify": "10.0.2",
     "rimraf": "3.0.2",
     "typescript": "4.5.4"
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }

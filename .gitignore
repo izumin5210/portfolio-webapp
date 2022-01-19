@@ -36,9 +36,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# berry
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # Sentry
 .sentryclirc
-
 
 ### misc
 .env
