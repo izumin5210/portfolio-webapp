@@ -4798,7 +4798,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
+"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3, @types/unist@npm:^2.0.6":
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
@@ -15540,6 +15540,7 @@ __metadata:
     relay-test-utils: 13.0.1
     remark-extract-frontmatter: 3.2.0
     remark-frontmatter: 4.0.1
+    remark-h1-as-title: "workspace:^"
     remark-parse: ^10.0.1
     remark-rehype: ^10.1.0
     remark-stringify: 10.0.2
@@ -16726,6 +16727,20 @@ __metadata:
   checksum: c1c448923cd0239e9eeafb42d7129c05081c9a1bca4c8164b562cbb748e80d103bfd058597a48d54000ce3c776200ab8ccd64a9679d955423f07e4a4e77f10c3
   languageName: node
   linkType: hard
+
+"remark-h1-as-title@workspace:^, remark-h1-as-title@workspace:packages/remark-h1-as-title":
+  version: 0.0.0-use.local
+  resolution: "remark-h1-as-title@workspace:packages/remark-h1-as-title"
+  dependencies:
+    "@types/unist": ^2.0.6
+    unified: ^10.1.1
+    unist-util-is: ^5.1.1
+    unist-util-visit: ^4.1.0
+  peerDependencies:
+    unified: ^10.1.1
+    unist-util-visit: ^4.1.0
+  languageName: unknown
+  linkType: soft
 
 "remark-mdx@npm:1.6.22":
   version: 1.6.22
@@ -19013,7 +19028,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-is@npm:^5.0.0":
+"unist-util-is@npm:^5.0.0, unist-util-is@npm:^5.1.1":
   version: 5.1.1
   resolution: "unist-util-is@npm:5.1.1"
   checksum: e8743a19a304d8a8f5684f3e5ddb5546f2655847b42123687277d76566a2aba89beb7b4a8a9e9ebc4d904cd1cecc285356d7923d973a43cfc19a1e10ff6bdee4
@@ -19140,7 +19155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^4.0.0":
+"unist-util-visit@npm:^4.0.0, unist-util-visit@npm:^4.1.0":
   version: 4.1.0
   resolution: "unist-util-visit@npm:4.1.0"
   dependencies:
