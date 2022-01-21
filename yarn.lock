@@ -16738,6 +16738,7 @@ __metadata:
     unist-util-visit: ^4.1.0
   peerDependencies:
     unified: ^10.1.1
+    unist-util-is: ^5.1.1
     unist-util-visit: ^4.1.0
   languageName: unknown
   linkType: soft
