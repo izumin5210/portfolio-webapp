@@ -4,6 +4,12 @@
   "private": true,
   "sideEffects": false,
   "main": "./lib/index.js",
+  "module": "./module/index.js",
+  "type": "module",
+  "exports": {
+    "import": "./module/index.js",
+    "require": "./lib/index.js"
+  },
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "yarn g:tsc --build",
