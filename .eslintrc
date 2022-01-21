@@ -4,7 +4,7 @@
     "plugin:relay/strict"
   ],
   "parserOptions": {
-    "project": ["./tsconfig.json", "./packages/*/tsconfig.json"]
+    "project": ["./tsconfig.json", "./packages/*/tsconfig.cjs.json"]
   },
   "plugins": ["relay"],
   "rules": {
