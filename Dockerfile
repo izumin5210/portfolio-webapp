@@ -31,7 +31,7 @@ RUN apt-get update \
 ENV CI true
 COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
 COPY ./.yarn /app/.yarn
-COPY ./packages/remark-h1-as-title /app/packages/remark-h1-as-title/package.json
+COPY ./packages/remark-h1-as-title/package.json /app/packages/remark-h1-as-title/package.json
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
   yarn install --immutable
 
