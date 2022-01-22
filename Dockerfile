@@ -31,12 +31,17 @@ RUN apt-get update \
 ENV CI true
 COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
 COPY ./.yarn /app/.yarn
+
+# workspaces' package.json
+COPY ./packages/scripts/package.json /app/packages/scripts/package.json
+
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
   yarn install --immutable
 
 COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
 COPY ./public/ /app/public
 COPY ./src/ /app/src
+COPY ./packages /app/packages
 COPY ./_articles/ /app/_articles
 
 ENV NODE_ENV production
