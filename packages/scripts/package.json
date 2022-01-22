@@ -6,7 +6,7 @@
   "module": "./module/index.js",
   "type": "module",
   "bin": {
-    "update-entries-data": "./bin/update-entries-data.mjs"
+    "update-entries-data": "./module/bin/update-entries-data.js"
   },
   "scripts": {
     "build": "yarn g:tsc --build",

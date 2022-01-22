@@ -17279,7 +17279,7 @@ __metadata:
     remark-stringify: ^10.0.2
     unified: ^10.1.1
   bin:
-    update-entries-data: ./bin/update-entries-data.mjs
+    update-entries-data: ./module/bin/update-entries-data.js
   languageName: unknown
   linkType: soft
 
