@@ -38,7 +38,7 @@ COPY ./packages/scripts/package.json /app/packages/scripts/package.json
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
   yarn install --immutable
 
-COPY ./.babelrc ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
+COPY ./.babelrc ./tsconfig.base.json ./tsconfig.json ./next.config.js ./next-env.d.ts ./data.yml ./sentry.*.config.js /app/
 COPY ./public/ /app/public
 COPY ./src/ /app/src
 COPY ./packages /app/packages
