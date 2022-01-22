@@ -14864,7 +14864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-graph-scraper@npm:4.11.0":
+"open-graph-scraper@npm:^4.11.0":
   version: 4.11.0
   resolution: "open-graph-scraper@npm:4.11.0"
   dependencies:
@@ -15526,7 +15526,6 @@ __metadata:
     next-linaria: 1.0.1-beta
     node-fetch: ^3.1.1
     npm-run-all: 4.1.5
-    open-graph-scraper: 4.11.0
     prettier: 2.5.1
     react: 17.0.2
     react-dom: 17.0.2
@@ -15538,14 +15537,13 @@ __metadata:
     relay-compiler-language-typescript: 15.0.0
     relay-runtime: ^13.0.1
     relay-test-utils: 13.0.1
-    remark-extract-frontmatter: 3.2.0
     remark-frontmatter: 4.0.1
     remark-parse: ^10.0.1
     remark-rehype: ^10.1.0
-    remark-stringify: 10.0.2
     rimraf: 3.0.2
     sanitize.css: ^13.0.0
-    typescript: 4.5.4
+    scripts: "workspace:^"
+    typescript: next
     unified: ^10.1.1
   languageName: unknown
   linkType: soft
@@ -16701,7 +16699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-extract-frontmatter@npm:3.2.0":
+"remark-extract-frontmatter@npm:^3.2.0":
   version: 3.2.0
   resolution: "remark-extract-frontmatter@npm:3.2.0"
   checksum: b189efdd1d82bceebab2d9fc1f6c15ce0e35512c780613219f377781cbfc8371ff21138e8dd0506eaa7796c4a85a433ac6296887b358a8681ba337a4663ed923
@@ -16715,7 +16713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-frontmatter@npm:4.0.1":
+"remark-frontmatter@npm:4.0.1, remark-frontmatter@npm:^4.0.1":
   version: 4.0.1
   resolution: "remark-frontmatter@npm:4.0.1"
   dependencies:
@@ -16810,7 +16808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-stringify@npm:10.0.2":
+"remark-stringify@npm:^10.0.2":
   version: 10.0.2
   resolution: "remark-stringify@npm:10.0.2"
   dependencies:
@@ -17269,6 +17267,21 @@ __metadata:
   checksum: fb73f3d759d43ba033c877628fe9751620a26879f6301d3dbeeb48cf2a65baec5cdf99da65d1bf3b4ff5444b2e59cbe4f81c2456b5e0d2ba7d7fd4aed5da29ce
   languageName: node
   linkType: hard
+
+"scripts@workspace:^, scripts@workspace:packages/scripts":
+  version: 0.0.0-use.local
+  resolution: "scripts@workspace:packages/scripts"
+  dependencies:
+    open-graph-scraper: ^4.11.0
+    remark-extract-frontmatter: ^3.2.0
+    remark-frontmatter: ^4.0.1
+    remark-parse: ^10.0.1
+    remark-stringify: ^10.0.2
+    unified: ^10.1.1
+  bin:
+    update-entries-data: ./module/bin/update-entries-data.js
+  languageName: unknown
+  linkType: soft
 
 "scuid@npm:^1.1.0":
   version: 1.1.0
@@ -18796,23 +18809,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.5.4":
-  version: 4.5.4
-  resolution: "typescript@npm:4.5.4"
+"typescript@npm:next":
+  version: 4.6.0-dev.20220121
+  resolution: "typescript@npm:4.6.0-dev.20220121"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 59f3243f9cd6fe3161e6150ff6bf795fc843b4234a655dbd938a310515e0d61afd1ac942799e7415e4334255e41c2c49b7dd5d9fd38a17acd25a6779ca7e0961
+  checksum: edadba6e5084d4153c9a7f6c4e281c66763b15abb2ee8aa75dac78dffcab5be31eefccc667478a97fcc66caf0322c95e3ff3a607dfd9b9b70c900f7d7428193e
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.5.4#~builtin<compat/typescript>":
-  version: 4.5.4
-  resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"
+"typescript@patch:typescript@next#~builtin<compat/typescript>":
+  version: 4.6.0-dev.20220121
+  resolution: "typescript@patch:typescript@npm%3A4.6.0-dev.20220121#~builtin<compat/typescript>::version=4.6.0-dev.20220121&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 2e488dde7d2c4a2fa2e79cf2470600f8ce81bc0563c276b72df8ff412d74456ae532ba824650ae936ce207440c79720ddcfaa25e3cb4477572b8534fa4e34d49
+  checksum: 651ccc2d763b1eabebcde5134ac9409bf1f61c28ea3e31859ae7348773d0347ce8bb75bb63ac79cf015de633ee8e86f3f624ec1136812e7290dc861ffc518b05
   languageName: node
   linkType: hard
 

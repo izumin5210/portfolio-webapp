@@ -1,3 +1,7 @@
 .git
 .next
 node_modules
+
+packages/*/lib
+packages/*/module
+packages/*/tmp
