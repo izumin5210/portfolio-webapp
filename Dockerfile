@@ -34,6 +34,7 @@ COPY ./.yarn /app/.yarn
 
 # workspaces' package.json
 COPY ./packages/scripts/package.json /app/packages/scripts/package.json
+COPY ./packages/remark-h1-as-title/package.json /app/packages/remark-h1-as-title/package.json
 
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
   yarn install --immutable
@@ -47,6 +48,7 @@ COPY ./_articles/ /app/_articles
 ENV NODE_ENV production
 
 ARG GIT_SHA
+RUN yarn bootstrap
 RUN --mount=type=secret,id=dotenv,dst=/app/.env yarn build && rm -rf .next/static/**/*.map
 
 #  App

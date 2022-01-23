@@ -52,7 +52,9 @@ Normal.args = {
       { name: "react", displayName: "React" },
       { name: "graphql", displayName: "GraphQL" },
     ],
-    body: `## Heading level 2
+    body: `# Example article
+
+## Heading level 2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel diam sed orci scelerisque ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta est imperdiet sem mattis condimentum. Duis sodales enim id est mattis consequat. Nam congue velit tortor, nec hendrerit orci efficitur non. Morbi sit amet quam vehicula, eleifend lacus euismod, vestibulum ligula. Suspendisse congue urna in purus faucibus facilisis. Etiam aliquam pellentesque tortor mollis gravida.
 

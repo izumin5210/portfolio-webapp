@@ -2,7 +2,6 @@
   "name": "portfolio-webapp",
   "private": true,
   "workspaces": [
-    ".",
     "./packages/*"
   ],
   "scripts": {
@@ -19,7 +18,9 @@
     "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "g:tsc": "cd $INIT_CWD && tsc"
+    "g:tsc": "cd $INIT_CWD && tsc",
+    "g:jest": "cd $INIT_CWD && jest",
+    "bootstrap": "yarn workspaces foreach --topological --parallel run prepack"
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
@@ -42,6 +43,7 @@
     "rehype-react": "^7.0.4",
     "relay-runtime": "^13.0.1",
     "remark-frontmatter": "4.0.1",
+    "remark-h1-as-title": "workspace:^",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sanitize.css": "^13.0.0",

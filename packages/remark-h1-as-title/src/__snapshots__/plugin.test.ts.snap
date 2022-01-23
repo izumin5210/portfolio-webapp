@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extracts title from first h1 text 1`] = `
+"foobarbaz
+"
+`;
+
+exports[`ignores yaml frontmatter 1`] = `
+"---
+foo: bar
+---
+
+foobarbaz
+"
+`;
