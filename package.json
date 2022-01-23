@@ -19,7 +19,8 @@
     "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "g:tsc": "cd $INIT_CWD && tsc"
+    "g:tsc": "cd $INIT_CWD && tsc",
+    "g:jest": "cd $INIT_CWD && jest"
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
