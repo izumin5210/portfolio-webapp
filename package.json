@@ -43,6 +43,7 @@
     "rehype-react": "^7.0.4",
     "relay-runtime": "^13.0.1",
     "remark-frontmatter": "4.0.1",
+    "remark-h1-as-title": "workspace:^",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sanitize.css": "^13.0.0",

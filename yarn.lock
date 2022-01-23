@@ -15554,6 +15554,7 @@ __metadata:
     relay-runtime: ^13.0.1
     relay-test-utils: 13.0.1
     remark-frontmatter: 4.0.1
+    remark-h1-as-title: "workspace:^"
     remark-parse: ^10.0.1
     remark-rehype: ^10.1.0
     rimraf: 3.0.2
@@ -16741,7 +16742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-h1-as-title@workspace:packages/remark-h1-as-title":
+"remark-h1-as-title@workspace:^, remark-h1-as-title@workspace:packages/remark-h1-as-title":
   version: 0.0.0-use.local
   resolution: "remark-h1-as-title@workspace:packages/remark-h1-as-title"
   dependencies:
@@ -17305,6 +17306,7 @@ __metadata:
     open-graph-scraper: ^4.11.0
     remark-extract-frontmatter: ^3.2.0
     remark-frontmatter: ^4.0.1
+    remark-h1-as-title: "workspace:^"
     remark-parse: ^10.0.1
     remark-stringify: ^10.0.2
     unified: ^10.1.1
