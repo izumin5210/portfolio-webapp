@@ -16700,7 +16700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-stringify@npm:^9.0.2":
+"rehype-stringify@npm:9.0.2, rehype-stringify@npm:^9.0.2":
   version: 9.0.2
   resolution: "rehype-stringify@npm:9.0.2"
   dependencies:
@@ -16790,10 +16790,10 @@ __metadata:
   resolution: "remark-extract-lead@workspace:packages/remark-extract-lead"
   dependencies:
     "@types/unist": 2.0.6
-    rehype-stringify: ^9.0.2
+    rehype-stringify: 9.0.2
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
-    remark-rehype: ^10.1.0
+    remark-rehype: 10.1.0
     remark-stringify: 10.0.2
     ts-jest: 27.1.3
     unified: 10.1.1
@@ -16885,7 +16885,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-rehype@npm:^10.1.0":
+"remark-rehype@npm:10.1.0, remark-rehype@npm:^10.1.0":
   version: 10.1.0
   resolution: "remark-rehype@npm:10.1.0"
   dependencies:
