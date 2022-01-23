@@ -6,11 +6,10 @@ export const remarkH1AsTitle: Plugin<[], Parent> = () => {
   return function transformer(tree, file) {
     for (let i = 0; i < tree.children.length; i++) {
       const node = tree.children[i];
-      if (node.type === "yaml") continue;
-      if (is(node, "heading") && (node as { depth?: number }).depth === 1) {
-        const h1 = node as Parent;
-        if (h1.children.length === 1 && h1.children[0].type === "text") {
-          file.data.title = (h1.children[0] as Node & { value: string }).value;
+      if (is<YamlNode>(node, "yaml")) continue;
+      if (is<HeadingNode>(node, "heading") && node.depth === 1) {
+        if (node.children.length === 1 && is<TextNode>(node.children[0], "text")) {
+          file.data.title = node.children[0].value;
           tree.children = [...tree.children.slice(0, i), ...tree.children.slice(i + 1)];
         } else {
           file.fail(new Error(" h1 at the beginning of the document must be text only"), (node as Node).position);
@@ -22,3 +21,18 @@ export const remarkH1AsTitle: Plugin<[], Parent> = () => {
     }
   };
 };
+
+interface HeadingNode extends Parent {
+  type: "heading";
+  depth: number;
+}
+
+interface TextNode extends Node {
+  type: "text";
+  value: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface YamlNode extends Node {
+  type: "yaml";
+}
