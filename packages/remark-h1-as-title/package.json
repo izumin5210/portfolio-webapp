@@ -17,7 +17,8 @@
   "scripts": {
     "build": "yarn g:tsc --build",
     "clean": "yarn g:tsc --build --clean",
-    "test": "NODE_OPTIONS=--experimental-vm-modules yarn g:jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules yarn g:jest",
+    "prepack": "yarn clean && yarn build"
   },
   "dependencies": {
     "unist-util-is": "^5.1.1"

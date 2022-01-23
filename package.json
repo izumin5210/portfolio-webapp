@@ -2,7 +2,6 @@
   "name": "portfolio-webapp",
   "private": true,
   "workspaces": [
-    ".",
     "./packages/*"
   ],
   "scripts": {
@@ -20,7 +19,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "g:tsc": "cd $INIT_CWD && tsc",
-    "g:jest": "cd $INIT_CWD && jest"
+    "g:jest": "cd $INIT_CWD && jest",
+    "bootstrap": "yarn workspaces foreach --topological --parallel run prepack"
   },
   "dependencies": {
     "@linaria/react": "^3.0.0-beta.15",
