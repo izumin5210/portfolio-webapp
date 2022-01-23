@@ -84,7 +84,7 @@
     "relay-test-utils": "13.0.1",
     "rimraf": "3.0.2",
     "scripts": "workspace:^",
-    "typescript": "next"
+    "typescript": "4.5.5"
   },
   "packageManager": "yarn@3.1.1"
 }
