@@ -1,0 +1,12 @@
+name: Setup
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v2
+      with:
+        node-version-file: '.node-version'
+        cache: 'yarn'
+    - run: yarn --immutable
+      shell: bash
+    - run: yarn bootstrap
+      shell: bash
