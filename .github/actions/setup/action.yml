@@ -7,4 +7,6 @@ runs:
         node-version-file: '.node-version'
         cache: 'yarn'
     - run: yarn --immutable
+      shell: bash
     - run: yarn bootstrap
+      shell: bash
