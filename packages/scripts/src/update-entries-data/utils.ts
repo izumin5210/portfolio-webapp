@@ -5,6 +5,7 @@ import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
+import { remarkH1AsTitle } from "remark-h1-as-title";
 import { unified } from "unified";
 import { ArticleEntry, ExternalEntry, Schema, Source, Tag } from "./types.js";
 
@@ -98,6 +99,7 @@ export async function loadArticleEntries(): Promise<ArticleEntry[]> {
     .use(remarkParse)
     .use(remarkStringify)
     .use(remarkFrontmatter)
+    .use(remarkH1AsTitle)
     .use(remarkExtractFrontmatter, { yaml: yaml.load });
   const dir = path.join(process.cwd(), "_articles");
   const filenames = await fs.readdir(dir);

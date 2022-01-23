@@ -8,6 +8,7 @@ import rehypeReact from "rehype-react";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import { remarkH1AsTitle } from "remark-h1-as-title";
 import { unified } from "unified";
 import { getPath } from "../../lib/next-typed-routes";
 import { backgroundColor, colors } from "../../lib/styles/colors";
@@ -65,6 +66,7 @@ function useMarkdownProcessor(text: string) {
     const processor = unified()
       .use(remarkParse)
       .use(remarkFrontmatter)
+      .use(remarkH1AsTitle)
       .use(remarkRehype)
       .use(rehypePrism) // FIXME: should import only used syntax
       .use(rehypeReact, {
