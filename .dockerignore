@@ -3,5 +3,6 @@
 node_modules
 
 packages/*/lib
+packages/*/cjs
 packages/*/module
 packages/*/tmp
