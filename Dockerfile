@@ -35,6 +35,7 @@ COPY ./.yarn /app/.yarn
 # workspaces' package.json
 COPY ./packages/scripts/package.json /app/packages/scripts/package.json
 COPY ./packages/remark-h1-as-title/package.json /app/packages/remark-h1-as-title/package.json
+COPY ./packages/remark-extract-lead/package.json /app/packages/remark-extract-lead/package.json
 
 RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
   yarn install --immutable
