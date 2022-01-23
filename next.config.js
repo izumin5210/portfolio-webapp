@@ -46,6 +46,17 @@ module.exports = (phase, { defaultConfig }) => {
     rewrites() {
       return [{ source: "/blog/feed", destination: "/api/blog/feed" }];
     },
+    webpack(config) {
+      // https://github.com/vercel/next.js/issues/17806#issuecomment-913437792
+      config.module.rules.push({
+        test: /\.m?js$/,
+        type: "javascript/auto",
+        resolve: {
+          fullySpecified: false,
+        },
+      });
+      return config;
+    },
   };
 
   if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
