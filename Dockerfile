@@ -48,7 +48,7 @@ COPY ./_articles/ /app/_articles
 ENV NODE_ENV production
 
 ARG GIT_SHA
-RUN yarn bootsrap
+RUN yarn bootstrap
 RUN --mount=type=secret,id=dotenv,dst=/app/.env yarn build && rm -rf .next/static/**/*.map
 
 #  App
