@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extracts lead contents 1`] = `
+"<p>foobarbaz</p>
+<ul>
+<li>item 1</li>
+<li><a href=\\"./item2\\">item 2</a></li>
+<li><a href=\\"./item3\\">item 3</a></li>
+</ul>"
+`;
+
+exports[`ignores leading h1 1`] = `"<p>foobarbaz</p>"`;
+
+exports[`ignores yaml frontmatter 1`] = `"<p>foobarbaz</p>"`;
+
+exports[`returns all contents when there are no headings 1`] = `
+"<p>foobarbaz</p>
+<ul>
+<li>item 1</li>
+<li><a href=\\"./item2\\">item 2</a></li>
+<li><a href=\\"./item3\\">item 3</a></li>
+</ul>"
+`;

@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
 import { Feed } from "feed";
 import { NextApiRequest, NextApiResponse } from "next";
+import fetch from "node-fetch";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const xml = await generateFeedXml();
@@ -29,6 +29,7 @@ async function generateFeedXml() {
     body: string;
     path: string;
     publishedOn: string;
+    feedDescriptionHtml: string;
   };
   const json = (await resp.json()) as { data: { articleEntries: { edges: { node: ArticleEntry }[] } } };
   for (const { node } of json.data.articleEntries.edges) {
@@ -37,6 +38,7 @@ async function generateFeedXml() {
       id: url,
       title: node.title,
       link: url,
+      description: node.feedDescriptionHtml,
       date: new Date(node.publishedOn),
     });
   }
@@ -52,6 +54,7 @@ const query = `#graphql
           title
           path
           publishedOn
+          feedDescriptionHtml
         }
       }
     }

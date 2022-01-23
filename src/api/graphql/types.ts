@@ -1,3 +1,4 @@
+import * as fs from "fs/promises";
 import {
   GraphQLBoolean,
   GraphQLList,
@@ -9,7 +10,13 @@ import {
 import { connectionDefinitions } from "graphql-relay";
 import { GraphQLDate } from "graphql-scalars";
 import path from "path";
-import * as fs from "fs/promises";
+import rehypeStringify from "rehype-stringify";
+import { remarkExtractLead } from "remark-extract-lead";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkStringify from "remark-stringify";
+import { unified } from "unified";
 
 export const Date = GraphQLDate;
 
@@ -28,6 +35,13 @@ export const EntryTag = new GraphQLObjectType({
   },
 });
 
+function fetchArticleBody(articlePath: string): Promise<string> {
+  const filename = `${articlePath
+    .replace("/blog/", "/_articles/")
+    .replace(/\/(\d{4})\/(\d{2})\/(\d{2})\//, "/$1-$2-$3-")}.md`;
+  return fs.readFile(path.join(process.cwd(), filename), "utf-8");
+}
+
 export const ArticleEntry = new GraphQLObjectType({
   name: "ArticleEntry",
   fields: {
@@ -35,10 +49,25 @@ export const ArticleEntry = new GraphQLObjectType({
     body: {
       type: new GraphQLNonNull(GraphQLString),
       resolve(root): Promise<string> {
-        const filename = `${root.path
-          .replace("/blog/", "/_articles/")
-          .replace(/\/(\d{4})\/(\d{2})\/(\d{2})\//, "/$1-$2-$3-")}.md`;
-        return fs.readFile(path.join(process.cwd(), filename), "utf-8");
+        return fetchArticleBody(root.path);
+      },
+    },
+    feedDescriptionHtml: {
+      type: new GraphQLNonNull(GraphQLString),
+      async resolve(root): Promise<string> {
+        const body = await fetchArticleBody(root.path);
+        const originalVfile = await unified()
+          .use(remarkParse)
+          .use(remarkFrontmatter)
+          .use(remarkExtractLead)
+          .use(remarkStringify)
+          .process(body);
+        const rehypeTree = await unified()
+          .use(remarkRehype)
+          .run(originalVfile.data.lead as any);
+        return await unified()
+          .use(rehypeStringify)
+          .stringify(rehypeTree as any);
       },
     },
     path: { type: new GraphQLNonNull(GraphQLString) },
