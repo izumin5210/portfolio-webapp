@@ -4798,7 +4798,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3, @types/unist@npm:^2.0.6":
+"@types/unist@npm:*, @types/unist@npm:2.0.6, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
@@ -16746,12 +16746,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-h1-as-title@workspace:packages/remark-h1-as-title"
   dependencies:
-    "@types/unist": ^2.0.6
-    remark-frontmatter: ^4.0.1
-    remark-parse: ^10.0.1
-    remark-stringify: ^10.0.2
-    ts-jest: ^27.1.3
-    unified: ^10.1.1
+    "@types/unist": 2.0.6
+    remark-frontmatter: 4.0.1
+    remark-parse: 10.0.1
+    remark-stringify: 10.0.2
+    ts-jest: 27.1.3
+    unified: 10.1.1
     unist-util-is: ^5.1.1
   languageName: unknown
   linkType: soft
@@ -16769,6 +16769,17 @@ __metadata:
     remark-parse: 8.0.3
     unified: 9.2.0
   checksum: 45e62f8a821c37261f94448d54f295de1c5c393f762ff96cd4d4b730715037fafeb6c89ef94adf6a10a09edfa72104afe1431b93b5ae5e40ce2a7677e133c3d9
+  languageName: node
+  linkType: hard
+
+"remark-parse@npm:10.0.1, remark-parse@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "remark-parse@npm:10.0.1"
+  dependencies:
+    "@types/mdast": ^3.0.0
+    mdast-util-from-markdown: ^1.0.0
+    unified: ^10.0.0
+  checksum: 505088e564ab53ff054433368adbb7b551f69240c7d9768975529837a86f1d0f085e72d6211929c5c42db315273df4afc94f3d3a8662ffdb69468534c6643d29
   languageName: node
   linkType: hard
 
@@ -16793,17 +16804,6 @@ __metadata:
     vfile-location: ^3.0.0
     xtend: ^4.0.1
   checksum: 2dfea250e7606ddfc9e223b9f41e0b115c5c701be4bd35181beaadd46ee59816bc00aadc6085a420f8df00b991ada73b590ea7fd34ace14557de4a0a41805be5
-  languageName: node
-  linkType: hard
-
-"remark-parse@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "remark-parse@npm:10.0.1"
-  dependencies:
-    "@types/mdast": ^3.0.0
-    mdast-util-from-markdown: ^1.0.0
-    unified: ^10.0.0
-  checksum: 505088e564ab53ff054433368adbb7b551f69240c7d9768975529837a86f1d0f085e72d6211929c5c42db315273df4afc94f3d3a8662ffdb69468534c6643d29
   languageName: node
   linkType: hard
 
@@ -16839,7 +16839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-stringify@npm:^10.0.2":
+"remark-stringify@npm:10.0.2, remark-stringify@npm:^10.0.2":
   version: 10.0.2
   resolution: "remark-stringify@npm:10.0.2"
   dependencies:
@@ -18680,7 +18680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^27.1.3":
+"ts-jest@npm:27.1.3":
   version: 27.1.3
   resolution: "ts-jest@npm:27.1.3"
   dependencies:
@@ -18978,21 +18978,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified@npm:9.2.0":
-  version: 9.2.0
-  resolution: "unified@npm:9.2.0"
-  dependencies:
-    bail: ^1.0.0
-    extend: ^3.0.0
-    is-buffer: ^2.0.0
-    is-plain-obj: ^2.0.0
-    trough: ^1.0.0
-    vfile: ^4.0.0
-  checksum: 0cac4ae119893fbd49d309b4db48595e4d4e9f0a2dc1dde4d0074059f9a46012a2905f37c1346715e583f30c970bc8078db8462675411d39ff5036ae18b4fb8a
-  languageName: node
-  linkType: hard
-
-"unified@npm:^10.0.0, unified@npm:^10.1.1":
+"unified@npm:10.1.1, unified@npm:^10.0.0, unified@npm:^10.1.1":
   version: 10.1.1
   resolution: "unified@npm:10.1.1"
   dependencies:
@@ -19004,6 +18990,20 @@ __metadata:
     trough: ^2.0.0
     vfile: ^5.0.0
   checksum: 5419bd8d9608393bd6637d9b7948fa50b7ecfd1641513293f4af38ac602aadc2b04074c2714191ed5a783a2bffbcb0ee2665fe5367b436a45ee493d264e14e71
+  languageName: node
+  linkType: hard
+
+"unified@npm:9.2.0":
+  version: 9.2.0
+  resolution: "unified@npm:9.2.0"
+  dependencies:
+    bail: ^1.0.0
+    extend: ^3.0.0
+    is-buffer: ^2.0.0
+    is-plain-obj: ^2.0.0
+    trough: ^1.0.0
+    vfile: ^4.0.0
+  checksum: 0cac4ae119893fbd49d309b4db48595e4d4e9f0a2dc1dde4d0074059f9a46012a2905f37c1346715e583f30c970bc8078db8462675411d39ff5036ae18b4fb8a
   languageName: node
   linkType: hard
 
