@@ -1,15 +1,15 @@
+import type { Root } from "mdast";
+import rehypeStringify from "rehype-stringify";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
-import remarkStringify from "remark-stringify";
 import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
+import remarkStringify from "remark-stringify";
 import { unified } from "unified";
 import { remarkExtractLead } from "./plugin.js";
-import { Node } from "unist";
 
 const processor = unified().use(remarkParse).use(remarkFrontmatter).use(remarkExtractLead).use(remarkStringify);
 
-const mdAstToHtmlString = (root: Node) => {
+const mdAstToHtmlString = (root: Root) => {
   const rehypeTree = unified()
     .use(remarkRehype)
     .runSync(root as any);

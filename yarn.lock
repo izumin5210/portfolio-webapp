@@ -4555,7 +4555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^3.0.0":
+"@types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
   dependencies:
@@ -4798,7 +4798,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:2.0.6, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
+"@types/unist@npm:*, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
@@ -16790,7 +16790,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-extract-lead@workspace:packages/remark-extract-lead"
   dependencies:
-    "@types/unist": 2.0.6
+    "@types/mdast": ^3.0.10
     rehype-stringify: 9.0.2
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
@@ -16825,7 +16825,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-h1-as-title@workspace:packages/remark-h1-as-title"
   dependencies:
-    "@types/unist": 2.0.6
+    "@types/mdast": ^3.0.10
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
