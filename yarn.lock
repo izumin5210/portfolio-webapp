@@ -4555,7 +4555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
+"@types/mdast@npm:3.0.10, @types/mdast@npm:^3.0.0":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
   dependencies:
@@ -16790,7 +16790,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-extract-lead@workspace:packages/remark-extract-lead"
   dependencies:
-    "@types/mdast": ^3.0.10
+    "@types/mdast": 3.0.10
     rehype-stringify: 9.0.2
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
@@ -16825,7 +16825,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-h1-as-title@workspace:packages/remark-h1-as-title"
   dependencies:
-    "@types/mdast": ^3.0.10
+    "@types/mdast": 3.0.10
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
