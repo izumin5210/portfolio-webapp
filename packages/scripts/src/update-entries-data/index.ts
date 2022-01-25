@@ -1,11 +1,17 @@
 import fs from "fs/promises";
 import yaml from "js-yaml";
-import ogs from "open-graph-scraper";
 import path from "path";
 import { ExternalEntry, Schema } from "./types.js";
-import { getTagMap, inferSource, loadArticleEntries, refineTitle, validateEntry } from "./utils.js";
+import {
+  fillExternalEntryMetadataFromWeb,
+  getTagMap,
+  inferSource,
+  loadArticleEntries,
+  refineTitle,
+  validateEntry,
+} from "./utils.js";
 
-export async function updateEntriesData() {
+export async function updateEntriesData({ skipFetchingOg }: { skipFetchingOg: boolean }) {
   const datafile = path.join(process.cwd(), "data.yml");
   const rawData = await fs.readFile(datafile, "utf-8");
 
@@ -16,25 +22,12 @@ export async function updateEntriesData() {
     Promise.all(
       data.entries
         .filter((entry): entry is ExternalEntry => !("path" in entry))
-        .map((entry) => {
-          return ogs({ url: entry.url, timeout: 10 * 1000 })
-            .then(({ result }) => {
-              if (result.success) {
-                return { ...entry, title: result.ogTitle };
-              }
-              // eslint-disable-next-line no-console
-              console.error(`failed to fetch title: ${entry.url}`);
-              return entry;
-            })
-            .catch(() => {
-              // eslint-disable-next-line no-console
-              console.error(`failed to fetch title: ${entry.url}`);
-              return entry;
-            })
+        .map((entry) =>
+          fillExternalEntryMetadataFromWeb(entry, { skip: skipFetchingOg })
             .then((entry) => ({ ...entry, source: inferSource(entry, data) }))
             .then((entry) => ({ ...entry, title: refineTitle(entry) }))
-            .then((entry) => ({ ...entry, picked: entry.picked ?? false }));
-        })
+            .then((entry) => ({ ...entry, picked: entry.picked ?? false }))
+        )
     ),
     loadArticleEntries(),
   ])
