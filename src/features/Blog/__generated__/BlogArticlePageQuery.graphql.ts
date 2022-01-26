@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<be7896294f59a083c73dcb41ac898e84>>
+ * @generated SignedSource<<c7f8a71ff88c3e0ac985caa61fb1ea6b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -104,6 +104,13 @@ const node: ConcreteRequest = (function () {
               alias: null,
               args: null,
               kind: "ScalarField",
+              name: "metaDescription",
+              storageKey: null,
+            },
+            {
+              alias: null,
+              args: null,
+              kind: "ScalarField",
               name: "body",
               storageKey: null,
             },
@@ -152,12 +159,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "c14997f615ff3832336f5b2f03bb7999",
+      cacheID: "298bc2ca503cf73c192dd21bb058bc7f",
       id: null,
       metadata: {},
       name: "BlogArticlePageQuery",
       operationKind: "query",
-      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticlePageHead\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags {\n    name\n    displayName\n  }\n}\n\nfragment BlogArticlePageHead on ArticleEntry {\n  title\n  path\n}\n",
+      text: "query BlogArticlePageQuery(\n  $articlePath: String!\n) {\n  articleEntryByPath(path: $articlePath) {\n    ...BlogArticlePageHead\n    ...BlogArticle\n  }\n}\n\nfragment BlogArticle on ArticleEntry {\n  title\n  body\n  publishedOn\n  updatedOn\n  tags {\n    name\n    displayName\n  }\n}\n\nfragment BlogArticlePageHead on ArticleEntry {\n  title\n  path\n  metaDescription\n}\n",
     },
   };
 })();

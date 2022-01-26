@@ -9,6 +9,7 @@ export function BlogArticlePageHead(props: { article: BlogArticlePageHead$key })
       fragment BlogArticlePageHead on ArticleEntry {
         title
         path
+        metaDescription
       }
     `,
     props.article
@@ -18,6 +19,7 @@ export function BlogArticlePageHead(props: { article: BlogArticlePageHead$key })
     <Head>
       <title>{data.title} - izum.in/blog</title>
       <meta property="og:title" content={data.title} key="title" />
+      <meta property="og:description" name="description" content={data.metaDescription} key="description" />
       <meta property="og:type" content="article" key="type" />
       <meta property="og:url" content={url} key="url" />
       <link rel="canonical" href={url} key="canonical" />

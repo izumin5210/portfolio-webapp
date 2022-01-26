@@ -15607,6 +15607,7 @@ __metadata:
     remark-extract-lead: "workspace:^"
     remark-frontmatter: 4.0.1
     remark-h1-as-title: "workspace:^"
+    remark-meta-description: "workspace:^"
     remark-parse: ^10.0.1
     remark-rehype: ^10.1.0
     rimraf: 3.0.2
@@ -16851,7 +16852,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-meta-description@workspace:packages/remark-meta-description":
+"remark-meta-description@workspace:^, remark-meta-description@workspace:packages/remark-meta-description":
   version: 0.0.0-use.local
   resolution: "remark-meta-description@workspace:packages/remark-meta-description"
   dependencies:
