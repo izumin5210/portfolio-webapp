@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extracts lead contents 1`] = `"foobarbaz · item 1;  · item 2;  · item 3; "`;
+
+exports[`ignores leading h1 1`] = `"foobarbaz"`;
+
+exports[`ignores yaml frontmatter 1`] = `"foobarbaz"`;
+
+exports[`returns all contents when there are no headings 1`] = `"foobarbaz · item 1;  · item 2;  · item 3; "`;
