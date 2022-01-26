@@ -31,12 +31,12 @@ export const remarkMetaDescription: Plugin<[], Root> = () => {
       if (is<List>(node, "list")) {
         descMdNodes[i] = {
           type: "paragraph",
-          children: node.children.map((li) => ({ type: "text", value: ` · ${toString(li)}; ` })),
+          children: node.children.map((li) => ({ type: "text", value: `· ${toString(li)}; ` })),
         };
       }
     }
 
-    file.data.metaDescription = toString({ type: "root", children: descMdNodes });
+    file.data.metaDescription = toString({ type: "root", children: descMdNodes }).replace(/\n/g, " ");
   };
 };
 
