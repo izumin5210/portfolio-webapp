@@ -24,7 +24,7 @@
     "unist-util-is": "^5.1.1"
   },
   "devDependencies": {
-    "@types/mdast": "^3.0.10",
+    "@types/mdast": "3.0.10",
     "remark-frontmatter": "4.0.1",
     "remark-parse": "10.0.1",
     "remark-stringify": "10.0.2",
