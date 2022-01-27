@@ -1,11 +1,12 @@
 import fs from "fs/promises";
 import yaml from "js-yaml";
+import ogs from "open-graph-scraper";
 import path from "path";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import remarkFrontmatter from "remark-frontmatter";
+import { remarkH1AsTitle } from "remark-h1-as-title";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
-import { remarkH1AsTitle } from "remark-h1-as-title";
 import { unified } from "unified";
 import { ArticleEntry, ExternalEntry, Schema, Source, Tag } from "./types.js";
 
@@ -30,6 +31,24 @@ export function getTagMap(schema: Schema): Record<string, Tag> {
   }
 
   return tagByName;
+}
+
+export async function fillExternalEntryMetadataFromWeb(
+  entry: ExternalEntry,
+  { skip }: { skip: boolean }
+): Promise<ExternalEntry> {
+  if (skip) return entry;
+
+  try {
+    const { result } = await ogs({ url: entry.url, timeout: 10 * 1000 });
+    if (result.success) {
+      return { ...entry, title: result.ogTitle };
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn("failed to fetch metadata: `${entry.title}`");
+  }
+  return entry;
 }
 
 export function inferSource(entry: ExternalEntry, schema: Schema): Source | undefined {
