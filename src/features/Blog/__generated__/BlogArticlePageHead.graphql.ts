@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<70c5a9938c476746cc89e82432833334>>
+ * @generated SignedSource<<6d2447fe4c199dfcc8394d51f0344512>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,6 +13,7 @@ import { FragmentRefs } from "relay-runtime";
 export type BlogArticlePageHead$data = {
   readonly title: string;
   readonly path: string;
+  readonly metaDescription: string;
   readonly " $fragmentType": "BlogArticlePageHead";
 };
 export type BlogArticlePageHead = BlogArticlePageHead$data;
@@ -41,11 +42,18 @@ const node: ReaderFragment = {
       name: "path",
       storageKey: null,
     },
+    {
+      alias: null,
+      args: null,
+      kind: "ScalarField",
+      name: "metaDescription",
+      storageKey: null,
+    },
   ],
   type: "ArticleEntry",
   abstractKey: null,
 };
 
-(node as any).hash = "74a678a46945e84055f5b8520f1d2441";
+(node as any).hash = "bcb2f137a025c4bf5f8031c8ea7828d9";
 
 export default node;

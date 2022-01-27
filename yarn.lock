@@ -15607,6 +15607,7 @@ __metadata:
     remark-extract-lead: "workspace:^"
     remark-frontmatter: 4.0.1
     remark-h1-as-title: "workspace:^"
+    remark-meta-description: "workspace:^"
     remark-parse: ^10.0.1
     remark-rehype: ^10.1.0
     rimraf: 3.0.2
@@ -16850,6 +16851,22 @@ __metadata:
   checksum: 45e62f8a821c37261f94448d54f295de1c5c393f762ff96cd4d4b730715037fafeb6c89ef94adf6a10a09edfa72104afe1431b93b5ae5e40ce2a7677e133c3d9
   languageName: node
   linkType: hard
+
+"remark-meta-description@workspace:^, remark-meta-description@workspace:packages/remark-meta-description":
+  version: 0.0.0-use.local
+  resolution: "remark-meta-description@workspace:packages/remark-meta-description"
+  dependencies:
+    "@types/mdast": ^3.0.10
+    mdast-util-to-string: ^3.1.0
+    remark-frontmatter: 4.0.1
+    remark-parse: 10.0.1
+    remark-stringify: 10.0.2
+    ts-jest: 27.1.3
+    unified: 10.1.1
+    unist-util-is: ^5.1.1
+    unist-util-visit: ^4.1.0
+  languageName: unknown
+  linkType: soft
 
 "remark-parse@npm:10.0.1, remark-parse@npm:^10.0.1":
   version: 10.0.1
@@ -19308,7 +19325,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^4.0.0":
+"unist-util-visit@npm:^4.0.0, unist-util-visit@npm:^4.1.0":
   version: 4.1.0
   resolution: "unist-util-visit@npm:4.1.0"
   dependencies:

@@ -1,6 +1,7 @@
 type ArticleEntry {
   body: String!
   feedDescriptionHtml: String!
+  metaDescription: String!
   path: String!
   picked: Boolean!
   publishedOn: Date!

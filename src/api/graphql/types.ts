@@ -16,6 +16,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import remarkStringify from "remark-stringify";
+import { remarkMetaDescription } from "remark-meta-description";
 import { unified } from "unified";
 
 export const Date = GraphQLDate;
@@ -50,6 +51,19 @@ export const ArticleEntry = new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString),
       resolve(root): Promise<string> {
         return fetchArticleBody(root.path);
+      },
+    },
+    metaDescription: {
+      type: new GraphQLNonNull(GraphQLString),
+      async resolve(root): Promise<string> {
+        const body = await fetchArticleBody(root.path);
+        const vfile = await unified()
+          .use(remarkParse)
+          .use(remarkFrontmatter)
+          .use(remarkMetaDescription)
+          .use(remarkStringify)
+          .process(body);
+        return (vfile.data as { metaDescription: string }).metaDescription;
       },
     },
     feedDescriptionHtml: {
