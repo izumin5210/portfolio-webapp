@@ -4521,7 +4521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:3.0.10, @types/mdast@npm:^3.0.0":
+"@types/mdast@npm:3.0.10, @types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
   dependencies:
@@ -4691,10 +4691,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^13.0.0":
-  version: 13.0.0
-  resolution: "@types/relay-runtime@npm:13.0.0"
-  checksum: 6823a7fd020f80af3a0d54b43fb6bf4d3d79ecf34f8503fb9a492fb49163f6b918eeec146330e2092fc2e982b6db38157ba62bfc26ed6459205f73cda5316a5a
+"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "@types/relay-runtime@npm:13.0.1"
+  checksum: 286f32679e517ba4a665b51583d8784b7fc8e7669fefec86b2235309c55cc99c1b1add2fabcb71273add99a465268d680b79da54f37e58a1e873c3cb9d98b86d
   languageName: node
   linkType: hard
 
@@ -15486,7 +15486,7 @@ __metadata:
     "@types/open-graph-scraper": 4.8.1
     "@types/react": 17.0.38
     "@types/react-relay": ^13.0.0
-    "@types/relay-runtime": ^13.0.0
+    "@types/relay-runtime": ^13.0.1
     "@types/relay-test-utils": 6.0.5
     babel-loader: 8.2.3
     babel-plugin-macros: 3.1.0
