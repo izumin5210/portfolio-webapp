@@ -15516,7 +15516,6 @@ __metadata:
     rehype-react: ^7.0.4
     rehype-stringify: ^9.0.3
     relay-compiler: 13.0.1
-    relay-compiler-language-typescript: 15.0.0
     relay-runtime: ^13.0.1
     relay-test-utils: 13.0.1
     remark-extract-lead: "workspace:^"
@@ -16625,21 +16624,6 @@ __metadata:
   version: 0.2.7
   resolution: "relateurl@npm:0.2.7"
   checksum: 5891e792eae1dfc3da91c6fda76d6c3de0333a60aa5ad848982ebb6dccaa06e86385fb1235a1582c680a3d445d31be01c6bfc0804ebbcab5aaf53fa856fde6b6
-  languageName: node
-  linkType: hard
-
-"relay-compiler-language-typescript@npm:15.0.0":
-  version: 15.0.0
-  resolution: "relay-compiler-language-typescript@npm:15.0.0"
-  dependencies:
-    invariant: ^2.2.4
-  peerDependencies:
-    "@types/react-relay": ">=11.0.2"
-    "@types/relay-runtime": ">=12.0.0"
-    relay-compiler: ">=12.0.0"
-    relay-runtime: ">=12.0.0"
-    typescript: ">=4.5.0"
-  checksum: 1d60db63ce0dfdf4b8435b3970228da7999b372a7355808b9d5ffcb6a8abb580b8eda96a490f9f63935449f1ada26a418aeb497bb122994788807c3d4d05d22c
   languageName: node
   linkType: hard
 
