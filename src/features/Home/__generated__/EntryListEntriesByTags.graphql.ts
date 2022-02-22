@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b5326c2c8c6b01afe01c75107a3263fc>>
+ * @generated SignedSource<<377a0072d87d06b8a82f6d230ac7e24a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,6 @@ export type EntryListEntriesByTags$data = {
   };
   readonly " $fragmentType": "EntryListEntriesByTags";
 };
-export type EntryListEntriesByTags = EntryListEntriesByTags$data;
 export type EntryListEntriesByTags$key = {
   readonly " $data"?: EntryListEntriesByTags$data;
   readonly " $fragmentSpreads": FragmentRefs<"EntryListEntriesByTags">;

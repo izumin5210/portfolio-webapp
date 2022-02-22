@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c922626466300f992ad6f6f892067514>>
+ * @generated SignedSource<<3440035ea21cc92ba3aeeaa22a40f76d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -21,7 +21,6 @@ export type PickedEntryListEntries$data = {
   }>;
   readonly " $fragmentType": "PickedEntryListEntries";
 };
-export type PickedEntryListEntries = PickedEntryListEntries$data;
 export type PickedEntryListEntries$key = {
   readonly " $data"?: PickedEntryListEntries$data;
   readonly " $fragmentSpreads": FragmentRefs<"PickedEntryListEntries">;
