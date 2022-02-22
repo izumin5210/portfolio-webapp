@@ -5,7 +5,7 @@ import { colors } from "../../lib/styles/colors";
 import { heading5 } from "../../lib/styles/typo";
 import { EntryList, EntryListFilteredByTags } from "./EntryList";
 import { PickedEntryList } from "./PickedEntryList";
-import type { HomeQueryResponse } from "./__generated__/HomeQuery.graphql";
+import type { HomeQuery$data } from "./__generated__/HomeQuery.graphql";
 
 export const HomeQuery = graphql`
   query HomeQuery($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
@@ -20,7 +20,7 @@ function DummySuspense(props: SuspenseProps) {
 }
 const Suspense = typeof window === "undefined" ? DummySuspense : _Suspense;
 
-export const Home: React.VFC<{ queryResult: HomeQueryResponse; filteredByTags: boolean }> = ({
+export const Home: React.VFC<{ queryResult: HomeQuery$data; filteredByTags: boolean }> = ({
   queryResult,
   filteredByTags,
 }) => {

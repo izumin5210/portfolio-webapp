@@ -1,7 +1,7 @@
 import graphql from "babel-plugin-relay/macro";
 import { BlogArticle } from "./BlogArticle";
 import { BlogArticlePageHead } from "./BlogArticlePageHead";
-import { BlogArticlePageQueryResponse } from "./__generated__/BlogArticlePageQuery.graphql";
+import { BlogArticlePageQuery$data } from "./__generated__/BlogArticlePageQuery.graphql";
 
 export const BlogArticlePageQuery = graphql`
   query BlogArticlePageQuery($articlePath: String!) {
@@ -12,7 +12,7 @@ export const BlogArticlePageQuery = graphql`
   }
 `;
 
-export function BlogArticlePage(props: { queryResult: BlogArticlePageQueryResponse }) {
+export function BlogArticlePage(props: { queryResult: BlogArticlePageQuery$data }) {
   const article = props.queryResult.articleEntryByPath;
   if (article == null) return null;
   return (
