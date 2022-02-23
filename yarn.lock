@@ -4726,10 +4726,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^13.0.1":
-  version: 13.0.1
-  resolution: "@types/relay-runtime@npm:13.0.1"
-  checksum: 286f32679e517ba4a665b51583d8784b7fc8e7669fefec86b2235309c55cc99c1b1add2fabcb71273add99a465268d680b79da54f37e58a1e873c3cb9d98b86d
+"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^13.0.2":
+  version: 13.0.2
+  resolution: "@types/relay-runtime@npm:13.0.2"
+  checksum: da69c077a9c1016afcb1c813e312c2309bcfd317d8c6ccdf833690c564c6ca444c2b2face892ac1bfd33484012cc78329bd16309adb8286651e04bfff03264b2
   languageName: node
   linkType: hard
 
@@ -15527,7 +15527,7 @@ __metadata:
     "@types/open-graph-scraper": 4.8.1
     "@types/react": 17.0.39
     "@types/react-relay": ^13.0.1
-    "@types/relay-runtime": ^13.0.1
+    "@types/relay-runtime": ^13.0.2
     "@types/relay-test-utils": 6.0.5
     babel-loader: 8.2.3
     babel-plugin-macros: 3.1.0
