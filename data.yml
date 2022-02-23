@@ -26,10 +26,10 @@ sourceTypes:
   - name: podcast
   - name: slide
 tags:
-  - name: Book
-    displayName: book
   - name: android
     displayName: Android
+  - name: book
+    displayName: Book
   - name: developer-productivity
     displayName: Developer Productivity
   - name: docker
@@ -50,12 +50,15 @@ tags:
     displayName: Next.js
     dependsOn:
       - web-frontend
+      - react
   - name: nodejs
     displayName: Node.js
     dependsOn:
       - javascript
   - name: protobuf
     displayName: Protocol Buffers
+  - name: pubsub
+    displayName: Pub/Sub
   - name: rails
     displayName: Ruby on Rails
     dependsOn:
@@ -73,6 +76,22 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - url: >-
+      https://anchor.fm/wantedly-dev/episodes/GraphQL-Gateway--w-izumin5210-e1emd20
+    tags:
+      - name: graphql
+        displayName: GraphQL
+      - name: microservices
+        displayName: Microservices Architecture
+      - name: protobuf
+        displayName: Protocol Buffers
+    publishedOn: '2022-02-21'
+    title: 'GraphQL Gateway の理想と達成までの道のり w/ @izumin5210 '
+    source:
+      name: Wantedly Engineering Podcast
+      type: podcast
+      urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
+    picked: false
   - title: Example article
     publishedOn: '2022-01-05'
     updatedOn: 2022-01-10T00:00:00.000Z
@@ -135,6 +154,8 @@ entries:
         displayName: JavaScript
       - name: nextjs
         displayName: Next.js
+      - name: react
+        displayName: React
       - name: web-frontend
         displayName: Web Frontend
     title: Next.js でページ遷移前後で共通するコンポーネントを残す
@@ -161,6 +182,8 @@ entries:
   - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
     publishedOn: '2021-08-23'
     tags:
+      - name: go
+        displayName: Go
       - name: isucon
         displayName: ISUCON
     title: '#ISUCON で100万点とって予選2位になるためにやったこと'
@@ -176,6 +199,8 @@ entries:
     tags:
       - name: grpc
         displayName: gRPC
+      - name: microservices
+        displayName: Microservices Architecture
       - name: protobuf
         displayName: Protocol Buffers
     title: Protocol Buffers の書き方と管理方法 w/ @izumin5210
@@ -229,6 +254,10 @@ entries:
         displayName: GraphQL
       - name: javascript
         displayName: JavaScript
+      - name: nodejs
+        displayName: Node.js
+      - name: protobuf
+        displayName: Protocol Buffers
     title: >-
       proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with GraphQL
       Nexus
@@ -285,13 +314,17 @@ entries:
     tags:
       - name: go
         displayName: Go
+      - name: microservices
+        displayName: Microservices Architecture
+      - name: pubsub
+        displayName: Pub/Sub
     title: 'subee - #golang で快適に Pub/Sub するためのフレームワーク'
     mediaType: article
     source:
       name: Wantedly Engineer Blog
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
-    picked: false
+    picked: true
   - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
     publishedOn: '2019-12-17'
     tags:
@@ -410,8 +443,8 @@ entries:
       https://blog.izum.in/running-lean-%E5%AE%9F%E8%B7%B5%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0-596d9bf815fd
     publishedOn: '2019-05-27'
     tags:
-      - name: Book
-        displayName: book
+      - name: book
+        displayName: Book
     title: “Running Lean — 実践リーンスタートアップ” を読んだ
     mediaType: article
     source:
@@ -424,6 +457,8 @@ entries:
     tags:
       - name: go
         displayName: Go
+      - name: pubsub
+        displayName: Pub/Sub
     title: 'izumin5210/pubee: Pluggable Pub/Sub Publisher'
     mediaType: oss
     source:
@@ -476,6 +511,8 @@ entries:
     tags:
       - name: go
         displayName: Go
+      - name: pubsub
+        displayName: Pub/Sub
     title: >-
       wantedly/subee: ✉️ 🐝 It's not only a bee, but a message - Pub/Sub Worker
       Framework Implementation
@@ -1007,6 +1044,19 @@ entries:
       - name: go
         displayName: Go
     title: 'izumin5210/scaffold: Customizable templates generator, inspired by Rails'
+    source:
+      name: GitHub
+      type: oss
+      urlPattern: ^https://github.com/
+    picked: false
+  - url: https://github.com/izumin5210/OHP
+    publishedOn: '2017-05-30'
+    tags:
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
+    title: 'izumin5210/OHP: OHP is Hacker''s Presentation writer with Markdown and CSS'
     source:
       name: GitHub
       type: oss
