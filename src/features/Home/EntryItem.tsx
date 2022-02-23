@@ -197,12 +197,10 @@ const EntryPublishedOn = styled.time`
 
 const TagsUl = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
-
-  & > li:not(:first-child) {
-    margin-left: 8px;
-  }
+  gap: 4px 8px;
 
   & > li > button:before {
     content: "#";
