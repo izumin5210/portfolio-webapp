@@ -2,14 +2,10 @@
 
 /* eslint-disable */
 
-import type * as typesblog$$year$$$month$$$day$$$path$$og_image from "../pages/blog/[year]/[month]/[day]/[path]/og-image";
 import type * as typesindex from "../pages/index";
 export type Routes = {
   "/blog/[year]/[month]/[day]/[path]": {
     query: {};
-  };
-  "/blog/[year]/[month]/[day]/[path]/og-image": {
-    query: typesblog$$year$$$month$$$day$$$path$$og_image.Query;
   };
   "/": {
     query: typesindex.Query;

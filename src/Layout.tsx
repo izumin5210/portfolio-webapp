@@ -105,7 +105,6 @@ const ShortDescription = styled.p`
 const AvatarWrapper = styled.div`
   grid-area: avatar;
   border-radius: 9999vh;
-  // elevation 1
   box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
 `;
 
