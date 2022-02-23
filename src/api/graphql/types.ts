@@ -87,7 +87,7 @@ export const ArticleEntry = new GraphQLObjectType({
     path: { type: new GraphQLNonNull(GraphQLString) },
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
     publishedOn: { type: new GraphQLNonNull(Date) },
-    updatedOn: { type: new GraphQLNonNull(Date) },
+    updatedOn: { type: Date },
     source: { type: new GraphQLNonNull(EntrySource) },
     picked: { type: new GraphQLNonNull(GraphQLBoolean) },
   },
