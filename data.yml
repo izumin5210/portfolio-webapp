@@ -42,6 +42,8 @@ tags:
     displayName: gRPC
   - name: isucon
     displayName: ISUCON
+  - name: izum-dot-in
+    displayName: izum.in
   - name: javascript
     displayName: JavaScript
   - name: microservices
@@ -76,6 +78,17 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: このサイトの実装 2022-02
+    publishedOn: '2022-02-23'
+    updatedOn: null
+    tags:
+      - name: izum-dot-in
+        displayName: izum.in
+    path: /blog/2022/02/23/this-site-implementation-2022-02
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/GraphQL-Gateway--w-izumin5210-e1emd20
     tags:
