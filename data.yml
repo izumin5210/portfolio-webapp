@@ -73,8 +73,6 @@ tags:
     displayName: Redis
   - name: ruby
     displayName: Ruby
-  - name: test
-    displayName: Test
   - name: web-frontend
     displayName: Web Frontend
 entries:
@@ -105,17 +103,6 @@ entries:
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
     picked: false
-  - title: Example article
-    publishedOn: '2022-01-05'
-    updatedOn: 2022-01-10T00:00:00.000Z
-    tags:
-      - name: test
-        displayName: Test
-    path: /blog/2022/01/05/example
-    picked: false
-    source:
-      type: article
-      name: izum.in/blog
   - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
     publishedOn: '2021-11-27'
     tags:
