@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c13e8eae5d10fd8026dc499deb926c4e>>
+ * @generated SignedSource<<8a1261651944e73abe137f7da63cc4db>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,7 +14,7 @@ export type BlogArticle$data = {
   readonly title: string;
   readonly body: string;
   readonly publishedOn: any;
-  readonly updatedOn: any;
+  readonly updatedOn: any | null;
   readonly tags: ReadonlyArray<{
     readonly name: string;
     readonly displayName: string;

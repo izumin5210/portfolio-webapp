@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f4ba2d55ea8e7d4366643f68bd2d5a09>>
+ * @generated SignedSource<<be2ba2051f1ad4419e2f8b3c9264dc01>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -34,12 +34,6 @@ const node: ConcreteRequest = (function () {
       nullable: false,
       plural: false,
       type: "String",
-    },
-    v2 = {
-      enumValues: null,
-      nullable: false,
-      plural: false,
-      type: "Date",
     };
   return {
     fragment: {
@@ -152,7 +146,12 @@ const node: ConcreteRequest = (function () {
             type: "ArticleEntry",
           },
           "articleEntryByPath.body": v1 /*: any*/,
-          "articleEntryByPath.publishedOn": v2 /*: any*/,
+          "articleEntryByPath.publishedOn": {
+            enumValues: null,
+            nullable: false,
+            plural: false,
+            type: "Date",
+          },
           "articleEntryByPath.tags": {
             enumValues: null,
             nullable: false,
@@ -162,7 +161,12 @@ const node: ConcreteRequest = (function () {
           "articleEntryByPath.tags.displayName": v1 /*: any*/,
           "articleEntryByPath.tags.name": v1 /*: any*/,
           "articleEntryByPath.title": v1 /*: any*/,
-          "articleEntryByPath.updatedOn": v2 /*: any*/,
+          "articleEntryByPath.updatedOn": {
+            enumValues: null,
+            nullable: true,
+            plural: false,
+            type: "Date",
+          },
         },
       },
       name: "BlogArticleTestQuery",

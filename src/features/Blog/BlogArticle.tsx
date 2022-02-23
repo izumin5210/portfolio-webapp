@@ -41,9 +41,11 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
           <li>
             Published <Time dateTime={data.publishedOn}>{data.publishedOn}</Time>
           </li>
-          <li>
-            Updated <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
-          </li>
+          {data.updatedOn && (
+            <li>
+              Updated <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
+            </li>
+          )}
         </DatesUl>
         <TagsUl>
           {data.tags.map((tag) => (
