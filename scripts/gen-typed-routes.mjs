@@ -41,10 +41,7 @@ const routeDefs = srcs
  * @returns {string}
  */
 export function pageTypeIdentFromPath(path) {
-  const ident = path
-    .replace(/\./g, "_$")
-    .replace(/\//g, "$_")
-    .replace(/(\[\])/g, "$$");
+  const ident = path.replace(/[\.\-]/g, "_").replace(/[\[\]\/]/g, "$");
   return `types${ident}`;
 }
 
