@@ -1826,12 +1826,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@graphql-codegen/cli@npm:2.4.0"
+"@graphql-codegen/cli@npm:2.6.2":
+  version: 2.6.2
+  resolution: "@graphql-codegen/cli@npm:2.6.2"
   dependencies:
-    "@graphql-codegen/core": 2.4.0
-    "@graphql-codegen/plugin-helpers": ^2.3.2
+    "@graphql-codegen/core": 2.5.1
+    "@graphql-codegen/plugin-helpers": ^2.4.1
     "@graphql-tools/apollo-engine-loader": ^7.0.5
     "@graphql-tools/code-file-loader": ^7.0.6
     "@graphql-tools/git-loader": ^7.0.5
@@ -1861,7 +1861,7 @@ __metadata:
     listr: ^0.14.3
     listr-update-renderer: ^0.5.0
     log-symbols: ^4.0.0
-    minimatch: ^3.0.4
+    minimatch: ^4.0.0
     mkdirp: ^1.0.4
     string-env-interpolation: ^1.0.1
     ts-log: ^2.2.3
@@ -1876,27 +1876,27 @@ __metadata:
     gql-gen: bin.js
     graphql-code-generator: bin.js
     graphql-codegen: bin.js
-  checksum: 7fa914c07de4ee497eece33f11969317578ee6f46555bcdbbe3ef4d678ab3a1090d3d49b2956289b279ca2134596b3e4841a33491a5563aecd51f03e27cb744a
+  checksum: 5d8f81fab26984588fe4a7cfde12c45d86c101086acb3e2c3e6b23e194be7af6c2a76825c6da996e8841ac8c0a52f23d4658c6a795f345e1d577d75ad8025c2c
   languageName: node
   linkType: hard
 
-"@graphql-codegen/core@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@graphql-codegen/core@npm:2.4.0"
+"@graphql-codegen/core@npm:2.5.1":
+  version: 2.5.1
+  resolution: "@graphql-codegen/core@npm:2.5.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": ^2.3.2
+    "@graphql-codegen/plugin-helpers": ^2.4.1
     "@graphql-tools/schema": ^8.1.2
     "@graphql-tools/utils": ^8.1.1
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 637aa4fe80ce077db4eb289619285203f596536e97fa53542a5863030688917cca040189c734eebf2ffa167d947300753f305fe1ccfb6ea27791fcdfe5c91cd4
+  checksum: d882b98540dcae78a7c0def0554c5bd086cd0e2f889b3bf3dea7849a60753fd760efbe1e71bc5109e73fccefa18e5b840eda48c8a7c855b6f59b495285d5cd7a
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "@graphql-codegen/plugin-helpers@npm:2.3.2"
+"@graphql-codegen/plugin-helpers@npm:^2.3.2, @graphql-codegen/plugin-helpers@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@graphql-codegen/plugin-helpers@npm:2.4.1"
   dependencies:
     "@graphql-tools/utils": ^8.5.2
     change-case-all: 1.0.14
@@ -1906,7 +1906,7 @@ __metadata:
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 5519e89b0dff85d61ea494cb094c3868db2521524e3cf2c73c5b47ed331e1edb7d53fade2d12be5b2f7db515f0fb49bd496bfe4f197c4da9f8de71ac3b58f273
+  checksum: 335cdd412dba70bbcc559cc0e9dc50290b6f737f66fc941619052251ba2c6e20c997663b623b9162ae2523adae97ce5d81d0a56e236ce5f29bae8959a7c575ca
   languageName: node
   linkType: hard
 
@@ -14111,6 +14111,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^4.0.0":
+  version: 4.2.1
+  resolution: "minimatch@npm:4.2.1"
+  dependencies:
+    brace-expansion: ^1.1.7
+  checksum: 2b1514e3d0f29a549912f0db7ae7b82c5cab4a8f2dd0369f1c6451a325b3f12b2cf473c95873b6157bb8df183d6cf6db82ff03614b6adaaf1d7e055beccdfd01
+  languageName: node
+  linkType: hard
+
 "minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
@@ -15517,7 +15526,7 @@ __metadata:
   resolution: "portfolio-webapp@workspace:."
   dependencies:
     "@babel/core": 7.17.5
-    "@graphql-codegen/cli": 2.4.0
+    "@graphql-codegen/cli": 2.6.2
     "@graphql-codegen/schema-ast": 2.4.1
     "@linaria/babel-preset": 3.0.0-beta.15
     "@linaria/core": 3.0.0-beta.15
