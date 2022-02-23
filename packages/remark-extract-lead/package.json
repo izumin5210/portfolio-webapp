@@ -1,6 +1,6 @@
 {
   "name": "remark-extract-lead",
-  "packageManager": "yarn@3.1.1",
+  "packageManager": "yarn@3.2.0",
   "private": true,
   "sideEffects": false,
   "main": "./cjs/index.js",
