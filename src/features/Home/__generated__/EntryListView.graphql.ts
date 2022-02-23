@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2ee1f80304982372d446fea8a84efbf8>>
+ * @generated SignedSource<<8f60ba350dad75a194309b161b68db1d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,7 +20,6 @@ export type EntryListView$data = {
   } | null> | null;
   readonly " $fragmentType": "EntryListView";
 };
-export type EntryListView = EntryListView$data;
 export type EntryListView$key = {
   readonly " $data"?: EntryListView$data;
   readonly " $fragmentSpreads": FragmentRefs<"EntryListView">;

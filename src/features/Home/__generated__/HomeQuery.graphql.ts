@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<36b4f16bb6c75818e8e3da5b2b43fa3c>>
+ * @generated SignedSource<<9b0b6d1e36dab995b829c235117e3e11>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,13 +16,11 @@ export type HomeQuery$variables = {
   tags: ReadonlyArray<string>;
   filteredByTags: boolean;
 };
-export type HomeQueryVariables = HomeQuery$variables;
 export type HomeQuery$data = {
   readonly " $fragmentSpreads": FragmentRefs<"PickedEntryListEntries" | "EntryListEntries" | "EntryListEntriesByTags">;
 };
-export type HomeQueryResponse = HomeQuery$data;
 export type HomeQuery = {
-  variables: HomeQueryVariables;
+  variables: HomeQuery$variables;
   response: HomeQuery$data;
 };
 

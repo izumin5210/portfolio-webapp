@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c7f8a71ff88c3e0ac985caa61fb1ea6b>>
+ * @generated SignedSource<<ae9a4a5349afe51cdd3e0cc40a96b884>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,15 +13,13 @@ import { FragmentRefs } from "relay-runtime";
 export type BlogArticlePageQuery$variables = {
   articlePath: string;
 };
-export type BlogArticlePageQueryVariables = BlogArticlePageQuery$variables;
 export type BlogArticlePageQuery$data = {
   readonly articleEntryByPath: {
     readonly " $fragmentSpreads": FragmentRefs<"BlogArticlePageHead" | "BlogArticle">;
   } | null;
 };
-export type BlogArticlePageQueryResponse = BlogArticlePageQuery$data;
 export type BlogArticlePageQuery = {
-  variables: BlogArticlePageQueryVariables;
+  variables: BlogArticlePageQuery$variables;
   response: BlogArticlePageQuery$data;
 };
 

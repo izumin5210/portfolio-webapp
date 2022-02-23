@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e3a547e2f15c2007945a84285c3095d1>>
+ * @generated SignedSource<<c13e8eae5d10fd8026dc499deb926c4e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -21,7 +21,6 @@ export type BlogArticle$data = {
   }>;
   readonly " $fragmentType": "BlogArticle";
 };
-export type BlogArticle = BlogArticle$data;
 export type BlogArticle$key = {
   readonly " $data"?: BlogArticle$data;
   readonly " $fragmentSpreads": FragmentRefs<"BlogArticle">;

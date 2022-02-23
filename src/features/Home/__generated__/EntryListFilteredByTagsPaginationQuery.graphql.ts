@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<df9181721d08c2b938721ffef58bed50>>
+ * @generated SignedSource<<ffeb65d40d79d5b778323dc7f2f2f858>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,13 +15,11 @@ export type EntryListFilteredByTagsPaginationQuery$variables = {
   cursor?: string | null;
   tags: ReadonlyArray<string>;
 };
-export type EntryListFilteredByTagsPaginationQueryVariables = EntryListFilteredByTagsPaginationQuery$variables;
 export type EntryListFilteredByTagsPaginationQuery$data = {
   readonly " $fragmentSpreads": FragmentRefs<"EntryListEntriesByTags">;
 };
-export type EntryListFilteredByTagsPaginationQueryResponse = EntryListFilteredByTagsPaginationQuery$data;
 export type EntryListFilteredByTagsPaginationQuery = {
-  variables: EntryListFilteredByTagsPaginationQueryVariables;
+  variables: EntryListFilteredByTagsPaginationQuery$variables;
   response: EntryListFilteredByTagsPaginationQuery$data;
 };
 

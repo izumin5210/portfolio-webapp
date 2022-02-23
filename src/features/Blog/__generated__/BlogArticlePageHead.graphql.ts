@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6d2447fe4c199dfcc8394d51f0344512>>
+ * @generated SignedSource<<a214c3f6412c352c6b56735e5f39343c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,6 @@ export type BlogArticlePageHead$data = {
   readonly metaDescription: string;
   readonly " $fragmentType": "BlogArticlePageHead";
 };
-export type BlogArticlePageHead = BlogArticlePageHead$data;
 export type BlogArticlePageHead$key = {
   readonly " $data"?: BlogArticlePageHead$data;
   readonly " $fragmentSpreads": FragmentRefs<"BlogArticlePageHead">;

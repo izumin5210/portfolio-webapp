@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4b74eb62fa72da58820cd56db9625189>>
+ * @generated SignedSource<<31add90bdb70f90f889434d5bb929410>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,13 +14,11 @@ export type EntryListPaginationQuery$variables = {
   count: number;
   cursor?: string | null;
 };
-export type EntryListPaginationQueryVariables = EntryListPaginationQuery$variables;
 export type EntryListPaginationQuery$data = {
   readonly " $fragmentSpreads": FragmentRefs<"EntryListEntries">;
 };
-export type EntryListPaginationQueryResponse = EntryListPaginationQuery$data;
 export type EntryListPaginationQuery = {
-  variables: EntryListPaginationQueryVariables;
+  variables: EntryListPaginationQuery$variables;
   response: EntryListPaginationQuery$data;
 };
 

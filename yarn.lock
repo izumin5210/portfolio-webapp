@@ -6100,14 +6100,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-relay@npm:13.0.1":
-  version: 13.0.1
-  resolution: "babel-plugin-relay@npm:13.0.1"
+"babel-plugin-relay@npm:13.1.1":
+  version: 13.1.1
+  resolution: "babel-plugin-relay@npm:13.1.1"
   dependencies:
     babel-plugin-macros: ^2.0.0
     cosmiconfig: ^5.0.5
     graphql: 15.3.0
-  checksum: ffb08cd0d8107ee494275ad489440fcdebff168c030407f7495b11809d94b0838072c634a0072accad14990d355045fa4c760641b5c4c5e0cbc20572f5cea41a
+  checksum: 428f75f164d10bd0569a60d7e1a139998eff9179530d83369e7522f944d610c1818086bc47f87baa7d7d4774f72fa356487554b82bd59b2bc7ccb8bdd45aa42c
   languageName: node
   linkType: hard
 
@@ -15530,7 +15530,7 @@ __metadata:
     "@types/relay-test-utils": 6.0.5
     babel-loader: 8.2.3
     babel-plugin-macros: 3.1.0
-    babel-plugin-relay: 13.0.1
+    babel-plugin-relay: 13.1.1
     eslint: 7.32.0
     eslint-config-next: 12.1.0
     eslint-plugin-relay: 1.8.3
@@ -15550,14 +15550,14 @@ __metadata:
     prettier: 2.5.1
     react: 17.0.2
     react-dom: 17.0.2
-    react-relay: ^13.0.1
+    react-relay: ^13.1.1
     react-test-renderer: 17.0.2
     rehype-prism-plus: ^1.3.1
     rehype-react: ^7.0.4
     rehype-stringify: ^9.0.3
-    relay-compiler: 13.0.1
-    relay-runtime: ^13.0.1
-    relay-test-utils: 13.0.1
+    relay-compiler: 13.1.1
+    relay-runtime: ^13.1.1
+    relay-test-utils: 13.1.1
     remark-extract-lead: "workspace:^"
     remark-frontmatter: 4.0.1
     remark-h1-as-title: "workspace:^"
@@ -16271,18 +16271,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:^13.0.1":
-  version: 13.0.1
-  resolution: "react-relay@npm:13.0.1"
+"react-relay@npm:^13.1.1":
+  version: 13.1.1
+  resolution: "react-relay@npm:13.1.1"
   dependencies:
     "@babel/runtime": ^7.0.0
     fbjs: ^3.0.2
     invariant: ^2.2.4
     nullthrows: ^1.1.1
-    relay-runtime: 13.0.1
+    relay-runtime: 13.1.1
   peerDependencies:
     react: ^16.9.0 || ^17
-  checksum: 5c30320ffcd3ed5fd97793bf06c5d1d75b625b34d9986f0d0abfd5c46373c6bb7abce136b6a5c00fddb290e9cc6a8f6e137c5a33f56cc86264cd0653dd7285b4
+  checksum: 7485d322ce431fe0837b95c82b75595e9be27acc910820dc6755a4669e7777985fda9a5b45ac1ad4b0938eae058972db0765b79e608ac1cebfbb40d3cc00dc5f
   languageName: node
   linkType: hard
 
@@ -16667,35 +16667,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:13.0.1":
-  version: 13.0.1
-  resolution: "relay-compiler@npm:13.0.1"
+"relay-compiler@npm:13.1.1":
+  version: 13.1.1
+  resolution: "relay-compiler@npm:13.1.1"
   bin:
     relay-compiler: cli.js
-  checksum: d5f6f48877f3e719f8fdba0771141c24d581141ecadd39383732746db4b168b6fb25bcadca5fc09c20b5e25d209d51ba5f836a14ae7982999a974d501b072ec1
+  checksum: b63ff594d3554126e384acacf25a8fcb664fc6a6c57b9d5c841d9d49ee3617ec816540394af24e3255a8e7a4936a192cc798ad1c2936f1e2aa1dd9d649eba39b
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:13.0.1, relay-runtime@npm:^13.0.1":
-  version: 13.0.1
-  resolution: "relay-runtime@npm:13.0.1"
+"relay-runtime@npm:13.1.1, relay-runtime@npm:^13.1.1":
+  version: 13.1.1
+  resolution: "relay-runtime@npm:13.1.1"
   dependencies:
     "@babel/runtime": ^7.0.0
     fbjs: ^3.0.2
     invariant: ^2.2.4
-  checksum: cc1a72e08f333db790efe38575cf188716186cfb85adc66171aa86a7392ef1cbbe4fc1488f64583a6c10359f13b63a4dce1bfe0e8aec58e2b45000036abe8475
+  checksum: b9f8777ce2842a6043fcb056d71dbae1560afaec4f1037a0e7e4607ca4d775310523324fd115356d4dee377933ad77d1c94159a8c4ce15dec538734093ff4454
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:13.0.1":
-  version: 13.0.1
-  resolution: "relay-test-utils@npm:13.0.1"
+"relay-test-utils@npm:13.1.1":
+  version: 13.1.1
+  resolution: "relay-test-utils@npm:13.1.1"
   dependencies:
     "@babel/runtime": ^7.0.0
     fbjs: ^3.0.2
     invariant: ^2.2.4
-    relay-runtime: 13.0.1
-  checksum: 3026f67a9a02b6d0511b338fcc423e34b37b45c99b58966808968cff74ed6e8c7da959450f76a4f40753eb4cb4ccdd28f0bc195b3c3f3fc1859d00503e5d9f0c
+    relay-runtime: 13.1.1
+  checksum: 2d9a28af4d09404135c10606bbdac228438c8881cc3ef6deec9f7fcf89a9c85dcde3afb9c17c286097e452ed95c8242e6d9cff854eb95e3c76b219ace8a19526
   languageName: node
   linkType: hard
 
