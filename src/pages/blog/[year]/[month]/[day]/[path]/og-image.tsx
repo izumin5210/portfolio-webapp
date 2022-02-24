@@ -63,6 +63,7 @@ export const getServerSideProps: GetServerSideProps<
       width: 1200,
       height: 630,
     },
+    args: process.env.NODE_ENV === "production" ? ["--no-sandbox"] : [],
   });
   const page = await browser.newPage();
   const resp = await page.goto(url);
