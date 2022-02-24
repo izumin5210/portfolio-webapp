@@ -66,7 +66,7 @@ export const getServerSideProps: GetServerSideProps<
     args: process.env.NODE_ENV === "production" ? ["--no-sandbox"] : [],
   });
   const page = await browser.newPage();
-  const resp = await page.goto(url);
+  const resp = await page.goto(url, { waitUntil: "networkidle2" });
   if (resp.status() === 404) {
     return { notFound: true };
   }
