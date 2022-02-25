@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 import { ReactNode } from "react";
 import { fetchQuery } from "react-relay";
 import { ReactElement } from "rehype-react/lib";
@@ -63,6 +63,7 @@ export const getServerSideProps: GetServerSideProps<
       width: 1200,
       height: 630,
     },
+    channel: "chrome",
     args: process.env.NODE_ENV === "production" ? ["--no-sandbox"] : [],
   });
   const page = await browser.newPage();
