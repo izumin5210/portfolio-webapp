@@ -70,9 +70,11 @@ jobs:
         key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-buildx-
-    - run: ./scripts/decrypt-dotenv
-      env:
-        DOTENV_ENCRYPTION_SECRET: ${{ secrets.DOTENV_ENCRYPTION_SECRET }}
+    - id: secrets
+      uses: 'google-github-actions/get-secretmanager-secrets@v0'
+      with:
+        secrets: |-
+          dotenv:izumin-portfolio/portfolio-webapp-dotenv-prod
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: docker/build-push-action@v2
@@ -83,8 +85,7 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
         build-args: |
           GIT_SHA=${{ steps.vars.outputs.git-sha }}
-        secret-files: |
-          dotenv=./.env
+        secrets: ${{ steps.secrets.outputs.dotenv }}
     - name: Upload assets
       run: |
         containerId=`docker create gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}`
