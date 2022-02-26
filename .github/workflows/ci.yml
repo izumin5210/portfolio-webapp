@@ -74,10 +74,19 @@ jobs:
       uses: 'google-github-actions/get-secretmanager-secrets@v0'
       with:
         secrets: |-
-          dotenv:izumin-portfolio/portfolio-webapp-dotenv-prod
+          GOOGLE_ANALYTICS_TRACKING_ID:izumin-portfolio/portfolio-webapp-GOOGLE_ANALYTICS_TRACKING_ID
+          SENTRY_AUTH_TOKEN:izumin-portfolio/portfolio-webapp-SENTRY_AUTH_TOKEN
+          SENTRY_DSN:izumin-portfolio/portfolio-webapp-SENTRY_DSN
+          SENTRY_ORG:izumin-portfolio/portfolio-webapp-SENTRY_ORG
+          SENTRY_PROJECT:izumin-portfolio/portfolio-webapp-SENTRY_PROJECT
     - run: |
         cat <<EOF > .env
-        ${{ steps.secrets.outputs.dotenv }}
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID=${{ steps.secrets.outputs.GOOGLE_ANALYTICS_TRACKING_ID }}
+        NEXT_PUBLIC_SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
+        SENTRY_AUTH_TOKEN=${{ steps.secrets.outputs.SENTRY_AUTH_TOKEN }}
+        SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
+        SENTRY_ORG=${{ steps.secrets.outputs.SENTRY_ORG }}
+        SENTRY_PROJECT=${{ steps.secrets.outputs.SENTRY_PROJECT }}
         EOF
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
