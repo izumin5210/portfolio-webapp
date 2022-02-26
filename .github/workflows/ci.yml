@@ -145,5 +145,5 @@ jobs:
         image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}'
         env_vars: NODE_ENV=production
         secrets: |
-          ASSET_URL_BASE=izumin-portfolio/portfolio-webapp-ASSET_URL_BASE
-          SENTRY_DSN=izumin-portfolio/portfolio-webapp-SENTRY_DSN
+          ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE
+          SENTRY_DSN=portfolio-webapp-SENTRY_DSN
