@@ -26,6 +26,17 @@ RUN apt-get update \
     tini \
   && rm -rf /var/lib/apt/lists/*
 
+#  Google Chrome
+#-----------------------------------------------
+RUN apt-get update \
+    && apt-get install -y wget gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable libxss1 fonts-noto-cjk \
+      --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
 #  yarn
 #-----------------------------------------------
 ENV CI true

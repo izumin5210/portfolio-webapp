@@ -1,6 +1,8 @@
+import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
+import { ReactElement, ReactNode } from "react";
 import { RelayEnvironmentProvider } from "react-relay";
 import "sanitize.css";
 import { Layout } from "../Layout";
@@ -11,7 +13,17 @@ const url = "https://izum.in/";
 const description = "Masayuki Izumi is a software engineer specializing in Web frontend and backend technologies";
 const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
 
-function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps, err }: AppPropsWithLayout & { err?: any }) {
+  const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
+
   const environment = useInitRelayEnvironment(pageProps.initialRecords);
 
   return (
@@ -42,9 +54,7 @@ function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
           </Script>
         </>
       ) : null}
-      <Layout>
-        <Component {...pageProps} err={err} />
-      </Layout>
+      {getLayout(<Component {...pageProps} err={err} />)}
     </RelayEnvironmentProvider>
   );
 }
