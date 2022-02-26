@@ -75,6 +75,10 @@ jobs:
       with:
         secrets: |-
           dotenv:izumin-portfolio/portfolio-webapp-dotenv-prod
+    - run: |
+        cat <<EOF > .env
+        ${{ steps.secrets.outputs.dotenv }}
+        EOF
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: docker/build-push-action@v2
@@ -85,7 +89,8 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
         build-args: |
           GIT_SHA=${{ steps.vars.outputs.git-sha }}
-        secrets: ${{ steps.secrets.outputs.dotenv }}
+        secret-files: |
+          dotenv=.env
     - name: Upload assets
       run: |
         containerId=`docker create gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}`
