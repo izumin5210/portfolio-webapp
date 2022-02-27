@@ -1,0 +1,48 @@
+name: Preview comment
+inputs:
+  delete:
+    description: "true if preview is deleted"
+    default: false
+  prNumber:
+    description: "Pull request number"
+    required: true
+  sha:
+    description: 'Commit sha'
+    required: true
+runs:
+  using: composite
+  steps:
+  - uses: peter-evans/find-comment@v1
+    id: fc
+    with:
+      issue-number: ${{ inputs.prNumber }}
+      comment-author: 'github-actions[bot]'
+      body-includes: "<!-- PR_PREVIEW_COMMENT_MARKER -->"
+  - uses: peter-evans/create-or-update-comment@v1
+    with:
+      comment-id: ${{ steps.fc.outputs.comment-id }}
+      issue-number: ${{ inputs.prNumber }}
+      body: |
+        <!-- PR_PREVIEW_COMMENT_MARKER -->
+
+        Preview is ready :rocket:
+
+        :point_right: **https://pr${{ inputs.prNumber }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**
+
+        <sub>(deployed commit sha is ${{ inputs.sha }})</sub>
+      edit-mode: replace
+    if: ${{ inputs.delete == 'false' }}
+  - uses: peter-evans/create-or-update-comment@v1
+    with:
+      comment-id: ${{ steps.fc.outputs.comment-id }}
+      issue-number: ${{ inputs.prNumber }}
+      body: |
+        <!-- PR_PREVIEW_COMMENT_MARKER -->
+
+        Preview was closed :no_entry_sign:
+
+        :point_right: ~~**https://pr${{ inputs.prNumber }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**~~
+
+        <sub>(deployed commit sha is ${{ inputs.sha }})</sub>
+      edit-mode: replace
+    if: ${{ inputs.delete == 'true' }}
