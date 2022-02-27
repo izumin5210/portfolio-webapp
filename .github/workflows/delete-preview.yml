@@ -26,6 +26,7 @@ jobs:
     - name: Delete preview
       run: |
         gcloud beta run services update-traffic portfolio-webapp \
+          --region us-central1 \
           --remove-tags pr${{ github.event.pull_request.number }}
     - uses: peter-evans/find-comment@v1
       id: fc
