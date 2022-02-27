@@ -58,7 +58,6 @@ jobs:
     name: Build
     permissions:
       contents: 'read'
-      pull-requests: 'write'
       id-token: 'write'
     steps:
     - uses: actions/checkout@v2
@@ -132,6 +131,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     permissions:
       contents: 'read'
+      pull-requests: 'write'
       id-token: 'write'
     steps:
     - id: vars
