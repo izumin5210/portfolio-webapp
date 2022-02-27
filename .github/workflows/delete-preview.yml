@@ -1,0 +1,44 @@
+name: Delete Preview
+
+on:
+  pull_request:
+    # FIXME: for debug. should remove before merge.
+    # types:
+    # - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+        access_token_lifetime: 600s
+    - uses: 'google-github-actions/setup-gcloud@v0'
+    - name: Install beta component
+      run: gcloud components install --quiet alpha
+    - name: Delete preview
+      run: |
+        gcloud beta run services update-traffic portfolio-webapp \
+          --remove-tags pr${{ github.event.pull_request.number }}
+    - uses: peter-evans/find-comment@v1
+      id: fc
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: "<!-- PR_PREVIEW_COMMENT_MARKER -->"
+    - uses: peter-evans/create-or-update-comment@v1
+      with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          <!-- PR_PREVIEW_COMMENT_MARKER -->
+
+          Preview was closed :no_entry_sign:
+
+          :point_right: ~~**https://pr${{ github.event.pull_request.number }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**~~
+
+          <sub>(deployed commit sha is ${{ github.event.pull_request.head.sha }})</sub>
+        edit-mode: replace
