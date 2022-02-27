@@ -1,4 +1,4 @@
-name: Delete Preview
+name: Cleanup PR
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
     # - closed
 
 jobs:
-  deploy:
+  delete-preview:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
