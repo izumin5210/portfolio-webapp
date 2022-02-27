@@ -22,7 +22,7 @@ jobs:
         access_token_lifetime: 600s
     - uses: 'google-github-actions/setup-gcloud@v0'
     - name: Install beta component
-      run: gcloud components install --quiet alpha
+      run: gcloud components install --quiet beta
     - name: Delete preview
       run: |
         gcloud beta run services update-traffic portfolio-webapp \
