@@ -13,9 +13,8 @@ runs:
     with:
       service: 'portfolio-webapp'
       image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ inputs.sha }}'
-      env_vars: NODE_ENV=production
-      secrets: |
-        ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
-        SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
       tag: ${{ inputs.previewTag }}
       no_traffic: ${{ inputs.previewTag != '' }}
+      flags:
+        --set-secrets "ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest,SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest"
+        --set-env-vars "NODE_ENV=production"
