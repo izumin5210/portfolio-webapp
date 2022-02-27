@@ -124,6 +124,50 @@ jobs:
         rm -rf /tmp/.buildx-cache
         mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
+  preview:
+    runs-on: ubuntu-latest
+    name: Preview
+    needs: [build]
+    if: ${{ github.event_name == 'pull_request' }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+    - id: vars
+      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
+    - uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+        access_token_lifetime: 600s
+    - uses: 'google-github-actions/deploy-cloudrun@v0'
+      with:
+        service: 'portfolio-webapp'
+        image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}'
+        env_vars: NODE_ENV=production
+        secrets: |
+          ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
+          SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
+        tag: pr${{ github.event.pull_request.number }}
+        no_traffic: true
+    - uses: peter-evans/find-comment@v1
+      id: fc
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: "Preview is ready :rocket:"
+    - uses: peter-evans/create-or-update-comment@v1
+      with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          Preview is ready :rocket:
+
+          :point_right: **https://pr${{ github.event.pull_request.number }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**
+
+          <sub>(deployed commit sha is ${{ github.event.pull_request.head.sha }})</sub>
+        edit-mode: replace
+
   deploy:
     runs-on: ubuntu-latest
     name: Deploy
