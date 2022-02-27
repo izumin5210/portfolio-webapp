@@ -18,4 +18,4 @@ runs:
         ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
       tag: ${{ inputs.previewTag }}
-      no_traffic: ${{ inputs.previewTag != "" }}
+      no_traffic: ${{ inputs.previewTag != '' }}
