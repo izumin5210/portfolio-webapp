@@ -16,6 +16,6 @@ runs:
       tag: ${{ inputs.previewTag }}
       no_traffic: ${{ inputs.previewTag != '' }}
       flags:
-        --set-secrets "ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest"
-        --set-secrets "SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest"
-        --set-env-vars "NODE_ENV=production"
+        --set-secrets="ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest"
+        --set-secrets="SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest"
+        --set-env-vars="NODE_ENV=production"
