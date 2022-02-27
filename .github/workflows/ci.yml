@@ -156,12 +156,14 @@ jobs:
       with:
         issue-number: ${{ github.event.pull_request.number }}
         comment-author: 'github-actions[bot]'
-        body-includes: "Preview is ready :rocket:"
+        body-includes: "<!-- PR_PREVIEW_COMMENT_MARKER -->"
     - uses: peter-evans/create-or-update-comment@v1
       with:
         comment-id: ${{ steps.fc.outputs.comment-id }}
         issue-number: ${{ github.event.pull_request.number }}
         body: |
+          <!-- PR_PREVIEW_COMMENT_MARKER -->
+
           Preview is ready :rocket:
 
           :point_right: **https://pr${{ github.event.pull_request.number }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**
