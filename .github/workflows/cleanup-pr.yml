@@ -2,9 +2,8 @@ name: Cleanup PR
 
 on:
   pull_request:
-    # FIXME: for debug. should remove before merge.
-    # types:
-    # - closed
+    types:
+    - closed
 
 jobs:
   delete-preview:

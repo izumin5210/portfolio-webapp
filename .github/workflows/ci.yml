@@ -127,8 +127,7 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     name: Preview
-    # FIXME: for debug. should remove before merge.
-    # needs: [build]
+    needs: [build]
     if: ${{ github.event_name == 'pull_request' }}
     permissions:
       contents: 'read'
