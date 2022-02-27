@@ -1,6 +1,12 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - "**"
 
 jobs:
   ensure-git-status-clean:
@@ -23,6 +29,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     name: Lint
+    if: "github.event_name == 'pull_request'"
     steps:
     - uses: actions/checkout@v2
       with:
