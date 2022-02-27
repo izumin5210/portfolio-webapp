@@ -9,6 +9,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      pull-requests: 'write'
+      id-token: 'write'
     steps:
     - uses: actions/checkout@v2
     - uses: 'google-github-actions/auth@v0'
