@@ -151,25 +151,10 @@ jobs:
           SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
         tag: pr${{ github.event.pull_request.number }}
         no_traffic: true
-    - uses: peter-evans/find-comment@v1
-      id: fc
+    - uses: ./.github/actions/preview-comment
       with:
-        issue-number: ${{ github.event.pull_request.number }}
-        comment-author: 'github-actions[bot]'
-        body-includes: "<!-- PR_PREVIEW_COMMENT_MARKER -->"
-    - uses: peter-evans/create-or-update-comment@v1
-      with:
-        comment-id: ${{ steps.fc.outputs.comment-id }}
-        issue-number: ${{ github.event.pull_request.number }}
-        body: |
-          <!-- PR_PREVIEW_COMMENT_MARKER -->
-
-          Preview is ready :rocket:
-
-          :point_right: **https://pr${{ github.event.pull_request.number }}---portfolio-webapp-orj7ubxzkq-uc.a.run.app**
-
-          <sub>(deployed commit sha is ${{ github.event.pull_request.head.sha }})</sub>
-        edit-mode: replace
+        prNumber: ${{ github.event.pull_request.number }}
+        sha: ${{ github.event.pull_request.head.sha }}
 
   deploy:
     runs-on: ubuntu-latest
