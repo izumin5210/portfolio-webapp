@@ -142,16 +142,10 @@ jobs:
         workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
         access_token_lifetime: 600s
-    - uses: 'google-github-actions/deploy-cloudrun@v0'
+    - uses: ./.github/actions/deploy
       with:
-        service: 'portfolio-webapp'
-        image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}'
-        env_vars: NODE_ENV=production
-        secrets: |
-          ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
-          SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
-        tag: pr${{ github.event.pull_request.number }}
-        no_traffic: true
+        sha: ${{ steps.vars.outputs.git-sha }}
+        previewTag: pr${{ github.event.pull_request.number }}
     - uses: ./.github/actions/preview-comment
       with:
         prNumber: ${{ github.event.pull_request.number }}
@@ -172,6 +166,7 @@ jobs:
       group: production
       cancel-in-progress: true
     steps:
+    - uses: actions/checkout@v2
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: 'google-github-actions/auth@v0'
@@ -179,11 +174,6 @@ jobs:
         workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
         access_token_lifetime: 600s
-    - uses: 'google-github-actions/deploy-cloudrun@v0'
+    - uses: ./.github/actions/deploy
       with:
-        service: 'portfolio-webapp'
-        image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}'
-        env_vars: NODE_ENV=production
-        secrets: |
-          ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
-          SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
+        sha: ${{ steps.vars.outputs.git-sha }}
