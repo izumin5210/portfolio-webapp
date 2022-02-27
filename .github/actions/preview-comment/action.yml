@@ -31,7 +31,7 @@ runs:
 
         <sub>(deployed commit sha is ${{ inputs.sha }})</sub>
       edit-mode: replace
-      if: ${{ inputs.delete == false }}
+    if: ${{ inputs.delete == false }}
   - uses: peter-evans/create-or-update-comment@v1
     with:
       comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -45,4 +45,4 @@ runs:
 
         <sub>(deployed commit sha is ${{ inputs.sha }})</sub>
       edit-mode: replace
-      if: ${{ inputs.delete == true }}
+    if: ${{ inputs.delete == true }}
