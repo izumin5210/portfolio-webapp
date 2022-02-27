@@ -134,6 +134,7 @@ jobs:
       pull-requests: 'write'
       id-token: 'write'
     steps:
+    - uses: actions/checkout@v2
     - id: vars
       run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: 'google-github-actions/auth@v0'
