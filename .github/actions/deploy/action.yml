@@ -17,5 +17,5 @@ runs:
       secrets: |
         ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
-      tag: ${{ inputs.prNum != '' && format('pr{1}', inputs.prNum) }}
+      tag: ${{ inputs.prNum != '' && format('pr{0}', inputs.prNum) }}
       no_traffic: ${{ inputs.prNum != '' }}
