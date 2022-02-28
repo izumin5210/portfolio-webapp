@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import { css } from "@linaria/core";
+import clsx from "clsx";
 import { colors } from "../lib/styles/colors";
-import { caption } from "../lib/styles/typo";
+import { subtitle1 } from "../lib/styles/typo";
 
 type Props = { build: NodeJS.ProcessEnv["NODE_ENV"]; previewedPrNum: number | null };
 
@@ -27,13 +27,13 @@ export function SystemInfoRibbon(props: Props) {
 const ribbonCss = css`
   position: fixed;
   overflow: hidden;
-  top: 16px;
-  right: -24px;
+  top: 24px;
+  right: -36px;
   z-index: 10000;
-  ${caption};
-  width: 108px;
-  height: 24px;
-  line-height: 24px;
+  ${subtitle1};
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
   transform: rotate(45deg);
   text-align: center;
 `;
