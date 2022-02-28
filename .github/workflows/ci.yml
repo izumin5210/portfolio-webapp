@@ -145,7 +145,7 @@ jobs:
     - uses: ./.github/actions/deploy
       with:
         sha: ${{ steps.vars.outputs.git-sha }}
-        previewTag: pr${{ github.event.pull_request.number }}
+        prNum: ${{ github.event.pull_request.number }}
     - uses: ./.github/actions/preview-comment
       with:
         prNumber: ${{ github.event.pull_request.number }}

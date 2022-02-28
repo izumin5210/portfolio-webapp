@@ -3,8 +3,8 @@ inputs:
   sha:
     description: "Git commit sha"
     required: true
-  previewTag:
-    description: "Tag for pull request preview"
+  prNum:
+    description: "pull request number for preview"
     default: ""
 runs:
   using: composite
@@ -13,9 +13,9 @@ runs:
     with:
       service: 'portfolio-webapp'
       image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ inputs.sha }}'
-      env_vars: NODE_ENV=production
+      env_vars: NODE_ENV=production,PREVIEWED_PR_NUM:${{ inputs.prNum }}
       secrets: |
         ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
-      tag: ${{ inputs.previewTag }}
-      no_traffic: ${{ inputs.previewTag != '' }}
+      tag: ${{ inputs.prNum != "" AND format('pr{1}', inputs.prNum) }}
+      no_traffic: ${{ inputs.prNum != '' }}
