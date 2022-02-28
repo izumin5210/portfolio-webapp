@@ -27,13 +27,13 @@ export function SystemInfoRibbon(props: Props) {
 const ribbonCss = css`
   position: fixed;
   overflow: hidden;
-  top: 24px;
+  top: 28px;
   right: -36px;
   z-index: 10000;
   ${subtitle1};
   width: 160px;
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 32px;
   transform: rotate(45deg);
   text-align: center;
 `;
