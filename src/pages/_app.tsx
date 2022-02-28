@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
           </Script>
         </>
       ) : null}
-      <SystemInfoRibbon build={process.env.NODE_ENV} prNum={__systemInfo.previewedPrNum} />
+      <SystemInfoRibbon build={process.env.NODE_ENV} previewedPrNum={__systemInfo.previewedPrNum} />
       {getLayout(<Component {...pageProps} err={err} />)}
     </RelayEnvironmentProvider>
   );
