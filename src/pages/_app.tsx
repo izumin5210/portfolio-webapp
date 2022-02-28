@@ -1,5 +1,6 @@
 import { NextPage } from "next";
-import type { AppProps } from "next/app";
+import type { AppInitialProps, AppProps as OriginalAppProps } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import { ReactElement, ReactNode } from "react";
@@ -7,6 +8,7 @@ import { RelayEnvironmentProvider } from "react-relay";
 import "sanitize.css";
 import { Layout } from "../Layout";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
+import { SystemInfoRibbon } from "../util/SystemInfoRibbon";
 
 const siteName = "izum.in";
 const url = "https://izum.in/";
@@ -17,11 +19,18 @@ type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
+type PropsWithSystemInfo = {
+  __systemInfo: {
+    previewedPrNum: number | null;
+  };
 };
 
-function MyApp({ Component, pageProps, err }: AppPropsWithLayout & { err?: any }) {
+type AppProps = OriginalAppProps &
+  PropsWithSystemInfo & {
+    Component: NextPageWithLayout;
+  };
+
+function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: any }) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
 
   const environment = useInitRelayEnvironment(pageProps.initialRecords);
@@ -54,9 +63,23 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout & { err?: any }
           </Script>
         </>
       ) : null}
+      <SystemInfoRibbon build={process.env.NODE_ENV} prNum={__systemInfo.previewedPrNum} />
       {getLayout(<Component {...pageProps} err={err} />)}
     </RelayEnvironmentProvider>
   );
 }
+
+export const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
+  const appProps = await App.getInitialProps(appCtx);
+
+  const mergedProps: AppInitialProps & PropsWithSystemInfo = {
+    ...appProps,
+    __systemInfo: {
+      previewedPrNum: process.env.PREVIEWED_PR_NUM ? Number(process.env.PREVIEWED_PR_NUM) : null,
+    },
+  };
+
+  return mergedProps;
+};
 
 export default MyApp;

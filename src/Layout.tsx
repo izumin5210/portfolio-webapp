@@ -1,4 +1,3 @@
-import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +10,6 @@ import { textLinkCss } from "./lib/ui/TextLink";
 export function Layout(props: { children: ReactNode }) {
   return (
     <Main>
-      <EnvRibbon />
       <Header>
         <AvatarWrapper>
           <Image src="/izumin.png" alt="izumin521t0" width={80} height={80} quality={100} layout="fixed" />
@@ -119,26 +117,4 @@ const Footer = styled.footer`
   & a {
     ${textLinkCss(colors.black)}
   }
-`;
-
-function EnvRibbon() {
-  // FIXME: stop using NODE_ENV
-  if (process.env.NODE_ENV === "production") return null;
-  return <div className={ribbonCss}>{process.env.NODE_ENV}</div>;
-}
-
-const ribbonCss = css`
-  position: fixed;
-  overflow: hidden;
-  top: 16px;
-  right: -24px;
-  z-index: 10000;
-  ${caption};
-  width: 108px;
-  height: 24px;
-  line-height: 24px;
-  color: ${colors.textLight};
-  transform: rotate(45deg);
-  text-align: center;
-  background-color: ${colors.gray600};
 `;
