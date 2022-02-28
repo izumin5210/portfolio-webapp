@@ -12,8 +12,10 @@ export function SystemInfoRibbon(props: Props) {
   if (props.previewedPrNum != null) {
     return (
       <a
-        href={`https://github.com/izumin5210/portfolio-webapp/pulls/${props.previewedPrNum}`}
+        href={`https://github.com/izumin5210/portfolio-webapp/pull/${props.previewedPrNum}`}
         className={clsx([ribbonCss, ribbonCssPreview])}
+        target="_blank"
+        rel="noreferrer noopener"
       >
         PR #{props.previewedPrNum}
       </a>
@@ -42,6 +44,7 @@ const ribbonCssDev = css`
 `;
 
 const ribbonCssPreview = css`
-  color: ${colors.text};
+  color: ${colors.textLight};
   background-color: ${colors.teal600};
+  text-decoration: none;
 `;
