@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
   );
 }
 
-export const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
+const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
   const appProps = await App.getInitialProps(appCtx);
 
   const mergedProps: AppInitialProps & PropsWithSystemInfo = {
@@ -81,5 +81,7 @@ export const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
 
   return mergedProps;
 };
+
+MyApp.getInitialProps = getInitialProps;
 
 export default MyApp;
