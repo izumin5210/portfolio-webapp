@@ -10483,14 +10483,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:^1.14.1":
-  version: 1.14.1
-  resolution: "graphql-scalars@npm:1.14.1"
+"graphql-scalars@npm:^1.15.0":
+  version: 1.15.0
+  resolution: "graphql-scalars@npm:1.15.0"
   dependencies:
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: b7bdddc49fbd305d18da47b00f2a6e910d5b4e017cb62b61045e138f308348f5c53a7bba3912d2ae6e7e292971b5195c3a8d197f4eee60da60e7cc32756c8848
+  checksum: 8b86efeb6f11ddd55ee9020b4d59961b13dccb1ea441a78827d30423a8b3485249b0fb3c27e69c0771ffa38c3085fdb97e017502cdc80abe366f74d64cff0c27
   languageName: node
   linkType: hard
 
@@ -15625,7 +15625,7 @@ __metadata:
     graphql: ^16.3.0
     graphql-helix: ^1.11.0
     graphql-relay: ^0.10.0
-    graphql-scalars: ^1.14.1
+    graphql-scalars: ^1.15.0
     jest: 27.5.1
     js-yaml: ^4.1.0
     next: 12.1.0
