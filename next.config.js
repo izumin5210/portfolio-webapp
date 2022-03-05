@@ -24,10 +24,6 @@ const { withSentryConfig } = require("@sentry/nextjs");
  */
 module.exports = (phase, { defaultConfig }) => {
   const gitSha = getGitSha(phase);
-  const assetUrlBase = process.env.ASSET_URL_BASE ?? "";
-  if ((phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) && assetUrlBase === "") {
-    throw new Error("ASSET_URL_BASE is required");
-  }
 
   /** @type {import('next').NextConfig} */
   let nextConfig = {
@@ -63,7 +59,6 @@ module.exports = (phase, { defaultConfig }) => {
     nextConfig = {
       ...nextConfig,
       generateBuildId: () => gitSha,
-      assetPrefix: `${assetUrlBase}/${gitSha}`,
     };
   }
 

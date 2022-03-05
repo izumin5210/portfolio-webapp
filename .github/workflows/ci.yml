@@ -109,13 +109,6 @@ jobs:
           GIT_SHA=${{ steps.vars.outputs.git-sha }}
         secret-files: |
           dotenv=.env
-    - name: Upload assets
-      run: |
-        containerId=`docker create gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}`
-        dotNext=${{ github.workspace }}/.next
-        docker cp ${containerId}:/app/.next ${dotNext}
-        gcloud components install alpha
-        gcloud alpha storage cp --recursive ${dotNext}/static gs://izumin-portfolio-webapp-assets/${{ steps.vars.outputs.git-sha }}/_next/static
     # Temp fix
     # https://github.com/docker/build-push-action/issues/252
     # https://github.com/moby/buildkit/issues/1896
