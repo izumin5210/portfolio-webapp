@@ -48,6 +48,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate" type="application/rss+xml" href="/blog/feed" title="izum.in/blog" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        {__systemInfo.previewedPrNum != null && <meta name="robots" content="noindex,nofollow,noarchive" />}
       </Head>
       {process.env.NODE_ENV === "production" ? (
         <>
