@@ -53,6 +53,9 @@ module.exports = (phase, { defaultConfig }) => {
       });
       return config;
     },
+    experimental: {
+      outputStandalone: true,
+    },
   };
 
   if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
