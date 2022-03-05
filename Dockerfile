@@ -83,4 +83,4 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["node_modules/.bin/next", "start"]
+CMD ["node", "server.js"]
