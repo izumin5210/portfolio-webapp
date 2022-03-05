@@ -76,6 +76,21 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - url: https://speakerdeck.com/izumin5210/graphql-and-protobuf-number-tech-stand
+    publishedOn: '2022-03-03'
+    tags:
+      - name: graphql
+        displayName: GraphQL
+      - name: microservices
+        displayName: Microservices Architecture
+      - name: protobuf
+        displayName: Protocol Buffers
+    title: 'みんなで育てる GraphQL スキーマ, それを支える Protobuf / GraphQL and Protobuf #tech_stand '
+    source:
+      name: SpeakerDeck
+      type: slide
+      urlPattern: ^https://speakerdeck.com/
+    picked: true
   - title: このサイトの実装 2022-02
     publishedOn: '2022-02-23'
     updatedOn: null
