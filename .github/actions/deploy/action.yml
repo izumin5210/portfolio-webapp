@@ -19,4 +19,4 @@ runs:
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
       tag: ${{ inputs.prNum != '' && format('pr{0}', inputs.prNum) || '' }}
       no_traffic: ${{ inputs.prNum != '' }}
-      revision_traffic: ${{ inputs.prNum != '' && '' || 'LATEST=100' }}
+      revision_traffic: ${{ inputs.prNum == '' && 'LATEST=100' || '' }}
