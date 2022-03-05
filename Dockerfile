@@ -4,6 +4,11 @@ FROM node:16.14.0-bullseye-slim as base
 
 WORKDIR /app
 
+RUN apt-get update \
+  && apt-get install -y \
+    ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
 
 #  builder
 #-----------------------------------------------
@@ -55,7 +60,6 @@ ENV LC_CTYPE=ja_JP.UTF-8
 # Library
 RUN apt-get update \
   && apt-get install -y \
-    ca-certificates \
     tini \
   && rm -rf /var/lib/apt/lists/*
 
