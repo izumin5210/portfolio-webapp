@@ -6,11 +6,12 @@ import { useFragment } from "react-relay";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
 import remarkFrontmatter from "remark-frontmatter";
+import { remarkH1AsTitle } from "remark-h1-as-title";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import { remarkH1AsTitle } from "remark-h1-as-title";
 import { unified } from "unified";
 import { getPath } from "../../lib/next-typed-routes";
+import { colors } from "../../lib/styles/colors";
 import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
@@ -324,8 +325,8 @@ const Blockquote = styled.blockquote``;
 const Code = styled.code`
   ${body2}
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  background: hsl(230, 1%, 98%);
-  color: hsl(230, 8%, 24%);
+  background: var(--overlay100);
+  color: var(--text);
   white-space: pre;
   hyphens: none;
   border-radius: 4px;
@@ -343,6 +344,7 @@ const Pre = styled.pre`
       content: none;
     }
     background: none;
+    color: inherit;
   }
 
   & > code {
@@ -352,8 +354,8 @@ const Pre = styled.pre`
 
   ${body2}
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-  background: hsl(230, 1%, 98%);
-  color: hsl(230, 8%, 24%);
+  background: hsl(220, 13%, 18%);
+  color: hsl(220, 14%, 71%);
   white-space: pre;
   hyphens: none;
   tab-size: 4;
@@ -365,20 +367,20 @@ const Pre = styled.pre`
   &:after {
     display: block;
     content: "\`\`\`";
-    color: var(--textDisabled);
+    color: ${colors.dark.textDisabled};
   }
 
-  // https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-one-light.css#L81-L239
+  // https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-one-dark.css#L92-L262
   .token.comment,
   .token.prolog,
   .token.cdata {
-    color: hsl(230, 4%, 64%);
+    color: hsl(220, 10%, 40%);
   }
 
   .token.doctype,
   .token.punctuation,
   .token.entity {
-    color: hsl(230, 8%, 24%);
+    color: hsl(220, 14%, 71%);
   }
 
   .token.attr-name,
@@ -387,11 +389,11 @@ const Pre = styled.pre`
   .token.constant,
   .token.number,
   .token.atrule {
-    color: hsl(35, 99%, 36%);
+    color: hsl(29, 54%, 61%);
   }
 
   .token.keyword {
-    color: hsl(301, 63%, 40%);
+    color: hsl(286, 60%, 67%);
   }
 
   .token.property,
@@ -399,7 +401,7 @@ const Pre = styled.pre`
   .token.symbol,
   .token.deleted,
   .token.important {
-    color: hsl(5, 74%, 59%);
+    color: hsl(355, 65%, 65%);
   }
 
   .token.selector,
@@ -410,105 +412,105 @@ const Pre = styled.pre`
   .token.regex,
   .token.attr-value,
   .token.attr-value > .token.punctuation {
-    color: hsl(119, 34%, 47%);
+    color: hsl(95, 38%, 62%);
   }
 
   .token.variable,
   .token.operator,
   .token.function {
-    color: hsl(221, 87%, 60%);
+    color: hsl(207, 82%, 66%);
   }
 
   .token.url {
-    color: hsl(198, 99%, 37%);
+    color: hsl(187, 47%, 55%);
   }
 
   /* HTML overrides */
   .token.attr-value > .token.punctuation.attr-equals,
   .token.special-attr > .token.attr-value > .token.value.css {
-    color: hsl(230, 8%, 24%);
+    color: hsl(220, 14%, 71%);
   }
 
   /* CSS overrides */
   .language-css .token.selector {
-    color: hsl(5, 74%, 59%);
+    color: hsl(355, 65%, 65%);
   }
 
   .language-css .token.property {
-    color: hsl(230, 8%, 24%);
+    color: hsl(220, 14%, 71%);
   }
 
   .language-css .token.function,
   .language-css .token.url > .token.function {
-    color: hsl(198, 99%, 37%);
+    color: hsl(187, 47%, 55%);
   }
 
   .language-css .token.url > .token.string.url {
-    color: hsl(119, 34%, 47%);
+    color: hsl(95, 38%, 62%);
   }
 
   .language-css .token.important,
   .language-css .token.atrule .token.rule {
-    color: hsl(301, 63%, 40%);
+    color: hsl(286, 60%, 67%);
   }
 
   /* JS overrides */
   .language-javascript .token.operator {
-    color: hsl(301, 63%, 40%);
+    color: hsl(286, 60%, 67%);
   }
 
   .language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation {
-    color: hsl(344, 84%, 43%);
+    color: hsl(5, 48%, 51%);
   }
 
   /* JSON overrides */
   .language-json .token.operator {
-    color: hsl(230, 8%, 24%);
+    color: hsl(220, 14%, 71%);
   }
 
   .language-json .token.null.keyword {
-    color: hsl(35, 99%, 36%);
+    color: hsl(29, 54%, 61%);
   }
 
   /* MD overrides */
   .language-markdown .token.url,
   .language-markdown .token.url > .token.operator,
   .language-markdown .token.url-reference.url > .token.string {
-    color: hsl(230, 8%, 24%);
+    color: hsl(220, 14%, 71%);
   }
 
   .language-markdown .token.url > .token.content {
-    color: hsl(221, 87%, 60%);
+    color: hsl(207, 82%, 66%);
   }
 
   .language-markdown .token.url > .token.url,
   .language-markdown .token.url-reference.url {
-    color: hsl(198, 99%, 37%);
+    color: hsl(187, 47%, 55%);
   }
 
   .language-markdown .token.blockquote.punctuation,
   .language-markdown .token.hr.punctuation {
-    color: hsl(230, 4%, 64%);
+    color: hsl(220, 10%, 40%);
     font-style: italic;
   }
 
   .language-markdown .token.code-snippet {
-    color: hsl(119, 34%, 47%);
+    color: hsl(95, 38%, 62%);
   }
 
   .language-markdown .token.bold .token.content {
-    color: hsl(35, 99%, 36%);
+    color: hsl(29, 54%, 61%);
   }
 
   .language-markdown .token.italic .token.content {
-    color: hsl(301, 63%, 40%);
+    color: hsl(286, 60%, 67%);
   }
 
   .language-markdown .token.strike .token.content,
   .language-markdown .token.strike .token.punctuation,
   .language-markdown .token.list.punctuation,
   .language-markdown .token.title.important > .token.punctuation {
-    color: hsl(5, 74%, 59%);
+    color: hsl(355, 65%, 65%);
   }
 
   /* General */
