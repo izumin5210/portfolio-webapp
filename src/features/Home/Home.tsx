@@ -1,7 +1,6 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import React, { Suspense as _Suspense, SuspenseProps } from "react";
-import { colors } from "../../lib/styles/colors";
 import { heading5 } from "../../lib/styles/typo";
 import { EntryList, EntryListFilteredByTags } from "./EntryList";
 import { PickedEntryList } from "./PickedEntryList";
@@ -41,7 +40,7 @@ export const Home: React.VFC<{ queryResult: HomeQuery$data; filteredByTags: bool
 
 const H2 = styled.h2`
   ${heading5}
-  color: ${colors.text};
+  color: var(--text);
   margin: 48px 16px 8px;
   padding: 0;
 `;

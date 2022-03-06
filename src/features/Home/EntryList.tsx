@@ -2,7 +2,6 @@ import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import { Suspense as _Suspense, SuspenseProps } from "react";
 import { useFragment, usePaginationFragment } from "react-relay";
-import { colors } from "../../lib/styles/colors";
 import { caption } from "../../lib/styles/typo";
 import { EntryItem } from "./EntryItem";
 import type { EntryListEntries$key } from "./__generated__/EntryListEntries.graphql";
@@ -141,7 +140,7 @@ const YearLi = styled.li`
   padding: 0 16px;
 
   list-style: none;
-  color: ${colors.textDisabled};
+  color: var(--textDisabled);
 
   ${caption}
   font-weight: 400;
@@ -150,7 +149,7 @@ const YearLi = styled.li`
   &:before,
   &:after {
     content: " ";
-    border-top: 1px dashed ${colors.gray300};
+    border-top: 1px dashed var(--overlay150);
     width: 100%;
     height: 100%;
   }

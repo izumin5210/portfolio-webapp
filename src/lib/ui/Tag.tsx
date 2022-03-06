@@ -1,5 +1,5 @@
 import { css } from "@linaria/core";
-import { backgroundColor, colors } from "../styles/colors";
+import { backgroundWithOverlay } from "../styles/colors";
 import { caption, fontFamilyHead } from "../styles/typo";
 
 interface Props<Comp extends React.ElementType> {
@@ -34,8 +34,8 @@ const tagCss = css`
   cursor: pointer;
   border-radius: 9999vh;
   padding: 2px 8px;
-  background: ${backgroundColor({ color: colors.gray200 })};
-  color: ${colors.textLowEmphasis};
+  background: ${backgroundWithOverlay("var(--background)", "var(--overlay100)")};
+  color: var(--textLowEmphasis);
   position: relative;
   transition: color 300ms;
 
@@ -53,35 +53,23 @@ const tagCss = css`
   &:hover,
   &:active,
   &:focus-visible {
-    color: ${colors.text};
+    color: var(--textActive);
   }
   &:hover:after {
-    background: ${backgroundColor({ state: "hover" })};
+    background: var(--overlayHover);
   }
   &:active:after {
-    background: ${backgroundColor({ state: "pressed" })};
+    background: var(--overlayPressed);
   }
   &:focus-visible:after {
-    outline: 2px solid ${colors.blue700};
+    outline: 2px solid var(--outline);
   }
   &:focus:not(:focus-visible) {
     outline: 0;
   }
 
   &[aria-selected="true"] {
-    color: ${colors.textLightLowEmphasis};
-    background: ${backgroundColor({ color: colors.gray500, theme: "dark" })};
-    &:hover,
-    &:active,
-    &:focus,
-    &:focus-visible {
-      color: ${colors.textLight};
-    }
-    &:hover:after {
-      background: ${backgroundColor({ state: "hover", theme: "dark" })};
-    }
-    &:active:after {
-      background: ${backgroundColor({ state: "pressed", theme: "dark" })};
-    }
+    color: var(--textOnPrimary);
+    background: var(--primary);
   }
 `;

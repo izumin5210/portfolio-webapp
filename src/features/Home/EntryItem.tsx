@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import { useFragment } from "react-relay";
 import { getPath } from "../../lib/next-typed-routes";
-import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body1, caption } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
@@ -152,18 +151,18 @@ const EntryAnchor = styled.a`
   padding: 12px 16px;
   border-radius: 4px;
   transition: background 300ms;
-  color: ${colors.text};
+  color: var(--text);
   text-decoration: none;
   outline: none;
 
   &:hover {
-    background: ${backgroundColor({ state: "hover" })};
+    background: var(--overlayHover);
   }
   &:active:not(:has(:active)) {
-    background: ${backgroundColor({ state: "pressed" })};
+    background: var(--overlayPressed);
   }
   &:focus-visible {
-    outline: 2px solid ${colors.blue700};
+    outline: 2px solid var(--outline);
   }
   &:focus:not(:focus-visible) {
     outline: 0;
@@ -180,7 +179,7 @@ const EntryCite = styled.cite`
   display: inline;
   ${caption}
   font-weight: 400;
-  color: ${colors.textLowEmphasis};
+  color: var(--textLowEmphasis);
 
   &:before {
     content: "-";
@@ -192,7 +191,7 @@ const EntryPublishedOn = styled.time`
   display: block;
   ${caption}
   font-weight: 400;
-  color: ${colors.textLowEmphasis};
+  color: var(--textLowEmphasis);
 `;
 
 const TagsUl = styled.ul`

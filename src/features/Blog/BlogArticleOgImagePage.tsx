@@ -1,10 +1,12 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import Image from "next/image";
+import { useEffect } from "react";
 import { useFragment } from "react-relay";
 import { colors } from "../../lib/styles/colors";
 import { heading3, heading4, heading5 } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
+import { useTheme } from "../../lib/ui/useTheme";
 import { BlogArticleOgImagePageCard$key } from "./__generated__/BlogArticleOgImagePageCard.graphql";
 import { BlogArticleOgImagePageQuery$data } from "./__generated__/BlogArticleOgImagePageQuery.graphql";
 
@@ -23,6 +25,11 @@ export function BlogArticleOgImagePage(props: { queryResult: BlogArticleOgImageP
 }
 
 function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$key }) {
+  const { className, setTheme } = useTheme();
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+
   const data = useFragment(
     graphql`
       fragment BlogArticleOgImagePageCard on ArticleEntry {
@@ -38,7 +45,7 @@ function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$ke
   );
 
   return (
-    <Page>
+    <Page className={className}>
       <Card>
         <Main>
           <AvatarWrapper>
@@ -63,7 +70,7 @@ function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$ke
 
 const Page = styled.div`
   padding: 32px;
-  background: ${colors.gray50};
+  background: ${colors.gray50.hex};
   width: 100vw;
   height: 100vh;
 `;
@@ -75,7 +82,7 @@ const Card = styled.div`
   width: 100%;
   height: 100%;
   /* flex-direction: column; */
-  color: ${colors.text};
+  color: var(--text);
   background: white;
   padding: 32px 64px;
   border-radius: 16px;
@@ -125,7 +132,7 @@ const TagsUl = styled.ul`
 
 const Time = styled.time`
   ${heading5}
-  color: ${colors.textLowEmphasis};
+  color: var(--textLowEmphasis);
   margin-left: 1em;
 `;
 
@@ -134,7 +141,7 @@ const AuthorName = styled.span`
   flex: 100 auto;
   /* margin-left: 16px; */
   ${heading4}
-  color: ${colors.text};
+  color: var(--text);
 `;
 
 const AvatarWrapper = styled.div`
