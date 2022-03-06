@@ -1,6 +1,8 @@
 import { css } from "@linaria/core";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { colors } from "../styles/colors";
+
+const localStorageKey = "preference-theme";
 
 export function useTheme(): {
   className: string;
@@ -9,9 +11,25 @@ export function useTheme(): {
 } {
   const [themeName, setThemeName] = useState<"dark" | "light" | undefined>();
   useEffect(() => {
-    const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (isDefaultDark) setThemeName("dark");
+    const persistedThemeName = window.localStorage.getItem(localStorageKey);
+    if (persistedThemeName === "dark" || persistedThemeName === "light") {
+      setThemeName(persistedThemeName);
+    } else {
+      const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (isDefaultDark) setThemeName("dark");
+    }
   }, []);
+
+  const themeRef = useRef(themeName);
+  useEffect(() => {
+    if (themeName == null) return;
+    const prev = themeRef.current;
+    themeRef.current = themeName;
+    if (prev == null) return;
+    if (prev === themeName) return;
+
+    window.localStorage.setItem(localStorageKey, themeName);
+  }, [themeName]);
 
   return {
     className: themeName == null ? themeCss : [themeCss, `${themeName}-mode`].join(" "),

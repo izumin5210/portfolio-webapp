@@ -3,7 +3,7 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useCallback, useEffect } from "react";
+import { ReactNode, useCallback } from "react";
 import "sanitize.css";
 import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
@@ -12,10 +12,6 @@ import { useTheme } from "./lib/ui/useTheme";
 
 export function Layout(props: { children: ReactNode }) {
   const { className: themeCssClass, theme, setTheme } = useTheme();
-  useEffect(() => {
-    const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (isDefaultDark) setTheme("dark");
-  }, [setTheme]);
 
   const toggleTheme = useCallback(() => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
