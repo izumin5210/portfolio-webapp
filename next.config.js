@@ -68,6 +68,11 @@ module.exports = (phase, { defaultConfig }) => {
   nextConfig = withLinaria(nextConfig);
   nextConfig = /** @type {*} */ (withSentryConfig(/** @type {*} */ (nextConfig), { silent: true }));
 
+  if (phase === PHASE_PRODUCTION_BUILD) {
+    // @ts-expect-error: next/bundle/analyzer has no type definitions
+    nextConfig = require("@next/bundle-analyzer")({ enabled: true })(nextConfig);
+  }
+
   return nextConfig;
 };
 
