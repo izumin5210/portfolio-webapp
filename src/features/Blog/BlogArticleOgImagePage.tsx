@@ -63,7 +63,7 @@ function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$ke
 
 const Page = styled.div`
   padding: 32px;
-  background: ${colors.gray50};
+  background: ${colors.gray50.hex};
   width: 100vw;
   height: 100vh;
 `;
