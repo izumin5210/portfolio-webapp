@@ -8,6 +8,7 @@ import { RelayEnvironmentProvider } from "react-relay";
 import "sanitize.css";
 import { Layout } from "../Layout";
 import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
+import { LoadThemeScript } from "../lib/ui/useTheme";
 import { SystemInfoRibbon } from "../util/SystemInfoRibbon";
 
 const siteName = "izum.in";
@@ -50,6 +51,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         {__systemInfo.previewedPrNum != null && <meta name="robots" content="noindex,nofollow,noarchive" />}
       </Head>
+      <LoadThemeScript />
       {process.env.NODE_ENV === "production" ? (
         <>
           <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
