@@ -29,13 +29,14 @@ export function useTheme(): {
   setTheme: Dispatch<SetStateAction<"dark" | "light" | undefined>>;
 } {
   const [themeName, setThemeName] = useState<"dark" | "light" | undefined>();
+  // initialize themeName
   useEffect(() => {
     const persistedThemeName = window.localStorage.getItem(localStorageKey);
     if (persistedThemeName === "dark" || persistedThemeName === "light") {
       setThemeName(persistedThemeName);
     } else {
       const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (isDefaultDark) setThemeName("dark");
+      setThemeName(isDefaultDark ? "dark" : "light");
     }
   }, []);
 
