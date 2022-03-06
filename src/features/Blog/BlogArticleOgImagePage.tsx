@@ -1,10 +1,12 @@
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import Image from "next/image";
+import { useEffect } from "react";
 import { useFragment } from "react-relay";
 import { colors } from "../../lib/styles/colors";
 import { heading3, heading4, heading5 } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
+import { useTheme } from "../../lib/ui/useTheme";
 import { BlogArticleOgImagePageCard$key } from "./__generated__/BlogArticleOgImagePageCard.graphql";
 import { BlogArticleOgImagePageQuery$data } from "./__generated__/BlogArticleOgImagePageQuery.graphql";
 
@@ -23,6 +25,11 @@ export function BlogArticleOgImagePage(props: { queryResult: BlogArticleOgImageP
 }
 
 function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$key }) {
+  const { className, setTheme } = useTheme();
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+
   const data = useFragment(
     graphql`
       fragment BlogArticleOgImagePageCard on ArticleEntry {
@@ -38,7 +45,7 @@ function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$ke
   );
 
   return (
-    <Page>
+    <Page className={className}>
       <Card>
         <Main>
           <AvatarWrapper>
