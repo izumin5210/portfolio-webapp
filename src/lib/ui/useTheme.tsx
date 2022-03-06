@@ -2,7 +2,26 @@ import { css } from "@linaria/core";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { colors } from "../styles/colors";
 
-const localStorageKey = "preference-theme";
+const localStorageKey = "theme";
+
+export function LoadThemeScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+(function() {
+  try {
+    var theme = localStorage.getItem("${localStorageKey}");
+    if (theme != null) {
+      document.body.classList.add(theme + "-mode");
+    }
+  } catch (_e) { }
+})();
+    `,
+      }}
+    />
+  );
+}
 
 export function useTheme(): {
   className: string;
@@ -25,14 +44,22 @@ export function useTheme(): {
     if (themeName == null) return;
     const prev = themeRef.current;
     themeRef.current = themeName;
-    if (prev == null) return;
+
     if (prev === themeName) return;
+
+    if (prev != null) {
+      document.body.classList.remove(`${prev}-mode`);
+    }
+    if (!document.body.classList.contains(`${themeName}-mode`)) {
+      document.body.classList.add(`${themeName}-mode`);
+    }
+    if (prev == null) return;
 
     window.localStorage.setItem(localStorageKey, themeName);
   }, [themeName]);
 
   return {
-    className: themeName == null ? themeCss : [themeCss, `${themeName}-mode`].join(" "),
+    className: themeName == null ? themeCss : [themeCss].join(" "),
     theme: themeName,
     setTheme: setThemeName,
   };
@@ -40,22 +67,25 @@ export function useTheme(): {
 
 const themeCss = css`
   :global() {
-    :root {
-      ${transformKeys(colors.light, (k) => `--${k}`)}
+    @media (prefers-color-scheme: light) {
+      :root {
+        ${transformKeys(colors.light, (k) => `--${k}`)}
+      }
     }
     @media (prefers-color-scheme: dark) {
       :root {
         ${transformKeys(colors.dark, (k) => `--${k}`)}
       }
     }
-  }
+    body {
+      &.dark-mode {
+        ${transformKeys(colors.dark, (k) => `--${k}`)}
+      }
 
-  &.dark-mode {
-    ${transformKeys(colors.dark, (k) => `--${k}`)}
-  }
-
-  &.light-mode {
-    ${transformKeys(colors.light, (k) => `--${k}`)}
+      &.light-mode {
+        ${transformKeys(colors.light, (k) => `--${k}`)}
+      }
+    }
   }
 `;
 
