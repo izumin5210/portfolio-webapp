@@ -1,11 +1,11 @@
 import { css } from "@linaria/core";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { colors } from "../styles/colors";
 
 export function useTheme(): {
   className: string;
   theme: "dark" | "light" | undefined;
-  setTheme: (theme: "dark" | "light") => void;
+  setTheme: Dispatch<SetStateAction<"dark" | "light" | undefined>>;
 } {
   const [themeName, setThemeName] = useState<"dark" | "light" | undefined>();
   useEffect(() => {

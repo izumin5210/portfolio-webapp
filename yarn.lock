@@ -2195,6 +2195,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@heroicons/react@npm:1.0.6"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 372b1eda3ce735ef069777bc96304f70de585ebb71a6d1cedc121bb695f9bca235619112e3ee14e8779e95a03096813cbbe3b755927a54b7580d1ce084fa4096
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -15592,6 +15601,7 @@ __metadata:
     "@babel/core": 7.17.5
     "@graphql-codegen/cli": 2.6.2
     "@graphql-codegen/schema-ast": 2.4.1
+    "@heroicons/react": ^1.0.6
     "@linaria/babel-preset": 3.0.0-beta.15
     "@linaria/core": 3.0.0-beta.15
     "@linaria/react": ^3.0.0-beta.15

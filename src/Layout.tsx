@@ -1,7 +1,9 @@
+import { MoonIcon, SunIcon } from "@heroicons/react/solid";
+import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useCallback, useEffect } from "react";
 import "sanitize.css";
 import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
@@ -15,19 +17,16 @@ export function Layout(props: { children: ReactNode }) {
     if (isDefaultDark) setTheme("dark");
   }, [setTheme]);
 
+  const toggleTheme = useCallback(() => {
+    setTheme((theme) => (theme === "light" ? "dark" : "light"));
+  }, [setTheme]);
+
   return (
     <Outer className={themeCssClass}>
-      {process.env.NODE_ENV === "development" && (
-        <label style={{ color: "var(--text)" }}>
-          dark mode
-          <input
-            type="checkbox"
-            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-            checked={theme === "dark"}
-          />
-        </label>
-      )}
       <Main>
+        {theme != null && (
+          <IconButton onClick={toggleTheme}>{theme === "light" ? <MoonIcon /> : <SunIcon />}</IconButton>
+        )}
         <Header>
           <AvatarWrapper>
             <Image src="/izumin.png" alt="izumin521t0" width={80} height={80} quality={100} layout="fixed" />
@@ -83,6 +82,7 @@ const Outer = styled.div`
 `;
 
 const Main = styled.main`
+  position: relative;
   margin: 0 auto;
   max-width: 960px;
 `;
@@ -141,5 +141,37 @@ const Footer = styled.footer`
 
   & a {
     ${textLinkCss("var(--text)")}
+  }
+`;
+
+interface IconButtonProps<Comp extends React.ElementType> {
+  children: ReactNode;
+  onClick: () => void;
+  as?: Comp;
+}
+
+function IconButton<Comp extends React.ElementType>(props: IconButtonProps<Comp>) {
+  const Component = props.as || "button";
+  return (
+    <Component className={iconButtonCss} onClick={props.onClick}>
+      {props.children}
+    </Component>
+  );
+}
+
+const iconButtonCss = css`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 9999vh;
+  background: var(--text);
+  padding: 4px;
+  & svg {
+    width: 24px;
+    height: 24px;
+    color: var(--background);
   }
 `;
