@@ -17,14 +17,16 @@ export function Layout(props: { children: ReactNode }) {
 
   return (
     <Outer className={themeCssClass}>
-      <label>
-        dark
-        <input
-          type="checkbox"
-          onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-          checked={theme === "dark"}
-        />
-      </label>
+      {process.env.NODE_ENV === "development" && (
+        <label style={{ color: "var(--text)" }}>
+          dark mode
+          <input
+            type="checkbox"
+            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+          />
+        </label>
+      )}
       <Main>
         <Header>
           <AvatarWrapper>
