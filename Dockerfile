@@ -82,5 +82,9 @@ COPY ./_articles/ /app/_articles
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Copy bundler analyzer results
+COPY --from=builder /app/.next/analyze/client.html ./public/_analyze/client.html
+COPY --from=builder /app/.next/server/analyze/server.html ./public/_analyze/server.html
+
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["node", "server.js"]
