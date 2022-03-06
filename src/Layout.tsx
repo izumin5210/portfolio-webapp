@@ -1,27 +1,28 @@
 import { styled } from "@linaria/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import "sanitize.css";
 import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
 import { textLinkCss } from "./lib/ui/TextLink";
+import { useTheme } from "./lib/ui/useTheme";
 
 export function Layout(props: { children: ReactNode }) {
-  const [themeName, setThemeName] = useState<"dark" | "light" | undefined>();
+  const { className: themeCssClass, theme, setTheme } = useTheme();
   useEffect(() => {
     const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (isDefaultDark) setThemeName("dark");
-  }, []);
+    if (isDefaultDark) setTheme("dark");
+  }, [setTheme]);
 
   return (
-    <Outer className={themeName == null ? undefined : `${themeName}-mode`}>
+    <Outer className={themeCssClass}>
       <label>
         dark
         <input
           type="checkbox"
-          onChange={(e) => setThemeName(e.target.checked ? "dark" : "light")}
-          checked={themeName === "dark"}
+          onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+          checked={theme === "dark"}
         />
       </label>
       <Main>
@@ -74,30 +75,7 @@ export function Layout(props: { children: ReactNode }) {
   );
 }
 
-const transformKeys = <T extends Record<string, unknown>>(obj: T, fn: (key: string) => string) => {
-  return Object.keys(obj).reduce((newObj, key) => ({ ...newObj, [fn(key)]: obj[key] }), {});
-};
-
 const Outer = styled.div`
-  :global() {
-    :root {
-      ${transformKeys(colors.light, (k) => `--${k}`)}
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        ${transformKeys(colors.dark, (k) => `--${k}`)}
-      }
-    }
-  }
-
-  &.dark-mode {
-    ${transformKeys(colors.dark, (k) => `--${k}`)}
-  }
-
-  &.light-mode {
-    ${transformKeys(colors.light, (k) => `--${k}`)}
-  }
-
   transition: background 300ms;
   background: var(--background);
 `;
