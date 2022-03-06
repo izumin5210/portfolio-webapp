@@ -75,7 +75,7 @@ const Card = styled.div`
   width: 100%;
   height: 100%;
   /* flex-direction: column; */
-  color: ${colors.text};
+  color: var(--text);
   background: white;
   padding: 32px 64px;
   border-radius: 16px;
@@ -125,7 +125,7 @@ const TagsUl = styled.ul`
 
 const Time = styled.time`
   ${heading5}
-  color: ${colors.textLowEmphasis};
+  color: var(--textLowEmphasis);
   margin-left: 1em;
 `;
 
@@ -134,7 +134,7 @@ const AuthorName = styled.span`
   flex: 100 auto;
   /* margin-left: 16px; */
   ${heading4}
-  color: ${colors.text};
+  color: var(--text);
 `;
 
 const AvatarWrapper = styled.div`

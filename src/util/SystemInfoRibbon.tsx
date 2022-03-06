@@ -39,12 +39,12 @@ const ribbonCss = css`
 `;
 
 const ribbonCssDev = css`
-  color: ${colors.textLight};
-  background-color: ${colors.gray600};
+  color: ${colors.dark.text};
+  background-color: ${colors.gray600.hex};
 `;
 
 const ribbonCssPreview = css`
-  color: ${colors.textLight};
-  background-color: ${colors.teal600};
+  color: ${colors.dark.text};
+  background-color: ${colors.teal600.hex};
   text-decoration: none;
 `;

@@ -11,7 +11,6 @@ import remarkRehype from "remark-rehype";
 import { remarkH1AsTitle } from "remark-h1-as-title";
 import { unified } from "unified";
 import { getPath } from "../../lib/next-typed-routes";
-import { backgroundColor, colors } from "../../lib/styles/colors";
 import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
@@ -100,7 +99,7 @@ function useMarkdownProcessor(text: string) {
 }
 
 const Article = styled.article`
-  color: ${colors.text};
+  color: var(--text);
   ${body2}
   margin: 48px 16px 8px;
 `;
@@ -115,7 +114,7 @@ const DatesUl = styled.ul`
   margin: 0;
 
   & > li {
-    color: ${colors.textLowEmphasis};
+    color: var(--textLowEmphasis);
 
     &:not(:last-child):after {
       content: "/";
@@ -140,22 +139,22 @@ const TagsUl = styled.ul`
 
 const Tag = styled.a`
   &:hover {
-    background: ${backgroundColor({ state: "hover" })};
+    background: var(--overlayHover);
   }
   &:active {
-    background: ${backgroundColor({ state: "pressed" })};
+    background: var(--overlayPressed);
   }
   &:focus-visible {
-    outline: 2px solid ${colors.blue700};
+    outline: 2px solid var(--outline);
   }
   &:focus:not(:focus-visible) {
     outline: 0;
   }
   &:before {
     content: "#";
-    color: ${colors.textLowEmphasis};
+    color: var(--textLowEmphasis);
   }
-  color: ${colors.text};
+  color: var(--text);
   border-radius: 9999vh;
   padding: 2px 8px;
   text-decoration: none;
@@ -163,11 +162,11 @@ const Tag = styled.a`
 `;
 
 const Time = styled.time`
-  color: ${colors.text};
+  color: var(--text);
 `;
 
 const headingMarkerStyle = {
-  color: colors.textDisabled,
+  color: "var(--textDisabled)",
   fontSize: "0.7em",
   fontWeight: "400",
   letterSpacing: "-0.08em",
@@ -176,7 +175,7 @@ const headingMarkerStyle = {
 const listStyle = {
   listStyle: "none",
   "li:before": {
-    color: colors.textLowEmphasis,
+    color: "var(--textLowEmphasis)",
   },
   paddingLeft: "12px",
   "ul, ol": {
@@ -308,7 +307,7 @@ const Strong = styled.strong`
   &:before,
   &:after {
     content: "**";
-    color: ${colors.textDisabled};
+    color: var(--textDisabled);
   }
 `;
 
@@ -316,7 +315,7 @@ const Em = styled.em`
   &:before,
   &:after {
     content: "_";
-    color: ${colors.textDisabled};
+    color: var(--textDisabled);
   }
 `;
 
@@ -333,7 +332,7 @@ const Code = styled.code`
   &:before,
   &:after {
     content: "\`";
-    color: ${colors.textDisabled};
+    color: var(--textDisabled);
   }
 `;
 
@@ -366,7 +365,7 @@ const Pre = styled.pre`
   &:after {
     display: block;
     content: "\`\`\`";
-    color: ${colors.textDisabled};
+    color: var(--textDisabled);
   }
 
   // https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-one-light.css#L81-L239
