@@ -10491,12 +10491,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-helix@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "graphql-helix@npm:1.11.0"
+"graphql-helix@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "graphql-helix@npm:1.12.0"
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: 18460adb7580ee3ad379da0565d9a48570e80f2492f8c8e8d29ddac2866c2cf6b48f982bc52ce6e220ebea19506f51e85f697a9ddae45e2ba83a47b50835966c
+  checksum: eac17d3b231c46b5961ae99272d0b758dd0f77c86a088a65b9c3599a63cb1b3f835859e3d06cfa3f3bb6d689e604d742746055c5a680bff5b678eaaac94e5ef7
   languageName: node
   linkType: hard
 
@@ -15689,7 +15689,7 @@ __metadata:
     frolint: 2.8.2
     glob: 7.2.0
     graphql: ^16.3.0
-    graphql-helix: ^1.11.0
+    graphql-helix: ^1.12.0
     graphql-relay: ^0.10.0
     graphql-scalars: ^1.15.0
     jest: 27.5.1
@@ -20293,22 +20293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^5.2.0 || ^6.0.0 || ^7.0.0, ws@npm:^7.4.6":
-  version: 7.5.6
-  resolution: "ws@npm:7.5.6"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 0c2ffc9a539dd61dd2b00ff6cc5c98a3371e2521011fe23da4b3578bb7ac26cbdf7ca8a68e8e08023c122ae247013216dde2a20c908de415a6bcc87bdef68c87
-  languageName: node
-  linkType: hard
-
-"ws@npm:^7.3.1":
+"ws@npm:^5.2.0 || ^6.0.0 || ^7.0.0, ws@npm:^7.3.1, ws@npm:^7.4.6":
   version: 7.5.7
   resolution: "ws@npm:7.5.7"
   peerDependencies:
