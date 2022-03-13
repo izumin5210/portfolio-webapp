@@ -8234,10 +8234,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:0.0.960912":
-  version: 0.0.960912
-  resolution: "devtools-protocol@npm:0.0.960912"
-  checksum: e14bb94e2d64a4279b53789f6526e7ae1f03e2a0f5650450d97735b91f12aa501bed185b9b97c902063ac9b74e78df25ed973c12c7968ed8163f438d2dec9944
+"devtools-protocol@npm:0.0.969999":
+  version: 0.0.969999
+  resolution: "devtools-protocol@npm:0.0.969999"
+  checksum: c67e2a40864edfbdc892eb6db2b6edf82a277af5bcc070741a6b39ffe052955a3c1fb99a0bb029631b326d290861a79deea423634d5a441b9faeab2884208396
   languageName: node
   linkType: hard
 
@@ -15699,7 +15699,7 @@ __metadata:
     node-fetch: ^3.2.1
     npm-run-all: 4.1.5
     prettier: 2.5.1
-    puppeteer-core: ^13.4.1
+    puppeteer-core: ^13.5.1
     react: 17.0.2
     react-dom: 17.0.2
     react-relay: ^13.1.1
@@ -16139,13 +16139,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^13.4.1":
-  version: 13.4.1
-  resolution: "puppeteer-core@npm:13.4.1"
+"puppeteer-core@npm:^13.5.1":
+  version: 13.5.1
+  resolution: "puppeteer-core@npm:13.5.1"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.3
-    devtools-protocol: 0.0.960912
+    devtools-protocol: 0.0.969999
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.0
     pkg-dir: 4.2.0
@@ -16155,7 +16155,7 @@ __metadata:
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.5.0
-  checksum: 8fda94a3537fa6b8841955c902324d55943951ab9832950b3dd7025325b84ed3a07ccd9fff3ad189ef64e27f3bbd64cf25775c4cadd77eabd568cb849dd0e22b
+  checksum: 9248311965ec1f3fe415f1a41e8816bb7d7764cca97abee1da48082d8d3f082d582acc9364c31b6285c61e9cd6e5b607235a38d8323970ed7f6d059b59136268
   languageName: node
   linkType: hard
 
@@ -20293,22 +20293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^5.2.0 || ^6.0.0 || ^7.0.0, ws@npm:^7.4.6":
-  version: 7.5.6
-  resolution: "ws@npm:7.5.6"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 0c2ffc9a539dd61dd2b00ff6cc5c98a3371e2521011fe23da4b3578bb7ac26cbdf7ca8a68e8e08023c122ae247013216dde2a20c908de415a6bcc87bdef68c87
-  languageName: node
-  linkType: hard
-
-"ws@npm:^7.3.1":
+"ws@npm:^5.2.0 || ^6.0.0 || ^7.0.0, ws@npm:^7.3.1, ws@npm:^7.4.6":
   version: 7.5.7
   resolution: "ws@npm:7.5.7"
   peerDependencies:
