@@ -9,7 +9,7 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Deploy new revision
+  - name: Deploy new revision for preview
     uses: 'google-github-actions/deploy-cloudrun@v0'
     with:
       service: 'portfolio-webapp'
@@ -18,8 +18,19 @@ runs:
       secrets: |
         ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
-      tag: ${{ inputs.prNum != '' && format('pr{0}', inputs.prNum) || '' }}
-      no_traffic: ${{ inputs.prNum != '' }}
+      tag: ${{ format('pr{0}', inputs.prNum) }}
+      no_traffic: true
+    if: ${{ inputs.prNum != '' }}
+  - name: Deploy new revision
+    uses: 'google-github-actions/deploy-cloudrun@v0'
+    with:
+      service: 'portfolio-webapp'
+      image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ inputs.sha }}'
+      env_vars: NODE_ENV=production
+      secrets: |
+        ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
+        SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
+    if: ${{ inputs.prNum == '' }}
   - name: Update traffic to LATEST revision
     uses: 'google-github-actions/deploy-cloudrun@v0'
     with:
