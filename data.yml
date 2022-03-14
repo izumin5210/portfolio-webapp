@@ -30,6 +30,10 @@ tags:
     displayName: Android
   - name: book
     displayName: Book
+  - name: css
+    displayName: CSS
+    dependsOn:
+      - web-frontend
   - name: developer-productivity
     displayName: Developer Productivity
   - name: docker
@@ -76,6 +80,23 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: CSS variables によるダークモード対応
+    publishedOn: '2022-03-14'
+    updatedOn: null
+    tags:
+      - name: css
+        displayName: CSS
+      - name: izum-dot-in
+        displayName: izum.in
+      - name: react
+        displayName: React
+      - name: web-frontend
+        displayName: Web Frontend
+    path: /blog/2022/03/14/dark-mode
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
   - url: https://speakerdeck.com/izumin5210/graphql-and-protobuf-number-tech-stand
     publishedOn: '2022-03-03'
     tags:
