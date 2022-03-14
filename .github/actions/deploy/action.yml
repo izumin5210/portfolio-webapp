@@ -16,12 +16,15 @@ runs:
       image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ inputs.sha }}'
       env_vars: |
         NODE_ENV=production
-        PREVIEWED_PR_NUM=${{ inputs.prNum != '' && inputs.prNum || '' }}
+        ${{ inputs.prNum != '' && format('PREVIEWED_PR_NUM=${0}', inputs.prNum) || '' }}
       secrets: |
         ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
         SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
       tag: ${{ inputs.prNum != '' && format('pr{0}', inputs.prNum) || '' }}
       no_traffic: ${{ inputs.prNum != '' }}
+      flags: |
+        --clear-env-vars
+        --clear-secrets
   - name: Update traffic to LATEST revision
     uses: 'google-github-actions/deploy-cloudrun@v0'
     with:
