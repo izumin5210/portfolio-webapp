@@ -78,7 +78,7 @@ const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
   const mergedProps: AppInitialProps & PropsWithSystemInfo = {
     ...appProps,
     __systemInfo: {
-      previewedPrNum: process.env.PREVIEWED_PR_NUM ? Number(process.env.PREVIEWED_PR_NUM) : null,
+      previewedPrNum: Number(process.env.PREVIEWED_PR_NUM) || null,
     },
   };
 
