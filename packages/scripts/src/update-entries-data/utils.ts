@@ -63,7 +63,7 @@ export function refineTitle(entry: ExternalEntry): string | undefined {
   if (entry.title == null) return entry.title;
   switch (entry.source?.name) {
     case "GitHub": {
-      return entry.title.replace(/^GitHub - /, "");
+      return entry.title.replace(/^GitHub - /, "").replace(/^[\w\-]+\//, "");
     }
     case "Qiita": {
       return entry.title.replace(/ - Qiita$/, "");
