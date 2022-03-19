@@ -89,13 +89,15 @@ const Main = styled.main`
 const Header = styled.header`
   margin: 0;
   padding: 84px 0 32px;
-  display: flex;
+  display: grid;
+  grid-template-areas: "avatar info";
   justify-content: center;
   align-items: center;
+  gap: 16px;
 `;
 
 const InfoWrapper = styled.div`
-  margin-left: 16px;
+  grid-area: info;
 `;
 
 const NameHeading = styled.h1`
