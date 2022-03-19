@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useCallback } from "react";
 import "sanitize.css";
+import { RoutingProgress } from "./lib/RoutingProgress";
 import { colors } from "./lib/styles/colors";
 import { body1, caption, heading5 } from "./lib/styles/typo";
 import { textLinkCss } from "./lib/ui/TextLink";
@@ -19,6 +20,7 @@ export function Layout(props: { children: ReactNode }) {
 
   return (
     <Outer className={themeCssClass}>
+      <RoutingProgress />
       <Main>
         {theme != null && (
           <IconButton onClick={toggleTheme}>{theme === "light" ? <MoonIcon /> : <SunIcon />}</IconButton>
