@@ -2,7 +2,7 @@ import { styled } from "@linaria/react";
 import { useRouter } from "next/router";
 import { CSSProperties, useEffect, useReducer } from "react";
 
-export function RoutingProgress() {
+export function RoutingProgress({ speed = 200 }: { speed?: number }) {
   const [{ progress }, dispatch] = useReducer(progressReducer, { progress: undefined });
   const router = useRouter();
 
@@ -32,19 +32,21 @@ export function RoutingProgress() {
       } else {
         dispatch("increment");
       }
-    }, 200);
+    }, speed);
 
     return () => {
       clearTimeout(timeoutID);
     };
-  }, [progress]);
+  }, [progress, speed]);
 
   return (
     <Progress
       style={
         {
-          "--progress": `${(-1 + (progress ?? 0)) * 100}%`,
+          "--translateX": `${(-1 + (progress ?? 0)) * 100}%`,
           "--opacity": progress != null ? 1 : 0,
+          "--transitionSpeed": `${speed}ms`,
+          "--trackTransition": progress === 0 ? "none" : `all var(--transitionSpeed) linear`,
         } as CSSProperties
       }
     />
@@ -89,15 +91,15 @@ const Progress = styled.div`
   height: 2px;
   background-color: var(--primary);
   opacity: var(--opacity);
-  transition: all 200ms linear;
+  transition: var(--trackTransition);
 
   &::after {
     display: block;
     content: " ";
     height: 100%;
     width: 100%;
-    transform: translate3d(var(--progress), 0, 0);
+    transform: translate3d(var(--translateX), 0, 0);
     background-color: var(--textLink);
-    transition: all 200ms linear;
+    transition: all var(--transitionSpeed) linear;
   }
 `;
