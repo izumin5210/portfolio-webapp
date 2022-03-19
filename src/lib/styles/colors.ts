@@ -79,11 +79,9 @@ const baseColors = {
   gray700: colorFromHex("#616161"),
   gray800: colorFromHex("#424242"),
   gray900: colorFromHex("#212121"),
-  blue300: colorFromHex("#64b5f6"),
-  blue700: colorFromHex("#1976d2"),
-  blue800: colorFromHex("#1565c0"),
-  blue900: colorFromHex("#0d47a1"),
   teal600: colorFromHex("#00897b"),
+  pink200: colorFromHex("#f48fb1"),
+  pink600: colorFromHex("#d81b60"),
   blueGray100: colorFromHex("#cfd8dc"),
   blueGray700: colorFromHex("#455a64"),
 } as const;
@@ -92,13 +90,13 @@ const themeBase = {
   light: {
     textBase: baseColors.black,
     primary: baseColors.blueGray100,
-    secondary: baseColors.blue700,
+    secondary: baseColors.pink600,
     overlayRGB: "0,0,0",
   },
   dark: {
     textBase: baseColors.white,
     primary: baseColors.blueGray700,
-    secondary: baseColors.blue300,
+    secondary: baseColors.pink200,
     overlayRGB: "255,255,255",
   },
 };
