@@ -77,6 +77,7 @@ export function Layout(props: { children: ReactNode }) {
 const Outer = styled.div`
   transition: background 300ms;
   background: var(--background);
+  min-height: 100vh;
 `;
 
 const Main = styled.main`
