@@ -45,6 +45,8 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
         <meta property="og:type" content="website" key="type" />
         <meta property="og:url" content={url} key="url" />
         <meta property="og:site_name" content="izum.in" key="site_name" />
+        <meta name="twitter:creator" content="@izumin5210" />
+        <meta name="twitter:site" content="@izumin5210" />
         <link rel="canonical" href={url} key="canonical" />
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate" type="application/rss+xml" href="/blog/feed" title="izum.in/blog" />
@@ -78,7 +80,7 @@ const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
   const mergedProps: AppInitialProps & PropsWithSystemInfo = {
     ...appProps,
     __systemInfo: {
-      previewedPrNum: process.env.PREVIEWED_PR_NUM ? Number(process.env.PREVIEWED_PR_NUM) : null,
+      previewedPrNum: Number(process.env.PREVIEWED_PR_NUM) || null,
     },
   };
 

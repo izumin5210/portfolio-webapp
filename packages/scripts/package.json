@@ -20,6 +20,6 @@
     "remark-h1-as-title": "workspace:^",
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
-    "unified": "^10.1.1"
+    "unified": "^10.1.2"
   }
 }

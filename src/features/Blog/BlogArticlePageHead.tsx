@@ -23,6 +23,7 @@ export function BlogArticlePageHead(props: { article: BlogArticlePageHead$key })
       <meta property="og:type" content="article" key="type" />
       <meta property="og:url" content={url} key="url" />
       <meta property="og:image" content={`${url}/og-image`} key="image" />
+      <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
       <link rel="canonical" href={url} key="canonical" />
     </Head>
   );
