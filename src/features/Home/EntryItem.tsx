@@ -1,14 +1,17 @@
+import { ArrowSmRightIcon, MicrophoneIcon } from "@heroicons/react/solid";
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+import React from "react";
 import { useFragment } from "react-relay";
-import { getPath } from "../../lib/next-typed-routes";
+import GitHubIcon from "../../lib/icons/GitHubIcon";
+import MediumIcon from "../../lib/icons/MediumIcon";
+import QiitaIcon from "../../lib/icons/QiitaIcon";
+import SpeakerDeckIcon from "../../lib/icons/SpeakerDeckIcon";
+import WantedlyIcon from "../../lib/icons/WantedlyIcon";
+import ZennIcon from "../../lib/icons/ZennIcon";
 import { body1, caption } from "../../lib/styles/typo";
-import { Tag } from "../../lib/ui/Tag";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
-import { EntryItemTag$key } from "./__generated__/EntryItemTag.graphql";
 
 type Props = {
   entry: EntryItem$key;
@@ -21,10 +24,10 @@ export function EntryItem(props: Props) {
         ... on ArticleEntry {
           title
           path
-          tags {
-            name
-            ...EntryItemTag
-          }
+          # tags {
+          #   name
+          #   ...EntryItemTag
+          # }
           publishedOn
           source {
             name
@@ -33,10 +36,10 @@ export function EntryItem(props: Props) {
         ... on ExternalArticleEntry {
           title
           url
-          tags {
-            name
-            ...EntryItemTag
-          }
+          # tags {
+          #   name
+          #   ...EntryItemTag
+          # }
           publishedOn
           source {
             name
@@ -45,10 +48,10 @@ export function EntryItem(props: Props) {
         ... on SlideEntry {
           title
           url
-          tags {
-            name
-            ...EntryItemTag
-          }
+          # tags {
+          #   name
+          #   ...EntryItemTag
+          # }
           publishedOn
           source {
             name
@@ -57,10 +60,10 @@ export function EntryItem(props: Props) {
         ... on OSSEntry {
           title
           url
-          tags {
-            name
-            ...EntryItemTag
-          }
+          # tags {
+          #   name
+          #   ...EntryItemTag
+          # }
           publishedOn
           source {
             name
@@ -69,10 +72,10 @@ export function EntryItem(props: Props) {
         ... on PodcastEntry {
           title
           url
-          tags {
-            name
-            ...EntryItemTag
-          }
+          # tags {
+          #   name
+          #   ...EntryItemTag
+          # }
           publishedOn
           source {
             name
@@ -89,11 +92,26 @@ export function EntryItem(props: Props) {
     <EntryLi key={data.title}>
       <Link href={data.url ?? data.path ?? ""} passHref>
         <EntryAnchor {...(data.url ? { rel: "noopener noreferrer", target: "_blank" } : {})}>
+          {data.source?.name === "SpeakerDeck" ? (
+            <SpeakerDeckIcon />
+          ) : data.source?.name === "GitHub" ? (
+            <GitHubIcon />
+          ) : data.source?.name === "Zenn" ? (
+            <ZennIcon />
+          ) : data.source?.name === "Qiita" ? (
+            <QiitaIcon />
+          ) : data.source?.name === "Medium" ? (
+            <MediumIcon />
+          ) : data.source?.name === "izum.in/blog" ? (
+            <ArrowSmRightIcon />
+          ) : data.source?.name === "Wantedly Engineer Blog" ? (
+            <WantedlyIcon />
+          ) : data.source?.name === "Wantedly Engineering Podcast" ? (
+            <MicrophoneIcon />
+          ) : null}
           <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
-          <EntryTitle>
-            {data.title}
-            <EntryCite>{data.source?.name}</EntryCite>
-          </EntryTitle>
+          <EntryTitle>{data.title}</EntryTitle>
+          {/*
           <TagsUl>
             {data.tags?.map((tag) => (
               <li key={tag.name}>
@@ -101,45 +119,46 @@ export function EntryItem(props: Props) {
               </li>
             ))}
           </TagsUl>
+           */}
         </EntryAnchor>
       </Link>
     </EntryLi>
   );
 }
 
-function EntryTag(props: { tag: EntryItemTag$key }) {
-  const router = useRouter();
-  const tag = useFragment(
-    graphql`
-      fragment EntryItemTag on EntryTag {
-        name
-        displayName
-      }
-    `,
-    props.tag
-  );
-
-  const { url, selected, onClick } = useMemo(() => {
-    const q = router.query.tags ?? [];
-    const selectedTags = new Set(Array.isArray(q) ? q : [q]);
-    const selected = selectedTags.has(tag.name);
-    if (selected) {
-      selectedTags.delete(tag.name);
-    } else {
-      selectedTags.add(tag.name);
-    }
-    const url = getPath("/", { query: { tags: Array.from(selectedTags) } });
-    const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      void router.push(url);
-    };
-    return { url, selected, onClick };
-  }, [router, tag.name]);
-
-  return (
-    <Tag as="button" text={tag.displayName} onClick={onClick} role="link" selected={selected} {...{ href: url }} />
-  );
-}
+// function EntryTag(props: { tag: EntryItemTag$key }) {
+//   const router = useRouter();
+//   const tag = useFragment(
+//     graphql`
+//       fragment EntryItemTag on EntryTag {
+//         name
+//         displayName
+//       }
+//     `,
+//     props.tag
+//   );
+//
+//   const { url, selected, onClick } = useMemo(() => {
+//     const q = router.query.tags ?? [];
+//     const selectedTags = new Set(Array.isArray(q) ? q : [q]);
+//     const selected = selectedTags.has(tag.name);
+//     if (selected) {
+//       selectedTags.delete(tag.name);
+//     } else {
+//       selectedTags.add(tag.name);
+//     }
+//     const url = getPath("/", { query: { tags: Array.from(selectedTags) } });
+//     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+//       e.preventDefault();
+//       void router.push(url);
+//     };
+//     return { url, selected, onClick };
+//   }, [router, tag.name]);
+//
+//   return (
+//     <Tag as="button" text={tag.displayName} onClick={onClick} role="link" selected={selected} {...{ href: url }} />
+//   );
+// }
 
 const EntryLi = styled.li`
   list-style: none;
@@ -147,13 +166,29 @@ const EntryLi = styled.li`
 `;
 
 const EntryAnchor = styled.a`
-  display: block;
-  padding: 12px 16px;
+  padding: 12px 8px;
   border-radius: 4px;
   transition: background 300ms;
   color: var(--text);
   text-decoration: none;
   outline: none;
+
+  display: grid;
+  grid-template-areas:
+    "logo title"
+    "space meta";
+  // "space meta"
+  // "logo title"
+  // "logo tags";
+  justify-content: left;
+  column-gap: 8px;
+
+  svg {
+    grid-area: logo;
+    width: 17px;
+    height: 17px;
+    margin-top: calc((1.5 * 17px - 17px) / 2);
+  }
 
   &:hover {
     background: var(--overlayHover);
@@ -170,38 +205,29 @@ const EntryAnchor = styled.a`
 `;
 
 const EntryTitle = styled.p`
+  grid-area: title;
   ${body1}
   padding: 0px;
   margin: 0px;
 `;
 
-const EntryCite = styled.cite`
-  display: inline;
-  ${caption}
-  font-weight: 400;
-  color: var(--textLowEmphasis);
-
-  &:before {
-    content: "-";
-    margin: 0 8px;
-  }
-`;
-
 const EntryPublishedOn = styled.time`
+  grid-area: meta;
   display: block;
   ${caption}
   font-weight: 400;
   color: var(--textLowEmphasis);
 `;
 
-const TagsUl = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  gap: 4px 8px;
-
-  & > li > button:before {
-    content: "#";
-  }
-`;
+// const TagsUl = styled.ul`
+//   grid-area: tags;
+//   display: flex;
+//   flex-wrap: wrap;
+//   list-style: none;
+//   padding: 0;
+//   gap: 4px 8px;
+//
+//   & > li > button:before {
+//     content: "#";
+//   }
+// `;

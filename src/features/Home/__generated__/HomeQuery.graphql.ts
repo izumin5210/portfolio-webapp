@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9b0b6d1e36dab995b829c235117e3e11>>
+ * @generated SignedSource<<671a06cd8e3ffd9fdad97b4c5e33d019>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -91,60 +91,42 @@ const node: ConcreteRequest = (function () {
     v11 = {
       alias: null,
       args: null,
-      kind: "ScalarField",
-      name: "name",
-      storageKey: null,
-    },
-    v12 = {
-      alias: null,
-      args: null,
       concreteType: "EntrySource",
       kind: "LinkedField",
       name: "source",
       plural: false,
-      selections: [v11 /*: any*/],
+      selections: [
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "name",
+          storageKey: null,
+        },
+      ],
       storageKey: null,
     },
-    v13 = [v8 /*: any*/, v10 /*: any*/, v12 /*: any*/],
-    v14 = {
+    v12 = [v8 /*: any*/, v10 /*: any*/, v11 /*: any*/],
+    v13 = {
       kind: "Variable",
       name: "after",
       variableName: "cursor",
     },
-    v15 = {
+    v14 = {
       kind: "Variable",
       name: "first",
       variableName: "count",
     },
-    v16 = [v14 /*: any*/, v15 /*: any*/],
-    v17 = {
+    v15 = [v13 /*: any*/, v14 /*: any*/],
+    v16 = {
       alias: null,
       args: null,
       kind: "ScalarField",
       name: "publishedOn",
       storageKey: null,
     },
-    v18 = {
-      alias: null,
-      args: null,
-      concreteType: "EntryTag",
-      kind: "LinkedField",
-      name: "tags",
-      plural: true,
-      selections: [
-        v11 /*: any*/,
-        {
-          alias: null,
-          args: null,
-          kind: "ScalarField",
-          name: "displayName",
-          storageKey: null,
-        },
-      ],
-      storageKey: null,
-    },
-    v19 = [v17 /*: any*/, v8 /*: any*/, v10 /*: any*/, v18 /*: any*/, v12 /*: any*/],
-    v20 = [
+    v17 = [v16 /*: any*/, v8 /*: any*/, v10 /*: any*/, v11 /*: any*/],
+    v18 = [
       {
         alias: null,
         args: null,
@@ -172,31 +154,31 @@ const node: ConcreteRequest = (function () {
               v7 /*: any*/,
               {
                 kind: "InlineFragment",
-                selections: [v17 /*: any*/, v8 /*: any*/, v9 /*: any*/, v18 /*: any*/, v12 /*: any*/],
+                selections: [v16 /*: any*/, v8 /*: any*/, v9 /*: any*/, v11 /*: any*/],
                 type: "ArticleEntry",
                 abstractKey: null,
               },
               {
                 kind: "InlineFragment",
-                selections: v19 /*: any*/,
+                selections: v17 /*: any*/,
                 type: "ExternalArticleEntry",
                 abstractKey: null,
               },
               {
                 kind: "InlineFragment",
-                selections: v19 /*: any*/,
+                selections: v17 /*: any*/,
                 type: "SlideEntry",
                 abstractKey: null,
               },
               {
                 kind: "InlineFragment",
-                selections: v19 /*: any*/,
+                selections: v17 /*: any*/,
                 type: "OSSEntry",
                 abstractKey: null,
               },
               {
                 kind: "InlineFragment",
-                selections: v19 /*: any*/,
+                selections: v17 /*: any*/,
                 type: "PodcastEntry",
                 abstractKey: null,
               },
@@ -236,7 +218,7 @@ const node: ConcreteRequest = (function () {
         storageKey: null,
       },
     ],
-    v21 = [v14 /*: any*/, v15 /*: any*/, v6 /*: any*/];
+    v19 = [v13 /*: any*/, v14 /*: any*/, v6 /*: any*/];
   return {
     fragment: {
       argumentDefinitions: [v0 /*: any*/, v1 /*: any*/, v2 /*: any*/, v3 /*: any*/],
@@ -300,25 +282,25 @@ const node: ConcreteRequest = (function () {
             },
             {
               kind: "InlineFragment",
-              selections: v13 /*: any*/,
+              selections: v12 /*: any*/,
               type: "ExternalArticleEntry",
               abstractKey: null,
             },
             {
               kind: "InlineFragment",
-              selections: v13 /*: any*/,
+              selections: v12 /*: any*/,
               type: "SlideEntry",
               abstractKey: null,
             },
             {
               kind: "InlineFragment",
-              selections: v13 /*: any*/,
+              selections: v12 /*: any*/,
               type: "OSSEntry",
               abstractKey: null,
             },
             {
               kind: "InlineFragment",
-              selections: v13 /*: any*/,
+              selections: v12 /*: any*/,
               type: "PodcastEntry",
               abstractKey: null,
             },
@@ -332,17 +314,17 @@ const node: ConcreteRequest = (function () {
           selections: [
             {
               alias: null,
-              args: v16 /*: any*/,
+              args: v15 /*: any*/,
               concreteType: "EntryConnection",
               kind: "LinkedField",
               name: "entries",
               plural: false,
-              selections: v20 /*: any*/,
+              selections: v18 /*: any*/,
               storageKey: null,
             },
             {
               alias: null,
-              args: v16 /*: any*/,
+              args: v15 /*: any*/,
               filters: null,
               handle: "connection",
               key: "EntryListEntries_entries",
@@ -358,17 +340,17 @@ const node: ConcreteRequest = (function () {
           selections: [
             {
               alias: null,
-              args: v21 /*: any*/,
+              args: v19 /*: any*/,
               concreteType: "EntryConnection",
               kind: "LinkedField",
               name: "entriesByTags",
               plural: false,
-              selections: v20 /*: any*/,
+              selections: v18 /*: any*/,
               storageKey: null,
             },
             {
               alias: null,
-              args: v21 /*: any*/,
+              args: v19 /*: any*/,
               filters: ["tags"],
               handle: "connection",
               key: "EntryListEntries_entriesByTags",
@@ -380,12 +362,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "13a28c588c9ffa4a801ebfc9b1ae682c",
+      cacheID: "5bcde118c473a369b1e6234f5413b369",
       id: null,
       metadata: {},
       name: "HomeQuery",
       operationKind: "query",
-      text: "query HomeQuery(\n  $cursor: String\n  $count: Int!\n  $tags: [String!]!\n  $filteredByTags: Boolean!\n) {\n  ...PickedEntryListEntries\n  ...EntryListEntries_1G22uz @skip(if: $filteredByTags)\n  ...EntryListEntriesByTags_3EtMAt @include(if: $filteredByTags)\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryItemTag on EntryTag {\n  name\n  displayName\n}\n\nfragment EntryListEntriesByTags_3EtMAt on Query {\n  entriesByTags(first: $count, after: $cursor, tags: $tags) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListEntries_1G22uz on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n\nfragment PickedEntryListEntries on Query {\n  pickedEntries {\n    __typename\n    ... on ArticleEntry {\n      title\n      path\n    }\n    ... on ExternalArticleEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on SlideEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on OSSEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on PodcastEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n  }\n}\n",
+      text: "query HomeQuery(\n  $cursor: String\n  $count: Int!\n  $tags: [String!]!\n  $filteredByTags: Boolean!\n) {\n  ...PickedEntryListEntries\n  ...EntryListEntries_1G22uz @skip(if: $filteredByTags)\n  ...EntryListEntriesByTags_3EtMAt @include(if: $filteredByTags)\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntriesByTags_3EtMAt on Query {\n  entriesByTags(first: $count, after: $cursor, tags: $tags) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListEntries_1G22uz on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n\nfragment PickedEntryListEntries on Query {\n  pickedEntries {\n    __typename\n    ... on ArticleEntry {\n      title\n      path\n    }\n    ... on ExternalArticleEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on SlideEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on OSSEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n    ... on PodcastEntry {\n      title\n      url\n      source {\n        name\n      }\n    }\n  }\n}\n",
     },
   };
 })();

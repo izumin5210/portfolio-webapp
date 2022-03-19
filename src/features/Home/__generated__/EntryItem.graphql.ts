@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<65d759db68c806a2de69ee6339a2b04b>>
+ * @generated SignedSource<<446524f0f155397b03d4a6521414eda8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,10 +13,6 @@ import { FragmentRefs } from "relay-runtime";
 export type EntryItem$data = {
   readonly title?: string;
   readonly path?: string;
-  readonly tags?: ReadonlyArray<{
-    readonly name: string;
-    readonly " $fragmentSpreads": FragmentRefs<"EntryItemTag">;
-  }>;
   readonly publishedOn?: any;
   readonly source?: {
     readonly name: string;
@@ -41,44 +37,28 @@ const node: ReaderFragment = (function () {
       alias: null,
       args: null,
       kind: "ScalarField",
-      name: "name",
-      storageKey: null,
-    },
-    v2 = {
-      alias: null,
-      args: null,
-      concreteType: "EntryTag",
-      kind: "LinkedField",
-      name: "tags",
-      plural: true,
-      selections: [
-        v1 /*: any*/,
-        {
-          args: null,
-          kind: "FragmentSpread",
-          name: "EntryItemTag",
-        },
-      ],
-      storageKey: null,
-    },
-    v3 = {
-      alias: null,
-      args: null,
-      kind: "ScalarField",
       name: "publishedOn",
       storageKey: null,
     },
-    v4 = {
+    v2 = {
       alias: null,
       args: null,
       concreteType: "EntrySource",
       kind: "LinkedField",
       name: "source",
       plural: false,
-      selections: [v1 /*: any*/],
+      selections: [
+        {
+          alias: null,
+          args: null,
+          kind: "ScalarField",
+          name: "name",
+          storageKey: null,
+        },
+      ],
       storageKey: null,
     },
-    v5 = [
+    v3 = [
       v0 /*: any*/,
       {
         alias: null,
@@ -87,9 +67,8 @@ const node: ReaderFragment = (function () {
         name: "url",
         storageKey: null,
       },
+      v1 /*: any*/,
       v2 /*: any*/,
-      v3 /*: any*/,
-      v4 /*: any*/,
     ];
   return {
     argumentDefinitions: [],
@@ -108,34 +87,33 @@ const node: ReaderFragment = (function () {
             name: "path",
             storageKey: null,
           },
+          v1 /*: any*/,
           v2 /*: any*/,
-          v3 /*: any*/,
-          v4 /*: any*/,
         ],
         type: "ArticleEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v5 /*: any*/,
+        selections: v3 /*: any*/,
         type: "ExternalArticleEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v5 /*: any*/,
+        selections: v3 /*: any*/,
         type: "SlideEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v5 /*: any*/,
+        selections: v3 /*: any*/,
         type: "OSSEntry",
         abstractKey: null,
       },
       {
         kind: "InlineFragment",
-        selections: v5 /*: any*/,
+        selections: v3 /*: any*/,
         type: "PodcastEntry",
         abstractKey: null,
       },
@@ -145,6 +123,6 @@ const node: ReaderFragment = (function () {
   };
 })();
 
-(node as any).hash = "43860ab8cac161ded5d5e6ef0edd9da0";
+(node as any).hash = "14dcd336c04546798af0ad31831ed8ad";
 
 export default node;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<31add90bdb70f90f889434d5bb929410>>
+ * @generated SignedSource<<323c2c7a1e4cefcb36ba50f5f9d48d60>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -71,40 +71,22 @@ const node: ConcreteRequest = (function () {
     v5 = {
       alias: null,
       args: null,
-      kind: "ScalarField",
-      name: "name",
-      storageKey: null,
-    },
-    v6 = {
-      alias: null,
-      args: null,
-      concreteType: "EntryTag",
+      concreteType: "EntrySource",
       kind: "LinkedField",
-      name: "tags",
-      plural: true,
+      name: "source",
+      plural: false,
       selections: [
-        v5 /*: any*/,
         {
           alias: null,
           args: null,
           kind: "ScalarField",
-          name: "displayName",
+          name: "name",
           storageKey: null,
         },
       ],
       storageKey: null,
     },
-    v7 = {
-      alias: null,
-      args: null,
-      concreteType: "EntrySource",
-      kind: "LinkedField",
-      name: "source",
-      plural: false,
-      selections: [v5 /*: any*/],
-      storageKey: null,
-    },
-    v8 = [
+    v6 = [
       v3 /*: any*/,
       v4 /*: any*/,
       {
@@ -114,8 +96,7 @@ const node: ConcreteRequest = (function () {
         name: "url",
         storageKey: null,
       },
-      v6 /*: any*/,
-      v7 /*: any*/,
+      v5 /*: any*/,
     ];
   return {
     fragment: {
@@ -195,33 +176,32 @@ const node: ConcreteRequest = (function () {
                           name: "path",
                           storageKey: null,
                         },
-                        v6 /*: any*/,
-                        v7 /*: any*/,
+                        v5 /*: any*/,
                       ],
                       type: "ArticleEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v8 /*: any*/,
+                      selections: v6 /*: any*/,
                       type: "ExternalArticleEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v8 /*: any*/,
+                      selections: v6 /*: any*/,
                       type: "SlideEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v8 /*: any*/,
+                      selections: v6 /*: any*/,
                       type: "OSSEntry",
                       abstractKey: null,
                     },
                     {
                       kind: "InlineFragment",
-                      selections: v8 /*: any*/,
+                      selections: v6 /*: any*/,
                       type: "PodcastEntry",
                       abstractKey: null,
                     },
@@ -275,12 +255,12 @@ const node: ConcreteRequest = (function () {
       ],
     },
     params: {
-      cacheID: "4eb57cdfdad2a7f4008350c54c337ab0",
+      cacheID: "45f5d56fa8e84535b791710dc14f3f73",
       id: null,
       metadata: {},
       name: "EntryListPaginationQuery",
       operationKind: "query",
-      text: "query EntryListPaginationQuery(\n  $count: Int!\n  $cursor: String\n) {\n  ...EntryListEntries_1G22uz\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    tags {\n      name\n      ...EntryItemTag\n    }\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryItemTag on EntryTag {\n  name\n  displayName\n}\n\nfragment EntryListEntries_1G22uz on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
+      text: "query EntryListPaginationQuery(\n  $count: Int!\n  $cursor: String\n) {\n  ...EntryListEntries_1G22uz\n}\n\nfragment EntryItem on Entry {\n  __isEntry: __typename\n  ... on ArticleEntry {\n    title\n    path\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on ExternalArticleEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on SlideEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on OSSEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n  ... on PodcastEntry {\n    title\n    url\n    publishedOn\n    source {\n      name\n    }\n  }\n}\n\nfragment EntryListEntries_1G22uz on Query {\n  entries(first: $count, after: $cursor) {\n    edges {\n      __typename\n      cursor\n      node {\n        __typename\n      }\n    }\n    ...EntryListView\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EntryListView on EntryConnection {\n  edges {\n    node {\n      __typename\n      ... on ArticleEntry {\n        publishedOn\n      }\n      ... on ExternalArticleEntry {\n        publishedOn\n      }\n      ... on SlideEntry {\n        publishedOn\n      }\n      ... on OSSEntry {\n        publishedOn\n      }\n      ... on PodcastEntry {\n        publishedOn\n      }\n      ...EntryItem\n    }\n  }\n}\n",
     },
   };
 })();
