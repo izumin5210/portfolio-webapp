@@ -15,7 +15,7 @@
     "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
     "generate": "run-p 'generate:*'",
     "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
-    "generate:relay": "relay-compiler --schema schema.graphql --src ./src/ ",
+    "generate:relay": "relay-compiler",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "g:tsc": "cd $INIT_CWD && tsc",
