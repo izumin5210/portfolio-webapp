@@ -162,9 +162,7 @@ entries:
         displayName: JavaScript
       - name: protobuf
         displayName: Protocol Buffers
-    title: >-
-      proto-graphql/graphql-field-mask: google.protobuf.FieldMask from GraphQL
-      query
+    title: 'graphql-field-mask: google.protobuf.FieldMask from GraphQL query'
     mediaType: oss
     source:
       name: GitHub
@@ -208,7 +206,7 @@ entries:
         displayName: GraphQL
       - name: javascript
         displayName: JavaScript
-    title: 'izumin5210/graphql-fragment-mask: Mask GraphQL query result with Fragment'
+    title: 'graphql-fragment-mask: Mask GraphQL query result with Fragment'
     mediaType: oss
     source:
       name: GitHub
@@ -294,9 +292,7 @@ entries:
         displayName: Node.js
       - name: protobuf
         displayName: Protocol Buffers
-    title: >-
-      proto-graphql/proto-nexus: Protobuf-First GraphQL Schemas with GraphQL
-      Nexus
+    title: 'proto-nexus: Protobuf-First GraphQL Schemas with GraphQL Nexus'
     mediaType: oss
     source:
       name: GitHub
@@ -338,7 +334,7 @@ entries:
         displayName: Protocol Buffers
       - name: ruby
         displayName: Ruby
-    title: 'wantedly/pb-serializer: Serialize Ruby objects to Protocol Buffers'
+    title: 'pb-serializer: Serialize Ruby objects to Protocol Buffers'
     mediaType: oss
     source:
       name: GitHub
@@ -418,8 +414,8 @@ entries:
       - name: go
         displayName: Go
     title: >-
-      izumin5210/hx: 🌏 Developer-friendly, Real-World-ready and extensible HTTP
-      client for Go
+      hx: 🌏 Developer-friendly, Real-World-ready and extensible HTTP client for
+      Go
     mediaType: oss
     source:
       name: GitHub
@@ -433,7 +429,7 @@ entries:
         displayName: Go
       - name: redis
         displayName: Redis
-    title: 'izumin5210/redisync: Synchronization primitives with Redis'
+    title: 'redisync: Synchronization primitives with Redis'
     source:
       name: GitHub
       type: oss
@@ -444,7 +440,7 @@ entries:
     tags:
       - name: go
         displayName: Go
-    title: 'srvc/appctx: 🌏 Utilities for context.Context'
+    title: 'appctx: 🌏 Utilities for context.Context'
     mediaType: oss
     source:
       name: GitHub
@@ -495,7 +491,7 @@ entries:
         displayName: Go
       - name: pubsub
         displayName: Pub/Sub
-    title: 'izumin5210/pubee: Pluggable Pub/Sub Publisher'
+    title: 'pubee: Pluggable Pub/Sub Publisher'
     mediaType: oss
     source:
       name: GitHub
@@ -550,8 +546,8 @@ entries:
       - name: pubsub
         displayName: Pub/Sub
     title: >-
-      wantedly/subee: ✉️ 🐝 It's not only a bee, but a message - Pub/Sub Worker
-      Framework Implementation
+      subee: ✉️ 🐝 It's not only a bee, but a message - Pub/Sub Worker Framework
+      Implementation
     mediaType: oss
     source:
       name: GitHub
@@ -797,7 +793,7 @@ entries:
     tags:
       - name: go
         displayName: Go
-    title: 'srvc/wraperr: Check that error return value are wrapped'
+    title: 'wraperr: Check that error return value are wrapped'
     mediaType: oss
     source:
       name: GitHub
@@ -841,9 +837,7 @@ entries:
     tags:
       - name: go
         displayName: Go
-    title: >-
-      izumin5210/gex: The implementation of "clarify best practice for tool
-      dependencies".
+    title: 'gex: The implementation of "clarify best practice for tool dependencies".'
     mediaType: oss
     source:
       name: GitHub
@@ -992,9 +986,7 @@ entries:
         displayName: gRPC
       - name: protobuf
         displayName: Protocol Buffers
-    title: >-
-      izumin5210/grapi: 😮 A surprisingly easy API server and generator in gRPC
-      and Go
+    title: 'grapi: 😮 A surprisingly easy API server and generator in gRPC and Go'
     mediaType: oss
     source:
       name: GitHub
@@ -1044,7 +1036,7 @@ entries:
         displayName: Go
       - name: redis
         displayName: Redis
-    title: 'izumin5210/ro: Redis Objects to Go'
+    title: 'ro: Redis Objects to Go'
     source:
       name: GitHub
       type: oss
@@ -1079,7 +1071,7 @@ entries:
     tags:
       - name: go
         displayName: Go
-    title: 'izumin5210/scaffold: Customizable templates generator, inspired by Rails'
+    title: 'scaffold: Customizable templates generator, inspired by Rails'
     source:
       name: GitHub
       type: oss
@@ -1092,7 +1084,7 @@ entries:
         displayName: React
       - name: web-frontend
         displayName: Web Frontend
-    title: 'izumin5210/OHP: OHP is Hacker''s Presentation writer with Markdown and CSS'
+    title: 'OHP: OHP is Hacker''s Presentation writer with Markdown and CSS'
     source:
       name: GitHub
       type: oss
@@ -1119,7 +1111,7 @@ entries:
         displayName: React
       - name: web-frontend
         displayName: Web Frontend
-    title: 'izumin5210/tomatone: Simple pomodoro timer in your menubar'
+    title: 'tomatone: Simple pomodoro timer in your menubar'
     source:
       name: GitHub
       type: oss
@@ -1211,9 +1203,7 @@ entries:
     tags:
       - name: android
         displayName: Android
-    title: >-
-      izumin5210/Droidux: "Predictable state container" implementation, inspired
-      by Redux.
+    title: 'Droidux: "Predictable state container" implementation, inspired by Redux.'
     source:
       name: GitHub
       type: oss
@@ -1246,7 +1236,7 @@ entries:
     tags:
       - name: android
         displayName: Android
-    title: 'izumin5210/Bletia: Promisified BLE library for Android.'
+    title: 'Bletia: Promisified BLE library for Android.'
     source:
       name: GitHub
       type: oss
@@ -1316,8 +1306,8 @@ entries:
       - name: javascript
         displayName: JavaScript
     title: >-
-      izumin5210/json-schema-mockifier: Generate mock object from JSON Schema
-      (HyperSchema v4).
+      json-schema-mockifier: Generate mock object from JSON Schema (HyperSchema
+      v4).
     source:
       name: GitHub
       type: oss
@@ -1328,9 +1318,7 @@ entries:
     tags:
       - name: javascript
         displayName: JavaScript
-    title: >-
-      izumin5210/json-schema-parser: Parse JSON Schema and resolve `$ref`
-      fields.
+    title: 'json-schema-parser: Parse JSON Schema and resolve `$ref` fields.'
     source:
       name: GitHub
       type: oss
@@ -1354,9 +1342,7 @@ entries:
         displayName: Ruby on Rails
       - name: ruby
         displayName: Ruby
-    title: >-
-      izumin5210/rspec-validator_spec_helper: Provide dummy class for validator
-      spec
+    title: 'rspec-validator_spec_helper: Provide dummy class for validator spec'
     source:
       name: GitHub
       type: oss
