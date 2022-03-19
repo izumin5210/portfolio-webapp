@@ -1,17 +1,17 @@
 import { styled } from "@linaria/react";
 import { useRouter } from "next/router";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect, useReducer } from "react";
 
 export function RoutingProgress() {
-  const [progress, setProgress] = useState<number>();
+  const [{ progress }, dispatch] = useReducer(progressReducer, { progress: undefined });
   const router = useRouter();
 
   useEffect(() => {
     const handleStart = () => {
-      setProgress(0);
+      dispatch("start");
     };
     const handleStop = () => {
-      setProgress(1);
+      dispatch("done");
     };
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleStop);
@@ -28,17 +28,9 @@ export function RoutingProgress() {
 
     const timeoutID = setTimeout(() => {
       if (progress === 1) {
-        setProgress(undefined);
+        dispatch("reset");
       } else {
-        let inc: number;
-
-        if (progress >= 0 && progress < 0.2) inc = 0.1;
-        else if (progress >= 0.2 && progress < 0.5) inc = 0.04;
-        else if (progress >= 0.5 && progress < 0.8) inc = 0.02;
-        else if (progress >= 0.8 && progress < 0.99) inc = 0.005;
-        else inc = 0;
-
-        setProgress(progress + Math.min(inc, 0.994));
+        dispatch("increment");
       }
     }, 200);
 
@@ -50,10 +42,43 @@ export function RoutingProgress() {
   return (
     <Progress
       style={
-        { "--progress": `${(-1 + (progress ?? 0)) * 100}%`, "--opacity": progress != null ? 1 : 0 } as CSSProperties
+        {
+          "--progress": `${(-1 + (progress ?? 0)) * 100}%`,
+          "--opacity": progress != null ? 1 : 0,
+        } as CSSProperties
       }
     />
   );
+}
+
+function progressReducer(state: { progress: number | undefined }, action: "start" | "increment" | "done" | "reset") {
+  switch (action) {
+    case "start": {
+      return { ...state, progress: 0 };
+    }
+    case "increment": {
+      const n = state.progress ?? 0;
+      let inc: number;
+
+      if (n >= 0 && n < 0.2) inc = 0.1;
+      else if (n >= 0.2 && n < 0.5) inc = 0.04;
+      else if (n >= 0.5 && n < 0.8) inc = 0.02;
+      else if (n >= 0.8 && n < 0.99) inc = 0.005;
+      else inc = 0;
+
+      return { ...state, progress: n + Math.min(inc, 0.994) };
+    }
+    case "done": {
+      return { ...state, progress: 1 };
+    }
+    case "reset": {
+      return { ...state, progress: undefined };
+    }
+    default: {
+      const _exhaustiveCheck: never = action;
+      throw new Error("unreachable");
+    }
+  }
 }
 
 const Progress = styled.div`
