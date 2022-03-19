@@ -2,6 +2,9 @@ sources:
   - name: GitHub
     type: oss
     urlPattern: ^https://github.com/
+  - name: Medium
+    type: externalArticle
+    urlPattern: ^https://blog.izum.in/
   - name: Qiita
     type: externalArticle
     urlPattern: ^https://qiita.com/
@@ -17,9 +20,6 @@ sources:
   - name: Zenn
     type: externalArticle
     urlPattern: ^https://zenn.dev/
-  - name: blog.izum.in
-    type: externalArticle
-    urlPattern: ^https://blog.izum.in/
 sourceTypes:
   - name: externalArticle
   - name: oss
@@ -384,7 +384,7 @@ entries:
     title: os.Signal に応じていい感じになる context
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -459,7 +459,7 @@ entries:
     title: GitHub Actions で reviewdog を動かす
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -484,7 +484,7 @@ entries:
     title: “Running Lean — 実践リーンスタートアップ” を読んだ
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -566,7 +566,7 @@ entries:
     title: '#gocon で Plugin の話をした + 補遺'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -638,7 +638,7 @@ entries:
     title: 'golang.org/x/tools/analysis を理解する #golang #golangtokyo'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -728,7 +728,7 @@ entries:
     title: '#gocon とおったけどおちた'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -740,7 +740,7 @@ entries:
     title: 'Wrap(err) in production という話をした #golang #gounco'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -752,7 +752,7 @@ entries:
     title: '`go test` に色を付けるツールを作った #golang'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -832,7 +832,7 @@ entries:
     title: '#builderscon で「すべてが gem になる — サービス密結合からの段階的脱却」という話をします'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -882,7 +882,7 @@ entries:
     title: Go の ORM / query builder 消耗日記
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -1009,7 +1009,7 @@ entries:
     title: '#isucon 7 本戦 10位だった'
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
@@ -1058,7 +1058,7 @@ entries:
     title: ISUCON7予選1日目を3位通過した
     mediaType: article
     source:
-      name: blog.izum.in
+      name: Medium
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
