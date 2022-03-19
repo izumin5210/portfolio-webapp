@@ -62,6 +62,8 @@ function progressReducer(state: { progress: number | undefined }, action: "start
       const n = state.progress ?? 0;
       let inc: number;
 
+      // Parameters are copied from nprogresss@v1.0.0-1
+      // https://github.com/rstacruz/nprogress/blob/v1.0.0-1/src/nprogress.js#L158-L168
       if (n >= 0 && n < 0.2) inc = 0.1;
       else if (n >= 0.2 && n < 0.5) inc = 0.04;
       else if (n >= 0.5 && n < 0.8) inc = 0.02;
