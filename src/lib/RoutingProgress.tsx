@@ -1,27 +1,38 @@
 import { styled } from "@linaria/react";
 import { useRouter } from "next/router";
-import { CSSProperties, useEffect, useReducer } from "react";
+import { CSSProperties, useCallback, useEffect, useReducer } from "react";
 
 export function RoutingProgress({ speed = 200 }: { speed?: number }) {
-  const [{ progress }, dispatch] = useReducer(progressReducer, { progress: undefined });
+  const { progress, start, done } = useProgress({ speed });
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = () => {
-      dispatch("start");
-    };
-    const handleStop = () => {
-      dispatch("done");
-    };
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routeChangeError", handleStop);
+    router.events.on("routeChangeStart", start);
+    router.events.on("routeChangeComplete", done);
+    router.events.on("routeChangeError", done);
     return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleStop);
-      router.events.off("routeChangeError", handleStop);
+      router.events.off("routeChangeStart", start);
+      router.events.off("routeChangeComplete", done);
+      router.events.off("routeChangeError", done);
     };
-  }, [router]);
+  }, [done, router, start]);
+
+  return (
+    <Progress
+      style={
+        {
+          "--translateX": `${(-1 + (progress ?? 0)) * 100}%`,
+          "--opacity": progress != null ? 1 : 0,
+          "--transitionSpeed": `${speed}ms`,
+          "--trackTransition": progress === 0 ? "none" : `all var(--transitionSpeed) linear`,
+        } as CSSProperties
+      }
+    />
+  );
+}
+
+function useProgress({ speed }: { speed: number }) {
+  const [{ progress }, dispatch] = useReducer(progressReducer, { progress: undefined });
 
   useEffect(() => {
     if (progress == null) return;
@@ -39,18 +50,18 @@ export function RoutingProgress({ speed = 200 }: { speed?: number }) {
     };
   }, [progress, speed]);
 
-  return (
-    <Progress
-      style={
-        {
-          "--translateX": `${(-1 + (progress ?? 0)) * 100}%`,
-          "--opacity": progress != null ? 1 : 0,
-          "--transitionSpeed": `${speed}ms`,
-          "--trackTransition": progress === 0 ? "none" : `all var(--transitionSpeed) linear`,
-        } as CSSProperties
-      }
-    />
-  );
+  const start = useCallback(() => {
+    dispatch("start");
+  }, [dispatch]);
+  const done = useCallback(() => {
+    dispatch("done");
+  }, [dispatch]);
+
+  return {
+    progress,
+    start,
+    done,
+  };
 }
 
 function progressReducer(state: { progress: number | undefined }, action: "start" | "increment" | "done" | "reset") {
