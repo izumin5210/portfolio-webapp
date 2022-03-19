@@ -70,7 +70,7 @@ function progressReducer(state: { progress: number | undefined }, action: "start
       else if (n >= 0.8 && n < 0.99) inc = 0.005;
       else inc = 0;
 
-      return { ...state, progress: n + Math.min(inc, 0.994) };
+      return { ...state, progress: Math.min(n + inc, 0.994) };
     }
     case "done": {
       return { ...state, progress: 1 };
