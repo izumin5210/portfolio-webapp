@@ -1,8 +1,15 @@
 import { styled } from "@linaria/react";
 import { useRouter } from "next/router";
 import { CSSProperties, useCallback, useEffect, useReducer } from "react";
+import { createPortal } from "react-dom";
 
-export function RoutingProgress({ speed = 200 }: { speed?: number }) {
+export function RoutingProgress({
+  speed = 200,
+  portalContainer = typeof window === "undefined" ? undefined : window.document.querySelector("body") ?? undefined,
+}: {
+  speed?: number;
+  portalContainer?: HTMLElement | undefined;
+}) {
   const { progress, start, done } = useProgress({ speed });
   const router = useRouter();
 
@@ -17,7 +24,9 @@ export function RoutingProgress({ speed = 200 }: { speed?: number }) {
     };
   }, [done, router, start]);
 
-  return (
+  if (portalContainer == null) return null;
+
+  return createPortal(
     <Progress
       style={
         {
@@ -27,7 +36,8 @@ export function RoutingProgress({ speed = 200 }: { speed?: number }) {
           "--trackTransition": progress === 0 ? "none" : `all var(--transitionSpeed) linear`,
         } as CSSProperties
       }
-    />
+    />,
+    portalContainer
   );
 }
 
@@ -102,7 +112,6 @@ const Progress = styled.div`
   left: 0;
   right: 0;
   height: 2px;
-  z-index: 1000;
   background-color: var(--primary);
   opacity: var(--opacity);
   transition: var(--trackTransition);
