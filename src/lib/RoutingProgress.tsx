@@ -102,6 +102,7 @@ const Progress = styled.div`
   left: 0;
   right: 0;
   height: 2px;
+  z-index: 1000;
   background-color: var(--primary);
   opacity: var(--opacity);
   transition: var(--trackTransition);
