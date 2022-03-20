@@ -1,8 +1,8 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import React from "react";
 import { fetchQuery } from "react-relay";
-import { Home, HomeQuery } from "../features/Home";
-import type { HomeQuery as HomeQueryType } from "../features/Home/__generated__/HomeQuery.graphql";
+import { Home, HomeQuery } from "../features/EntryList";
+import type { HomeQuery as HomeQueryType } from "../features/EntryList/__generated__/HomeQuery.graphql";
 import { initRelayEnvironment } from "../lib/RelayEnvironment";
 
 const HomePage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
