@@ -2,12 +2,14 @@ import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import React, { Suspense as _Suspense, SuspenseProps } from "react";
 import { heading5 } from "../../lib/styles/typo";
-import { EntryList, EntryListFilteredByTags } from "./EntryList";
-import { PickedEntryList } from "./PickedEntryList";
-import type { HomeQuery$data } from "./__generated__/HomeQuery.graphql";
+import { EntryList, EntryListFilteredByTags } from "../EntryList/EntryList";
+import { PickedEntryList } from "../EntryList/PickedEntryList";
+import { EntriesPageQuery$data } from "./__generated__/EntriesPageQuery.graphql";
 
-export const HomeQuery = graphql`
-  query HomeQuery($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
+export type { EntriesPageQuery as EntriesPageQueryType } from "./__generated__/EntriesPageQuery.graphql";
+
+export const EntriesPageQuery = graphql`
+  query EntriesPageQuery($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
     ...PickedEntryListEntries
     ...EntryListEntries @arguments(cursor: $cursor, count: $count) @skip(if: $filteredByTags)
     ...EntryListEntriesByTags @arguments(cursor: $cursor, count: $count, tags: $tags) @include(if: $filteredByTags)
@@ -19,7 +21,7 @@ function DummySuspense(props: SuspenseProps) {
 }
 const Suspense = typeof window === "undefined" ? DummySuspense : _Suspense;
 
-export const Home: React.VFC<{ queryResult: HomeQuery$data; filteredByTags: boolean }> = ({
+export const EntriesPage: React.VFC<{ queryResult: EntriesPageQuery$data; filteredByTags: boolean }> = ({
   queryResult,
   filteredByTags,
 }) => {
