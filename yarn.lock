@@ -7988,15 +7988,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:4.3.3, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2":
-  version: 4.3.3
-  resolution: "debug@npm:4.3.3"
+"debug@npm:4, debug@npm:4.3.4, debug@npm:^4.0.0, debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2":
+  version: 4.3.4
+  resolution: "debug@npm:4.3.4"
   dependencies:
     ms: 2.1.2
   peerDependenciesMeta:
     supports-color:
       optional: true
-  checksum: 14472d56fe4a94dbcfaa6dbed2dd3849f1d72ba78104a1a328047bb564643ca49df0224c3a17fa63533fd11dd3d4c8636cd861191232a2c6735af00cc2d4de16
+  checksum: 3dbad3f94ea64f34431a9cbf0bafb61853eda57bff2880036153438f50fb5a84f27683ba0d8e5426bf41a8c6ff03879488120cf5b3a761e77953169c0600a708
   languageName: node
   linkType: hard
 
@@ -15698,7 +15698,7 @@ __metadata:
     node-fetch: ^3.2.3
     npm-run-all: 4.1.5
     prettier: 2.6.1
-    puppeteer-core: ^13.5.1
+    puppeteer-core: ^13.5.2
     react: 17.0.2
     react-dom: 17.0.2
     react-relay: ^13.2.0
@@ -16138,12 +16138,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^13.5.1":
-  version: 13.5.1
-  resolution: "puppeteer-core@npm:13.5.1"
+"puppeteer-core@npm:^13.5.2":
+  version: 13.5.2
+  resolution: "puppeteer-core@npm:13.5.2"
   dependencies:
     cross-fetch: 3.1.5
-    debug: 4.3.3
+    debug: 4.3.4
     devtools-protocol: 0.0.969999
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.0
@@ -16154,7 +16154,7 @@ __metadata:
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.5.0
-  checksum: 9248311965ec1f3fe415f1a41e8816bb7d7764cca97abee1da48082d8d3f082d582acc9364c31b6285c61e9cd6e5b607235a38d8323970ed7f6d059b59136268
+  checksum: 592b0b11abd6388806e7008406ebeb3f6a7464d001dbe25c29faa2988cb09b4391cccc5346857f73b09f6d9ee151521adb0e6c7d12ce1c2e2f79446bb72b4297
   languageName: node
   linkType: hard
 
