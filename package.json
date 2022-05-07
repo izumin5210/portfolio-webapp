@@ -56,7 +56,7 @@
     "unified": "^10.1.2"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
+    "@babel/core": "7.17.10",
     "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/schema-ast": "2.4.1",
     "@linaria/babel-preset": "3.0.0-beta.15",
@@ -75,7 +75,7 @@
     "@types/open-graph-scraper": "4.8.1",
     "@types/react": "17.0.43",
     "@types/relay-test-utils": "6.0.5",
-    "babel-loader": "8.2.4",
+    "babel-loader": "8.2.5",
     "babel-plugin-macros": "3.1.0",
     "babel-plugin-relay": "13.2.0",
     "eslint": "7.32.0",
