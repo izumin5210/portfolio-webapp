@@ -1,4 +1,4 @@
-import { ArrowSmRightIcon, MicrophoneIcon } from "@heroicons/react/solid";
+import { MicrophoneIcon, PencilIcon } from "@heroicons/react/solid";
 import { styled } from "@linaria/react";
 import graphql from "babel-plugin-relay/macro";
 import Link from "next/link";
@@ -103,7 +103,7 @@ export function EntryItem(props: Props) {
           ) : data.source?.name === "Medium" ? (
             <MediumIcon />
           ) : data.source?.name === "izum.in/blog" ? (
-            <ArrowSmRightIcon />
+            <PencilIcon />
           ) : data.source?.name === "Wantedly Engineer Blog" ? (
             <WantedlyIcon />
           ) : data.source?.name === "Wantedly Engineering Podcast" ? (
