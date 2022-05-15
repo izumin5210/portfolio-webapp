@@ -81,10 +81,16 @@ const themeCss = css`
     body {
       &.dark-mode {
         ${transformKeys(colors.dark, (k) => `--${k}`)}
+        .invert-theme {
+          ${transformKeys(colors.light, (k) => `--${k}`)}
+        }
       }
 
       &.light-mode {
         ${transformKeys(colors.light, (k) => `--${k}`)}
+        .invert-theme {
+          ${transformKeys(colors.dark, (k) => `--${k}`)}
+        }
       }
     }
   }

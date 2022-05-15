@@ -3,10 +3,11 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useCallback } from "react";
+import { ComponentProps, ReactNode, useCallback } from "react";
 import "sanitize.css";
 import { RoutingProgress } from "./lib/RoutingProgress";
 import { colors } from "./lib/styles/colors";
+import { reactionCss } from "./lib/styles/reactions";
 import { body1, caption, heading5 } from "./lib/styles/typo";
 import { textLinkCss } from "./lib/ui/TextLink";
 import { useTheme } from "./lib/ui/useTheme";
@@ -23,7 +24,9 @@ export function Layout(props: { children: ReactNode }) {
       <RoutingProgress />
       <Main>
         {theme != null && (
-          <IconButton onClick={toggleTheme}>{theme === "light" ? <MoonIcon /> : <SunIcon />}</IconButton>
+          <IconButton onClick={toggleTheme} className="invert-theme">
+            {theme === "light" ? <MoonIcon /> : <SunIcon />}
+          </IconButton>
         )}
         <Header>
           <AvatarWrapper>
@@ -145,19 +148,18 @@ const Footer = styled.footer`
   }
 `;
 
-interface IconButtonProps<Comp extends React.ElementType> {
-  children: ReactNode;
-  onClick: () => void;
+type IconButtonProps<Comp extends React.ElementType> = ComponentProps<Comp> & {
   as?: Comp;
-}
+};
 
-function IconButton<Comp extends React.ElementType>(props: IconButtonProps<Comp>) {
-  const Component = props.as || "button";
-  return (
-    <Component className={iconButtonCss} onClick={props.onClick}>
-      {props.children}
-    </Component>
-  );
+function IconButton<Comp extends React.ElementType>({
+  as,
+  className: additionalClassName,
+  ...props
+}: IconButtonProps<Comp>) {
+  const Component = as || "button";
+  const className = additionalClassName ? `${additionalClassName} ${iconButtonCss}` : iconButtonCss;
+  return <Component {...props} className={className} />;
 }
 
 const iconButtonCss = css`
@@ -168,11 +170,12 @@ const iconButtonCss = css`
   height: 32px;
   border: none;
   border-radius: 9999vh;
-  background: var(--text);
   padding: 4px;
   & svg {
     width: 24px;
     height: 24px;
-    color: var(--background);
+    color: var(--text);
   }
+  cursor: pointer;
+  ${reactionCss({ background: { color: "var(--background)" }, withOverlay: true })}
 `;
