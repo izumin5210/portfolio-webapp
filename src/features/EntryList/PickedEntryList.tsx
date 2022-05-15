@@ -3,6 +3,7 @@ import graphql from "babel-plugin-relay/macro";
 import { PickedEntryListEntries$key } from "./__generated__/PickedEntryListEntries.graphql";
 import { styled } from "@linaria/react";
 import { body1, caption } from "../../lib/styles/typo";
+import { reactionCss } from "../../lib/styles/reactions";
 
 export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$key }) {
   const data = useFragment(
@@ -76,22 +77,10 @@ const PickedEntryItemAnchor = styled.a`
   display: block;
   padding: 12px 16px;
   cursor: pointer;
-  transition: background 300ms;
   border-radius: 4px;
   color: var(--text);
   text-decoration: none;
-  &:hover {
-    background: var(--overlayHover);
-  }
-  &:active {
-    background: var(--overlayPressed);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--outline);
-  }
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+  ${reactionCss({ withOverlay: true })}
 `;
 
 const PickedEntryTitle = styled.div`
