@@ -10,6 +10,7 @@ import QiitaIcon from "../../lib/icons/QiitaIcon";
 import SpeakerDeckIcon from "../../lib/icons/SpeakerDeckIcon";
 import WantedlyIcon from "../../lib/icons/WantedlyIcon";
 import ZennIcon from "../../lib/icons/ZennIcon";
+import { reactionCss } from "../../lib/styles/reactions";
 import { body1, caption } from "../../lib/styles/typo";
 import { EntryItem$key } from "./__generated__/EntryItem.graphql";
 
@@ -168,7 +169,6 @@ const EntryLi = styled.li`
 const EntryAnchor = styled.a`
   padding: 12px 8px;
   border-radius: 4px;
-  transition: background 300ms;
   color: var(--text);
   text-decoration: none;
   outline: none;
@@ -190,18 +190,7 @@ const EntryAnchor = styled.a`
     margin-top: calc((1.5 * 17px - 17px) / 2);
   }
 
-  &:hover {
-    background: var(--overlayHover);
-  }
-  &:active:not(:has(:active)) {
-    background: var(--overlayPressed);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--outline);
-  }
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+  ${reactionCss({ withOverlay: true })}
 `;
 
 const EntryTitle = styled.p`

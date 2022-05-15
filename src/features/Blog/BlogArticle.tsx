@@ -12,6 +12,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { getPath } from "../../lib/next-typed-routes";
 import { colors } from "../../lib/styles/colors";
+import { reactionCss } from "../../lib/styles/reactions";
 import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
 import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
@@ -139,18 +140,7 @@ const TagsUl = styled.ul`
 `;
 
 const Tag = styled.a`
-  &:hover {
-    background: var(--overlayHover);
-  }
-  &:active {
-    background: var(--overlayPressed);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--outline);
-  }
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+  ${reactionCss({ withOverlay: true })}
   &:before {
     content: "#";
     color: var(--textLowEmphasis);
@@ -159,7 +149,6 @@ const Tag = styled.a`
   border-radius: 9999vh;
   padding: 2px 8px;
   text-decoration: none;
-  transition: background 300ms;
 `;
 
 const Time = styled.time`
