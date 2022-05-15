@@ -4764,7 +4764,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.45, @types/react@npm:^17, @types/react@npm:^17.0.0":
+"@types/react@npm:*, @types/react@npm:17.0.45, @types/react@npm:^17":
   version: 17.0.45
   resolution: "@types/react@npm:17.0.45"
   dependencies:
@@ -15750,7 +15750,7 @@ __metadata:
     react-relay: ^13.2.0
     react-test-renderer: 17.0.2
     rehype-prism-plus: ^1.4.0
-    rehype-react: ^7.0.4
+    rehype-react: ^7.1.1
     rehype-stringify: ^9.0.3
     relay-compiler: 13.2.0
     relay-runtime: ^13.2.0
@@ -16852,17 +16852,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-react@npm:^7.0.4":
-  version: 7.0.4
-  resolution: "rehype-react@npm:7.0.4"
+"rehype-react@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "rehype-react@npm:7.1.1"
   dependencies:
     "@mapbox/hast-util-table-cell-style": ^0.2.0
     "@types/hast": ^2.0.0
-    "@types/react": ^17.0.0
     hast-to-hyperscript: ^10.0.0
     hast-util-whitespace: ^2.0.0
     unified: ^10.0.0
-  checksum: 4a5abb652f52579968e1f8c44bbc55910b0570dc683c38e8741e8423cfd9d06c8f25c2921f81e08726757bc198492b86a0151243ddf6430788e0fc540bd137af
+  peerDependencies:
+    "@types/react": ">=17"
+  checksum: 218b5e13776c6c0f5b430fe4c57de391f8417789b570c751f00b7c88da94ef08f7f869695189646ebc683155b02e55ac20c8e4148d4f2cbbcc39d0b05a66dca6
   languageName: node
   linkType: hard
 
