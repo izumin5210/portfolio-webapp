@@ -30,7 +30,7 @@
     "remark-parse": "10.0.1",
     "remark-rehype": "10.1.0",
     "remark-stringify": "10.0.2",
-    "ts-jest": "27.1.4",
+    "ts-jest": "27.1.5",
     "unified": "10.1.2"
   },
   "jest": {
