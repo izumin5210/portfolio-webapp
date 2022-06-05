@@ -16978,7 +16978,7 @@ __metadata:
     remark-parse: 10.0.1
     remark-rehype: 10.1.0
     remark-stringify: 10.0.2
-    ts-jest: 27.1.4
+    ts-jest: 27.1.5
     unified: 10.1.2
     unist-util-is: ^5.1.1
   languageName: unknown
@@ -17011,7 +17011,7 @@ __metadata:
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
-    ts-jest: 27.1.4
+    ts-jest: 27.1.5
     unified: 10.1.2
     unist-util-is: ^5.1.1
   languageName: unknown
@@ -17042,7 +17042,7 @@ __metadata:
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
-    ts-jest: 27.1.4
+    ts-jest: 27.1.5
     unified: 10.1.2
     unist-util-is: ^5.1.1
     unist-util-visit: ^4.1.0
@@ -19000,9 +19000,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.1.4":
-  version: 27.1.4
-  resolution: "ts-jest@npm:27.1.4"
+"ts-jest@npm:27.1.5":
+  version: 27.1.5
+  resolution: "ts-jest@npm:27.1.5"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -19029,7 +19029,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: d2cc2719ed2884a880ab50d2c14c311834be9c88bc79d0064fa0189afce5c296d7676314d26cc3f7e82ddd52df272c2d4137a832c89616f30cbe8f43e30f9a29
+  checksum: 3ef51c538b82f49b3f529331c1a017871a2f90e7a9a6e69333304755036d121818c6b120e2ce32dd161ff8bb2487efec0c790753ecd39b46a9ed1ce0d241464c
   languageName: node
   linkType: hard
 
