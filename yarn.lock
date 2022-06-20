@@ -2535,7 +2535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/core@npm:3.0.0-beta.15, @linaria/core@npm:^3.0.0-beta.15":
+"@linaria/core@npm:3.0.0-beta.15":
   version: 3.0.0-beta.15
   resolution: "@linaria/core@npm:3.0.0-beta.15"
   dependencies:
@@ -2544,13 +2544,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/logger@npm:^3.0.0-beta.15":
-  version: 3.0.0-beta.15
-  resolution: "@linaria/logger@npm:3.0.0-beta.15"
+"@linaria/core@npm:^3.0.0-beta.15, @linaria/core@npm:^3.0.0-beta.22":
+  version: 3.0.0-beta.22
+  resolution: "@linaria/core@npm:3.0.0-beta.22"
+  dependencies:
+    "@linaria/logger": ^3.0.0-beta.20
+    "@linaria/utils": ^3.0.0-beta.20
+  checksum: 67f57811c78821eb4866e3f307078e3c1cf375ca84f23b4a25cf7f4c34b48b76eaef70a4320436a51145a73b4d0fbac54db7459ab5a23049e7c347fee3644abb
+  languageName: node
+  linkType: hard
+
+"@linaria/logger@npm:^3.0.0-beta.15, @linaria/logger@npm:^3.0.0-beta.20":
+  version: 3.0.0-beta.20
+  resolution: "@linaria/logger@npm:3.0.0-beta.20"
   dependencies:
     debug: ^4.1.1
     picocolors: ^1.0.0
-  checksum: fd855f0bfe97f5629e00241f961862f192e64e7d2a7e6dce5d3ef631396d9434def88c699550a2d46a8c45278acea1a0059937cf8f265a98c95c1c8254ccd788
+  checksum: c5c1fbe593d9110fcbf7309517530fbda419c42c4258e0854f05619f917641724718919693a0a12eb50250bace9857435f29f4de8b056e1dc5f40c01eb074a7a
   languageName: node
   linkType: hard
 
@@ -2565,15 +2575,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/react@npm:^3.0.0-beta.15":
-  version: 3.0.0-beta.15
-  resolution: "@linaria/react@npm:3.0.0-beta.15"
+"@linaria/react@npm:^3.0.0-beta.22":
+  version: 3.0.0-beta.22
+  resolution: "@linaria/react@npm:3.0.0-beta.22"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.8
-    "@linaria/core": ^3.0.0-beta.15
+    "@linaria/core": ^3.0.0-beta.22
+    ts-invariant: ^0.10.3
   peerDependencies:
     react: ">=16"
-  checksum: b257c59e3f153f977dfec6ea0e1d26a732858b5aa049e0f901f3aa4fa8773c53e7477af089d2206a5a5553d40bbd66e475a26f15435e7b446358de98650bd7ba
+  checksum: 6bdeb867d6cbc255288a5f289724d9227cab8f05fa0569d198d246c095395a84fcbd044df8d30b34d0611740836b52a38c7cc71a0c9479e5e0a5c3d98bab73f2
   languageName: node
   linkType: hard
 
@@ -2596,10 +2607,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/utils@npm:^3.0.0-beta.15":
-  version: 3.0.0-beta.15
-  resolution: "@linaria/utils@npm:3.0.0-beta.15"
-  checksum: 05f16972d91a396d3e356a310a037fe1ec4cd7b1ed63923cbb46e583dece687e2342ba77983aa392c4631d841d6df303c6d2883c5c2c484999c58ae4d2bc27a0
+"@linaria/utils@npm:^3.0.0-beta.15, @linaria/utils@npm:^3.0.0-beta.20":
+  version: 3.0.0-beta.20
+  resolution: "@linaria/utils@npm:3.0.0-beta.20"
+  checksum: dbf2170bf89a06fd7158b979069ca0a445a56baeebe258109a2490d4709dacc5c4b1a3628cd179ba991478809907847e0460c0c32ac92f3d427f9056e2b8c152
   languageName: node
   linkType: hard
 
@@ -15734,7 +15745,7 @@ __metadata:
     "@heroicons/react": ^1.0.6
     "@linaria/babel-preset": 3.0.0-beta.15
     "@linaria/core": 3.0.0-beta.15
-    "@linaria/react": ^3.0.0-beta.15
+    "@linaria/react": ^3.0.0-beta.22
     "@linaria/shaker": 3.0.0-beta.15
     "@linaria/webpack-loader": 3.0.0-beta.16
     "@next/bundle-analyzer": 12.1.4
@@ -18987,6 +18998,15 @@ __metadata:
   version: 2.2.0
   resolution: "ts-dedent@npm:2.2.0"
   checksum: 93ed8f7878b6d5ed3c08d99b740010eede6bccfe64bce61c5a4da06a2c17d6ddbb80a8c49c2d15251de7594a4f93ffa21dd10e7be75ef66a4dc9951b4a94e2af
+  languageName: node
+  linkType: hard
+
+"ts-invariant@npm:^0.10.3":
+  version: 0.10.3
+  resolution: "ts-invariant@npm:0.10.3"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: bb07d56fe4aae69d8860e0301dfdee2d375281159054bc24bf1e49e513fb0835bf7f70a11351344d213a79199c5e695f37ebbf5a447188a377ce0cd81d91ddb5
   languageName: node
   linkType: hard
 
