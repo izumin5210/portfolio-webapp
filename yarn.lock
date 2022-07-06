@@ -4763,7 +4763,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.45, @types/react@npm:^17":
+"@types/react@npm:*, @types/react@npm:18.0.15":
+  version: 18.0.15
+  resolution: "@types/react@npm:18.0.15"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: e22cc388d1c145aa184787e44dc28db4789976c704cd5db475c170bb76a560eb81def5f346cfe750949bb3d43ad88822b8cbb9f19b1286e3795892a8263e7715
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17":
   version: 17.0.45
   resolution: "@types/react@npm:17.0.45"
   dependencies:
@@ -15749,7 +15760,7 @@ __metadata:
     "@types/js-yaml": ^4.0.5
     "@types/node": 17.0.0
     "@types/open-graph-scraper": 4.8.1
-    "@types/react": 17.0.45
+    "@types/react": 18.0.15
     "@types/react-relay": ^13.0.2
     "@types/relay-runtime": ^13.0.3
     "@types/relay-test-utils": 6.0.5
