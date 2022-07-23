@@ -81,7 +81,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "12.1.4",
     "eslint-plugin-relay": "1.8.3",
-    "frolint": "2.8.2",
+    "frolint": "3.0.0",
     "glob": "8.0.3",
     "jest": "27.5.1",
     "next-linaria": "1.0.1-beta",
