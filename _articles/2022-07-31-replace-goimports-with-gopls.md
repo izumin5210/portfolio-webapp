@@ -9,7 +9,7 @@ tags: ['go']
 2020-01 に vim-go から [gopls][gopls] + [mattn/vim-goimports][vim-goimports] に移行してそのままだったのだが、
 最近になって gopls が LSP の `source.organzieImports` Code Action に対応していることに気づいた。
 
-（当時は gopls が import 補完に対対応してない思いこんでいたんだけど、gopls の commit を追っていくと 2020 年時点で既に `source.organizeImports` に関するコードがあるように見える… 😇）
+（当時は gopls が import 補完に対応してない思いこんでいたんだけど、gopls の commit を追っていくと 2020 年時点で既に `source.organizeImports` に関するコードがあるように見える… 😇）
 
 ISUCON で久々に本気 Go を書くことになるので、環境を見直すついでにこのへんの移行もした。
 [vim-lsp の README][vim-lsp] をベースに、`BufWritePre` で `source.organizeImports` も同期実行するようにした形。
