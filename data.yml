@@ -80,6 +80,17 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: goimports をやめて gopls に寄せる
+    publishedOn: '2022-07-31'
+    updatedOn: null
+    tags:
+      - name: go
+        displayName: Go
+    path: /blog/2022/07/31/replace-goimports-with-gopls
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
   - title: CSS variables によるダークモード対応
     publishedOn: '2022-03-14'
     updatedOn: null
