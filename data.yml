@@ -90,7 +90,7 @@ entries:
       name: Wantedly Engineer Blog
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
-    picked: false
+    picked: true
   - title: goimports をやめて gopls に寄せる
     publishedOn: '2022-07-31'
     updatedOn: null
