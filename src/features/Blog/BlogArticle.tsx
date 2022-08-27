@@ -241,6 +241,7 @@ const H6 = styled.h1`
 
 const P = styled.p`
   ${body2}
+  line-height: 1.8;
   margin: 16px 0 0;
 `;
 
