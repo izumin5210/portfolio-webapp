@@ -80,6 +80,17 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: Alfred と Raycast の違い
+    publishedOn: '2022-08-27'
+    updatedOn: null
+    tags:
+      - name: developer-productivity
+        displayName: Developer Productivity
+    path: /blog/2022/08/27/alfred-and-raycast
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
   - title: goimports をやめて gopls に寄せる
     publishedOn: '2022-07-31'
     updatedOn: null
