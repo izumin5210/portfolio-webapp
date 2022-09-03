@@ -7290,10 +7290,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "clsx@npm:1.1.1"
-  checksum: ff052650329773b9b245177305fc4c4dc3129f7b2be84af4f58dc5defa99538c61d4207be7419405a5f8f3d92007c954f4daba5a7b74e563d5de71c28c830063
+"clsx@npm:^1.1.1, clsx@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
   languageName: node
   linkType: hard
 
@@ -15756,7 +15756,7 @@ __metadata:
     babel-loader: 8.2.5
     babel-plugin-macros: 3.1.0
     babel-plugin-relay: 13.2.0
-    clsx: ^1.1.1
+    clsx: ^1.2.1
     eslint: 7.32.0
     eslint-config-next: 12.1.4
     eslint-plugin-relay: 1.8.3
