@@ -12,7 +12,7 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf src/**/__generated__/**/*",
-    "graphql:dump-schema": "SCHEMA_ENDPOINT=http://localhost:3000/api/graphql graphql-codegen",
+    "graphql:dump-schema": "./scripts/dump-graphql-schema",
     "generate": "run-p 'generate:*'",
     "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
     "generate:relay": "relay-compiler",

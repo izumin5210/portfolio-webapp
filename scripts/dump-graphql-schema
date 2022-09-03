@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+
+curl -sf \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d "$(node -pe 'JSON.stringify({ query: require("graphql").getIntrospectionQuery() })')" \
+  http://0.0.0.0:3000/api/graphql \
+  | jq .data \
+  > schema.json
