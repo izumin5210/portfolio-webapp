@@ -29,7 +29,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/react-relay": "^13.0.2",
     "@types/relay-runtime": "^13.0.3",
-    "clsx": "^1.1.1",
+    "clsx": "^1.2.1",
     "feed": "^4.2.2",
     "graphql": "^16.5.0",
     "graphql-helix": "^1.12.0",
