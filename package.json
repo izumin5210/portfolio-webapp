@@ -16,6 +16,7 @@
     "generate": "run-p 'generate:*'",
     "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
     "generate:relay": "relay-compiler",
+    "generate:graphql-codegen": "graphql-codegen",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "g:tsc": "cd $INIT_CWD && tsc",
