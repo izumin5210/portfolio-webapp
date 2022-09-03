@@ -24,7 +24,6 @@
     "bootstrap": "yarn workspaces foreach --topological --parallel run prepack"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
     "@heroicons/react": "^1.0.6",
     "@linaria/react": "^3.0.0-beta.15",
     "@sentry/nextjs": "^6.19.7",
