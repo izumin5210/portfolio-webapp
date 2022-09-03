@@ -91,6 +91,17 @@ entries:
     source:
       type: article
       name: izum.in/blog
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/395772
+    publishedOn: '2022-08-19'
+    tags:
+      - name: web-frontend
+        displayName: Web Frontend
+    title: ノンデザイナーズ・Wantedly デザインシステム完全理解ペーパー
+    source:
+      name: Wantedly Engineer Blog
+      type: externalArticle
+      urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: true
   - title: goimports をやめて gopls に寄せる
     publishedOn: '2022-07-31'
     updatedOn: null
@@ -102,6 +113,35 @@ entries:
     source:
       type: article
       name: izum.in/blog
+  - url: >-
+      https://anchor.fm/wantedly-dev/episodes/--Production-Ready-GraphQL--2-w-izumin5210-e1grld0
+    publishedOn: '2022-04-13'
+    tags:
+      - name: graphql
+        displayName: GraphQL
+    picked: false
+    title: 設計なんもわからん - Production Ready GraphQL 輪読会 その2 w/ @izumin5210
+    source:
+      name: Wantedly Engineering Podcast
+      type: podcast
+      urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
+  - url: https://www.wantedly.com/companies/wantedly/post_articles/387161
+    publishedOn: '2022-03-22'
+    tags:
+      - name: graphql
+        displayName: GraphQL
+      - name: javascript
+        displayName: JavaScript
+      - name: web-frontend
+        displayName: Web Frontend
+    title: >-
+      graphql-codegen と Nominal Typing(Branded Type) で Custom Scalar
+      をちょっといい感じにする
+    source:
+      name: Wantedly Engineer Blog
+      type: externalArticle
+      urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    picked: false
   - title: CSS variables によるダークモード対応
     publishedOn: '2022-03-14'
     updatedOn: null
