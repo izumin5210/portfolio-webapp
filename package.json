@@ -30,6 +30,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/react-relay": "^13.0.2",
     "@types/relay-runtime": "^13.0.3",
+    "@urql/exchange-graphcache": "^5.0.1",
     "clsx": "^1.2.1",
     "feed": "^4.2.2",
     "graphql": "^16.6.0",
@@ -38,10 +39,12 @@
     "graphql-scalars": "^1.18.0",
     "js-yaml": "^4.1.0",
     "next": "12.1.4",
+    "next-urql": "^4.0.0",
     "node-fetch": "^3.2.4",
     "puppeteer-core": "^13.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-is": "^18.2.0",
     "react-relay": "^13.2.0",
     "rehype-prism-plus": "^1.4.0",
     "rehype-react": "^7.1.1",
@@ -54,7 +57,8 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sanitize.css": "^13.0.0",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "urql": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.18.13",

@@ -2489,6 +2489,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-typed-document-node/core@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@graphql-typed-document-node/core@npm:3.1.1"
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 87ff4cee308f1075f4472b80f9f9409667979940f8f701e87f0aa35ce5cf104d94b41258ea8192d05a0893475cd0f086a3929a07663b4fe8d0e805a277f07ed5
+  languageName: node
+  linkType: hard
+
 "@heroicons/react@npm:^1.0.6":
   version: 1.0.6
   resolution: "@heroicons/react@npm:1.0.6"
@@ -5415,6 +5424,30 @@ __metadata:
     "@typescript-eslint/types": 5.10.1
     eslint-visitor-keys: ^3.0.0
   checksum: 7e1e1a41b2df797534ee56c0d9ae2a056e0ca0ca019b31125fd52d7deb0e802d899920031f2dbf88a951e6752d8fcbd9fa904eaeccb50cf30d2b92b54fd7879d
+  languageName: node
+  linkType: hard
+
+"@urql/core@npm:>=3.0.0, @urql/core@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@urql/core@npm:3.0.3"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    wonka: ^6.0.0
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 5bc972422fc733e815d82f84b10daef05288d31c2b4958555ea982bd83dd42ec939165c66cc94eeed447c45b8798242971b3682714c7df21c25d6f9bad53303c
+  languageName: node
+  linkType: hard
+
+"@urql/exchange-graphcache@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@urql/exchange-graphcache@npm:5.0.1"
+  dependencies:
+    "@urql/core": ">=3.0.0"
+    wonka: ^6.0.0
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: ca937043e447d778bdec6e986066a57d0eaf7f99456cd2c246b42994a5396d198d21863da0fcb09c22e8bda5c143a4359364463694abd58dd7fce34d60b623b3
   languageName: node
   linkType: hard
 
@@ -14981,6 +15014,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-urql@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "next-urql@npm:4.0.0"
+  dependencies:
+    react-ssr-prepass: ^1.4.0
+  peerDependencies:
+    react: ">=16.8.0"
+    urql: ^3.0.0
+  checksum: e3194ecb5fcf32122cf9c075a8305d64c432c688782886aeac35d929f10c97d7550b4f241eea79ad727ba0b87fb00530ef2d1719e44e77a3b0ae05a3979c7e92
+  languageName: node
+  linkType: hard
+
 "next@npm:12.1.4":
   version: 12.1.4
   resolution: "next@npm:12.1.4"
@@ -16224,6 +16269,7 @@ __metadata:
     "@types/react-relay": ^13.0.2
     "@types/relay-runtime": ^13.0.3
     "@types/relay-test-utils": 6.0.5
+    "@urql/exchange-graphcache": ^5.0.1
     babel-loader: 8.2.5
     babel-plugin-macros: 3.1.0
     babel-plugin-relay: 13.2.0
@@ -16242,12 +16288,14 @@ __metadata:
     js-yaml: ^4.1.0
     next: 12.1.4
     next-linaria: 1.0.1-beta
+    next-urql: ^4.0.0
     node-fetch: ^3.2.4
     npm-run-all: 4.1.5
     prettier: 2.7.1
     puppeteer-core: ^13.7.0
     react: 17.0.2
     react-dom: 17.0.2
+    react-is: ^18.2.0
     react-relay: ^13.2.0
     react-test-renderer: 17.0.2
     rehype-prism-plus: ^1.4.0
@@ -16268,6 +16316,7 @@ __metadata:
     storybook-dark-mode: 1.1.0
     typescript: 4.8.2
     unified: ^10.1.2
+    urql: ^3.0.2
   languageName: unknown
   linkType: soft
 
@@ -16891,6 +16940,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.11.0":
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
@@ -16922,6 +16978,15 @@ __metadata:
   peerDependencies:
     react: ^16.0.0 || ^17.0.0
   checksum: f344c663c48720d19559b4198b1f63ad47a3f11bedc92ede053a6c0706b5209e6110086f3ccc6db04eda9f0d1a415845956ddfb6ce09a922167d4831fcba9314
+  languageName: node
+  linkType: hard
+
+"react-ssr-prepass@npm:^1.4.0":
+  version: 1.5.0
+  resolution: "react-ssr-prepass@npm:1.5.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: efe89b9f8b2053474613f56dfdbeb41d8ee2e572bf819a39377d95d3e4a9acf8a4a16e28d8d8034cb9ac2b316d11dc9e62217743e4322046d08175eb3b4fed3e
   languageName: node
   linkType: hard
 
@@ -20008,6 +20073,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"urql@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "urql@npm:3.0.2"
+  dependencies:
+    "@urql/core": ^3.0.3
+    wonka: ^6.0.0
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    react: ">= 16.8.0"
+  checksum: 0299f8af461fa5b1fb47cfb650a2470892053137b0fe8f1e906e3f61a40d013631e979bb2514036bcb78ad955fdbd4b153c8e92565de477e3e3c6a09ad237724
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -20619,6 +20697,13 @@ __metadata:
   dependencies:
     string-width: ^4.0.0
   checksum: 03db6c9d0af9329c37d74378ff1d91972b12553c7d72a6f4e8525fe61563fa7adb0b9d6e8d546b7e059688712ea874edd5ded475999abdeedf708de9849310e0
+  languageName: node
+  linkType: hard
+
+"wonka@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "wonka@npm:6.0.0"
+  checksum: 1b026c9c7e172a017e2a863147069ff27c02bbb47dfa9ce9ecd5caf3debe2c45acf1382a50eb0023b561444b18186354188df9e222502757001f699c963777ea
   languageName: node
   linkType: hard
 
