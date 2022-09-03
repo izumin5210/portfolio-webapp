@@ -1,6 +1,6 @@
 {
   "name": "remark-meta-description",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.2.3",
   "private": true,
   "sideEffects": false,
   "main": "./cjs/index.js",
