@@ -21,6 +21,7 @@ generates:
         Date: unknown
       skipTypename: true
       useTypeImports: true
+      dedupeFragments: true
 
 hooks:
   afterAllFileWrite:
