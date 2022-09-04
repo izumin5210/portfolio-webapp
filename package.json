@@ -59,7 +59,6 @@
     "@babel/core": "7.18.13",
     "@graphql-codegen/cli": "2.12.0",
     "@graphql-codegen/gql-tag-operations-preset": "^1.5.5",
-    "@graphql-codegen/schema-ast": "2.5.1",
     "@linaria/babel-preset": "3.0.0-beta.15",
     "@linaria/core": "3.0.0-beta.15",
     "@linaria/shaker": "3.0.0-beta.15",
