@@ -1,12 +1,10 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import React from "react";
-import { fetchQuery } from "react-relay";
-import { EntriesPage, EntriesPageQuery, EntriesPageQueryType } from "../features/EntriesPage/EntriesPage";
-import { initRelayEnvironment } from "../lib/RelayEnvironment";
+import { SSRData } from "next-urql";
+import { EntriesPage, EntriesPageQuery, initialEntriesCount } from "../features/EntriesPage/EntriesPage";
+import { initUrqlClient, withUrqlClient } from "../util/urqlSSR";
 
 const HomePage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  if (props.queryResult == null) return null;
-  return <EntriesPage queryResult={props.queryResult} filteredByTags={props.filteredByTags} />;
+  return <EntriesPage tags={props.tags} />;
 };
 
 export type Query = {
@@ -14,9 +12,8 @@ export type Query = {
 };
 
 export const getServerSideProps: GetServerSideProps<{
-  queryResult: EntriesPageQueryType["response"] | undefined;
-  filteredByTags: boolean;
-  initialRecords: any;
+  tags: string[];
+  urqlState: SSRData;
 }> = async (ctx) => {
   const query = ctx.query as Query;
   const tags = (query.tags ?? []) as string[];
@@ -24,22 +21,16 @@ export const getServerSideProps: GetServerSideProps<{
   if (tags.includes("error")) {
     throw new Error("unknown error");
   }
-  const env = initRelayEnvironment();
-  const queryResult = await fetchQuery<EntriesPageQueryType>(env, EntriesPageQuery, {
-    count: 20,
-    cursor: null,
-    tags,
-    filteredByTags,
-  }).toPromise();
-  const initialRecords = env.getStore().getSource().toJSON();
+
+  const { client, ssrCache } = initUrqlClient();
+  await client?.query(EntriesPageQuery, { count: initialEntriesCount, cursor: null, tags, filteredByTags }).toPromise();
 
   return {
     props: {
-      queryResult,
-      filteredByTags,
-      initialRecords,
+      tags,
+      urqlState: ssrCache.extractData(),
     },
   };
 };
 
-export default HomePage;
+export default withUrqlClient(HomePage);

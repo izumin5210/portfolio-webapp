@@ -154,12 +154,6 @@ export type SlideEntry = {
   readonly url: Scalars["String"];
 };
 
-export type BlogArticleTestQueryQueryVariables = Exact<{ [key: string]: never }>;
-
-export type BlogArticleTestQueryQuery = {
-  readonly articleEntryByPath: { " $fragmentRefs": { BlogArticleFragment: BlogArticleFragment } } | null;
-};
-
 export type BlogArticleFragment = {
   readonly title: string;
   readonly body: string;
@@ -168,11 +162,11 @@ export type BlogArticleFragment = {
   readonly tags: ReadonlyArray<{ readonly name: string; readonly displayName: string }>;
 } & { " $fragmentName": "BlogArticleFragment" };
 
-export type BlogArticleOgImagePageQueryQueryVariables = Exact<{
+export type GetBlogArticleOgImagePageQueryVariables = Exact<{
   articlePath: Scalars["String"];
 }>;
 
-export type BlogArticleOgImagePageQueryQuery = {
+export type GetBlogArticleOgImagePageQuery = {
   readonly articleEntryByPath: {
     " $fragmentRefs": { BlogArticleOgImagePageCardFragment: BlogArticleOgImagePageCardFragment };
   } | null;
@@ -184,11 +178,11 @@ export type BlogArticleOgImagePageCardFragment = {
   readonly tags: ReadonlyArray<{ readonly name: string; readonly displayName: string }>;
 } & { " $fragmentName": "BlogArticleOgImagePageCardFragment" };
 
-export type BlogArticlePageQueryQueryVariables = Exact<{
+export type GetBlogArticlePageQueryVariables = Exact<{
   articlePath: Scalars["String"];
 }>;
 
-export type BlogArticlePageQueryQuery = {
+export type GetBlogArticlePageQuery = {
   readonly articleEntryByPath: {
     " $fragmentRefs": {
       BlogArticlePageHeadFragment: BlogArticlePageHeadFragment;
@@ -203,18 +197,18 @@ export type BlogArticlePageHeadFragment = {
   readonly metaDescription: string;
 } & { " $fragmentName": "BlogArticlePageHeadFragment" };
 
-export type EntriesPageQueryQueryVariables = Exact<{
+export type GetEntriesPageQueryVariables = Exact<{
   cursor: InputMaybe<Scalars["String"]>;
   count: Scalars["Int"];
   tags: ReadonlyArray<Scalars["String"]> | Scalars["String"];
   filteredByTags: Scalars["Boolean"];
 }>;
 
-export type EntriesPageQueryQuery = {
+export type GetEntriesPageQuery = {
   " $fragmentRefs": {
     PickedEntryListEntriesFragment: PickedEntryListEntriesFragment;
-    EntryListEntriesFragment: EntryListEntriesFragment;
-    EntryListEntriesByTagsFragment: EntryListEntriesByTagsFragment;
+    EntryListFragment: EntryListFragment;
+    EntryListByTagsFragment: EntryListByTagsFragment;
   };
 };
 
@@ -260,17 +254,17 @@ export type EntryItemFragment =
   | EntryItem_PodcastEntry_Fragment
   | EntryItem_SlideEntry_Fragment;
 
-export type EntryListEntriesFragment = {
-  readonly entries: { readonly edges: ReadonlyArray<{ readonly __typename: "EntryEdge" } | null> | null } & {
+export type EntryListFragment = {
+  readonly entries: { readonly pageInfo: { readonly endCursor: string | null; readonly hasNextPage: boolean } } & {
     " $fragmentRefs": { EntryListViewFragment: EntryListViewFragment };
   };
-} & { " $fragmentName": "EntryListEntriesFragment" };
+} & { " $fragmentName": "EntryListFragment" };
 
-export type EntryListEntriesByTagsFragment = {
-  readonly entriesByTags: { readonly edges: ReadonlyArray<{ readonly __typename: "EntryEdge" } | null> | null } & {
-    " $fragmentRefs": { EntryListViewFragment: EntryListViewFragment };
-  };
-} & { " $fragmentName": "EntryListEntriesByTagsFragment" };
+export type EntryListByTagsFragment = {
+  readonly entriesByTags: {
+    readonly pageInfo: { readonly endCursor: string | null; readonly hasNextPage: boolean };
+  } & { " $fragmentRefs": { EntryListViewFragment: EntryListViewFragment } };
+} & { " $fragmentName": "EntryListByTagsFragment" };
 
 export type EntryListViewFragment = {
   readonly edges: ReadonlyArray<{
@@ -293,6 +287,21 @@ export type EntryListViewFragment = {
       | null;
   } | null> | null;
 } & { " $fragmentName": "EntryListViewFragment" };
+
+export type GetEntryListQueryVariables = Exact<{
+  cursor: InputMaybe<Scalars["String"]>;
+  count: Scalars["Int"];
+}>;
+
+export type GetEntryListQuery = { " $fragmentRefs": { EntryListFragment: EntryListFragment } };
+
+export type GetEntryListByTagsQueryVariables = Exact<{
+  cursor: InputMaybe<Scalars["String"]>;
+  count: Scalars["Int"];
+  tags: ReadonlyArray<Scalars["String"]> | Scalars["String"];
+}>;
+
+export type GetEntryListByTagsQuery = { " $fragmentRefs": { EntryListByTagsFragment: EntryListByTagsFragment } };
 
 export type PickedEntryListEntriesFragment = {
   readonly pickedEntries: ReadonlyArray<
@@ -568,63 +577,15 @@ export const EntryListViewFragmentDoc = {
         ],
       },
     },
-    ...EntryItemFragmentDoc.definitions,
   ],
 } as unknown as DocumentNode<EntryListViewFragment, unknown>;
-export const EntryListEntriesFragmentDoc = {
+export const EntryListFragmentDoc = {
   kind: "Document",
   definitions: [
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "EntryListEntries" },
+      name: { kind: "Name", value: "EntryList" },
       typeCondition: { kind: "NamedType", name: { kind: "Name", value: "Query" } },
-      directives: [
-        {
-          kind: "Directive",
-          name: { kind: "Name", value: "refetchable" },
-          arguments: [
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "queryName" },
-              value: { kind: "StringValue", value: "EntryListPaginationQuery", block: false },
-            },
-          ],
-        },
-        {
-          kind: "Directive",
-          name: { kind: "Name", value: "argumentDefinitions" },
-          arguments: [
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "count" },
-              value: {
-                kind: "ObjectValue",
-                fields: [
-                  {
-                    kind: "ObjectField",
-                    name: { kind: "Name", value: "type" },
-                    value: { kind: "StringValue", value: "Int!", block: false },
-                  },
-                ],
-              },
-            },
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "cursor" },
-              value: {
-                kind: "ObjectValue",
-                fields: [
-                  {
-                    kind: "ObjectField",
-                    name: { kind: "Name", value: "type" },
-                    value: { kind: "StringValue", value: "String", block: false },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      ],
       selectionSet: {
         kind: "SelectionSet",
         selections: [
@@ -643,28 +604,18 @@ export const EntryListEntriesFragmentDoc = {
                 value: { kind: "Variable", name: { kind: "Name", value: "cursor" } },
               },
             ],
-            directives: [
-              {
-                kind: "Directive",
-                name: { kind: "Name", value: "connection" },
-                arguments: [
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "key" },
-                    value: { kind: "StringValue", value: "EntryListEntries_entries", block: false },
-                  },
-                ],
-              },
-            ],
             selectionSet: {
               kind: "SelectionSet",
               selections: [
                 {
                   kind: "Field",
-                  name: { kind: "Name", value: "edges" },
+                  name: { kind: "Name", value: "pageInfo" },
                   selectionSet: {
                     kind: "SelectionSet",
-                    selections: [{ kind: "Field", name: { kind: "Name", value: "__typename" } }],
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "endCursor" } },
+                      { kind: "Field", name: { kind: "Name", value: "hasNextPage" } },
+                    ],
                   },
                 },
                 { kind: "FragmentSpread", name: { kind: "Name", value: "EntryListView" } },
@@ -674,77 +625,15 @@ export const EntryListEntriesFragmentDoc = {
         ],
       },
     },
-    ...EntryListViewFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<EntryListEntriesFragment, unknown>;
-export const EntryListEntriesByTagsFragmentDoc = {
+} as unknown as DocumentNode<EntryListFragment, unknown>;
+export const EntryListByTagsFragmentDoc = {
   kind: "Document",
   definitions: [
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "EntryListEntriesByTags" },
+      name: { kind: "Name", value: "EntryListByTags" },
       typeCondition: { kind: "NamedType", name: { kind: "Name", value: "Query" } },
-      directives: [
-        {
-          kind: "Directive",
-          name: { kind: "Name", value: "refetchable" },
-          arguments: [
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "queryName" },
-              value: { kind: "StringValue", value: "EntryListFilteredByTagsPaginationQuery", block: false },
-            },
-          ],
-        },
-        {
-          kind: "Directive",
-          name: { kind: "Name", value: "argumentDefinitions" },
-          arguments: [
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "count" },
-              value: {
-                kind: "ObjectValue",
-                fields: [
-                  {
-                    kind: "ObjectField",
-                    name: { kind: "Name", value: "type" },
-                    value: { kind: "StringValue", value: "Int!", block: false },
-                  },
-                ],
-              },
-            },
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "cursor" },
-              value: {
-                kind: "ObjectValue",
-                fields: [
-                  {
-                    kind: "ObjectField",
-                    name: { kind: "Name", value: "type" },
-                    value: { kind: "StringValue", value: "String", block: false },
-                  },
-                ],
-              },
-            },
-            {
-              kind: "Argument",
-              name: { kind: "Name", value: "tags" },
-              value: {
-                kind: "ObjectValue",
-                fields: [
-                  {
-                    kind: "ObjectField",
-                    name: { kind: "Name", value: "type" },
-                    value: { kind: "StringValue", value: "[String!]!", block: false },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      ],
       selectionSet: {
         kind: "SelectionSet",
         selections: [
@@ -768,28 +657,18 @@ export const EntryListEntriesByTagsFragmentDoc = {
                 value: { kind: "Variable", name: { kind: "Name", value: "tags" } },
               },
             ],
-            directives: [
-              {
-                kind: "Directive",
-                name: { kind: "Name", value: "connection" },
-                arguments: [
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "key" },
-                    value: { kind: "StringValue", value: "EntryListEntries_entriesByTags", block: false },
-                  },
-                ],
-              },
-            ],
             selectionSet: {
               kind: "SelectionSet",
               selections: [
                 {
                   kind: "Field",
-                  name: { kind: "Name", value: "edges" },
+                  name: { kind: "Name", value: "pageInfo" },
                   selectionSet: {
                     kind: "SelectionSet",
-                    selections: [{ kind: "Field", name: { kind: "Name", value: "__typename" } }],
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "endCursor" } },
+                      { kind: "Field", name: { kind: "Name", value: "hasNextPage" } },
+                    ],
                   },
                 },
                 { kind: "FragmentSpread", name: { kind: "Name", value: "EntryListView" } },
@@ -799,9 +678,8 @@ export const EntryListEntriesByTagsFragmentDoc = {
         ],
       },
     },
-    ...EntryListViewFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<EntryListEntriesByTagsFragment, unknown>;
+} as unknown as DocumentNode<EntryListByTagsFragment, unknown>;
 export const PickedEntryListEntriesFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -913,45 +791,13 @@ export const PickedEntryListEntriesFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<PickedEntryListEntriesFragment, unknown>;
-export const BlogArticleTestQueryDocument = {
+export const GetBlogArticleOgImagePageDocument = {
   kind: "Document",
   definitions: [
     {
       kind: "OperationDefinition",
       operation: "query",
-      name: { kind: "Name", value: "BlogArticleTestQuery" },
-      directives: [{ kind: "Directive", name: { kind: "Name", value: "relay_test_operation" } }],
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "articleEntryByPath" },
-            arguments: [
-              {
-                kind: "Argument",
-                name: { kind: "Name", value: "path" },
-                value: { kind: "StringValue", value: "test-path", block: false },
-              },
-            ],
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [{ kind: "FragmentSpread", name: { kind: "Name", value: "BlogArticle" } }],
-            },
-          },
-        ],
-      },
-    },
-    ...BlogArticleFragmentDoc.definitions,
-  ],
-} as unknown as DocumentNode<BlogArticleTestQueryQuery, BlogArticleTestQueryQueryVariables>;
-export const BlogArticleOgImagePageQueryDocument = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "OperationDefinition",
-      operation: "query",
-      name: { kind: "Name", value: "BlogArticleOgImagePageQuery" },
+      name: { kind: "Name", value: "GetBlogArticleOgImagePage" },
       variableDefinitions: [
         {
           kind: "VariableDefinition",
@@ -982,14 +828,14 @@ export const BlogArticleOgImagePageQueryDocument = {
     },
     ...BlogArticleOgImagePageCardFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<BlogArticleOgImagePageQueryQuery, BlogArticleOgImagePageQueryQueryVariables>;
-export const BlogArticlePageQueryDocument = {
+} as unknown as DocumentNode<GetBlogArticleOgImagePageQuery, GetBlogArticleOgImagePageQueryVariables>;
+export const GetBlogArticlePageDocument = {
   kind: "Document",
   definitions: [
     {
       kind: "OperationDefinition",
       operation: "query",
-      name: { kind: "Name", value: "BlogArticlePageQuery" },
+      name: { kind: "Name", value: "GetBlogArticlePage" },
       variableDefinitions: [
         {
           kind: "VariableDefinition",
@@ -1024,14 +870,14 @@ export const BlogArticlePageQueryDocument = {
     ...BlogArticlePageHeadFragmentDoc.definitions,
     ...BlogArticleFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<BlogArticlePageQueryQuery, BlogArticlePageQueryQueryVariables>;
-export const EntriesPageQueryDocument = {
+} as unknown as DocumentNode<GetBlogArticlePageQuery, GetBlogArticlePageQueryVariables>;
+export const GetEntriesPageDocument = {
   kind: "Document",
   definitions: [
     {
       kind: "OperationDefinition",
       operation: "query",
-      name: { kind: "Name", value: "EntriesPageQuery" },
+      name: { kind: "Name", value: "GetEntriesPage" },
       variableDefinitions: [
         {
           kind: "VariableDefinition",
@@ -1064,64 +910,11 @@ export const EntriesPageQueryDocument = {
         kind: "SelectionSet",
         selections: [
           { kind: "FragmentSpread", name: { kind: "Name", value: "PickedEntryListEntries" } },
+          { kind: "FragmentSpread", name: { kind: "Name", value: "EntryList" } },
           {
             kind: "FragmentSpread",
-            name: { kind: "Name", value: "EntryListEntries" },
+            name: { kind: "Name", value: "EntryListByTags" },
             directives: [
-              {
-                kind: "Directive",
-                name: { kind: "Name", value: "arguments" },
-                arguments: [
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "cursor" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "cursor" } },
-                  },
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "count" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "count" } },
-                  },
-                ],
-              },
-              {
-                kind: "Directive",
-                name: { kind: "Name", value: "skip" },
-                arguments: [
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "if" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "filteredByTags" } },
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            kind: "FragmentSpread",
-            name: { kind: "Name", value: "EntryListEntriesByTags" },
-            directives: [
-              {
-                kind: "Directive",
-                name: { kind: "Name", value: "arguments" },
-                arguments: [
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "cursor" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "cursor" } },
-                  },
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "count" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "count" } },
-                  },
-                  {
-                    kind: "Argument",
-                    name: { kind: "Name", value: "tags" },
-                    value: { kind: "Variable", name: { kind: "Name", value: "tags" } },
-                  },
-                ],
-              },
               {
                 kind: "Directive",
                 name: { kind: "Name", value: "include" },
@@ -1139,7 +932,78 @@ export const EntriesPageQueryDocument = {
       },
     },
     ...PickedEntryListEntriesFragmentDoc.definitions,
-    ...EntryListEntriesFragmentDoc.definitions,
-    ...EntryListEntriesByTagsFragmentDoc.definitions,
+    ...EntryListFragmentDoc.definitions,
+    ...EntryListViewFragmentDoc.definitions,
+    ...EntryItemFragmentDoc.definitions,
+    ...EntryListByTagsFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<EntriesPageQueryQuery, EntriesPageQueryQueryVariables>;
+} as unknown as DocumentNode<GetEntriesPageQuery, GetEntriesPageQueryVariables>;
+export const GetEntryListDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "GetEntryList" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "cursor" } },
+          type: { kind: "NamedType", name: { kind: "Name", value: "String" } },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "count" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "Int" } } },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "FragmentSpread", name: { kind: "Name", value: "EntryList" } }],
+      },
+    },
+    ...EntryListFragmentDoc.definitions,
+    ...EntryListViewFragmentDoc.definitions,
+    ...EntryItemFragmentDoc.definitions,
+  ],
+} as unknown as DocumentNode<GetEntryListQuery, GetEntryListQueryVariables>;
+export const GetEntryListByTagsDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "GetEntryListByTags" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "cursor" } },
+          type: { kind: "NamedType", name: { kind: "Name", value: "String" } },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "count" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "Int" } } },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "tags" } },
+          type: {
+            kind: "NonNullType",
+            type: {
+              kind: "ListType",
+              type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "String" } } },
+            },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [{ kind: "FragmentSpread", name: { kind: "Name", value: "EntryListByTags" } }],
+      },
+    },
+    ...EntryListByTagsFragmentDoc.definitions,
+    ...EntryListViewFragmentDoc.definitions,
+    ...EntryItemFragmentDoc.definitions,
+  ],
+} as unknown as DocumentNode<GetEntryListByTagsQuery, GetEntryListByTagsQueryVariables>;

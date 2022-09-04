@@ -4,10 +4,8 @@ import App from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import { ReactElement, ReactNode } from "react";
-import { RelayEnvironmentProvider } from "react-relay";
 import "sanitize.css";
 import { Layout } from "../Layout";
-import { useInitRelayEnvironment } from "../lib/RelayEnvironment";
 import { LoadThemeScript } from "../lib/ui/useTheme";
 import { SystemInfoRibbon } from "../util/SystemInfoRibbon";
 
@@ -34,10 +32,8 @@ type AppProps = OriginalAppProps &
 function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: any }) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
 
-  const environment = useInitRelayEnvironment(pageProps.initialRecords);
-
   return (
-    <RelayEnvironmentProvider environment={environment}>
+    <>
       <Head>
         <title>{siteName}</title>
         <meta property="og:title" content={siteName} key="title" />
@@ -70,7 +66,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
       ) : null}
       <SystemInfoRibbon build={process.env.NODE_ENV} previewedPrNum={__systemInfo.previewedPrNum} />
       {getLayout(<Component {...pageProps} err={err} />)}
-    </RelayEnvironmentProvider>
+    </>
   );
 }
 
