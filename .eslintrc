@@ -1,14 +1,11 @@
 {
   "extends": [
-    "wantedly-typescript",
-    "plugin:relay/strict"
+    "wantedly-typescript"
   ],
   "parserOptions": {
     "project": ["./tsconfig.json", "./packages/*/tsconfig.json", "./packages/*/tsconfig.module.json"]
   },
-  "plugins": ["relay"],
   "rules": {
-    "no-undef": "off",
-    "relay/generated-flow-types": "off"
+    "no-undef": "off"
   }
 }
