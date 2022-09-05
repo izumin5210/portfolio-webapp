@@ -10,6 +10,7 @@ import {
   refineTitle,
   validateEntry,
 } from "./utils.js";
+import { v4 as uuidV4 } from "uuid";
 
 export async function updateEntriesData({ skipFetchingOg }: { skipFetchingOg: boolean }) {
   const datafile = path.join(process.cwd(), "data.yml");
@@ -32,6 +33,8 @@ export async function updateEntriesData({ skipFetchingOg }: { skipFetchingOg: bo
     loadArticleEntries(),
   ])
     .then(([entries1, entries2]) => [...entries1, ...entries2])
+    // fill uuid
+    .then((entries) => entries.map((entry) => ({ ...entry, uuid: entry.uuid || uuidV4() })))
     // fill displayName of tags
     .then((entries) =>
       entries.map((entry) => ({
