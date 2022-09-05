@@ -1,33 +1,38 @@
+import { cacheExchange } from "@urql/exchange-graphcache";
+import { relayPagination } from "@urql/exchange-graphcache/extras";
 import { NextComponentType, NextPage } from "next";
-import NextApp from "next/app";
 import {
   initUrqlClient as _initUrqlClient,
   NextUrqlContext,
   withUrqlClient as _withUrqlClient,
   WithUrqlProps,
 } from "next-urql";
-import { dedupExchange, fetchExchange, ssrExchange } from "urql";
+import NextApp from "next/app";
 import { ComponentProps } from "react";
-import { cacheExchange } from "@urql/exchange-graphcache";
-import { relayPagination } from "@urql/exchange-graphcache/extras";
+import { dedupExchange, fetchExchange, ssrExchange } from "urql";
+import { schema } from "../__generated__/urql-introspection";
 
 const baseUrl = typeof window === "undefined" ? `http://0.0.0.0:${process.env.PORT || 3000}` : location.origin;
 const url = `${baseUrl}/api/graphql`;
 
-function cacheExchangeResolvers() {
-  return {
-    Query: {
-      entries: relayPagination(),
+function buildCacheExchange() {
+  return cacheExchange({
+    resolvers: {
+      Query: {
+        entries: relayPagination(),
+      },
     },
-  };
+    schema,
+  });
 }
 
 export function initUrqlClient() {
   const ssrCache = ssrExchange({ isClient: false });
+  const cache = buildCacheExchange();
   const client = _initUrqlClient(
     {
       url,
-      exchanges: [dedupExchange, cacheExchange({ resolvers: cacheExchangeResolvers() }), ssrCache, fetchExchange],
+      exchanges: [dedupExchange, cache, ssrCache, fetchExchange],
     },
     false
   );
@@ -40,7 +45,7 @@ export function withUrqlClient<C extends NextPage<any, any> | typeof NextApp>(
 ): NextComponentType<NextUrqlContext, {}, ComponentProps<C> & WithUrqlProps> {
   return _withUrqlClient((ssr) => ({
     url,
-    exchanges: [dedupExchange, cacheExchange({ resolvers: cacheExchangeResolvers() }), ssr, fetchExchange],
+    exchanges: [dedupExchange, buildCacheExchange(), ssr, fetchExchange],
   }))(AppOrPage) as NextComponentType<
     NextUrqlContext,
     // eslint-disable-next-line @typescript-eslint/ban-types

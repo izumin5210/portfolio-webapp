@@ -25,4 +25,5 @@ generates:
 
 hooks:
   afterAllFileWrite:
+    - node ./scripts/gen-introspeciton-schema-for-urql.mjs
     - prettier --write ./src
