@@ -5423,6 +5423,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@urql/introspection@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@urql/introspection@npm:1.0.0"
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 5ae4f49b7ceb38c5837b7234e3c6471253001361b033d87a20c47bd3f1513d72b334ec9ad2be020348c06cc39b365887ef7b5d5b04b2a2f921f038d9e3489f3a
+  languageName: node
+  linkType: hard
+
 "@webassemblyjs/ast@npm:1.11.1":
   version: 1.11.1
   resolution: "@webassemblyjs/ast@npm:1.11.1"
@@ -16178,6 +16187,7 @@ __metadata:
     "@types/open-graph-scraper": 4.8.1
     "@types/react": 17.0.45
     "@urql/exchange-graphcache": ^5.0.1
+    "@urql/introspection": ^1.0.0
     babel-loader: 8.2.5
     babel-plugin-macros: 3.1.0
     clsx: ^1.2.1
