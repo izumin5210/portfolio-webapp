@@ -1,4 +1,5 @@
 ---
+uuid: c2963d5d-d07b-42f1-bf80-bc84e18d700a
 updatedOn: null
 tags: ['go']
 ---
