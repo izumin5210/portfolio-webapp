@@ -8,10 +8,12 @@ const Fragment = gql(/* GraphQL */ `
     pickedEntries {
       __typename
       ... on ArticleEntry {
+        id
         title
         path
       }
       ... on ExternalArticleEntry {
+        id
         title
         url
         source {
@@ -19,6 +21,7 @@ const Fragment = gql(/* GraphQL */ `
         }
       }
       ... on SlideEntry {
+        id
         title
         url
         source {
@@ -26,6 +29,7 @@ const Fragment = gql(/* GraphQL */ `
         }
       }
       ... on OSSEntry {
+        id
         title
         url
         source {
@@ -33,6 +37,7 @@ const Fragment = gql(/* GraphQL */ `
         }
       }
       ... on PodcastEntry {
+        id
         title
         url
         source {

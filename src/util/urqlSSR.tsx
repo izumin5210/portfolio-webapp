@@ -22,6 +22,9 @@ function buildCacheExchange() {
         entries: relayPagination(),
       },
     },
+    keys: {
+      EntrySource: () => null,
+    },
     schema,
   });
 }

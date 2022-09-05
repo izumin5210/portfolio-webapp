@@ -19,6 +19,7 @@ export type Scalars = {
 export type ArticleEntry = {
   readonly body: Scalars["String"];
   readonly feedDescriptionHtml: Scalars["String"];
+  readonly id: Scalars["ID"];
   readonly metaDescription: Scalars["String"];
   readonly path: Scalars["String"];
   readonly picked: Scalars["Boolean"];
@@ -27,6 +28,7 @@ export type ArticleEntry = {
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
   readonly updatedOn: Maybe<Scalars["Date"]>;
+  readonly uuid: Scalars["String"];
 };
 
 /** A connection to a list of items. */
@@ -73,21 +75,25 @@ export type EntryTag = {
 };
 
 export type ExternalArticleEntry = {
+  readonly id: Scalars["ID"];
   readonly picked: Scalars["Boolean"];
   readonly publishedOn: Scalars["Date"];
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
   readonly url: Scalars["String"];
+  readonly uuid: Scalars["String"];
 };
 
 export type OssEntry = {
+  readonly id: Scalars["ID"];
   readonly picked: Scalars["Boolean"];
   readonly publishedOn: Scalars["Date"];
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
   readonly url: Scalars["String"];
+  readonly uuid: Scalars["String"];
 };
 
 /** Information about pagination in a connection. */
@@ -103,12 +109,14 @@ export type PageInfo = {
 };
 
 export type PodcastEntry = {
+  readonly id: Scalars["ID"];
   readonly picked: Scalars["Boolean"];
   readonly publishedOn: Scalars["Date"];
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
   readonly url: Scalars["String"];
+  readonly uuid: Scalars["String"];
 };
 
 export type Query = {
@@ -146,15 +154,18 @@ export type QueryEntriesByTagsArgs = {
 };
 
 export type SlideEntry = {
+  readonly id: Scalars["ID"];
   readonly picked: Scalars["Boolean"];
   readonly publishedOn: Scalars["Date"];
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
   readonly url: Scalars["String"];
+  readonly uuid: Scalars["String"];
 };
 
 export type BlogArticleFragment = {
+  readonly id: string;
   readonly title: string;
   readonly body: string;
   readonly publishedOn: unknown;
@@ -213,6 +224,7 @@ export type GetEntriesPageQuery = {
 };
 
 type EntryItem_ArticleEntry_Fragment = {
+  readonly id: string;
   readonly title: string;
   readonly path: string;
   readonly publishedOn: unknown;
@@ -220,6 +232,7 @@ type EntryItem_ArticleEntry_Fragment = {
 } & { " $fragmentName": "EntryItem_ArticleEntry_Fragment" };
 
 type EntryItem_ExternalArticleEntry_Fragment = {
+  readonly id: string;
   readonly title: string;
   readonly url: string;
   readonly publishedOn: unknown;
@@ -227,6 +240,7 @@ type EntryItem_ExternalArticleEntry_Fragment = {
 } & { " $fragmentName": "EntryItem_ExternalArticleEntry_Fragment" };
 
 type EntryItem_OssEntry_Fragment = {
+  readonly id: string;
   readonly title: string;
   readonly url: string;
   readonly publishedOn: unknown;
@@ -234,6 +248,7 @@ type EntryItem_OssEntry_Fragment = {
 } & { " $fragmentName": "EntryItem_OssEntry_Fragment" };
 
 type EntryItem_PodcastEntry_Fragment = {
+  readonly id: string;
   readonly title: string;
   readonly url: string;
   readonly publishedOn: unknown;
@@ -241,6 +256,7 @@ type EntryItem_PodcastEntry_Fragment = {
 } & { " $fragmentName": "EntryItem_PodcastEntry_Fragment" };
 
 type EntryItem_SlideEntry_Fragment = {
+  readonly id: string;
   readonly title: string;
   readonly url: string;
   readonly publishedOn: unknown;
@@ -269,19 +285,19 @@ export type EntryListByTagsFragment = {
 export type EntryListViewFragment = {
   readonly edges: ReadonlyArray<{
     readonly node:
-      | ({ readonly __typename: "ArticleEntry"; readonly publishedOn: unknown } & {
+      | ({ readonly __typename: "ArticleEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_ArticleEntry_Fragment: EntryItem_ArticleEntry_Fragment };
         })
-      | ({ readonly __typename: "ExternalArticleEntry"; readonly publishedOn: unknown } & {
+      | ({ readonly __typename: "ExternalArticleEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_ExternalArticleEntry_Fragment: EntryItem_ExternalArticleEntry_Fragment };
         })
-      | ({ readonly __typename: "OSSEntry"; readonly publishedOn: unknown } & {
+      | ({ readonly __typename: "OSSEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_OssEntry_Fragment: EntryItem_OssEntry_Fragment };
         })
-      | ({ readonly __typename: "PodcastEntry"; readonly publishedOn: unknown } & {
+      | ({ readonly __typename: "PodcastEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_PodcastEntry_Fragment: EntryItem_PodcastEntry_Fragment };
         })
-      | ({ readonly __typename: "SlideEntry"; readonly publishedOn: unknown } & {
+      | ({ readonly __typename: "SlideEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_SlideEntry_Fragment: EntryItem_SlideEntry_Fragment };
         })
       | null;
@@ -305,27 +321,31 @@ export type GetEntryListByTagsQuery = { " $fragmentRefs": { EntryListByTagsFragm
 
 export type PickedEntryListEntriesFragment = {
   readonly pickedEntries: ReadonlyArray<
-    | { readonly __typename: "ArticleEntry"; readonly title: string; readonly path: string }
+    | { readonly __typename: "ArticleEntry"; readonly id: string; readonly title: string; readonly path: string }
     | {
         readonly __typename: "ExternalArticleEntry";
+        readonly id: string;
         readonly title: string;
         readonly url: string;
         readonly source: { readonly name: string };
       }
     | {
         readonly __typename: "OSSEntry";
+        readonly id: string;
         readonly title: string;
         readonly url: string;
         readonly source: { readonly name: string };
       }
     | {
         readonly __typename: "PodcastEntry";
+        readonly id: string;
         readonly title: string;
         readonly url: string;
         readonly source: { readonly name: string };
       }
     | {
         readonly __typename: "SlideEntry";
+        readonly id: string;
         readonly title: string;
         readonly url: string;
         readonly source: { readonly name: string };
@@ -343,6 +363,7 @@ export const BlogArticleFragmentDoc = {
       selectionSet: {
         kind: "SelectionSet",
         selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "title" } },
           { kind: "Field", name: { kind: "Name", value: "body" } },
           { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -425,6 +446,7 @@ export const EntryItemFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
                 { kind: "Field", name: { kind: "Name", value: "path" } },
                 { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -445,6 +467,7 @@ export const EntryItemFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
                 { kind: "Field", name: { kind: "Name", value: "url" } },
                 { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -465,6 +488,7 @@ export const EntryItemFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
                 { kind: "Field", name: { kind: "Name", value: "url" } },
                 { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -485,6 +509,7 @@ export const EntryItemFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
                 { kind: "Field", name: { kind: "Name", value: "url" } },
                 { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -505,6 +530,7 @@ export const EntryItemFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
                 { kind: "Field", name: { kind: "Name", value: "url" } },
                 { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
@@ -552,7 +578,10 @@ export const EntryListViewFragmentDoc = {
                         typeCondition: { kind: "NamedType", name: { kind: "Name", value: "ArticleEntry" } },
                         selectionSet: {
                           kind: "SelectionSet",
-                          selections: [{ kind: "Field", name: { kind: "Name", value: "publishedOn" } }],
+                          selections: [
+                            { kind: "Field", name: { kind: "Name", value: "id" } },
+                            { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
+                          ],
                         },
                       },
                       {
@@ -560,7 +589,10 @@ export const EntryListViewFragmentDoc = {
                         typeCondition: { kind: "NamedType", name: { kind: "Name", value: "ExternalArticleEntry" } },
                         selectionSet: {
                           kind: "SelectionSet",
-                          selections: [{ kind: "Field", name: { kind: "Name", value: "publishedOn" } }],
+                          selections: [
+                            { kind: "Field", name: { kind: "Name", value: "id" } },
+                            { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
+                          ],
                         },
                       },
                       {
@@ -568,7 +600,10 @@ export const EntryListViewFragmentDoc = {
                         typeCondition: { kind: "NamedType", name: { kind: "Name", value: "SlideEntry" } },
                         selectionSet: {
                           kind: "SelectionSet",
-                          selections: [{ kind: "Field", name: { kind: "Name", value: "publishedOn" } }],
+                          selections: [
+                            { kind: "Field", name: { kind: "Name", value: "id" } },
+                            { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
+                          ],
                         },
                       },
                       {
@@ -576,7 +611,10 @@ export const EntryListViewFragmentDoc = {
                         typeCondition: { kind: "NamedType", name: { kind: "Name", value: "OSSEntry" } },
                         selectionSet: {
                           kind: "SelectionSet",
-                          selections: [{ kind: "Field", name: { kind: "Name", value: "publishedOn" } }],
+                          selections: [
+                            { kind: "Field", name: { kind: "Name", value: "id" } },
+                            { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
+                          ],
                         },
                       },
                       {
@@ -584,7 +622,10 @@ export const EntryListViewFragmentDoc = {
                         typeCondition: { kind: "NamedType", name: { kind: "Name", value: "PodcastEntry" } },
                         selectionSet: {
                           kind: "SelectionSet",
-                          selections: [{ kind: "Field", name: { kind: "Name", value: "publishedOn" } }],
+                          selections: [
+                            { kind: "Field", name: { kind: "Name", value: "id" } },
+                            { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
+                          ],
                         },
                       },
                       { kind: "FragmentSpread", name: { kind: "Name", value: "EntryItem" } },
@@ -723,6 +764,7 @@ export const PickedEntryListEntriesFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       { kind: "Field", name: { kind: "Name", value: "title" } },
                       { kind: "Field", name: { kind: "Name", value: "path" } },
                     ],
@@ -734,6 +776,7 @@ export const PickedEntryListEntriesFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       { kind: "Field", name: { kind: "Name", value: "title" } },
                       { kind: "Field", name: { kind: "Name", value: "url" } },
                       {
@@ -753,6 +796,7 @@ export const PickedEntryListEntriesFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       { kind: "Field", name: { kind: "Name", value: "title" } },
                       { kind: "Field", name: { kind: "Name", value: "url" } },
                       {
@@ -772,6 +816,7 @@ export const PickedEntryListEntriesFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       { kind: "Field", name: { kind: "Name", value: "title" } },
                       { kind: "Field", name: { kind: "Name", value: "url" } },
                       {
@@ -791,6 +836,7 @@ export const PickedEntryListEntriesFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       { kind: "Field", name: { kind: "Name", value: "title" } },
                       { kind: "Field", name: { kind: "Name", value: "url" } },
                       {

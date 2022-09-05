@@ -24,6 +24,8 @@ export const schema = {
         kind: "OBJECT",
         name: "ArticleEntry",
         fields: [
+          { name: "id", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
+          { name: "uuid", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "title", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "body", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "metaDescription", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
@@ -59,6 +61,8 @@ export const schema = {
         kind: "OBJECT",
         name: "ExternalArticleEntry",
         fields: [
+          { name: "id", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
+          { name: "uuid", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "title", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "url", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           {
@@ -86,6 +90,8 @@ export const schema = {
         kind: "OBJECT",
         name: "SlideEntry",
         fields: [
+          { name: "id", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
+          { name: "uuid", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "title", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "url", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           {
@@ -113,6 +119,8 @@ export const schema = {
         kind: "OBJECT",
         name: "OSSEntry",
         fields: [
+          { name: "id", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
+          { name: "uuid", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "title", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "url", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           {
@@ -140,6 +148,8 @@ export const schema = {
         kind: "OBJECT",
         name: "PodcastEntry",
         fields: [
+          { name: "id", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
+          { name: "uuid", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "title", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           { name: "url", type: { kind: "NON_NULL", ofType: { kind: "SCALAR", name: "Any" } }, args: [] },
           {

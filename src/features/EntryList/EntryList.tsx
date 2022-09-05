@@ -35,18 +35,23 @@ const ListViewFragment = gql(/* GraphQL */ `
       node {
         __typename
         ... on ArticleEntry {
+          id
           publishedOn
         }
         ... on ExternalArticleEntry {
+          id
           publishedOn
         }
         ... on SlideEntry {
+          id
           publishedOn
         }
         ... on OSSEntry {
+          id
           publishedOn
         }
         ... on PodcastEntry {
+          id
           publishedOn
         }
         ...EntryItem

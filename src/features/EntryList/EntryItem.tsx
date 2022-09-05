@@ -14,6 +14,7 @@ import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 const Fragment = gql(/* GraphQL */ `
   fragment EntryItem on Entry {
     ... on ArticleEntry {
+      id
       title
       path
       # tags {
@@ -26,6 +27,7 @@ const Fragment = gql(/* GraphQL */ `
       }
     }
     ... on ExternalArticleEntry {
+      id
       title
       url
       # tags {
@@ -38,6 +40,7 @@ const Fragment = gql(/* GraphQL */ `
       }
     }
     ... on SlideEntry {
+      id
       title
       url
       # tags {
@@ -50,6 +53,7 @@ const Fragment = gql(/* GraphQL */ `
       }
     }
     ... on OSSEntry {
+      id
       title
       url
       # tags {
@@ -62,6 +66,7 @@ const Fragment = gql(/* GraphQL */ `
       }
     }
     ... on PodcastEntry {
+      id
       title
       url
       # tags {

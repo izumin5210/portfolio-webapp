@@ -18,6 +18,7 @@ import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 /** @internal visible for testing */
 export const Fragment = gql(/* GraphQL */ `
   fragment BlogArticle on ArticleEntry {
+    id
     title
     body
     publishedOn
