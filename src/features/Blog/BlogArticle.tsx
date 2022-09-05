@@ -15,7 +15,8 @@ import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../
 import { textLinkCss } from "../../lib/ui/TextLink";
 import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 
-const Fragment = gql(/* GraphQL */ `
+/** @internal visible for testing */
+export const Fragment = gql(/* GraphQL */ `
   fragment BlogArticle on ArticleEntry {
     title
     body
