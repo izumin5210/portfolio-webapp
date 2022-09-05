@@ -72,7 +72,7 @@ function useMarkdownProcessor(text: string) {
       .use(rehypePrism) // FIXME: should import only used syntax
       .use(rehypeReact, {
         createElement,
-        ReactFragment,
+        Fragment: ReactFragment,
         components: {
           h1: H1,
           h2: H2,
