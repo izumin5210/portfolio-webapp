@@ -10,6 +10,7 @@ export default {
 export const Normal: ComponentStoryObj<typeof BlogArticle> = {
   args: {
     data: documentData(Fragment, {
+      id: "f5f6d6a7-af5a-4a16-9133-27a1981b6ea2",
       title: "Example article",
       publishedOn: "2021-01-04",
       updatedOn: "2021-01-11",
