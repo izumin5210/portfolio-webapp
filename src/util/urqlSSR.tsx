@@ -24,6 +24,7 @@ function buildCacheExchange() {
     },
     keys: {
       EntrySource: () => null,
+      EntryTag: () => null,
     },
     schema,
   });
