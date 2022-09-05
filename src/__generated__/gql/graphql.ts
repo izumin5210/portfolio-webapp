@@ -305,11 +305,31 @@ export type GetEntryListByTagsQuery = { " $fragmentRefs": { EntryListByTagsFragm
 
 export type PickedEntryListEntriesFragment = {
   readonly pickedEntries: ReadonlyArray<
-    | { readonly title: string; readonly path: string }
-    | { readonly title: string; readonly url: string; readonly source: { readonly name: string } }
-    | { readonly title: string; readonly url: string; readonly source: { readonly name: string } }
-    | { readonly title: string; readonly url: string; readonly source: { readonly name: string } }
-    | { readonly title: string; readonly url: string; readonly source: { readonly name: string } }
+    | { readonly __typename: "ArticleEntry"; readonly title: string; readonly path: string }
+    | {
+        readonly __typename: "ExternalArticleEntry";
+        readonly title: string;
+        readonly url: string;
+        readonly source: { readonly name: string };
+      }
+    | {
+        readonly __typename: "OSSEntry";
+        readonly title: string;
+        readonly url: string;
+        readonly source: { readonly name: string };
+      }
+    | {
+        readonly __typename: "PodcastEntry";
+        readonly title: string;
+        readonly url: string;
+        readonly source: { readonly name: string };
+      }
+    | {
+        readonly __typename: "SlideEntry";
+        readonly title: string;
+        readonly url: string;
+        readonly source: { readonly name: string };
+      }
   >;
 } & { " $fragmentName": "PickedEntryListEntriesFragment" };
 
@@ -696,6 +716,7 @@ export const PickedEntryListEntriesFragmentDoc = {
             selectionSet: {
               kind: "SelectionSet",
               selections: [
+                { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
                   kind: "InlineFragment",
                   typeCondition: { kind: "NamedType", name: { kind: "Name", value: "ArticleEntry" } },

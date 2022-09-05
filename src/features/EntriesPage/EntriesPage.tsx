@@ -6,8 +6,6 @@ import { gql } from "../../__generated__/gql";
 import { EntryList, EntryListFilteredByTags, initialEntriesCount } from "../EntryList/EntryList";
 import { PickedEntryList } from "../EntryList/PickedEntryList";
 
-export type { EntriesPageQuery as EntriesPageQueryType } from "./__generated__/EntriesPageQuery.graphql";
-
 export const EntriesPageQuery = gql(/* GraphQL */ `
   query GetEntriesPage($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
     ...PickedEntryListEntries
@@ -37,7 +35,7 @@ export const EntriesPage: React.VFC<{ tags: string[] }> = ({ tags }) => {
       <PickedEntryList data={res.data} />
 
       <H2>All Entries</H2>
-      {filteredByTags ? <EntryListFilteredByTags data={res.data} /> : <EntryList data={res.data} />}
+      {filteredByTags ? <EntryListFilteredByTags data={res.data} tags={tags} /> : <EntryList data={res.data} />}
     </>
   );
 };

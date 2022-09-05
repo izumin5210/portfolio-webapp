@@ -6,6 +6,7 @@ import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 const Fragment = gql(/* GraphQL */ `
   fragment PickedEntryListEntries on Query {
     pickedEntries {
+      __typename
       ... on ArticleEntry {
         title
         path
