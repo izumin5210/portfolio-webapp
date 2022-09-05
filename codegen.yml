@@ -25,4 +25,4 @@ generates:
 
 hooks:
   afterAllFileWrite:
-    - prettier --write
+    - prettier --write ./src
