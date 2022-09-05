@@ -1,0 +1,4 @@
+schema: ./schema.json
+documents:
+  - './src/**/*.tsx'
+  - '!./src/__generated__/**/*'
