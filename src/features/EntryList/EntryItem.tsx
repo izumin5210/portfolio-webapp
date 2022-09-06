@@ -1,9 +1,6 @@
 import { MicrophoneIcon, PencilIcon } from "@heroicons/react/solid";
 import { styled } from "@linaria/react";
-import graphql from "babel-plugin-relay/macro";
 import Link from "next/link";
-import React from "react";
-import { useFragment } from "react-relay";
 import GitHubIcon from "../../lib/icons/GitHubIcon";
 import MediumIcon from "../../lib/icons/MediumIcon";
 import QiitaIcon from "../../lib/icons/QiitaIcon";
@@ -12,106 +9,106 @@ import WantedlyIcon from "../../lib/icons/WantedlyIcon";
 import ZennIcon from "../../lib/icons/ZennIcon";
 import { reactionCss } from "../../lib/styles/reactions";
 import { body1, caption } from "../../lib/styles/typo";
-import { EntryItem$key } from "./__generated__/EntryItem.graphql";
+import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 
-type Props = {
-  entry: EntryItem$key;
-};
-
-export function EntryItem(props: Props) {
-  const data = useFragment(
-    graphql`
-      fragment EntryItem on Entry {
-        ... on ArticleEntry {
-          title
-          path
-          # tags {
-          #   name
-          #   ...EntryItemTag
-          # }
-          publishedOn
-          source {
-            name
-          }
-        }
-        ... on ExternalArticleEntry {
-          title
-          url
-          # tags {
-          #   name
-          #   ...EntryItemTag
-          # }
-          publishedOn
-          source {
-            name
-          }
-        }
-        ... on SlideEntry {
-          title
-          url
-          # tags {
-          #   name
-          #   ...EntryItemTag
-          # }
-          publishedOn
-          source {
-            name
-          }
-        }
-        ... on OSSEntry {
-          title
-          url
-          # tags {
-          #   name
-          #   ...EntryItemTag
-          # }
-          publishedOn
-          source {
-            name
-          }
-        }
-        ... on PodcastEntry {
-          title
-          url
-          # tags {
-          #   name
-          #   ...EntryItemTag
-          # }
-          publishedOn
-          source {
-            name
-          }
-        }
+const Fragment = gql(/* GraphQL */ `
+  fragment EntryItem on Entry {
+    ... on ArticleEntry {
+      id
+      title
+      path
+      # tags {
+      #   name
+      #   ...EntryItemTag
+      # }
+      publishedOn
+      source {
+        name
       }
-    `,
-    props.entry
-  );
+    }
+    ... on ExternalArticleEntry {
+      id
+      title
+      url
+      # tags {
+      #   name
+      #   ...EntryItemTag
+      # }
+      publishedOn
+      source {
+        name
+      }
+    }
+    ... on SlideEntry {
+      id
+      title
+      url
+      # tags {
+      #   name
+      #   ...EntryItemTag
+      # }
+      publishedOn
+      source {
+        name
+      }
+    }
+    ... on OSSEntry {
+      id
+      title
+      url
+      # tags {
+      #   name
+      #   ...EntryItemTag
+      # }
+      publishedOn
+      source {
+        name
+      }
+    }
+    ... on PodcastEntry {
+      id
+      title
+      url
+      # tags {
+      #   name
+      #   ...EntryItemTag
+      # }
+      publishedOn
+      source {
+        name
+      }
+    }
+  }
+`);
 
-  const publishedOn = data.publishedOn as string;
+export function EntryItem(props: { data: FragmentType<typeof Fragment> }) {
+  const fragment = useFragment(Fragment, props.data);
+
+  const publishedOn = fragment.publishedOn as string;
 
   return (
-    <EntryLi key={data.title}>
-      <Link href={data.url ?? data.path ?? ""} passHref>
-        <EntryAnchor {...(data.url ? { rel: "noopener noreferrer", target: "_blank" } : {})}>
-          {data.source?.name === "SpeakerDeck" ? (
+    <EntryLi key={fragment.title}>
+      <Link href={"url" in fragment ? fragment.url : fragment.path} passHref>
+        <EntryAnchor {...("url" in fragment && { rel: "noopener noreferrer", target: "_blank" })}>
+          {fragment.source?.name === "SpeakerDeck" ? (
             <SpeakerDeckIcon />
-          ) : data.source?.name === "GitHub" ? (
+          ) : fragment.source?.name === "GitHub" ? (
             <GitHubIcon />
-          ) : data.source?.name === "Zenn" ? (
+          ) : fragment.source?.name === "Zenn" ? (
             <ZennIcon />
-          ) : data.source?.name === "Qiita" ? (
+          ) : fragment.source?.name === "Qiita" ? (
             <QiitaIcon />
-          ) : data.source?.name === "Medium" ? (
+          ) : fragment.source?.name === "Medium" ? (
             <MediumIcon />
-          ) : data.source?.name === "izum.in/blog" ? (
+          ) : fragment.source?.name === "izum.in/blog" ? (
             <PencilIcon />
-          ) : data.source?.name === "Wantedly Engineer Blog" ? (
+          ) : fragment.source?.name === "Wantedly Engineer Blog" ? (
             <WantedlyIcon />
-          ) : data.source?.name === "Wantedly Engineering Podcast" ? (
+          ) : fragment.source?.name === "Wantedly Engineering Podcast" ? (
             <MicrophoneIcon />
           ) : null}
           <EntryPublishedOn dateTime={publishedOn}>{publishedOn}</EntryPublishedOn>
-          <EntryTitle>{data.title}</EntryTitle>
+          <EntryTitle>{fragment.title}</EntryTitle>
           {/*
           <TagsUl>
             {data.tags?.map((tag) => (

@@ -1,95 +1,122 @@
 import { styled } from "@linaria/react";
-import graphql from "babel-plugin-relay/macro";
-import { Suspense as _Suspense, SuspenseProps } from "react";
-import { useFragment, usePaginationFragment } from "react-relay";
+import { useCallback, useState } from "react";
+import { useQuery } from "urql";
 import { caption } from "../../lib/styles/typo";
+import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 import { EntryItem } from "./EntryItem";
-import type { EntryListEntries$key } from "./__generated__/EntryListEntries.graphql";
-import { EntryListEntriesByTags$key } from "./__generated__/EntryListEntriesByTags.graphql";
-import { EntryListFilteredByTagsPaginationQuery } from "./__generated__/EntryListFilteredByTagsPaginationQuery.graphql";
-import { EntryListPaginationQuery } from "./__generated__/EntryListPaginationQuery.graphql";
-import { EntryListView$key } from "./__generated__/EntryListView.graphql";
 
-function DummySuspense(props: SuspenseProps) {
-  return <>{props.children}</>;
-}
-const Suspense = typeof window === "undefined" ? DummySuspense : _Suspense;
-
-function Loading() {
-  return <li>Loading...</li>;
-}
-
-export function EntryList(props: { entries: EntryListEntries$key }) {
-  const { data, loadNext, hasNext } = usePaginationFragment<EntryListPaginationQuery, EntryListEntries$key>(
-    graphql`
-      fragment EntryListEntries on Query
-      @refetchable(queryName: "EntryListPaginationQuery")
-      @argumentDefinitions(count: { type: "Int!" }, cursor: { type: "String" }) {
-        entries(first: $count, after: $cursor) @connection(key: "EntryListEntries_entries") {
-          edges {
-            __typename
-          }
-          ...EntryListView
-        }
+const ListFragment = gql(/* GraphQL */ `
+  fragment EntryList on Query {
+    entries(first: $count, after: $cursor) {
+      pageInfo {
+        endCursor
+        hasNextPage
       }
-    `,
-    props.entries
-  );
+      ...EntryListView
+    }
+  }
+`);
 
-  return <EntryListView entries={data.entries} loadNext={() => loadNext(20)} hasNext={hasNext} />;
+const ListByTagsFragment = gql(/* GraphQL */ `
+  fragment EntryListByTags on Query {
+    entriesByTags(first: $count, after: $cursor, tags: $tags) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      ...EntryListView
+    }
+  }
+`);
+
+const ListViewFragment = gql(/* GraphQL */ `
+  fragment EntryListView on EntryConnection {
+    edges {
+      node {
+        __typename
+        ... on ArticleEntry {
+          id
+          publishedOn
+        }
+        ... on ExternalArticleEntry {
+          id
+          publishedOn
+        }
+        ... on SlideEntry {
+          id
+          publishedOn
+        }
+        ... on OSSEntry {
+          id
+          publishedOn
+        }
+        ... on PodcastEntry {
+          id
+          publishedOn
+        }
+        ...EntryItem
+      }
+    }
+  }
+`);
+
+const ListQuery = gql(/* GraphQL */ `
+  query GetEntryList($cursor: String, $count: Int!) {
+    ...EntryList
+  }
+`);
+
+const ListByTagsQuery = gql(/* GraphQL */ `
+  query GetEntryListByTags($cursor: String, $count: Int!, $tags: [String!]!) {
+    ...EntryListByTags
+  }
+`);
+
+export const initialEntriesCount = 20;
+
+export function EntryList({ data }: { data: FragmentType<typeof ListFragment> }) {
+  const [cursor, setCursor] = useState<string | null>(null);
+  useQuery({
+    query: ListQuery,
+    variables: { count: initialEntriesCount, cursor },
+    pause: cursor == null,
+  });
+
+  const fragment = useFragment(ListFragment, data);
+
+  const { hasNextPage, endCursor } = fragment.entries.pageInfo;
+  const loadNext = useCallback(() => {
+    if (endCursor) setCursor(endCursor);
+  }, [endCursor]);
+
+  return <EntryListView data={fragment.entries} loadNext={loadNext} hasNext={hasNextPage} />;
 }
 
-export function EntryListFilteredByTags(props: { entriesByTags: EntryListEntriesByTags$key }) {
-  const { data, loadNext, hasNext } = usePaginationFragment<
-    EntryListFilteredByTagsPaginationQuery,
-    EntryListEntriesByTags$key
-  >(
-    graphql`
-      fragment EntryListEntriesByTags on Query
-      @refetchable(queryName: "EntryListFilteredByTagsPaginationQuery")
-      @argumentDefinitions(count: { type: "Int!" }, cursor: { type: "String" }, tags: { type: "[String!]!" }) {
-        entriesByTags(first: $count, after: $cursor, tags: $tags) @connection(key: "EntryListEntries_entriesByTags") {
-          edges {
-            __typename
-          }
-          ...EntryListView
-        }
-      }
-    `,
-    props.entriesByTags
-  );
-  return <EntryListView entries={data.entriesByTags} loadNext={() => loadNext(20)} hasNext={hasNext} />;
+export function EntryListFilteredByTags({
+  data,
+  tags,
+}: {
+  data: FragmentType<typeof ListByTagsFragment>;
+  tags: string[];
+}) {
+  const [cursor, setCursor] = useState<string | null>(null);
+  useQuery({
+    query: ListByTagsQuery,
+    variables: { count: initialEntriesCount, cursor, tags },
+    pause: cursor == null,
+  });
+  const fragment = useFragment(ListByTagsFragment, data);
+
+  const { hasNextPage, endCursor } = fragment.entriesByTags.pageInfo;
+  const loadNext = useCallback(() => {
+    if (endCursor) setCursor(endCursor);
+  }, [endCursor]);
+
+  return <EntryListView data={fragment.entriesByTags} loadNext={loadNext} hasNext={hasNextPage} />;
 }
 
-function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries: EntryListView$key }) {
-  const data = useFragment(
-    graphql`
-      fragment EntryListView on EntryConnection {
-        edges {
-          node {
-            __typename
-            ... on ArticleEntry {
-              publishedOn
-            }
-            ... on ExternalArticleEntry {
-              publishedOn
-            }
-            ... on SlideEntry {
-              publishedOn
-            }
-            ... on OSSEntry {
-              publishedOn
-            }
-            ... on PodcastEntry {
-              publishedOn
-            }
-            ...EntryItem
-          }
-        }
-      }
-    `,
-    props.entries
-  );
+function EntryListView(props: { hasNext: boolean; loadNext: () => void; data: FragmentType<typeof ListViewFragment> }) {
+  const data = useFragment(ListViewFragment, props.data);
   return (
     <>
       <Ul>
@@ -116,11 +143,7 @@ function EntryListView(props: { hasNext: boolean; loadNext: () => void; entries:
               return <YearLi key={`year-${node}`}>{node}</YearLi>;
             }
             const key = `item-${idx}`;
-            return (
-              <Suspense fallback={<Loading />} key={key}>
-                <EntryItem entry={node} />
-              </Suspense>
-            );
+            return <EntryItem key={key} data={node} />;
           })}
       </Ul>
       {props.hasNext ? <button onClick={() => props.loadNext()}>Load more</button> : null}

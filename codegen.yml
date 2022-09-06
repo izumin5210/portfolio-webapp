@@ -1,0 +1,29 @@
+schema: ./schema.json
+documents:
+  - './src/**/*.tsx'
+  - '!./src/__generated__/**/*'
+generates:
+  ./src/__generated__/gql:
+    preset: gql-tag-operations-preset
+    presetConfig:
+      fragmentMasking: true
+    config:
+      # typescript, typescript-operations
+      avoidOptionals:
+        field: true
+        inputValue: false
+        object: true
+        defaultValue: false
+      enumsAsConst: true
+      immutableTypes: true
+      strictScalars: true
+      scalars:
+        Date: unknown
+      skipTypename: true
+      useTypeImports: true
+      dedupeFragments: true
+
+hooks:
+  afterAllFileWrite:
+    - node ./scripts/gen-introspeciton-schema-for-urql.mjs
+    - prettier --write ./src

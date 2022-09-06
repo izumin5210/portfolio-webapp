@@ -1,48 +1,48 @@
 import { styled } from "@linaria/react";
-import graphql from "babel-plugin-relay/macro";
 import Image from "next/image";
 import { useEffect } from "react";
-import { useFragment } from "react-relay";
+import { useQuery } from "urql";
 import { colors } from "../../lib/styles/colors";
 import { heading3, heading4, heading5 } from "../../lib/styles/typo";
 import { Tag } from "../../lib/ui/Tag";
 import { useTheme } from "../../lib/ui/useTheme";
-import { BlogArticleOgImagePageCard$key } from "./__generated__/BlogArticleOgImagePageCard.graphql";
-import { BlogArticleOgImagePageQuery$data } from "./__generated__/BlogArticleOgImagePageQuery.graphql";
+import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 
-export const BlogArticleOgImagePageQuery = graphql`
-  query BlogArticleOgImagePageQuery($articlePath: String!) {
+export const BlogArticleOgImagePageQuery = gql(/* GraphQL */ `
+  query GetBlogArticleOgImagePage($articlePath: String!) {
     articleEntryByPath(path: $articlePath) {
       ...BlogArticleOgImagePageCard
     }
   }
-`;
+`);
 
-export function BlogArticleOgImagePage(props: { queryResult: BlogArticleOgImagePageQuery$data }) {
-  const article = props.queryResult.articleEntryByPath;
+const Fragment = gql(/* GraphQL */ `
+  fragment BlogArticleOgImagePageCard on ArticleEntry {
+    title
+    tags {
+      name
+      displayName
+    }
+    publishedOn
+  }
+`);
+
+export function BlogArticleOgImagePage({ articlePath }: { articlePath: string }) {
+  const [res] = useQuery({
+    query: BlogArticleOgImagePageQuery,
+    variables: { articlePath },
+  });
+  const article = res.data?.articleEntryByPath;
   if (article == null) return null;
-  return <BlogArticleOgImage articleEntry={article} />;
+  return <BlogArticleOgImage data={article} />;
 }
 
-function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$key }) {
+function BlogArticleOgImage(props: { data: FragmentType<typeof Fragment> }) {
+  const fragment = useFragment(Fragment, props.data);
   const { className, setTheme } = useTheme();
   useEffect(() => {
     setTheme("light");
   }, [setTheme]);
-
-  const data = useFragment(
-    graphql`
-      fragment BlogArticleOgImagePageCard on ArticleEntry {
-        title
-        tags {
-          name
-          displayName
-        }
-        publishedOn
-      }
-    `,
-    props.articleEntry
-  );
 
   return (
     <Page className={className}>
@@ -53,12 +53,12 @@ function BlogArticleOgImage(props: { articleEntry: BlogArticleOgImagePageCard$ke
           </AvatarWrapper>
           <FirstLine>
             <AuthorName>@izumin5210</AuthorName>
-            <Time dateTime={data.publishedOn}>{data.publishedOn}</Time>
+            <Time dateTime={fragment.publishedOn as string}>{fragment.publishedOn as string}</Time>
           </FirstLine>
 
-          <Title>{data.title}</Title>
+          <Title>{fragment.title}</Title>
           <TagsUl>
-            {data.tags.map((tag) => (
+            {fragment.tags.map((tag) => (
               <Tag as="li" key={tag.name} text={tag.displayName} />
             ))}
           </TagsUl>

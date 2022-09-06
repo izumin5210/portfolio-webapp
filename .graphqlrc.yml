@@ -1,8 +1,4 @@
-schema: ${SCHEMA_ENDPOINT:./schema.graphql}
-documents: "src/**/*.{ts,tsx}"
-extensions:
-  codegen:
-    generates:
-      ./schema.graphql:
-        plugins:
-          - schema-ast
+schema: ./schema.json
+documents:
+  - './src/**/*.tsx'
+  - '!./src/__generated__/**/*'

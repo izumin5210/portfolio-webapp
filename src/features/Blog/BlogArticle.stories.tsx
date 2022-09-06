@@ -1,58 +1,24 @@
-import { Meta, Story } from "@storybook/react";
-import graphql from "babel-plugin-relay/macro";
-import { useLazyLoadQuery } from "react-relay";
-import { RelayMockProvider } from "../../__helpers__/RelayMockProvider";
-import { BlogArticle } from "./BlogArticle";
-import { BlogArticle$data } from "./__generated__/BlogArticle.graphql";
-import { BlogArticleTestQuery } from "./__generated__/BlogArticleTestQuery.graphql";
-
-type Props = { article: Omit<BlogArticle$data, " $fragmentType"> };
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
+import { documentData } from "../../lib/fragment-masking/documentData";
+import { BlogArticle, Fragment } from "./BlogArticle";
 
 export default {
   title: "Blog/BlogArticle",
   component: BlogArticle,
-} as Meta<Props>;
+} as ComponentMeta<typeof BlogArticle>;
 
-const Queryer = () => {
-  const data = useLazyLoadQuery<BlogArticleTestQuery>(
-    graphql`
-      query BlogArticleTestQuery @relay_test_operation {
-        articleEntryByPath(path: "test-path") {
-          ...BlogArticle
-        }
-      }
-    `,
-    {}
-  );
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return <BlogArticle article={data.articleEntryByPath!} />;
-};
-
-const Template: Story<Props> = (args) => {
-  return (
-    <RelayMockProvider
-      mockResolvers={{
-        ArticleEntry() {
-          return args.article;
-        },
-      }}
-    >
-      <Queryer />
-    </RelayMockProvider>
-  );
-};
-
-export const Normal = Template.bind({});
-Normal.args = {
-  article: {
-    title: "Example article",
-    publishedOn: "2021-01-04",
-    updatedOn: "2021-01-11",
-    tags: [
-      { name: "react", displayName: "React" },
-      { name: "graphql", displayName: "GraphQL" },
-    ],
-    body: `# Example article
+export const Normal: ComponentStoryObj<typeof BlogArticle> = {
+  args: {
+    data: documentData(Fragment, {
+      id: "f5f6d6a7-af5a-4a16-9133-27a1981b6ea2",
+      title: "Example article",
+      publishedOn: "2021-01-04",
+      updatedOn: "2021-01-11",
+      tags: [
+        { name: "react", displayName: "React" },
+        { name: "graphql", displayName: "GraphQL" },
+      ],
+      body: `# Example article
 
 ## Heading level 2
 
@@ -112,5 +78,6 @@ This is a \`inline code block\`.
 ![large image](https://dummyimage.com/1600x1200/bdbdbd/000000)
 ![long image](https://dummyimage.com/600x2400/bdbdbd/000000)
 `,
+    }),
   },
 };
