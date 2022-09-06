@@ -61,7 +61,7 @@
     "@graphql-codegen/gql-tag-operations-preset": "^1.5.5",
     "@linaria/babel-preset": "3.0.0-beta.15",
     "@linaria/core": "3.0.0-beta.15",
-    "@linaria/shaker": "3.0.0-beta.15",
+    "@linaria/shaker": "3.0.0-beta.23",
     "@linaria/webpack-loader": "3.0.0-beta.16",
     "@next/bundle-analyzer": "12.1.4",
     "@storybook/addon-actions": "6.5.10",
