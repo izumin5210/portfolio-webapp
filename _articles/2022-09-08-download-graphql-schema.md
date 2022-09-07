@@ -53,6 +53,6 @@ SDL でほしければ  `printSchema(buildClientSchema(data))` で OK。
 
 これは [get-graphql-schema](https://github.com/prisma-labs/get-graphql-schema) がやってることと同じだが、このパッケージはすごい古い `graphql` に依存してたりする。
 [Apollo CLI も dreprecation になっていく](https://github.com/apollographql/apollo-tooling)方針らしく、使いたくない。
-代替探してもいいんだけど、これだけのために他のパッケージに依存するのもなんだかなあと思い、手で書くようになった。
+代替探してもいいんだけど、これだけのために他のパッケージに依存するのもなんだかなあと思い、最近は上に書いたような script を置くようにしている。
 
 モバイルアプリなど、Node.js を使わない環境ではどうするんだろう。各ライブラリがいいい感じやってくれてるんだろうか。
