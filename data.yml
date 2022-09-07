@@ -80,6 +80,18 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: Alfred Raycast 違い
+    publishedOn: '2022-08-27'
+    updatedOn: null
+    tags:
+      - name: developer-productivity
+        displayName: Developer Productivity
+    path: /blog/2022/08/27/alfred-and-raycast
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
+    uuid: 50a47615-362c-4a1a-9eb4-e9f7eff558c5
   - url: https://www.wantedly.com/companies/wantedly/post_articles/395772
     publishedOn: '2022-08-19'
     tags:
