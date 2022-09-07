@@ -80,6 +80,22 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
+  - title: コード生成のために GraphQL サーバから schema を取ってくる
+    publishedOn: '2022-09-08'
+    updatedOn: null
+    tags:
+      - name: graphql
+        displayName: GraphQL
+      - name: nodejs
+        displayName: Node.js
+      - name: web-frontend
+        displayName: Web Frontend
+    path: /blog/2022/09/08/download-graphql-schema
+    picked: false
+    source:
+      type: article
+      name: izum.in/blog
+    uuid: 53f6d325-5fe1-4d93-88e4-6a7e78d9d1e2
   - url: https://www.wantedly.com/companies/wantedly/post_articles/395772
     publishedOn: '2022-08-19'
     tags:
