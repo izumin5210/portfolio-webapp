@@ -1,19 +1,18 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { SSRData } from "next-urql";
 import Head from "next/head";
 import puppeteer from "puppeteer-core";
 import { ReactNode } from "react";
-import { fetchQuery } from "react-relay";
 import { ReactElement } from "rehype-react/lib";
 import {
   BlogArticleOgImagePage,
   BlogArticleOgImagePageQuery,
 } from "../../../../../../features/Blog/BlogArticleOgImagePage";
-import { BlogArticleOgImagePageQuery as BlogArticleOgImagePageQueryType } from "../../../../../../features/Blog/__generated__/BlogArticleOgImagePageQuery.graphql";
 import { getPath } from "../../../../../../lib/next-typed-routes";
-import { initRelayEnvironment } from "../../../../../../lib/RelayEnvironment";
+import { initUrqlClient, withUrqlClient } from "../../../../../../util/urqlSSR";
 
 function OgImage(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return props.queryResult ? <BlogArticleOgImagePage queryResult={props.queryResult} /> : null;
+  return props.articlePath ? <BlogArticleOgImagePage articlePath={props.articlePath} /> : null;
 }
 
 export type Query = {
@@ -21,31 +20,23 @@ export type Query = {
 };
 
 export const getServerSideProps: GetServerSideProps<
-  {
-    queryResult?: BlogArticleOgImagePageQueryType["response"] | undefined;
-    initialRecords?: any;
-  },
+  { articlePath?: string; urqlState?: SSRData },
   { year: string; month: string; day: string; path: string }
 > = async ({ params, res, query }) => {
   if (query.renderHtml === "true") {
-    const env = initRelayEnvironment();
-
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const articlePath = getPath("/blog/[year]/[month]/[day]/[path]", { params: params! });
 
-    const queryResult = await fetchQuery<BlogArticleOgImagePageQueryType>(env, BlogArticleOgImagePageQuery, {
-      articlePath,
-    }).toPromise();
-    const initialRecords = env.getStore().getSource().toJSON();
-
-    if (queryResult?.articleEntryByPath == null) {
+    const { client, ssrCache } = initUrqlClient();
+    const res = await client?.query(BlogArticleOgImagePageQuery, { articlePath }).toPromise();
+    if (res?.data?.articleEntryByPath == null) {
       return { notFound: true };
     }
 
     return {
       props: {
-        queryResult,
-        initialRecords,
+        articlePath,
+        urqlState: ssrCache.extractData(),
       },
     };
   }
@@ -93,4 +84,4 @@ OgImage.getLayout = (page: ReactElement): ReactNode => (
   </>
 );
 
-export default OgImage;
+export default withUrqlClient(OgImage);

@@ -1,8 +1,6 @@
 import { styled } from "@linaria/react";
-import graphql from "babel-plugin-relay/macro";
 import Link from "next/link";
-import React, { createElement, Fragment, useMemo } from "react";
-import { useFragment } from "react-relay";
+import React, { createElement, Fragment as ReactFragment, useMemo } from "react";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
 import remarkFrontmatter from "remark-frontmatter";
@@ -15,41 +13,42 @@ import { colors } from "../../lib/styles/colors";
 import { reactionCss } from "../../lib/styles/reactions";
 import { body2, heading3, heading4, heading5, heading6, subtitle2 } from "../../lib/styles/typo";
 import { textLinkCss } from "../../lib/ui/TextLink";
-import { BlogArticle$key } from "./__generated__/BlogArticle.graphql";
+import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 
-export function BlogArticle(props: { article: BlogArticle$key }) {
-  const data = useFragment(
-    graphql`
-      fragment BlogArticle on ArticleEntry {
-        title
-        body
-        publishedOn
-        updatedOn
-        tags {
-          name
-          displayName
-        }
-      }
-    `,
-    props.article
-  );
-  const body = useMarkdownProcessor(data.body);
+/** @internal visible for testing */
+export const Fragment = gql(/* GraphQL */ `
+  fragment BlogArticle on ArticleEntry {
+    id
+    title
+    body
+    publishedOn
+    updatedOn
+    tags {
+      name
+      displayName
+    }
+  }
+`);
+
+export function BlogArticle(props: { data: FragmentType<typeof Fragment> }) {
+  const fragment = useFragment(Fragment, props.data);
+  const body = useMarkdownProcessor(fragment.body);
 
   return (
     <Article>
       <Aside>
         <DatesUl>
           <li>
-            Published <Time dateTime={data.publishedOn}>{data.publishedOn}</Time>
+            Published <Time dateTime={fragment.publishedOn as string}>{fragment.publishedOn as string}</Time>
           </li>
-          {data.updatedOn && (
+          {fragment.updatedOn && (
             <li>
-              Updated <Time dateTime={data.updatedOn}>{data.updatedOn}</Time>
+              Updated <Time dateTime={fragment.updatedOn as string}>{fragment.updatedOn as string}</Time>
             </li>
           )}
         </DatesUl>
         <TagsUl>
-          {data.tags.map((tag) => (
+          {fragment.tags.map((tag) => (
             <li key={tag.name}>
               <Link href={getPath("/", { query: { tags: [tag.name] } })} passHref>
                 <Tag>{tag.displayName}</Tag>
@@ -58,7 +57,7 @@ export function BlogArticle(props: { article: BlogArticle$key }) {
           ))}
         </TagsUl>
       </Aside>
-      <H1 className="title">{data.title}</H1>
+      <H1 className="title">{fragment.title}</H1>
       {body}
     </Article>
   );
@@ -74,7 +73,7 @@ function useMarkdownProcessor(text: string) {
       .use(rehypePrism) // FIXME: should import only used syntax
       .use(rehypeReact, {
         createElement,
-        Fragment,
+        Fragment: ReactFragment,
         components: {
           h1: H1,
           h2: H2,

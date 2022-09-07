@@ -1,37 +1,32 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import React from "react";
-import { fetchQuery } from "react-relay";
+import { SSRData } from "next-urql";
 import { BlogArticlePage, BlogArticlePageQuery } from "../../../../../features/Blog/BlogArticlePage";
-import { BlogArticlePageQuery as BlogArticlePageQueryType } from "../../../../../features/Blog/__generated__/BlogArticlePageQuery.graphql";
 import { getPath } from "../../../../../lib/next-typed-routes";
-import { initRelayEnvironment } from "../../../../../lib/RelayEnvironment";
+import { initUrqlClient, withUrqlClient } from "../../../../../util/urqlSSR";
 
 const BlogArticle = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return props.queryResult ? <BlogArticlePage queryResult={props.queryResult} /> : null;
+  return <BlogArticlePage articlePath={props.articlePath} />;
 };
 
 export const getServerSideProps: GetServerSideProps<
-  {
-    queryResult: BlogArticlePageQueryType["response"] | undefined;
-    initialRecords: any;
-  },
+  { articlePath: string; urqlState: SSRData },
   { year: string; month: string; day: string; path: string }
 > = async (ctx) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const articlePath = getPath("/blog/[year]/[month]/[day]/[path]", { params: ctx.params! });
-  const env = initRelayEnvironment();
 
-  const queryResult = await fetchQuery<BlogArticlePageQueryType>(env, BlogArticlePageQuery, {
-    articlePath,
-  }).toPromise();
-  const initialRecords = env.getStore().getSource().toJSON();
+  const { client, ssrCache } = initUrqlClient();
+  const res = await client?.query(BlogArticlePageQuery, { articlePath }).toPromise();
+  if (res?.data?.articleEntryByPath == null) {
+    return { notFound: true };
+  }
 
   return {
     props: {
-      queryResult,
-      initialRecords,
+      articlePath,
+      urqlState: ssrCache.extractData(),
     },
   };
 };
 
-export default BlogArticle;
+export default withUrqlClient(BlogArticle);

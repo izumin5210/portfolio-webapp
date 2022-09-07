@@ -102,6 +102,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: true
+    uuid: 46a0d105-aea5-4bb4-9181-7ea46c052ac6
   - title: goimports をやめて gopls に寄せる
     publishedOn: '2022-07-31'
     updatedOn: null
@@ -113,6 +114,7 @@ entries:
     source:
       type: article
       name: izum.in/blog
+    uuid: c2963d5d-d07b-42f1-bf80-bc84e18d700a
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/--Production-Ready-GraphQL--2-w-izumin5210-e1grld0
     publishedOn: '2022-04-13'
@@ -125,6 +127,7 @@ entries:
       name: Wantedly Engineering Podcast
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
+    uuid: c6f3a2fd-1574-4f4f-9d37-8986696505b6
   - url: https://www.wantedly.com/companies/wantedly/post_articles/387161
     publishedOn: '2022-03-22'
     tags:
@@ -142,6 +145,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: f26a6fe6-e970-49de-81ba-04b2cf1c02b9
   - title: CSS variables によるダークモード対応
     publishedOn: '2022-03-14'
     updatedOn: null
@@ -159,6 +163,7 @@ entries:
     source:
       type: article
       name: izum.in/blog
+    uuid: 47a6a317-7844-490b-acae-71b2257d1e0e
   - url: https://speakerdeck.com/izumin5210/graphql-and-protobuf-number-tech-stand
     publishedOn: '2022-03-03'
     tags:
@@ -174,6 +179,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: true
+    uuid: c3aef4ef-3091-49e4-b03b-3671f11b4eed
   - title: このサイトの実装 2022-02
     publishedOn: '2022-02-23'
     updatedOn: null
@@ -185,6 +191,7 @@ entries:
     source:
       type: article
       name: izum.in/blog
+    uuid: 03d70cc6-1cf5-446d-8006-047881252719
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/GraphQL-Gateway--w-izumin5210-e1emd20
     tags:
@@ -201,6 +208,7 @@ entries:
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
     picked: false
+    uuid: d3355e9a-b886-4c79-ae85-476eb3191edc
   - url: https://speakerdeck.com/izumin5210/jsconf-jp-2021
     publishedOn: '2021-11-27'
     tags:
@@ -215,6 +223,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: d2698c48-e03f-410d-80bb-a1dda30f2e67
   - url: https://github.com/proto-graphql/graphql-field-mask
     publishedOn: '2021-10-24'
     tags:
@@ -231,6 +240,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 07d9ff65-2d47-42b7-af28-8265957e6efe
   - url: https://zenn.dev/izumin/articles/710eefc8172f66
     publishedOn: '2021-09-27'
     tags:
@@ -243,6 +253,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
+    uuid: 0d7b2a43-83d3-46b6-ad0c-5929a39072ed
   - url: https://zenn.dev/izumin/articles/fce4918f5f7946
     publishedOn: '2021-09-21'
     tags:
@@ -261,6 +272,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
+    uuid: 078f1ee9-8c83-4c35-ba26-e68625f6f926
   - url: https://github.com/izumin5210/graphql-fragment-mask
     publishedOn: '2021-09-13'
     tags:
@@ -275,6 +287,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: bb3f0309-39c3-4f79-9642-1cfe24ca0853
   - url: https://anchor.fm/wantedly-dev/episodes/ISUCON-1002-e16aotu/a-a6d986g
     publishedOn: '2021-08-23'
     tags:
@@ -289,6 +302,7 @@ entries:
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
     picked: true
+    uuid: 885002e9-7154-4736-ad8d-f4e198890aaf
   - url: >-
       https://anchor.fm/wantedly-dev/episodes/Protocol-Buffers--w-izumin5210-e15hjri/a-a69p8u8
     publishedOn: '2021-08-06'
@@ -306,6 +320,7 @@ entries:
       type: podcast
       urlPattern: ^https://anchor.fm/wantedly-dev/episodes/
     picked: false
+    uuid: 0271ad20-02fb-495b-a5cf-b24e4ec4d057
   - url: https://www.wantedly.com/companies/wantedly/post_articles/311135
     publishedOn: '2021-02-24'
     tags:
@@ -318,6 +333,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 4e9d3329-447d-4c4e-8eb7-8e068de26b9b
   - url: https://www.wantedly.com/companies/wantedly/post_articles/302873
     publishedOn: '2021-01-20'
     tags:
@@ -331,6 +347,7 @@ entries:
       name: Wantedly Engineer Blog
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
+    uuid: 21c6922b-4066-4849-afbf-790e17ff5200
   - url: https://zenn.dev/izumin/articles/4369181aa84f7b
     publishedOn: '2020-12-25'
     tags:
@@ -343,6 +360,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://zenn.dev/
     picked: false
+    uuid: ed2f20a3-49f1-49cf-8e1c-02f17fb260c9
   - url: https://github.com/proto-graphql/proto-nexus
     publishedOn: '2020-12-21'
     tags:
@@ -361,6 +379,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: true
+    uuid: 9420f5d4-bdd0-4fdb-9182-277033bd8aaf
   - url: https://www.wantedly.com/companies/wantedly/post_articles/297850
     publishedOn: '2020-12-11'
     tags:
@@ -377,6 +396,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 8e2bf24a-201a-4a7c-9073-90872bffefae
   - url: https://speakerdeck.com/izumin5210/number-gocon-sendai-2020
     publishedOn: '2020-10-10'
     tags:
@@ -389,6 +409,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 8233f940-effb-434a-b9c7-1f7e9fe27af2
   - url: https://github.com/wantedly/pb-serializer
     publishedOn: '2020-05-17'
     tags:
@@ -403,6 +424,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: true
+    uuid: be0cfc0b-1674-4790-8ece-42a4d34f616f
   - url: https://www.wantedly.com/companies/wantedly/post_articles/170571
     publishedOn: '2019-12-25'
     tags:
@@ -419,6 +441,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: true
+    uuid: 53f814a4-11f5-45f0-8efe-055b12ec44d2
   - url: https://www.wantedly.com/companies/wantedly/post_articles/199747
     publishedOn: '2019-12-17'
     tags:
@@ -433,6 +456,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 10b9d148-ac9a-4496-860e-23ae9d7e25af
   - url: >-
       https://blog.izum.in/os-signal-%E3%81%AB%E5%BF%9C%E3%81%98%E3%81%A6%E3%81%84%E3%81%84%E6%84%9F%E3%81%98%E3%81%AB%E3%81%AA%E3%82%8B-context-a704780ec664
     publishedOn: '2019-12-16'
@@ -446,6 +470,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 7367acf3-4ad9-4995-9b2e-7730d685a056
   - url: https://www.wantedly.com/companies/wantedly/post_articles/197571
     publishedOn: '2019-12-04'
     tags:
@@ -458,6 +483,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 62ec079c-b3a1-4f6f-a178-fe23a1292c83
   - url: https://qiita.com/izumin5210/items/b0bd3fa21aed6ab6bef5
     publishedOn: '2019-12-02'
     tags:
@@ -470,6 +496,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 6a6da2c3-cae0-4798-b668-4aae3740a9e9
   - url: https://github.com/izumin5210/hx
     publishedOn: '2019-11-08'
     tags:
@@ -484,6 +511,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 5156219b-bd85-4f3d-909a-9dad5251281d
   - url: https://github.com/izumin5210/redisync
     publishedOn: '2019-09-19'
     tags:
@@ -497,6 +525,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 2ebc8a20-3256-4605-8e4a-9d6cf818c73b
   - url: https://github.com/srvc/appctx
     publishedOn: '2019-09-18'
     tags:
@@ -509,6 +538,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 7b209e94-2d64-4f25-8072-b16cf3821b51
   - url: https://blog.izum.in/reviewdog-on-github-actions-c5d5ba705eb7
     publishedOn: '2019-08-16'
     tags:
@@ -521,6 +551,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: d528c1ee-a946-4eb3-a8ae-ebebb19dbda6
   - url: https://speakerdeck.com/izumin5210/golang-dot-tokyo-number-25
     publishedOn: '2019-07-18'
     tags:
@@ -533,6 +564,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: a2829347-f142-4d57-9628-9fd6d6d8253b
   - url: >-
       https://blog.izum.in/running-lean-%E5%AE%9F%E8%B7%B5%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97-%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0-596d9bf815fd
     publishedOn: '2019-05-27'
@@ -546,6 +578,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 2cd44cca-2512-4720-a72e-f818ba7bf32f
   - url: https://github.com/izumin5210/pubee
     publishedOn: '2019-05-26'
     tags:
@@ -560,6 +593,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 42463384-3018-4f48-95ed-f3c962c2d08f
   - url: https://speakerdeck.com/izumin5210/pubsub-internal
     publishedOn: '2019-05-20'
     tags:
@@ -572,6 +606,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: b3bab670-07e3-4cb9-8499-daeb2d9aba33
   - url: >-
       https://speakerdeck.com/izumin5210/techniques-that-support-building-cli-tools-2019-spring
     publishedOn: '2019-05-20'
@@ -587,6 +622,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: aa99ee42-4f76-4c8d-8a77-d32fb20113b9
   - url: >-
       https://speakerdeck.com/izumin5210/case-studies-of-designing-developer-friendly-libraries-number-gocon
     publishedOn: '2019-05-18'
@@ -600,6 +636,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 9dd9800b-e3e7-4fa3-8e70-cc9ab6b75c72
   - url: https://github.com/wantedly/subee
     publishedOn: '2019-02-20'
     tags:
@@ -616,6 +653,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: d76e6695-bbea-46fb-8252-2779e100a250
   - url: https://blog.izum.in/talk-about-plugin-in-gocon2018autumn-fb5e6bc5fc93
     publishedOn: '2018-12-25'
     tags:
@@ -628,6 +666,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 024ccabe-78e7-439f-9db5-6272693c2f1a
   - url: https://qiita.com/izumin5210/items/ed1c0100a45366c3b75e
     publishedOn: '2018-12-25'
     tags:
@@ -640,6 +679,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: aad66ed7-28b1-4070-8920-0018cded16b3
   - url: https://www.wantedly.com/companies/wantedly/post_articles/139554
     publishedOn: '2018-12-20'
     tags:
@@ -652,6 +692,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 900cce56-c04b-400a-af02-acaed963790f
   - url: https://speakerdeck.com/izumin5210/how-to-manage-tool-dependencies-in-go
     publishedOn: '2018-12-18'
     tags:
@@ -663,6 +704,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: f88843ec-f257-4670-9648-f80527c4ad07
   - url: https://qiita.com/izumin5210/items/2613364e29c0e25844aa
     publishedOn: '2018-12-17'
     tags:
@@ -675,6 +717,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 2e2377c7-8bcd-4107-8bef-18058d5d04ff
   - url: https://qiita.com/izumin5210/items/25a27d4f3c5078588f79
     publishedOn: '2018-12-15'
     tags:
@@ -687,6 +730,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 70510b17-09bc-47f3-9a9b-075c97d87e98
   - url: >-
       https://blog.izum.in/understand-understand-golang-org-x-tools-analysis-b7a3aba7ae4
     publishedOn: '2018-12-10'
@@ -700,6 +744,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: e19e57d4-3a94-4867-b237-cb23f6b999b6
   - url: https://qiita.com/izumin5210/items/7604f290785bc3f8f86a
     publishedOn: '2018-12-05'
     tags:
@@ -712,6 +757,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 8bb7b44b-ccae-4ccb-8436-b2283f9fc7a5
   - url: https://qiita.com/izumin5210/items/d2e352de1e541ff97079
     publishedOn: '2018-11-30'
     tags:
@@ -724,6 +770,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 0d76e8a9-c5c6-4ab1-b67a-3c2c445a12e5
   - url: >-
       https://speakerdeck.com/izumin5210/consider-pluggable-cli-tool-implementation-number-gocon
     publishedOn: '2018-11-25'
@@ -737,6 +784,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 8d762f08-2f75-4482-a6a1-98ce9ce57df9
   - url: https://qiita.com/izumin5210/items/b06a81002a6934c05185
     publishedOn: '2018-11-24'
     tags:
@@ -749,6 +797,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: e2b1b51f-31f4-4f6e-af64-d3b75f7dac7e
   - url: https://speakerdeck.com/izumin5210/deploy-web-frontend-app-with-buildkit
     publishedOn: '2018-11-21'
     tags:
@@ -766,6 +815,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 085bd482-3e89-4524-8b5a-9518f87d3e8a
   - url: https://qiita.com/izumin5210/items/7cdefe52cc54794c85fc
     publishedOn: '2018-11-19'
     tags:
@@ -778,6 +828,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: c39770f8-71e1-4efc-ab64-7216a8f56c22
   - url: https://blog.izum.in/accepted-and-rejected-in-gocon2018autumn-3250ab4a94bc
     publishedOn: '2018-11-15'
     tags:
@@ -790,6 +841,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 34cb7aef-5824-4c2f-99ac-92d8c1a4ad3b
   - url: https://blog.izum.in/wrap-err-in-production-143f94592b9a
     publishedOn: '2018-11-09'
     tags:
@@ -802,6 +854,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 24648077-68dc-4ac8-a1d8-c7a0e7216dab
   - url: https://blog.izum.in/painting-go-test-outputs-4fcabb7a47db
     publishedOn: '2018-11-04'
     tags:
@@ -814,6 +867,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: d85545e0-5fcd-44a4-b52e-c2075fe3682d
   - url: https://speakerdeck.com/izumin5210/wrap-err-in-production
     publishedOn: '2018-10-19'
     tags:
@@ -825,6 +879,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: bc5364db-7c3f-47b6-813a-15a502d5939a
   - url: https://qiita.com/izumin5210/items/59a29371809e36d64e04
     publishedOn: '2018-10-01'
     tags:
@@ -837,6 +892,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 2d6acf5b-b000-4fce-8538-b3e4f648ed0f
   - url: https://speakerdeck.com/izumin5210/params-deep-dive
     publishedOn: '2018-09-27'
     tags:
@@ -850,6 +906,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: e337c553-d2e1-4c90-baeb-658ba2edb76e
   - url: https://github.com/srvc/wraperr
     publishedOn: '2018-09-12'
     tags:
@@ -862,6 +919,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: b53cd192-4ed4-40bf-a492-cbc4fd36b6a4
   - url: https://speakerdeck.com/izumin5210/builderscon-tokyo-2018
     publishedOn: '2018-09-08'
     tags:
@@ -878,6 +936,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 4bda738f-48d0-481f-9d53-9750bfc5a07f
   - url: https://blog.izum.in/builderscon-2018-abstract-5982a36e441
     publishedOn: '2018-09-08'
     tags:
@@ -894,6 +953,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: 46b98ea6-262e-4dda-9937-48c39c4f7910
   - url: https://github.com/izumin5210/gex
     publishedOn: '2018-08-27'
     tags:
@@ -906,6 +966,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: a806e8e0-d090-406b-a33b-c562cdcd4f32
   - url: https://www.wantedly.com/companies/wantedly/post_articles/132270
     publishedOn: '2018-08-27'
     tags:
@@ -918,6 +979,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 2311340e-3c02-43b9-bfb9-7cad61025143
   - url: >-
       https://speakerdeck.com/izumin5210/tips-for-develoepr-friendly-testing-number-golangtokyo
     publishedOn: '2018-08-21'
@@ -930,6 +992,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 97f40c38-956f-4280-9450-ac54afe815fb
   - url: https://blog.izum.in/orm-and-query-builders-in-golang-1281c7c1e99f
     publishedOn: '2018-08-07'
     tags:
@@ -942,6 +1005,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: ccd29e34-a5b1-4239-bdfe-6cc5509402f6
   - url: >-
       https://speakerdeck.com/izumin5210/context-dot-context-is-not-just-for-cancelation
     publishedOn: '2018-07-26'
@@ -955,6 +1019,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 17467565-bcab-4caf-aa87-3a2d2fb2eccf
   - url: https://speakerdeck.com/izumin5210/splitting-db-on-rails
     publishedOn: '2018-05-12'
     tags:
@@ -969,6 +1034,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 16b30767-b545-40a1-8ba8-d1084b22ed61
   - url: >-
       https://speakerdeck.com/izumin5210/preferences-as-a-service-for-mobile-apps-and-microservices
     publishedOn: '2018-04-19'
@@ -981,6 +1047,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 5bfd4cca-59c5-4b51-950e-8e1a4df829f5
   - url: https://qiita.com/izumin5210/items/e008f74091275f3db8cc
     publishedOn: '2018-04-18'
     tags:
@@ -993,6 +1060,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: f2ccb525-349d-4866-aa6a-4ac51358ddd6
   - url: >-
       https://speakerdeck.com/izumin5210/grapi-bulding-json-api-server-with-grpc-gateway-for-microservices
     publishedOn: '2018-04-15'
@@ -1010,6 +1078,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 5cdcaac7-924e-4be3-9858-ce0e99b76322
   - url: https://www.wantedly.com/companies/wantedly/post_articles/115474
     publishedOn: '2018-04-11'
     tags:
@@ -1026,6 +1095,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://www.wantedly.com/companies/wantedly/post_articles/\d+$
     picked: false
+    uuid: 9c0ab60b-8a9c-433a-b341-7456e0047190
   - url: https://speakerdeck.com/izumin5210/create-your-strongest-markdown-syntax
     publishedOn: '2018-03-20'
     tags:
@@ -1039,6 +1109,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: c21866e8-9bb2-48f7-8a97-666df100ec46
   - url: https://github.com/izumin5210/grapi
     publishedOn: '2018-03-07'
     tags:
@@ -1055,6 +1126,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: true
+    uuid: 3b2c922e-a11c-4427-a2f4-8e2bd0baecb7
   - url: https://blog.izum.in/isucon7-final-cf6e75758164
     publishedOn: '2017-12-29'
     tags:
@@ -1067,6 +1139,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: f36049f1-e87b-4d89-ba96-f4a6944051a2
   - url: https://qiita.com/izumin5210/items/d51c28631c39392c6b16
     publishedOn: '2017-12-24'
     tags:
@@ -1080,6 +1153,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 66cf543a-0eeb-44af-94c8-9161aa470e75
   - url: https://qiita.com/izumin5210/items/cf14a1ea58fb82d36bb2
     publishedOn: '2017-12-17'
     tags:
@@ -1091,6 +1165,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: f8247b90-a0dc-4d4d-ae83-e5d664e77cd0
   - url: https://github.com/izumin5210/ro
     publishedOn: '2017-11-23'
     tags:
@@ -1104,6 +1179,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: f8610597-d374-41ed-add0-9e1f9ee78724
   - url: https://blog.izum.in/isucon7-qualify-c8b93933b241
     publishedOn: '2017-11-06'
     tags:
@@ -1116,6 +1192,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://blog.izum.in/
     picked: false
+    uuid: a2511695-503c-4115-acbf-05cf5f05ac96
   - url: >-
       https://speakerdeck.com/izumin5210/consider-better-error-handling-for-web-apps
     publishedOn: '2017-11-05'
@@ -1128,6 +1205,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 2cd7cb57-cdcf-4249-b9fe-fc77c14a758c
   - url: https://github.com/izumin5210/scaffold
     publishedOn: '2017-07-25'
     tags:
@@ -1139,6 +1217,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 0121348a-63d7-47f5-ad63-60795ad5e84f
   - url: https://github.com/izumin5210/OHP
     publishedOn: '2017-05-30'
     tags:
@@ -1152,6 +1231,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: cf9a466e-5d0c-4d10-9086-bccad0119764
   - url: >-
       https://speakerdeck.com/izumin5210/performance-of-rendering-over-10k-items-using-react
     publishedOn: '2017-05-10'
@@ -1166,6 +1246,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: a5ea4f09-73b2-43f5-a909-d67f68d6d1ea
   - url: https://github.com/izumin5210/tomatone
     publishedOn: '2016-12-06'
     tags:
@@ -1179,6 +1260,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 8d6cdeb7-c28d-4b36-898a-591c3a312bfd
   - url: >-
       https://speakerdeck.com/izumin5210/predictable-state-container-and-databinding
     publishedOn: '2016-11-24'
@@ -1191,6 +1273,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: bc6c6400-14e0-4e92-8d5b-c909a12d3777
   - url: https://speakerdeck.com/izumin5210/mockretrofit
     publishedOn: '2016-05-27'
     tags:
@@ -1202,6 +1285,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: a26a0d44-73b0-4aca-8e50-f2a1ed0a1078
   - url: >-
       https://speakerdeck.com/izumin5210/rx-java-rxandroid-plugins-with-unittesting
     publishedOn: '2016-03-16'
@@ -1214,6 +1298,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: b3697cc9-012a-40bf-a750-89f04dacc901
   - url: >-
       https://speakerdeck.com/izumin5210/whats-the-difference-between-javascript-and-java
     publishedOn: '2016-02-19'
@@ -1226,6 +1311,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: ef3957d0-2016-4a2f-97c1-6ea4fb5dcfd1
   - url: >-
       https://speakerdeck.com/izumin5210/example-of-testscheduler-and-testsubject-in-spock
     publishedOn: '2016-01-22'
@@ -1238,6 +1324,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 3769ee73-3c17-4343-bff6-395f4504a89c
   - url: https://qiita.com/izumin5210/items/2784576d86ce6b9b51e6
     publishedOn: '2015-12-31'
     tags:
@@ -1249,6 +1336,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: e51fa24a-c0ea-45a0-8264-e10578b2b9a0
   - url: https://qiita.com/izumin5210/items/549fd15d97e9fc3b1ef7
     publishedOn: '2015-12-06'
     tags:
@@ -1260,6 +1348,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 8158018c-f4dd-42ea-84ac-7a22edd91b16
   - url: https://github.com/izumin5210/Droidux
     publishedOn: '2015-11-05'
     tags:
@@ -1271,6 +1360,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: ff992996-be30-480b-be13-667d1534817d
   - url: https://speakerdeck.com/izumin5210/spock-for-android-app-testing
     publishedOn: '2015-10-13'
     tags:
@@ -1282,6 +1372,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 8d78a4b0-9ee7-44c9-b7c6-d58351dddb60
   - url: https://speakerdeck.com/izumin5210/promisified-ble-client
     publishedOn: '2015-09-16'
     tags:
@@ -1293,6 +1384,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 7648cead-b847-4058-b5f7-ac851cf1b155
   - url: https://github.com/izumin5210/Bletia
     publishedOn: '2015-09-15'
     tags:
@@ -1304,6 +1396,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 8e37de19-a8c8-4282-b43c-4d6702c75100
   - url: https://speakerdeck.com/izumin5210/tsurai-ble-on-android
     publishedOn: '2015-09-07'
     tags:
@@ -1315,6 +1408,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: da1bd6a7-adea-4b51-8a68-e5b47e0017b9
   - url: https://speakerdeck.com/izumin5210/why-dont-you-use-enum
     publishedOn: '2015-08-11'
     tags:
@@ -1326,6 +1420,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 502641f3-1e68-4373-822c-29983a3d390f
   - url: https://speakerdeck.com/izumin5210/introduction-to-apt
     publishedOn: '2015-07-14'
     tags:
@@ -1337,6 +1432,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 0cc250ae-54eb-4279-a1d2-43b3599125b9
   - url: >-
       https://speakerdeck.com/izumin5210/client-development-using-json-schema-number-kanrk06
     publishedOn: '2015-07-11'
@@ -1351,6 +1447,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 78b0dee6-270f-43d4-a622-844421d0b14f
   - url: https://qiita.com/izumin5210/items/8ae78cb4f4bd325bccb4
     publishedOn: '2015-07-07'
     tags:
@@ -1362,6 +1459,7 @@ entries:
       type: externalArticle
       urlPattern: ^https://qiita.com/
     picked: false
+    uuid: 290e160c-6c15-47ab-a1ea-2381f77d1ac0
   - url: https://github.com/izumin5210/json-schema-mockifier
     publishedOn: '2015-06-10'
     tags:
@@ -1375,6 +1473,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 1928fdae-e723-4ed2-8364-dfec47cf3904
   - url: https://github.com/izumin5210/json-schema-parser
     publishedOn: '2015-06-10'
     tags:
@@ -1386,6 +1485,7 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: fdba298a-8aa0-4e24-91b3-f8e70b21ef22
   - url: https://speakerdeck.com/izumin5210/border-left-1dp-solid-number-666666
     publishedOn: '2015-05-13'
     tags:
@@ -1397,6 +1497,7 @@ entries:
       type: slide
       urlPattern: ^https://speakerdeck.com/
     picked: false
+    uuid: 17b362de-81a2-4121-92a2-b46af1df4422
   - url: https://github.com/izumin5210/rspec-validator_spec_helper
     publishedOn: '2014-12-27'
     tags:
@@ -1410,3 +1511,4 @@ entries:
       type: oss
       urlPattern: ^https://github.com/
     picked: false
+    uuid: 63bfb814-b17c-4aaf-bce6-9bebeed3858e

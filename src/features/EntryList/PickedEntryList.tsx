@@ -1,61 +1,64 @@
-import { useFragment } from "react-relay";
-import graphql from "babel-plugin-relay/macro";
-import { PickedEntryListEntries$key } from "./__generated__/PickedEntryListEntries.graphql";
 import { styled } from "@linaria/react";
-import { body1, caption } from "../../lib/styles/typo";
 import { reactionCss } from "../../lib/styles/reactions";
+import { body1, caption } from "../../lib/styles/typo";
+import { FragmentType, gql, useFragment } from "../../__generated__/gql";
 
-export function PickedEntryList(props: { pickedEntries: PickedEntryListEntries$key }) {
-  const data = useFragment(
-    graphql`
-      fragment PickedEntryListEntries on Query {
-        pickedEntries {
-          ... on ArticleEntry {
-            title
-            path
-          }
-          ... on ExternalArticleEntry {
-            title
-            url
-            source {
-              name
-            }
-          }
-          ... on SlideEntry {
-            title
-            url
-            source {
-              name
-            }
-          }
-          ... on OSSEntry {
-            title
-            url
-            source {
-              name
-            }
-          }
-          ... on PodcastEntry {
-            title
-            url
-            source {
-              name
-            }
-          }
+const Fragment = gql(/* GraphQL */ `
+  fragment PickedEntryListEntries on Query {
+    pickedEntries {
+      __typename
+      ... on ArticleEntry {
+        id
+        title
+        path
+      }
+      ... on ExternalArticleEntry {
+        id
+        title
+        url
+        source {
+          name
         }
       }
-    `,
-    props.pickedEntries
-  );
+      ... on SlideEntry {
+        id
+        title
+        url
+        source {
+          name
+        }
+      }
+      ... on OSSEntry {
+        id
+        title
+        url
+        source {
+          name
+        }
+      }
+      ... on PodcastEntry {
+        id
+        title
+        url
+        source {
+          name
+        }
+      }
+    }
+  }
+`);
+
+export function PickedEntryList(props: { data: FragmentType<typeof Fragment> }) {
+  const fragment = useFragment(Fragment, props.data);
   return (
     <PickedEntryItemUl>
-      {data.pickedEntries.map((entry, idx) => {
+      {fragment.pickedEntries.map((entry, idx) => {
         const key = `pickedEntry-${idx}`;
         return (
           <li key={key}>
-            <PickedEntryItemAnchor href={entry.url ?? entry.path}>
+            <PickedEntryItemAnchor href={"url" in entry ? entry.url : entry.path}>
               <PickedEntryTitle>{entry.title}</PickedEntryTitle>
-              <PickedEntryCite>{entry.source?.name}</PickedEntryCite>
+              <PickedEntryCite>{"source" in entry && entry.source.name}</PickedEntryCite>
             </PickedEntryItemAnchor>
           </li>
         );

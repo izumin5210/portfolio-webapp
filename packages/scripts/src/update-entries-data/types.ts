@@ -13,6 +13,7 @@ export type Tag = {
 };
 
 export type ArticleEntry = {
+  uuid: string;
   title: string | undefined;
   path: string;
   publishedOn: string;
@@ -23,6 +24,7 @@ export type ArticleEntry = {
 };
 
 export type ExternalEntry = {
+  uuid: string;
   title: string | undefined;
   url: string;
   publishedOn: string;

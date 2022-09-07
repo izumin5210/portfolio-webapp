@@ -6,6 +6,7 @@ import path from "path";
 import * as types from "./types";
 
 type Entry = {
+  uuid: string;
   title: string;
   url?: string;
   path?: string;

@@ -1,41 +1,41 @@
 import { styled } from "@linaria/react";
-import graphql from "babel-plugin-relay/macro";
-import React, { Suspense as _Suspense, SuspenseProps } from "react";
+import React from "react";
+import { useQuery } from "urql";
 import { heading5 } from "../../lib/styles/typo";
-import { EntryList, EntryListFilteredByTags } from "../EntryList/EntryList";
+import { gql } from "../../__generated__/gql";
+import { EntryList, EntryListFilteredByTags, initialEntriesCount } from "../EntryList/EntryList";
 import { PickedEntryList } from "../EntryList/PickedEntryList";
-import { EntriesPageQuery$data } from "./__generated__/EntriesPageQuery.graphql";
 
-export type { EntriesPageQuery as EntriesPageQueryType } from "./__generated__/EntriesPageQuery.graphql";
-
-export const EntriesPageQuery = graphql`
-  query EntriesPageQuery($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
+export const EntriesPageQuery = gql(/* GraphQL */ `
+  query GetEntriesPage($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {
     ...PickedEntryListEntries
-    ...EntryListEntries @arguments(cursor: $cursor, count: $count) @skip(if: $filteredByTags)
-    ...EntryListEntriesByTags @arguments(cursor: $cursor, count: $count, tags: $tags) @include(if: $filteredByTags)
+    ...EntryList
+    ...EntryListByTags @include(if: $filteredByTags)
   }
-`;
+`);
 
-function DummySuspense(props: SuspenseProps) {
-  return <>{props.children}</>;
-}
-const Suspense = typeof window === "undefined" ? DummySuspense : _Suspense;
+export { initialEntriesCount };
 
-export const EntriesPage: React.VFC<{ queryResult: EntriesPageQuery$data; filteredByTags: boolean }> = ({
-  queryResult,
-  filteredByTags,
-}) => {
+export const EntriesPage: React.VFC<{ tags: string[] }> = ({ tags }) => {
+  const filteredByTags = tags.length > 0;
+  const [res] = useQuery({
+    query: EntriesPageQuery,
+    variables: {
+      count: initialEntriesCount,
+      cursor: null,
+      tags,
+      filteredByTags: tags.length > 0,
+    },
+  });
+  if (res.data == null) return null;
+
   return (
     <>
       <H2>Pickup</H2>
-      <Suspense fallback={<p>loading...</p>}>
-        <PickedEntryList pickedEntries={queryResult} />
-      </Suspense>
+      <PickedEntryList data={res.data} />
 
       <H2>All Entries</H2>
-      <Suspense fallback={<p>loading...</p>}>
-        {filteredByTags ? <EntryListFilteredByTags entriesByTags={queryResult} /> : <EntryList entries={queryResult} />}
-      </Suspense>
+      {filteredByTags ? <EntryListFilteredByTags data={res.data} tags={tags} /> : <EntryList data={res.data} />}
     </>
   );
 };

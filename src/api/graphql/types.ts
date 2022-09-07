@@ -1,6 +1,7 @@
 import * as fs from "fs/promises";
 import {
   GraphQLBoolean,
+  GraphQLID,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -46,6 +47,13 @@ function fetchArticleBody(articlePath: string): Promise<string> {
 export const ArticleEntry = new GraphQLObjectType({
   name: "ArticleEntry",
   fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve(root) {
+        return root.uuid;
+      },
+    },
+    uuid: { type: new GraphQLNonNull(GraphQLString) },
     title: { type: new GraphQLNonNull(GraphQLString) },
     body: {
       type: new GraphQLNonNull(GraphQLString),
@@ -96,6 +104,13 @@ export const ArticleEntry = new GraphQLObjectType({
 export const ExternalArticleEntry = new GraphQLObjectType({
   name: "ExternalArticleEntry",
   fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve(root) {
+        return root.uuid;
+      },
+    },
+    uuid: { type: new GraphQLNonNull(GraphQLString) },
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
@@ -108,6 +123,13 @@ export const ExternalArticleEntry = new GraphQLObjectType({
 export const SlideEntry = new GraphQLObjectType({
   name: "SlideEntry",
   fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve(root) {
+        return root.uuid;
+      },
+    },
+    uuid: { type: new GraphQLNonNull(GraphQLString) },
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
@@ -120,6 +142,13 @@ export const SlideEntry = new GraphQLObjectType({
 export const OSSEntry = new GraphQLObjectType({
   name: "OSSEntry",
   fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve(root) {
+        return root.uuid;
+      },
+    },
+    uuid: { type: new GraphQLNonNull(GraphQLString) },
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },
@@ -132,6 +161,13 @@ export const OSSEntry = new GraphQLObjectType({
 export const PodcastEntry = new GraphQLObjectType({
   name: "PodcastEntry",
   fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve(root) {
+        return root.uuid;
+      },
+    },
+    uuid: { type: new GraphQLNonNull(GraphQLString) },
     title: { type: new GraphQLNonNull(GraphQLString) },
     url: { type: new GraphQLNonNull(GraphQLString) },
     tags: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(EntryTag))) },

@@ -139,6 +139,7 @@ export async function loadArticleEntries(): Promise<ArticleEntry[]> {
           type: "article",
           name: "izum.in/blog",
         },
+        uuid: result.data.uuid as string,
       };
     })
   );
