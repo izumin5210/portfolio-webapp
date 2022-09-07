@@ -15923,7 +15923,7 @@ __metadata:
     react-dom: 17.0.2
     react-is: ^18.2.0
     react-test-renderer: 17.0.2
-    rehype-prism-plus: ^1.4.0
+    rehype-prism-plus: ^1.5.0
     rehype-react: ^7.1.1
     rehype-stringify: ^9.0.3
     remark-extract-lead: "workspace:^"
@@ -16857,9 +16857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-prism-plus@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "rehype-prism-plus@npm:1.4.0"
+"rehype-prism-plus@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "rehype-prism-plus@npm:1.5.0"
   dependencies:
     hast-util-to-string: ^2.0.0
     parse-numeric-range: ^1.3.0
@@ -16867,7 +16867,7 @@ __metadata:
     rehype-parse: ^8.0.2
     unist-util-filter: ^4.0.0
     unist-util-visit: ^4.0.0
-  checksum: 6a64acca8d246c7d059878511fee087dbb2a5f584973c3e897f2759b5f23253a9810863eb2f3b74cde6bedaea9ff6a568ca15deed949f8d320d60d312527f658
+  checksum: b1b0af56c1cc2ae6091fda4989f2b8554fb58aff576a3a7566a39e40d5a2e735f13a0dceef0c7942b27b06b3a0061658908d705ae5174fc09d94a3bfe1a2964e
   languageName: node
   linkType: hard
 
