@@ -4650,7 +4650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:3.0.10, @types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
+"@types/mdast@npm:3.0.10, @types/mdast@npm:^3.0.0":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
   dependencies:
@@ -4865,7 +4865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:^8.3.4":
+"@types/uuid@npm:8.3.4":
   version: 8.3.4
   resolution: "@types/uuid@npm:8.3.4"
   checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
@@ -5133,7 +5133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urql/introspection@npm:^1.0.0":
+"@urql/introspection@npm:1.0.0":
   version: 1.0.0
   resolution: "@urql/introspection@npm:1.0.0"
   peerDependencies:
@@ -15897,7 +15897,7 @@ __metadata:
     "@types/open-graph-scraper": 4.8.1
     "@types/react": 17.0.45
     "@urql/exchange-graphcache": ^5.0.1
-    "@urql/introspection": ^1.0.0
+    "@urql/introspection": 1.0.0
     babel-loader: 8.2.5
     babel-plugin-macros: 3.1.0
     clsx: ^1.2.1
@@ -17004,7 +17004,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remark-meta-description@workspace:packages/remark-meta-description"
   dependencies:
-    "@types/mdast": ^3.0.10
+    "@types/mdast": 3.0.10
     mdast-util-to-string: ^3.1.0
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
@@ -17535,7 +17535,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "scripts@workspace:packages/scripts"
   dependencies:
-    "@types/uuid": ^8.3.4
+    "@types/uuid": 8.3.4
     open-graph-scraper: ^4.11.1
     remark-extract-frontmatter: ^3.2.0
     remark-frontmatter: ^4.0.1
