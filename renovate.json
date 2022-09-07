@@ -19,6 +19,17 @@
       "matchDepTypes": ["devDependencies"],
       "rangeStrategy": "pin",
       "labels": ["devDependencies"]
+    },
+    {
+      "matchSourceUrlPrefixes": [
+        "https://github.com/dotansimha/graphql-code-generator",
+        "https://github.com/dotansimha/graphql-codegen"
+      ],
+      "groupName": "graphql-codegen monorepo packages"
+    },
+    {
+      "matchSourceUrlPrefixes": ["github.com/callstack/linaria"],
+      "groupName": "linaria monorepo packages"
     }
   ]
 }
