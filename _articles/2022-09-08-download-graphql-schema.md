@@ -4,7 +4,7 @@ updatedOn: null
 tags: ['graphql', 'nodejs', 'web-frontend']
 ---
 
-# コード生成のために GraphQL サーバから schema を取ってくる
+# コード生成のために GraphQL サーバから schema を取ってくる方法
 
 `graphql` が `getIntrospectionQuery` という関数を持っており、これが Introspection のクエリをいい感じに吐いてくれる。
 これをそのまま GraphQL サーバに投げつけたらスキーマ情報を取得でき、その結果をそのまま `schema.json` みたいな感じで dump しておくことで graphql-codegen などのツールで読めるようになる。

@@ -80,7 +80,7 @@ tags:
   - name: web-frontend
     displayName: Web Frontend
 entries:
-  - title: コード生成のために GraphQL サーバから schema を取ってくる
+  - title: コード生成のために GraphQL サーバから schema を取ってくる方法
     publishedOn: '2022-09-08'
     updatedOn: null
     tags:
