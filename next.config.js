@@ -19,15 +19,13 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 /**
  * @param {string} phase
- * @param {*} object
  * @returns {import('next').NextConfig}
  */
-module.exports = (phase, { defaultConfig }) => {
+module.exports = (phase) => {
   const gitSha = getGitSha(phase);
 
   /** @type {import('next').NextConfig} */
   let nextConfig = {
-    ...defaultConfig,
     reactStrictMode: true,
     eslint: {
       ignoreDuringBuilds: true,
@@ -39,7 +37,7 @@ module.exports = (phase, { defaultConfig }) => {
       GIT_SHA: gitSha,
       BUILT_AT: new Date().toISOString(),
     },
-    rewrites() {
+    async rewrites() {
       return [{ source: "/blog/feed", destination: "/api/blog/feed" }];
     },
     webpack(config) {
@@ -53,9 +51,7 @@ module.exports = (phase, { defaultConfig }) => {
       });
       return config;
     },
-    experimental: {
-      outputStandalone: true,
-    },
+    output: "standalone",
   };
 
   if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {
