@@ -28,7 +28,7 @@
       "groupName": "graphql-codegen monorepo packages"
     },
     {
-      "matchSourceUrlPrefixes": ["github.com/callstack/linaria"],
+      "matchSourceUrlPrefixes": ["https://github.com/callstack/linaria"],
       "groupName": "linaria monorepo packages"
     }
   ]
