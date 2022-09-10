@@ -1770,7 +1770,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/gql-tag-operations-preset@npm:^1.5.5":
+"@graphql-codegen/gql-tag-operations-preset@npm:1.5.5":
   version: 1.5.5
   resolution: "@graphql-codegen/gql-tag-operations-preset@npm:1.5.5"
   dependencies:
@@ -15876,7 +15876,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.18.13
     "@graphql-codegen/cli": 2.12.0
-    "@graphql-codegen/gql-tag-operations-preset": ^1.5.5
+    "@graphql-codegen/gql-tag-operations-preset": 1.5.5
     "@heroicons/react": ^1.0.6
     "@linaria/babel-preset": 3.0.0-beta.15
     "@linaria/core": 3.0.0-beta.15
