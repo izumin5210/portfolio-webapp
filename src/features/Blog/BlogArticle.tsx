@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
 import Link from "next/link";
-import React, { createElement, Fragment as ReactFragment, useMemo } from "react";
+import { ComponentPropsWithoutRef, createElement, Fragment as ReactFragment, useMemo } from "react";
 import rehypePrism from "rehype-prism-plus";
 import rehypeReact from "rehype-react";
 import remarkFrontmatter from "remark-frontmatter";
@@ -276,11 +276,7 @@ const Ol = styled.ol`
   }
 `;
 
-function TextLink({
-  href,
-  children,
-  ...props
-}: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
+function TextLink({ href, children, ...props }: ComponentPropsWithoutRef<"a">) {
   const isExternalLink = /^https?:\/\//.test(href ?? "");
   return (
     <Link href={href ?? ""} passHref {...props}>

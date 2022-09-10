@@ -14,7 +14,7 @@ const url = "https://izum.in/";
 const description = "Masayuki Izumi is a software engineer specializing in Web frontend and backend technologies";
 const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID;
 
-type NextPageWithLayout = NextPage & {
+type NextPageWithLayout = NextPage<any, any> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
