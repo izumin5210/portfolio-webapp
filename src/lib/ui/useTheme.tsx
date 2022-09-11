@@ -66,30 +66,35 @@ export function useTheme(): {
   };
 }
 
+const themeVars = {
+  light: transformKeys(colors.light, (k) => `--${k}`),
+  dark: transformKeys(colors.dark, (k) => `--${k}`),
+};
+
 const themeCss = css`
   :global() {
     @media (prefers-color-scheme: light) {
       :root {
-        ${transformKeys(colors.light, (k) => `--${k}`)}
+        ${themeVars.light}
       }
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        ${transformKeys(colors.dark, (k) => `--${k}`)}
+        ${themeVars.dark}
       }
     }
     body {
       &.dark-mode {
-        ${transformKeys(colors.dark, (k) => `--${k}`)}
+        ${themeVars.dark}
         .invert-theme {
-          ${transformKeys(colors.light, (k) => `--${k}`)}
+          ${themeVars.light}
         }
       }
 
       &.light-mode {
-        ${transformKeys(colors.light, (k) => `--${k}`)}
+        ${themeVars.light}
         .invert-theme {
-          ${transformKeys(colors.dark, (k) => `--${k}`)}
+          ${themeVars.dark}
         }
       }
     }
