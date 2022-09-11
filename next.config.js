@@ -62,7 +62,15 @@ module.exports = (phase) => {
   }
 
   nextConfig = withLinaria(nextConfig);
-  nextConfig = /** @type {*} */ (withSentryConfig(/** @type {*} */ (nextConfig), { silent: true }));
+  nextConfig = /** @type {*} */ (
+    withSentryConfig(
+      {
+        .../** @type {import("@sentry/nextjs/types/config/types").ExportedNextConfig} */ (nextConfig),
+        sentry: { hideSourceMaps: true },
+      },
+      { silent: true }
+    )
+  );
 
   if (phase === PHASE_PRODUCTION_BUILD) {
     nextConfig = require("@next/bundle-analyzer")({ enabled: true })(nextConfig);
