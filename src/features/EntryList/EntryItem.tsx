@@ -1,4 +1,4 @@
-import { MicrophoneIcon, PencilIcon } from "@heroicons/react/solid";
+import { MicrophoneIcon, PencilIcon } from "@heroicons/react/20/solid";
 import { styled } from "@linaria/react";
 import Link from "next/link";
 import GitHubIcon from "../../lib/icons/GitHubIcon";
