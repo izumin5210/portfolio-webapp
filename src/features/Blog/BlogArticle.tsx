@@ -174,7 +174,8 @@ const listStyle = {
   margin: "16px 0 0",
 };
 
-const H1 = styled.h1`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H1 = styled.h1<{}>`
   ${heading3}
   margin: 40px 0 0;
   &:before {
@@ -188,7 +189,8 @@ const H1 = styled.h1`
   }
 `;
 
-const H2 = styled.h2`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H2 = styled.h2<{}>`
   ${heading4}
   margin: 40px 0 0;
   &:before {
@@ -198,7 +200,8 @@ const H2 = styled.h2`
   }
 `;
 
-const H3 = styled.h3`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H3 = styled.h3<{}>`
   ${heading5}
   margin: 32px 0 0;
   &:before {
@@ -208,7 +211,8 @@ const H3 = styled.h3`
   }
 `;
 
-const H4 = styled.h4`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H4 = styled.h4<{}>`
   ${heading6}
   margin: 24px 0 0;
   &:before {
@@ -218,7 +222,8 @@ const H4 = styled.h4`
   }
 `;
 
-const H5 = styled.h5`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H5 = styled.h5<{}>`
   ${heading6}
   margin: 16px 0 0;
   &:before {
@@ -228,7 +233,8 @@ const H5 = styled.h5`
   }
 `;
 
-const H6 = styled.h1`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const H6 = styled.h6<{}>`
   ${heading6}
   margin: 16px 0 0;
   &:before {
@@ -238,24 +244,28 @@ const H6 = styled.h1`
   }
 `;
 
-const P = styled.p`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const P = styled.p<{}>`
   ${body2}
   line-height: 1.8;
   margin: 16px 0 0;
 `;
 
-const Img = styled.img`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Img = styled.img<{}>`
   display: block;
   margin: 16px auto 0;
   max-width: 100%;
   max-height: 500px;
 `;
 
-const Li = styled.li`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Li = styled.li<{}>`
   ${body2}
 `;
 
-const Ul = styled.ul`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Ul = styled.ul<{}>`
   ${listStyle}
   & > li:before {
     content: "-";
@@ -263,7 +273,8 @@ const Ul = styled.ul`
   }
 `;
 
-const Ol = styled.ol`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Ol = styled.ol<{}>`
   ${listStyle}
   counter-reset: ol-counter;
   & > li {
@@ -285,11 +296,13 @@ function TextLink({ href, children, ...props }: ComponentPropsWithoutRef<"a">) {
   );
 }
 
-const A = styled.a`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const A = styled.a<{}>`
   ${textLinkCss()}
 `;
 
-const Strong = styled.strong`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Strong = styled.strong<{}>`
   &:before,
   &:after {
     content: "**";
@@ -297,7 +310,8 @@ const Strong = styled.strong`
   }
 `;
 
-const Em = styled.em`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Em = styled.em<{}>`
   &:before,
   &:after {
     content: "_";
@@ -305,9 +319,11 @@ const Em = styled.em`
   }
 `;
 
-const Blockquote = styled.blockquote``;
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Blockquote = styled.blockquote<{}>``;
 
-const Code = styled.code`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Code = styled.code<{}>`
   ${body2}
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   background: var(--overlay100);
@@ -322,7 +338,8 @@ const Code = styled.code`
   }
 `;
 
-const Pre = styled.pre`
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Pre = styled.pre<{}>`
   & code {
     &:before,
     &:after {
