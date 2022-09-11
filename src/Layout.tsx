@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/solid";
+import { MoonIcon, SunIcon } from "@heroicons/react/20/solid";
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Image from "next/image";
