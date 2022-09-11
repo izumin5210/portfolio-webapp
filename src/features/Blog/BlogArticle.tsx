@@ -41,7 +41,7 @@ export function BlogArticle(props: { data: FragmentType<typeof Fragment> }) {
           <li>
             Published <Time dateTime={fragment.publishedOn as string}>{fragment.publishedOn as string}</Time>
           </li>
-          {fragment.updatedOn && (
+          {fragment.updatedOn != null && (
             <li>
               Updated <Time dateTime={fragment.updatedOn as string}>{fragment.updatedOn as string}</Time>
             </li>
