@@ -1,15 +1,15 @@
 import { styled } from "@linaria/react";
 import { useRouter } from "next/router";
-import { CSSProperties, useCallback, useEffect, useReducer } from "react";
+import { CSSProperties, useCallback, useEffect, useReducer, useState } from "react";
 import { createPortal } from "react-dom";
 
-export function RoutingProgress({
-  speed = 200,
-  portalContainer = typeof window === "undefined" ? undefined : window.document.querySelector("body") ?? undefined,
-}: {
-  speed?: number;
-  portalContainer?: HTMLElement | undefined;
-}) {
+export function RoutingProgress({ speed = 200 }: { speed?: number }) {
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | undefined>();
+  useEffect(() => {
+    const bodyEl = window.document.querySelector("body");
+    if (bodyEl) setPortalContainer(bodyEl);
+  }, []);
+
   const { progress, start, done } = useProgress({ speed });
   const router = useRouter();
 
