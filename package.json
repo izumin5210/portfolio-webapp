@@ -7,11 +7,10 @@
   ],
   "scripts": {
     "lint": "frolint --branch origin/main --expect-no-errors --expect-no-diff",
-    "dev": "yarn workspaces foreach --topological --parallel --interlaced run dev",
-    "build": "yarn workspaces foreach --topological --parallel --interlaced run build",
-    "bootstrap": "yarn workspaces foreach --topological --parallel --interlaced run prepack",
-    "test": "yarn workspaces foreach --topological --parallel --interlaced run test",
-    "typecheck": "yarn workspaces foreach --topological --parallel --interlaced run typecheck"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@types/glob": "8.0.0",
