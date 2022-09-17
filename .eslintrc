@@ -3,7 +3,7 @@
     "wantedly-typescript"
   ],
   "parserOptions": {
-    "project": ["./tsconfig.json", "./packages/*/tsconfig.json", "./packages/*/tsconfig.module.json"]
+    "project": ["./apps/*/tsconfig.json", "./packages/*/tsconfig.json", "./packages/*/tsconfig.module.json"]
   },
   "rules": {
     "no-undef": "off"
