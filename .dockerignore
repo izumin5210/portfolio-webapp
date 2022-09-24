@@ -1,5 +1,7 @@
-.git
 .next
+.yarn
+!.yarn/releases
+!.yarn/plugins
 node_modules
 
 packages/*/lib
