@@ -6,6 +6,7 @@
   "module": "./module/index.js",
   "type": "module",
   "bin": {
+    "gen-typed-routes": "./module/bin/gen-typed-routes.js",
     "update-entries-data": "./module/bin/update-entries-data.js"
   },
   "scripts": {

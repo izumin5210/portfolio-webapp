@@ -17598,6 +17598,7 @@ __metadata:
     unified: ^10.1.2
     uuid: ^9.0.0
   bin:
+    gen-typed-routes: ./module/bin/gen-typed-routes.js
     update-entries-data: ./module/bin/update-entries-data.js
   languageName: unknown
   linkType: soft

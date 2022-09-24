@@ -11,7 +11,7 @@
     "clean": "rimraf src/**/__generated__/**/*",
     "graphql:dump-schema": "./scripts/dump-graphql-schema",
     "generate": "run-p 'generate:*'",
-    "generate:next-typed-routes": "node ./scripts/gen-typed-routes.mjs",
+    "generate:next-typed-routes": "gen-typed-routes ./src/pages ./src/__generated__/Routes.ts",
     "generate:graphql-codegen": "graphql-codegen",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
