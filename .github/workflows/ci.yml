@@ -50,7 +50,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/actions/setup
-    - run: yarn test --ci --coverage
+    - run: yarn test -- --ci --coverage
 
   build:
     runs-on: ubuntu-latest
