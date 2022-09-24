@@ -97,6 +97,8 @@ jobs:
         SENTRY_ORG=${{ steps.secrets.outputs.SENTRY_ORG }}
         SENTRY_PROJECT=${{ steps.secrets.outputs.SENTRY_PROJECT }}
         EOF
+    - id: vars
+      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
     - uses: docker/build-push-action@v2
       with:
         push: true
