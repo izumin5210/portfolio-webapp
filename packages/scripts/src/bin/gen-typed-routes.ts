@@ -8,14 +8,22 @@ const glob = promisify(_glob);
 
 const rootDir = process.cwd();
 
+function log(msg: string) {
+  // eslint-disable-next-line no-console
+  console.log(`[gen-typed-routes] ${msg}`);
+}
+
 const pagesDir = path.join(rootDir, process.argv[2]);
 const outputFilename = path.join(rootDir, process.argv[3]);
 const filenames = (await glob(path.join(pagesDir, "**/*.tsx"))).filter((p) => !path.basename(p).startsWith("_"));
 
+log(`pages dir: ${pagesDir}`);
+log(`output file: ${outputFilename}`);
+
 const prog = ts.createProgram({ rootNames: filenames, options: {} });
 const srcs = prog.getSourceFiles();
 
-const pageFilePat = new RegExp(`${pagesDir}/(.*).tsx`);
+const pageFilePat = new RegExp(`^${pagesDir}/(.*).tsx$`);
 
 const routeDefs = srcs
   .map((src) => {
@@ -34,6 +42,8 @@ const routeDefs = srcs
     return { path, hasQuery };
   })
   .filter((d): d is NonNullable<typeof d> => d != null);
+
+log(`routes found:\n${routeDefs.map((d) => `- ${JSON.stringify(d)}`).join("\n")}`);
 
 export function pageTypeIdentFromPath(path: string) {
   const ident = path.replace(/[\.\-]/g, "_").replace(/[\[\]\/]/g, "$");
