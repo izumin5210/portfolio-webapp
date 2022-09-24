@@ -8,6 +8,8 @@
   "scripts": {
     "lint": "frolint --branch origin/main --expect-no-errors --expect-no-diff",
     "dev": "turbo run dev",
+    "clean": "turbo run clean",
+    "generate": "turbo run generate",
     "build": "turbo run build",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck"
