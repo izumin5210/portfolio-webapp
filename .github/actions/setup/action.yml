@@ -8,5 +8,3 @@ runs:
         cache: 'yarn'
     - run: yarn --immutable
       shell: bash
-    - run: yarn bootstrap
-      shell: bash
