@@ -15,10 +15,9 @@
     "default": "./cjs/index.js"
   },
   "scripts": {
-    "build": "yarn g:tsc --build",
-    "clean": "yarn g:tsc --build --clean",
-    "test": "NODE_OPTIONS=--experimental-vm-modules yarn g:jest",
-    "prepack": "yarn clean && yarn build"
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "dependencies": {
     "unist-util-is": "^5.1.1"
@@ -36,14 +35,17 @@
       "<rootDir>/src"
     ],
     "preset": "ts-jest/presets/default-esm",
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.module.json",
-        "useESM": true
-      }
-    },
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^(.*).tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.module.json",
+          "useESM": true
+        }
+      ]
     }
   }
 }

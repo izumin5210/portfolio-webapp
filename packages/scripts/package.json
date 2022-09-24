@@ -10,9 +10,8 @@
     "update-entries-data": "./module/bin/update-entries-data.js"
   },
   "scripts": {
-    "build": "yarn g:tsc --build",
-    "clean": "yarn g:tsc --build --clean",
-    "prepack": "yarn clean && yarn build"
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "dependencies": {
     "glob": "8.0.3",

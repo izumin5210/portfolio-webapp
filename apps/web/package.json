@@ -14,10 +14,7 @@
     "generate:next-typed-routes": "gen-typed-routes ./src/pages ./src/__generated__/Routes.ts && prettier -w ./src/__generated__/Routes.ts",
     "generate:graphql-codegen": "graphql-codegen",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "g:tsc": "cd $INIT_CWD && tsc",
-    "g:jest": "cd $INIT_CWD && jest",
-    "bootstrap": "yarn workspaces foreach --topological --parallel run prepack"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.11",
