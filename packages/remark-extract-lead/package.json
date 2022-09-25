@@ -29,7 +29,6 @@
     "remark-parse": "10.0.1",
     "remark-rehype": "10.1.0",
     "remark-stringify": "10.0.2",
-    "ts-jest": "29.0.1",
     "unified": "10.1.2"
   },
   "jest": {
