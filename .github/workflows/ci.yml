@@ -50,7 +50,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/actions/setup
-    - run: yarn test -- --ci --coverage
+    # TODO: run test on all packages
+    - run: yarn test --filter @izumin5210/portfolio-webapp -- --ci --coverage
 
   build:
     runs-on: ubuntu-latest
