@@ -89,18 +89,16 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy static files
-COPY --from=builder /app/apps/web/data.yml /app/
-COPY --from=builder /app/apps/web/public/ /app/public
-COPY --from=builder /app/apps/web/_articles/ /app/_articles
-
 # Copy build artifacts
-COPY --from=builder /app/apps/web/.next/standalone ./
-COPY --from=builder /app/apps/web/.next/static ./.next/static
+COPY --from=builder /app/apps/web/.next/standalone /app/
+COPY --from=builder /app/apps/web/.next/static /app/apps/web/.next/static
+
+# Copy static files
+COPY --from=builder /app/apps/web/public /app/apps/web/public
 
 # Copy bundler analyzer results
-COPY --from=builder /app/apps/web/.next/analyze/client.html ./public/_analyze/client.html
-COPY --from=builder /app/apps/web/.next/server/analyze/server.html ./public/_analyze/server.html
+COPY --from=builder /app/apps/web/.next/analyze/client.html /app/apps/web/public/_analyze/client.html
+COPY --from=builder /app/apps/web/.next/server/analyze/server.html /app/apps/web/public/_analyze/server.html
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["node", "server.js"]
+CMD ["node", "/app/apps/web/server.js"]
