@@ -52,6 +52,9 @@ module.exports = (phase) => {
       return config;
     },
     output: "standalone",
+    experimental: {
+      outputFileTracingRoot: path.join(__dirname, "../../"),
+    },
   };
 
   if (phase === PHASE_PRODUCTION_BUILD || phase === PHASE_PRODUCTION_SERVER) {

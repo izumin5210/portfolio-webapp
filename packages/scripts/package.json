@@ -6,14 +6,15 @@
   "module": "./module/index.js",
   "type": "module",
   "bin": {
+    "gen-typed-routes": "./module/bin/gen-typed-routes.js",
     "update-entries-data": "./module/bin/update-entries-data.js"
   },
   "scripts": {
-    "build": "yarn g:tsc --build",
-    "clean": "yarn g:tsc --build --clean",
-    "prepack": "yarn clean && yarn build"
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "dependencies": {
+    "glob": "8.0.3",
     "open-graph-scraper": "^4.11.1",
     "remark-extract-frontmatter": "^3.2.0",
     "remark-frontmatter": "^4.0.1",
@@ -24,6 +25,8 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/glob": "8.0.0",
+    "@types/open-graph-scraper": "4.8.1",
     "@types/uuid": "8.3.4"
   }
 }

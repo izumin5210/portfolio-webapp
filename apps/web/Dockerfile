@@ -9,34 +9,50 @@ RUN apt-get update \
     ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
+COPY .yarnrc.yml .
+COPY .yarn ./.yarn
+
+# pruner
+#-----------------------------------------------
+FROM base as pruner
+WORKDIR /app
+RUN npm i -g turbo@^1.5.3
+
+COPY . .
+RUN turbo prune --scope=@izumin5210/portfolio-webapp --docker
+
+# installer
+#-----------------------------------------------
+FROM base AS installer
+WORKDIR /app
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/yarn.lock ./yarn.lock
+RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
+  yarn install --immutable
 
 #  builder
 #-----------------------------------------------
 FROM base as builder
 
 ENV CI true
-COPY ./package.json ./yarn.lock ./.yarnrc.yml /app/
-COPY ./.yarn /app/.yarn
-
-# workspaces' package.json
-COPY ./packages/scripts/package.json /app/packages/scripts/package.json
-COPY ./packages/remark-h1-as-title/package.json /app/packages/remark-h1-as-title/package.json
-COPY ./packages/remark-extract-lead/package.json /app/packages/remark-extract-lead/package.json
-COPY ./packages/remark-meta-description/package.json /app/packages/remark-meta-description/package.json
-
-# install dependencies
-RUN --mount=type=cache,target=/app/.yarn/cache,id=yarn-cache,sharing=shared \
-  yarn install --immutable
-
-COPY ./.babelrc ./tsconfig.base.json ./tsconfig.json ./next.config.js ./next-env.d.ts ./sentry.*.config.js /app/
-COPY ./src/ /app/src
-COPY ./packages /app/packages
-
 ENV NODE_ENV production
 
-ARG GIT_SHA
-RUN yarn bootstrap
-RUN --mount=type=secret,id=dotenv,dst=/app/.env yarn build && rm -rf .next/static/**/*.map
+RUN apt-get update \
+  && apt-get install -y \
+    git \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=pruner /app/.git ./.git
+COPY --from=pruner /app/out/full/ .
+COPY --from=installer /app/ .
+
+COPY tsconfig.base.json /app/
+
+RUN git rev-parse --short HEAD
+RUN --mount=type=secret,id=dotenv,dst=/app/apps/web/.env \
+  GIT_SHA=$(git rev-parse --short HEAD) yarn turbo run build --scope @izumin5210/portfolio-webapp \
+  && rm -rf .next/static/**/*.map
 
 
 #  runner
@@ -73,18 +89,16 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy static files
-COPY package.json ./data.yml /app/
-COPY ./public/ /app/public
-COPY ./_articles/ /app/_articles
-
 # Copy build artifacts
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/apps/web/.next/standalone /app/
+COPY --from=builder /app/apps/web/.next/static /app/apps/web/.next/static
+
+# Copy static files
+COPY --from=builder /app/apps/web/public /app/apps/web/public
 
 # Copy bundler analyzer results
-COPY --from=builder /app/.next/analyze/client.html ./public/_analyze/client.html
-COPY --from=builder /app/.next/server/analyze/server.html ./public/_analyze/server.html
+COPY --from=builder /app/apps/web/.next/analyze/client.html /app/apps/web/public/_analyze/client.html
+COPY --from=builder /app/apps/web/.next/server/analyze/server.html /app/apps/web/public/_analyze/server.html
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["node", "server.js"]
+CMD ["node", "/app/apps/web/server.js"]
