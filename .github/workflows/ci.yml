@@ -58,11 +58,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: webapp
+          - name: portfolio-webapp
             path: ./apps/web
             preview-url-comment: true
-          - name: graphql-gateway
+          - name: portfolio-graphql-gateway
             path: ./apps/graphql-gateway
+    name: Build ${{ matrix.name }}
     with:
       name: ${{ matrix.name }}
       path: ${{ matrix.path }}
