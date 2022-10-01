@@ -15,6 +15,6 @@ export class ArticleEntryRepository {
     const filename = `${articlePath
       .replace("/blog/", "/_articles/")
       .replace(/\/(\d{4})\/(\d{2})\/(\d{2})\//, "/$1-$2-$3-")}.md`;
-    return fs.readFile(path.join(process.cwd(), filename), "utf-8");
+    return fs.readFile(path.join(process.cwd(), "..", "..", filename), "utf-8");
   }
 }

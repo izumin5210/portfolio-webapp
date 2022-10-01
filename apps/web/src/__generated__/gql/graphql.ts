@@ -17,10 +17,8 @@ export type Scalars = {
 };
 
 export type ArticleEntry = {
-  readonly body: Scalars["String"];
-  readonly feedDescriptionHtml: Scalars["String"];
+  readonly body: ArticleEntryBody;
   readonly id: Scalars["ID"];
-  readonly metaDescription: Scalars["String"];
   readonly path: Scalars["String"];
   readonly picked: Scalars["Boolean"];
   readonly publishedOn: Scalars["Date"];
@@ -31,38 +29,30 @@ export type ArticleEntry = {
   readonly uuid: Scalars["String"];
 };
 
-/** A connection to a list of items. */
+export type ArticleEntryBody = {
+  readonly markdown: Scalars["String"];
+};
+
 export type ArticleEntryConnection = {
-  /** A list of edges. */
-  readonly edges: Maybe<ReadonlyArray<Maybe<ArticleEntryEdge>>>;
-  /** Information to aid in pagination. */
+  readonly edges: ReadonlyArray<Maybe<ArticleEntryEdge>>;
   readonly pageInfo: PageInfo;
 };
 
-/** An edge in a connection. */
 export type ArticleEntryEdge = {
-  /** A cursor for use in pagination */
   readonly cursor: Scalars["String"];
-  /** The item at the end of the edge */
-  readonly node: Maybe<ArticleEntry>;
+  readonly node: ArticleEntry;
 };
 
 export type Entry = ArticleEntry | ExternalArticleEntry | OssEntry | PodcastEntry | SlideEntry;
 
-/** A connection to a list of items. */
 export type EntryConnection = {
-  /** A list of edges. */
-  readonly edges: Maybe<ReadonlyArray<Maybe<EntryEdge>>>;
-  /** Information to aid in pagination. */
+  readonly edges: ReadonlyArray<Maybe<EntryEdge>>;
   readonly pageInfo: PageInfo;
 };
 
-/** An edge in a connection. */
 export type EntryEdge = {
-  /** A cursor for use in pagination */
   readonly cursor: Scalars["String"];
-  /** The item at the end of the edge */
-  readonly node: Maybe<Entry>;
+  readonly node: Entry;
 };
 
 export type EntrySource = {
@@ -81,6 +71,7 @@ export type ExternalArticleEntry = {
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
+  readonly updatedOn: Maybe<Scalars["Date"]>;
   readonly url: Scalars["String"];
   readonly uuid: Scalars["String"];
 };
@@ -92,19 +83,15 @@ export type OssEntry = {
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
+  readonly updatedOn: Maybe<Scalars["Date"]>;
   readonly url: Scalars["String"];
   readonly uuid: Scalars["String"];
 };
 
-/** Information about pagination in a connection. */
 export type PageInfo = {
-  /** When paginating forwards, the cursor to continue. */
   readonly endCursor: Maybe<Scalars["String"]>;
-  /** When paginating forwards, are there more items? */
   readonly hasNextPage: Scalars["Boolean"];
-  /** When paginating backwards, are there more items? */
   readonly hasPreviousPage: Scalars["Boolean"];
-  /** When paginating backwards, the cursor to continue. */
   readonly startCursor: Maybe<Scalars["String"]>;
 };
 
@@ -115,6 +102,7 @@ export type PodcastEntry = {
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
+  readonly updatedOn: Maybe<Scalars["Date"]>;
   readonly url: Scalars["String"];
   readonly uuid: Scalars["String"];
 };
@@ -160,6 +148,7 @@ export type SlideEntry = {
   readonly source: EntrySource;
   readonly tags: ReadonlyArray<EntryTag>;
   readonly title: Scalars["String"];
+  readonly updatedOn: Maybe<Scalars["Date"]>;
   readonly url: Scalars["String"];
   readonly uuid: Scalars["String"];
 };
@@ -167,9 +156,9 @@ export type SlideEntry = {
 export type BlogArticleFragment = {
   readonly id: string;
   readonly title: string;
-  readonly body: string;
   readonly publishedOn: unknown;
   readonly updatedOn: unknown | null;
+  readonly body: { readonly markdown: string };
   readonly tags: ReadonlyArray<{ readonly name: string; readonly displayName: string }>;
 } & { " $fragmentName": "BlogArticleFragment" };
 
@@ -205,7 +194,7 @@ export type GetBlogArticlePageQuery = {
 export type BlogArticlePageHeadFragment = {
   readonly title: string;
   readonly path: string;
-  readonly metaDescription: string;
+  readonly body: { readonly markdown: string };
 } & { " $fragmentName": "BlogArticlePageHeadFragment" };
 
 export type GetEntriesPageQueryVariables = Exact<{
@@ -299,9 +288,8 @@ export type EntryListViewFragment = {
         })
       | ({ readonly __typename: "SlideEntry"; readonly id: string; readonly publishedOn: unknown } & {
           " $fragmentRefs": { EntryItem_SlideEntry_Fragment: EntryItem_SlideEntry_Fragment };
-        })
-      | null;
-  } | null> | null;
+        });
+  } | null>;
 } & { " $fragmentName": "EntryListViewFragment" };
 
 export type GetEntryListQueryVariables = Exact<{
@@ -365,7 +353,14 @@ export const BlogArticleFragmentDoc = {
         selections: [
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "title" } },
-          { kind: "Field", name: { kind: "Name", value: "body" } },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "body" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [{ kind: "Field", name: { kind: "Name", value: "markdown" } }],
+            },
+          },
           { kind: "Field", name: { kind: "Name", value: "publishedOn" } },
           { kind: "Field", name: { kind: "Name", value: "updatedOn" } },
           {
@@ -424,7 +419,14 @@ export const BlogArticlePageHeadFragmentDoc = {
         selections: [
           { kind: "Field", name: { kind: "Name", value: "title" } },
           { kind: "Field", name: { kind: "Name", value: "path" } },
-          { kind: "Field", name: { kind: "Name", value: "metaDescription" } },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "body" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [{ kind: "Field", name: { kind: "Name", value: "markdown" } }],
+            },
+          },
         ],
       },
     },

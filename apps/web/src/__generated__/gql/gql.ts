@@ -3,7 +3,7 @@ import * as graphql from "./graphql";
 import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 
 const documents = {
-  "\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n":
+  "\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body {\n      markdown\n    }\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n":
     graphql.BlogArticleFragmentDoc,
   "\n  query GetBlogArticleOgImagePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticleOgImagePageCard\n    }\n  }\n":
     graphql.GetBlogArticleOgImagePageDocument,
@@ -11,7 +11,7 @@ const documents = {
     graphql.BlogArticleOgImagePageCardFragmentDoc,
   "\n  query GetBlogArticlePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticlePageHead\n      ...BlogArticle\n    }\n  }\n":
     graphql.GetBlogArticlePageDocument,
-  "\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    metaDescription\n  }\n":
+  "\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    body {\n      markdown\n    }\n  }\n":
     graphql.BlogArticlePageHeadFragmentDoc,
   "\n  query GetEntriesPage($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {\n    ...PickedEntryListEntries\n    ...EntryList\n    ...EntryListByTags @include(if: $filteredByTags)\n  }\n":
     graphql.GetEntriesPageDocument,
@@ -31,8 +31,8 @@ const documents = {
 };
 
 export function gql(
-  source: "\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n"
-): typeof documents["\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n"];
+  source: "\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body {\n      markdown\n    }\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n"
+): typeof documents["\n  fragment BlogArticle on ArticleEntry {\n    id\n    title\n    body {\n      markdown\n    }\n    publishedOn\n    updatedOn\n    tags {\n      name\n      displayName\n    }\n  }\n"];
 export function gql(
   source: "\n  query GetBlogArticleOgImagePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticleOgImagePageCard\n    }\n  }\n"
 ): typeof documents["\n  query GetBlogArticleOgImagePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticleOgImagePageCard\n    }\n  }\n"];
@@ -43,8 +43,8 @@ export function gql(
   source: "\n  query GetBlogArticlePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticlePageHead\n      ...BlogArticle\n    }\n  }\n"
 ): typeof documents["\n  query GetBlogArticlePage($articlePath: String!) {\n    articleEntryByPath(path: $articlePath) {\n      ...BlogArticlePageHead\n      ...BlogArticle\n    }\n  }\n"];
 export function gql(
-  source: "\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    metaDescription\n  }\n"
-): typeof documents["\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    metaDescription\n  }\n"];
+  source: "\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    body {\n      markdown\n    }\n  }\n"
+): typeof documents["\n  fragment BlogArticlePageHead on ArticleEntry {\n    title\n    path\n    body {\n      markdown\n    }\n  }\n"];
 export function gql(
   source: "\n  query GetEntriesPage($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {\n    ...PickedEntryListEntries\n    ...EntryList\n    ...EntryListByTags @include(if: $filteredByTags)\n  }\n"
 ): typeof documents["\n  query GetEntriesPage($cursor: String, $count: Int!, $tags: [String!]!, $filteredByTags: Boolean!) {\n    ...PickedEntryListEntries\n    ...EntryList\n    ...EntryListByTags @include(if: $filteredByTags)\n  }\n"];

@@ -12,8 +12,8 @@ import { ComponentProps } from "react";
 import { dedupExchange, fetchExchange, ssrExchange } from "urql";
 import { schema } from "../__generated__/urql-introspection";
 
-const baseUrl = typeof window === "undefined" ? `http://0.0.0.0:${process.env.PORT || 3000}` : location.origin;
-const url = `${baseUrl}/api/graphql`;
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const url = process.env.NEXT_PUBLIC_GRAPHQL_GATEWAY_URL!;
 
 function buildCacheExchange() {
   return cacheExchange({
@@ -25,6 +25,7 @@ function buildCacheExchange() {
     keys: {
       EntrySource: () => null,
       EntryTag: () => null,
+      ArticleEntryBody: () => null,
     },
     schema,
   });

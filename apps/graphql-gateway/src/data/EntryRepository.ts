@@ -9,7 +9,7 @@ export class EntryRepository {
   };
 
   constructor() {
-    const rawData = fs.readFileSync(path.join(process.cwd(), "data.yml"), "utf-8");
+    const rawData = fs.readFileSync(path.join(process.cwd(), "..", "..", "data.yml"), "utf-8");
     const parsedData = yaml.load(rawData) as any;
     this.data = {
       entries: (parsedData.entries as Entry[]).sort((e1, e2) => -compareDate(e1.publishedOn, e2.publishedOn)),
