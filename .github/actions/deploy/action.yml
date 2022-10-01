@@ -1,5 +1,7 @@
 name: Deploy
 inputs:
+  name:
+    description: "App name"
   sha:
     description: "Git commit sha"
     required: true
@@ -12,19 +14,16 @@ runs:
   - name: Deploy new revision
     uses: 'google-github-actions/deploy-cloudrun@v0'
     with:
-      service: 'portfolio-webapp'
-      image: 'gcr.io/izumin-portfolio/portfolio-webapp:${{ inputs.sha }}'
+      service: ${{ inputs.name }}
+      image: 'gcr.io/izumin-portfolio/${{ inputs.name }}:${{ inputs.sha }}'
       env_vars: |
         NODE_ENV=production
         PREVIEWED_PR_NUM=${{ inputs.prNum != '' && inputs.prNum || '""' }}
-      secrets: |
-        ASSET_URL_BASE=portfolio-webapp-ASSET_URL_BASE:latest
-        SENTRY_DSN=portfolio-webapp-SENTRY_DSN:latest
       tag: ${{ inputs.prNum != '' && format('pr{0}', inputs.prNum) || '' }}
       no_traffic: ${{ inputs.prNum != '' }}
   - name: Update traffic to LATEST revision
     uses: 'google-github-actions/deploy-cloudrun@v0'
     with:
-      service: 'portfolio-webapp'
+      service: ${{ inputs.name }}
       revision_traffic: LATEST=100
     if: ${{ inputs.prNum == '' }}
