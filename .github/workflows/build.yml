@@ -64,9 +64,9 @@ jobs:
       with:
         sha: ${{ steps.vars.outputs.git-sha }}
         prNum: ${{ github.event.pull_request.number }}
+        name: ${{ inputs.name }}
     - uses: ./.github/actions/preview-comment
       with:
         prNumber: ${{ github.event.pull_request.number }}
         sha: ${{ github.event.pull_request.head.sha }}
-        name: ${{ inputs.name }}
       if: ${{ inputs.preview-url-comment }}
