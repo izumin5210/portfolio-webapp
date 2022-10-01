@@ -54,7 +54,7 @@ jobs:
     - run: yarn test --filter @izumin5210/portfolio-webapp -- --ci --coverage
 
   build:
-    uses: .github/workflows/build.yml
+    uses: ./.github/workflows/build.yml
     strategy:
       matrix:
         include:
