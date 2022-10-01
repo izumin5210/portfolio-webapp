@@ -2378,6 +2378,7 @@ __metadata:
     "@swc/cli": ^0.1.57
     "@swc/core": ^1.3.4
     "@swc/register": ^0.1.10
+    "@types/js-yaml": ^4.0.5
     dotenv: ^16.0.3
     graphql: ^16.6.0
     graphql-scalars: ^1.18.0
@@ -5140,7 +5141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4.0.0":
+"@types/js-yaml@npm:^4.0.0, @types/js-yaml@npm:^4.0.5":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
   checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
