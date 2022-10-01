@@ -96,9 +96,9 @@ jobs:
         access_token_lifetime: 600s
     - uses: ./.github/actions/deploy
       with:
-        name: graphql-gateway
+        name: portfolio-graphql-gateway
         sha: ${{ steps.vars.outputs.git-sha }}
     - uses: ./.github/actions/deploy
       with:
-        name: webapp
+        name: portfolio-webapp
         sha: ${{ steps.vars.outputs.git-sha }}
