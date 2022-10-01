@@ -1,0 +1,21 @@
+{
+  "name": "@izumin5210/portfolio-graphql-gateway",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon",
+    "build": "swc ./src -d ./dist",
+    "lint": "frolint --branch origin/main --expect-no-errors --expect-no-diff",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@graphql-yoga/node": "^2.13.13",
+    "@pothos/core": "^3.22.5",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.4",
+    "@swc/register": "^0.1.10",
+    "nodemon": "^2.0.20"
+  }
+}
