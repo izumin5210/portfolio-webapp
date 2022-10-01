@@ -2374,10 +2374,13 @@ __metadata:
   dependencies:
     "@graphql-yoga/node": ^2.13.13
     "@pothos/core": ^3.22.5
+    "@pothos/plugin-relay": ^3.28.4
     "@swc/cli": ^0.1.57
     "@swc/core": ^1.3.4
     "@swc/register": ^0.1.10
     graphql: ^16.6.0
+    graphql-scalars: ^1.18.0
+    js-yaml: ^4.1.0
     nodemon: ^2.0.20
   languageName: unknown
   linkType: soft
@@ -3265,6 +3268,16 @@ __metadata:
   peerDependencies:
     graphql: ">=15.1.0"
   checksum: e0e5f69096ac90985e192ca1ea1799693e1117d025fbac045ca6f6eab7b4dd7a56cfeda58c2fe66b26aaa0b6b34046565fd34f5b8d410c9462c4d02374a9d94c
+  languageName: node
+  linkType: hard
+
+"@pothos/plugin-relay@npm:^3.28.4":
+  version: 3.28.4
+  resolution: "@pothos/plugin-relay@npm:3.28.4"
+  peerDependencies:
+    "@pothos/core": "*"
+    graphql: ">=15.1.0"
+  checksum: a4e277036af72f711daaffee75e94fe1983a805c6eb9daaab5b81d336f98102ff8fb92dbde824d9457ae3c557af59ceea854bd32087ec506b5ec59770bafb4eb
   languageName: node
   linkType: hard
 
