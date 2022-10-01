@@ -13,6 +13,7 @@ builder.objectType(ArticleEntryRef, {
     title: t.exposeString("title"),
     path: t.exposeString("path"),
     publishedOn: t.expose("publishedOn", { type: "Date" }),
+    updatedOn: t.expose("updatedOn", { type: "Date", nullable: true }),
     tags: t.expose("tags", { type: [EntryTagRef] }),
     source: t.expose("source", { type: EntrySourceRef }),
     picked: t.exposeBoolean("picked"),

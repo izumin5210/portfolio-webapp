@@ -1,9 +1,9 @@
 import { builder } from "../builder";
-import { EntryRef } from "./Entry";
+import { EntryConnectionRef } from "./EntryConnection";
 
 builder.queryField("entriesByTags", (t) =>
-  t.connection({
-    type: EntryRef,
+  t.field({
+    type: EntryConnectionRef,
     args: {
       ...t.arg.connectionArgs(),
       tags: t.arg.stringList({ required: true }),

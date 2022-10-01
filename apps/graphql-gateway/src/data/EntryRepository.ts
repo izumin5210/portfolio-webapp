@@ -36,12 +36,8 @@ export class EntryRepository {
     return this.paginateEntries(entries, props);
   }
 
-  public async listPickedEntries(props: {
-    pageToken: string | undefined;
-    pageSize: number;
-  }): Promise<[entries: Entry[], nextPageToken: string | undefined]> {
-    const entries = this.data.entries.filter((e) => e.picked);
-    return this.paginateEntries(entries, props);
+  public async listPickedEntries(): Promise<Entry[]> {
+    return this.data.entries.filter((e) => e.picked);
   }
 
   public async listArticleEntries(props: {

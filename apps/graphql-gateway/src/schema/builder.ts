@@ -14,7 +14,9 @@ export const builder = new SchemaBuilder<{
   };
 }>({
   plugins: [RelayPlugin],
-  relayOptions: {},
+  relayOptions: {
+    cursorType: "String",
+  },
 });
 
 builder.queryType();

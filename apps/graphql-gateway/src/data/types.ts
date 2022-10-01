@@ -18,6 +18,7 @@ export type ExternalEntry = {
   title: string;
   url: string;
   publishedOn: DateString;
+  updatedOn: DateString | null;
   source: EntrySource<"externalArticle" | "oss" | "podcast" | "slide">;
   tags: EntryTag[];
   picked: boolean;
@@ -28,6 +29,7 @@ export type ArticleEntry = {
   title: string;
   path: string;
   publishedOn: DateString;
+  updatedOn: DateString | null;
   source: EntrySource<"article">;
   tags: EntryTag[];
   picked: boolean;

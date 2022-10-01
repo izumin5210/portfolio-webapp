@@ -1,9 +1,10 @@
 import { builder } from "../builder";
-import { ArticleEntryRef } from "./ArticleEntry";
+import { ArticleEntryConnectionRef } from "./ArticleEntryConnection";
 
 builder.queryField("articleEntries", (t) =>
-  t.connection({
-    type: ArticleEntryRef,
+  t.field({
+    type: ArticleEntryConnectionRef,
+    args: { ...t.arg.connectionArgs() },
     async resolve(_parent, args, ctx, _info) {
       if (args.before || args.last) {
         throw new Error("backward pagination is not supported");
