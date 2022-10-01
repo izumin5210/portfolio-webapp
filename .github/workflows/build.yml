@@ -1,5 +1,5 @@
 
-name: Build
+name: Build ${{ inputs.name }}
 
 on:
   workflow_call:
@@ -23,7 +23,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build ${{ inputs.name }}
+    name: Build
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -38,7 +38,7 @@ jobs:
         service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
         access_token_lifetime: 600s
     - uses: ./.github/actions/setup-dotenv
-    - uses: ./.github/actions/docker-build-and-push
+    - uses: ./.github/actions/docker-build-push
       with:
         name: ${{ inputs.name }}
         dockerfile: ${{ inputs.path }}/Dockerfile
