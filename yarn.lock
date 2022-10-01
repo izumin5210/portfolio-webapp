@@ -2407,7 +2407,6 @@ __metadata:
     "@storybook/react": 6.5.12
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 13.4.0
-    "@types/js-yaml": ^4.0.5
     "@types/node": 17.0.0
     "@types/react": 18.0.21
     "@urql/exchange-graphcache": ^5.0.1
@@ -2420,10 +2419,6 @@ __metadata:
     feed: ^4.2.2
     frolint: 2.8.2
     graphql: ^16.6.0
-    graphql-helix: ^1.13.0
-    graphql-relay: ^0.10.0
-    graphql-scalars: ^1.18.0
-    js-yaml: ^4.1.0
     next: 12.3.0
     next-linaria: 1.0.1-beta
     next-urql: ^4.0.0
@@ -5145,7 +5140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4.0.0, @types/js-yaml@npm:^4.0.5":
+"@types/js-yaml@npm:^4.0.0":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
   checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
@@ -11231,24 +11226,6 @@ __metadata:
   peerDependencies:
     graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 0b8ca47263b12b228db72d9abb663ab8e02e01c677d9ffe08f7be651617fdc93ff2ff6c342465544df43dc4d507293a66b8fc2b8237c2628ebdbc5c74311b1d8
-  languageName: node
-  linkType: hard
-
-"graphql-helix@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "graphql-helix@npm:1.13.0"
-  peerDependencies:
-    graphql: ^15.3.0 || ^16.0.0
-  checksum: 04c08557b7f118b4ccb795e91752b36ba96bd56314892ad9738de36bb602e0208e2cc978143f0969a143a07fa5a9511f96f820100eea4da2d6030b592054cb42
-  languageName: node
-  linkType: hard
-
-"graphql-relay@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "graphql-relay@npm:0.10.0"
-  peerDependencies:
-    graphql: ^16.2.0
-  checksum: 74b2b608ed7c18cc405d53fa7e482a68442a4dc7c0748bba029c59e1d23c6c6e5b8193c775eb73f6bb0dce49501f66af0453eb0b0f0362374cef9f97528852c0
   languageName: node
   linkType: hard
 
