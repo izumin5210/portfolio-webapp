@@ -1,5 +1,4 @@
-
-name: Build ${{ inputs.name }}
+name: Build
 
 on:
   workflow_call:
@@ -23,7 +22,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build
+    name: Build ${{ inputs.name }}
     permissions:
       contents: 'read'
       id-token: 'write'
