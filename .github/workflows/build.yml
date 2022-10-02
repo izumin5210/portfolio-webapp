@@ -1,0 +1,72 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      path:
+        required: true
+        type: string
+      preview-url-comment:
+        required: false
+        default: false
+        type: boolean
+    secrets:
+      GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER:
+        required: true
+      GOOGLE_CLOUD_SERVICE_ACCOUNT:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+        access_token_lifetime: 600s
+    - uses: ./.github/actions/setup-dotenv
+    - uses: ./.github/actions/docker-build-push
+      with:
+        name: ${{ inputs.name }}
+        dockerfile: ${{ inputs.path }}/Dockerfile
+
+  preview:
+    runs-on: ubuntu-latest
+    name: Preview
+    needs: [build]
+    if: ${{ github.event_name == 'pull_request' }}
+    permissions:
+      contents: 'read'
+      pull-requests: 'write'
+      id-token: 'write'
+    steps:
+    - uses: actions/checkout@v3
+    - id: vars
+      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
+    - uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+        access_token_lifetime: 600s
+    - uses: ./.github/actions/deploy
+      with:
+        sha: ${{ steps.vars.outputs.git-sha }}
+        prNum: ${{ github.event.pull_request.number }}
+        name: ${{ inputs.name }}
+    - uses: ./.github/actions/preview-comment
+      with:
+        prNumber: ${{ github.event.pull_request.number }}
+        sha: ${{ github.event.pull_request.head.sha }}
+      if: ${{ inputs.preview-url-comment }}

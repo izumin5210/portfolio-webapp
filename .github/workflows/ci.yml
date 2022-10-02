@@ -54,97 +54,22 @@ jobs:
     - run: yarn test --filter @izumin5210/portfolio-webapp -- --ci --coverage
 
   build:
-    runs-on: ubuntu-latest
-    name: Build
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - uses: docker/setup-buildx-action@v1
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
-      with:
-        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
-        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
-        access_token_lifetime: 600s
-    - uses: 'google-github-actions/setup-gcloud@v0'
-    - run: |
-        gcloud auth configure-docker
-    - uses: actions/cache@v3
-      with:
-        path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-buildx-
-    - id: secrets
-      uses: 'google-github-actions/get-secretmanager-secrets@v0'
-      with:
-        secrets: |-
-          ASSET_URL_BASE:izumin-portfolio/portfolio-webapp-ASSET_URL_BASE
-          GOOGLE_ANALYTICS_TRACKING_ID:izumin-portfolio/portfolio-webapp-GOOGLE_ANALYTICS_TRACKING_ID
-          SENTRY_AUTH_TOKEN:izumin-portfolio/portfolio-webapp-SENTRY_AUTH_TOKEN
-          SENTRY_DSN:izumin-portfolio/portfolio-webapp-SENTRY_DSN
-          SENTRY_ORG:izumin-portfolio/portfolio-webapp-SENTRY_ORG
-          SENTRY_PROJECT:izumin-portfolio/portfolio-webapp-SENTRY_PROJECT
-    - run: |
-        cat <<EOF > .env
-        NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID=${{ steps.secrets.outputs.GOOGLE_ANALYTICS_TRACKING_ID }}
-        NEXT_PUBLIC_SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
-        ASSET_URL_BASE=${{ steps.secrets.outputs.ASSET_URL_BASE }}
-        SENTRY_AUTH_TOKEN=${{ steps.secrets.outputs.SENTRY_AUTH_TOKEN }}
-        SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
-        SENTRY_ORG=${{ steps.secrets.outputs.SENTRY_ORG }}
-        SENTRY_PROJECT=${{ steps.secrets.outputs.SENTRY_PROJECT }}
-        EOF
-    - id: vars
-      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
-    - uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: gcr.io/izumin-portfolio/portfolio-webapp:${{ steps.vars.outputs.git-sha }}
-        cache-from: type=local,src=/tmp/.buildx-cache
-        cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-        file: ./apps/web/Dockerfile
-        secret-files: |
-          dotenv=.env
-    # Temp fix
-    # https://github.com/docker/build-push-action/issues/252
-    # https://github.com/moby/buildkit/issues/1896
-    - name: Move cache
-      run: |
-        rm -rf /tmp/.buildx-cache
-        mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-  preview:
-    runs-on: ubuntu-latest
-    name: Preview
-    needs: [build]
-    if: ${{ github.event_name == 'pull_request' }}
-    permissions:
-      contents: 'read'
-      pull-requests: 'write'
-      id-token: 'write'
-    steps:
-    - uses: actions/checkout@v3
-    - id: vars
-      run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
-    - uses: 'google-github-actions/auth@v0'
-      with:
-        workload_identity_provider: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
-        service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
-        access_token_lifetime: 600s
-    - uses: ./.github/actions/deploy
-      with:
-        sha: ${{ steps.vars.outputs.git-sha }}
-        prNum: ${{ github.event.pull_request.number }}
-    - uses: ./.github/actions/preview-comment
-      with:
-        prNumber: ${{ github.event.pull_request.number }}
-        sha: ${{ github.event.pull_request.head.sha }}
+    uses: ./.github/workflows/build.yml
+    strategy:
+      matrix:
+        include:
+          - name: portfolio-webapp
+            path: ./apps/web
+            preview-url-comment: true
+          - name: portfolio-graphql-gateway
+            path: ./apps/graphql-gateway
+    name: Build ${{ matrix.name }}
+    with:
+      name: ${{ matrix.name }}
+      path: ${{ matrix.path }}
+    secrets:
+      GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GOOGLE_COULD_WORKLOAD_IDENTITY_PROVIDER }}
+      GOOGLE_CLOUD_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -171,4 +96,9 @@ jobs:
         access_token_lifetime: 600s
     - uses: ./.github/actions/deploy
       with:
+        name: portfolio-graphql-gateway
+        sha: ${{ steps.vars.outputs.git-sha }}
+    - uses: ./.github/actions/deploy
+      with:
+        name: portfolio-webapp
         sha: ${{ steps.vars.outputs.git-sha }}

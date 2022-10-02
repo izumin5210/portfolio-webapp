@@ -18,7 +18,8 @@ export const Normal: ComponentStoryObj<typeof BlogArticle> = {
         { name: "react", displayName: "React" },
         { name: "graphql", displayName: "GraphQL" },
       ],
-      body: `# Example article
+      body: {
+        markdown: `# Example article
 
 ## Heading level 2
 
@@ -78,6 +79,7 @@ This is a \`inline code block\`.
 ![large image](https://dummyimage.com/1600x1200/bdbdbd/000000)
 ![long image](https://dummyimage.com/600x2400/bdbdbd/000000)
 `,
+      },
     }),
   },
 };

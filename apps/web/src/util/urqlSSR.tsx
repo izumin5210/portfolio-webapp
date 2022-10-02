@@ -10,10 +10,8 @@ import {
 import NextApp from "next/app";
 import { ComponentProps } from "react";
 import { dedupExchange, fetchExchange, ssrExchange } from "urql";
+import { publicEnv } from "../publicEnv";
 import { schema } from "../__generated__/urql-introspection";
-
-const baseUrl = typeof window === "undefined" ? `http://0.0.0.0:${process.env.PORT || 3000}` : location.origin;
-const url = `${baseUrl}/api/graphql`;
 
 function buildCacheExchange() {
   return cacheExchange({
@@ -25,6 +23,7 @@ function buildCacheExchange() {
     keys: {
       EntrySource: () => null,
       EntryTag: () => null,
+      ArticleEntryBody: () => null,
     },
     schema,
   });
@@ -35,7 +34,7 @@ export function initUrqlClient() {
   const cache = buildCacheExchange();
   const client = _initUrqlClient(
     {
-      url,
+      url: publicEnv.graphqlGatewayEndpoint,
       exchanges: [dedupExchange, cache, ssrCache, fetchExchange],
     },
     false
@@ -48,7 +47,7 @@ export function withUrqlClient<C extends NextPage<any, any> | typeof NextApp>(
   // eslint-disable-next-line @typescript-eslint/ban-types
 ): NextComponentType<NextUrqlContext, {}, ComponentProps<C> & WithUrqlProps> {
   return _withUrqlClient((ssr) => ({
-    url,
+    url: publicEnv.graphqlGatewayEndpoint,
     exchanges: [dedupExchange, buildCacheExchange(), ssr, fetchExchange],
   }))(AppOrPage) as NextComponentType<
     NextUrqlContext,

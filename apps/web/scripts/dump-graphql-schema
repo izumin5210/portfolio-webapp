@@ -6,6 +6,6 @@ curl -sf \
   -X POST \
   -H 'Content-Type: application/json' \
   -d "$(node -pe 'JSON.stringify({ query: require("graphql").getIntrospectionQuery() })')" \
-  http://0.0.0.0:3000/api/graphql \
+  http://0.0.0.0:4001/graphql \
   | jq .data \
   > schema.json

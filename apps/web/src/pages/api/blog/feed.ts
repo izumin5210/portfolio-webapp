@@ -1,6 +1,14 @@
 import { Feed } from "feed";
 import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "node-fetch";
+import rehypeStringify from "rehype-stringify";
+import { remarkExtractLead } from "remark-extract-lead";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkStringify from "remark-stringify";
+import { unified } from "unified";
+import { publicEnv } from "../../../publicEnv";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const xml = await generateFeedXml();
@@ -19,17 +27,18 @@ async function generateFeedXml() {
     language: "ja",
   });
 
-  const resp = await fetch(`http://0.0.0.0:${process.env.PORT || "3000"}/api/graphql`, {
+  const resp = await fetch(publicEnv.graphqlGatewayEndpoint, {
     method: "POST",
     body: JSON.stringify({ query, variables: { count: 20 } }),
     headers: { "Content-Type": "application/json" },
   });
   type ArticleEntry = {
     title: string;
-    body: string;
     path: string;
     publishedOn: string;
-    feedDescriptionHtml: string;
+    body: {
+      markdown: string;
+    };
   };
   const json = (await resp.json()) as { data: { articleEntries: { edges: { node: ArticleEntry }[] } } };
   for (const { node } of json.data.articleEntries.edges) {
@@ -38,7 +47,7 @@ async function generateFeedXml() {
       id: url,
       title: node.title,
       link: url,
-      description: node.feedDescriptionHtml,
+      description: await getDescriptionHtml(node.body.markdown),
       date: new Date(node.publishedOn),
     });
   }
@@ -54,9 +63,26 @@ const query = `#graphql
           title
           path
           publishedOn
-          feedDescriptionHtml
+          body {
+            markdown
+          }
         }
       }
     }
   }
 `;
+
+async function getDescriptionHtml(body: string) {
+  const originalVfile = await unified()
+    .use(remarkParse)
+    .use(remarkFrontmatter)
+    .use(remarkExtractLead)
+    .use(remarkStringify)
+    .process(body);
+  const rehypeTree = await unified()
+    .use(remarkRehype)
+    .run(originalVfile.data.lead as any);
+  return await unified()
+    .use(rehypeStringify)
+    .stringify(rehypeTree as any);
+}

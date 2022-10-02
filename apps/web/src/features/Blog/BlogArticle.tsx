@@ -20,7 +20,9 @@ export const Fragment = gql(/* GraphQL */ `
   fragment BlogArticle on ArticleEntry {
     id
     title
-    body
+    body {
+      markdown
+    }
     publishedOn
     updatedOn
     tags {
@@ -32,7 +34,7 @@ export const Fragment = gql(/* GraphQL */ `
 
 export function BlogArticle(props: { data: FragmentType<typeof Fragment> }) {
   const fragment = useFragment(Fragment, props.data);
-  const body = useMarkdownProcessor(fragment.body);
+  const body = useMarkdownProcessor(fragment.body.markdown);
 
   return (
     <Article>

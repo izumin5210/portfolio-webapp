@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon.json",
+  "exec": "NODE_ENV=development node --require @swc/register --require dotenv/config ./src/main.ts",
+  "watch": ["src"],
+  "ext": "ts"
+}

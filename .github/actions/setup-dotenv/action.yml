@@ -1,0 +1,25 @@
+name: Setup .env
+runs:
+  using: composite
+  steps:
+  - id: secrets
+    uses: 'google-github-actions/get-secretmanager-secrets@v0'
+    with:
+      secrets: |-
+        ASSET_URL_BASE:izumin-portfolio/portfolio-webapp-ASSET_URL_BASE
+        GOOGLE_ANALYTICS_TRACKING_ID:izumin-portfolio/portfolio-webapp-GOOGLE_ANALYTICS_TRACKING_ID
+        SENTRY_AUTH_TOKEN:izumin-portfolio/portfolio-webapp-SENTRY_AUTH_TOKEN
+        SENTRY_DSN:izumin-portfolio/portfolio-webapp-SENTRY_DSN
+        SENTRY_ORG:izumin-portfolio/portfolio-webapp-SENTRY_ORG
+        SENTRY_PROJECT:izumin-portfolio/portfolio-webapp-SENTRY_PROJECT
+  - shell: bash
+    run: |
+      cat <<EOF > .env
+      NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID=${{ steps.secrets.outputs.GOOGLE_ANALYTICS_TRACKING_ID }}
+      NEXT_PUBLIC_SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
+      ASSET_URL_BASE=${{ steps.secrets.outputs.ASSET_URL_BASE }}
+      SENTRY_AUTH_TOKEN=${{ steps.secrets.outputs.SENTRY_AUTH_TOKEN }}
+      SENTRY_DSN=${{ steps.secrets.outputs.SENTRY_DSN }}
+      SENTRY_ORG=${{ steps.secrets.outputs.SENTRY_ORG }}
+      SENTRY_PROJECT=${{ steps.secrets.outputs.SENTRY_PROJECT }}
+      EOF

@@ -1,12 +1,12 @@
 import { NextPage } from "next";
-import type { AppInitialProps, AppProps as OriginalAppProps } from "next/app";
-import App from "next/app";
+import type { AppProps as OriginalAppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import { ReactElement, ReactNode } from "react";
 import "sanitize.css";
 import { Layout } from "../Layout";
 import { LoadThemeScript } from "../lib/ui/useTheme";
+import { publicEnv } from "../publicEnv";
 import { SystemInfoRibbon } from "../util/SystemInfoRibbon";
 
 const siteName = "izum.in";
@@ -18,18 +18,11 @@ type NextPageWithLayout = NextPage<any, any> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-type PropsWithSystemInfo = {
-  __systemInfo: {
-    previewedPrNum: number | null;
-  };
+type AppProps = OriginalAppProps & {
+  Component: NextPageWithLayout;
 };
 
-type AppProps = OriginalAppProps &
-  PropsWithSystemInfo & {
-    Component: NextPageWithLayout;
-  };
-
-function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: any }) {
+function MyApp({ Component, pageProps, err }: AppProps & { err?: any }) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
 
   return (
@@ -47,7 +40,7 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate" type="application/rss+xml" href="/blog/feed" title="izum.in/blog" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {__systemInfo.previewedPrNum != null && <meta name="robots" content="noindex,nofollow,noarchive" />}
+        {publicEnv.previewedPrNum != null && <meta name="robots" content="noindex,nofollow,noarchive" />}
       </Head>
       <LoadThemeScript />
       {process.env.NODE_ENV === "production" ? (
@@ -64,25 +57,10 @@ function MyApp({ Component, pageProps, err, __systemInfo }: AppProps & { err?: a
           </Script>
         </>
       ) : null}
-      <SystemInfoRibbon build={process.env.NODE_ENV} previewedPrNum={__systemInfo.previewedPrNum} />
+      <SystemInfoRibbon build={process.env.NODE_ENV} previewedPrNum={publicEnv.previewedPrNum} />
       {getLayout(<Component {...pageProps} err={err} />)}
     </>
   );
 }
-
-const getInitialProps: typeof App.getInitialProps = async (appCtx) => {
-  const appProps = await App.getInitialProps(appCtx);
-
-  const mergedProps: AppInitialProps & PropsWithSystemInfo = {
-    ...appProps,
-    __systemInfo: {
-      previewedPrNum: Number(process.env.PREVIEWED_PR_NUM) || null,
-    },
-  };
-
-  return mergedProps;
-};
-
-MyApp.getInitialProps = getInitialProps;
 
 export default MyApp;
