@@ -11,7 +11,7 @@ function initPublicEnv(): PublicEnv {
   const previewedPrNum = Number(process.env.PREVIEWED_PR_NUM) || null;
   const graphqlGatewayUrl = isInCloudRun()
     ? previewedPrNum != null
-      ? `https://pr${previewedPrNum}--portfolio-graphql-gateway-orj7ubxzkq-uc.a.run.app`
+      ? `https://pr${previewedPrNum}---portfolio-graphql-gateway-orj7ubxzkq-uc.a.run.app`
       : "https://graphql-gateway.izum.in"
     : "http://localhost:4001";
 
