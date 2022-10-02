@@ -23,7 +23,7 @@ runs:
   - shell: bash
     id: vars
     run: echo "::set-output name=git-sha::${GITHUB_SHA::7}"
-  - uses: docker/build-push-action@v2
+  - uses: docker/build-push-action@v3
     with:
       context: .
       push: true
