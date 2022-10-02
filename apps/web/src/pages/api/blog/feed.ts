@@ -8,6 +8,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import remarkStringify from "remark-stringify";
 import { unified } from "unified";
+import { publicEnv } from "../../../publicEnv";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const xml = await generateFeedXml();
@@ -26,8 +27,7 @@ async function generateFeedXml() {
     language: "ja",
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const resp = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_GATEWAY_URL!, {
+  const resp = await fetch(publicEnv.graphqlGatewayEndpoint, {
     method: "POST",
     body: JSON.stringify({ query, variables: { count: 20 } }),
     headers: { "Content-Type": "application/json" },
