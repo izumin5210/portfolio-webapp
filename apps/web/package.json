@@ -19,7 +19,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.11",
     "@linaria/react": "^4.1.3",
-    "@sentry/nextjs": "^7.12.1",
+    "@sentry/nextjs": "^7.15.0",
     "@urql/exchange-graphcache": "^5.0.1",
     "clsx": "^1.2.1",
     "feed": "^4.2.2",
