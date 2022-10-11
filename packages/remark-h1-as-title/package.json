@@ -1,6 +1,6 @@
 {
   "name": "remark-h1-as-title",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "private": true,
   "sideEffects": false,
   "main": "./cjs/index.js",
