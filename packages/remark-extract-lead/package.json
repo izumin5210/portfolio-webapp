@@ -20,7 +20,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "dependencies": {
-    "unist-util-is": "^5.1.1"
+    "unist-util-is": "^5.2.1"
   },
   "devDependencies": {
     "@types/mdast": "3.0.10",
