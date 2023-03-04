@@ -14466,10 +14466,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-to-string@npm:^3.0.0, mdast-util-to-string@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "mdast-util-to-string@npm:3.1.0"
-  checksum: f42ddd4e22f2215a75715b92ea6e3149c4ba356e7781d7b94fc86ded1c79cec3f986afeecef3a4a80068c9b224a6520099783a12146b957de24f020a3e47dd29
+"mdast-util-to-string@npm:^3.0.0, mdast-util-to-string@npm:^3.1.0, mdast-util-to-string@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "mdast-util-to-string@npm:3.1.1"
+  dependencies:
+    "@types/mdast": ^3.0.0
+  checksum: 5e9375e1757ebf2950e122ef3538e4257ed2b6f43ab1d3e9c45db5dd5d5b5d14fd041490afcde00934f1cdb4b99877597ae04eb810d313ec7b38c6009058dddd
   languageName: node
   linkType: hard
 
@@ -17627,7 +17629,7 @@ __metadata:
   resolution: "remark-meta-description@workspace:packages/remark-meta-description"
   dependencies:
     "@types/mdast": 3.0.10
-    mdast-util-to-string: ^3.1.0
+    mdast-util-to-string: ^3.1.1
     remark-frontmatter: 4.0.1
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
