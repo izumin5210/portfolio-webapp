@@ -17536,7 +17536,7 @@ __metadata:
     remark-rehype: 10.1.0
     remark-stringify: 10.0.2
     unified: 10.1.2
-    unist-util-is: ^5.1.1
+    unist-util-is: ^5.2.1
   languageName: unknown
   linkType: soft
 
@@ -17568,7 +17568,7 @@ __metadata:
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
     unified: 10.1.2
-    unist-util-is: ^5.1.1
+    unist-util-is: ^5.2.1
   languageName: unknown
   linkType: soft
 
@@ -17598,7 +17598,7 @@ __metadata:
     remark-parse: 10.0.1
     remark-stringify: 10.0.2
     unified: 10.1.2
-    unist-util-is: ^5.1.1
+    unist-util-is: ^5.2.1
     unist-util-visit: ^4.1.1
   languageName: unknown
   linkType: soft
@@ -20125,10 +20125,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-is@npm:^5.0.0, unist-util-is@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "unist-util-is@npm:5.1.1"
-  checksum: e8743a19a304d8a8f5684f3e5ddb5546f2655847b42123687277d76566a2aba89beb7b4a8a9e9ebc4d904cd1cecc285356d7923d973a43cfc19a1e10ff6bdee4
+"unist-util-is@npm:^5.0.0, unist-util-is@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "unist-util-is@npm:5.2.1"
+  dependencies:
+    "@types/unist": ^2.0.0
+  checksum: ae76fdc3d35352cd92f1bedc3a0d407c3b9c42599a52ab9141fe89bdd786b51f0ec5a2ab68b93fb532e239457cae62f7e39eaa80229e1cb94875da2eafcbe5c4
   languageName: node
   linkType: hard
 
