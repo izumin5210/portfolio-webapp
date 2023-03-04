@@ -2373,7 +2373,7 @@ __metadata:
   resolution: "@izumin5210/portfolio-graphql-gateway@workspace:apps/graphql-gateway"
   dependencies:
     "@graphql-yoga/node": ^2.13.13
-    "@pothos/core": ^3.22.5
+    "@pothos/core": ^3.27.1
     "@pothos/plugin-relay": ^3.28.4
     "@swc/cli": 0.1.62
     "@swc/core": 1.3.22
@@ -3275,12 +3275,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pothos/core@npm:^3.22.5":
-  version: 3.22.5
-  resolution: "@pothos/core@npm:3.22.5"
+"@pothos/core@npm:^3.27.1":
+  version: 3.27.1
+  resolution: "@pothos/core@npm:3.27.1"
   peerDependencies:
     graphql: ">=15.1.0"
-  checksum: e0e5f69096ac90985e192ca1ea1799693e1117d025fbac045ca6f6eab7b4dd7a56cfeda58c2fe66b26aaa0b6b34046565fd34f5b8d410c9462c4d02374a9d94c
+  checksum: 3ecab5432f517d54cf1813a763a6a28d1d2d22bd2f2145b3a67de281a1492fbeb7712d1f4977983e7d954c57243c5d75f0b681a293c550755c7a19fbf4d92346
   languageName: node
   linkType: hard
 
