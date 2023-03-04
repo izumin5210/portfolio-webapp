@@ -2410,7 +2410,7 @@ __metadata:
     "@testing-library/react": 13.4.0
     "@types/node": 17.0.0
     "@types/react": 18.0.21
-    "@urql/exchange-graphcache": ^5.0.1
+    "@urql/exchange-graphcache": ^5.0.8
     "@urql/introspection": 1.0.0
     babel-loader: 8.2.5
     babel-plugin-macros: 3.1.0
@@ -5627,27 +5627,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@urql/core@npm:>=3.0.0, @urql/core@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@urql/core@npm:3.0.3"
+"@urql/core@npm:>=3.1.1, @urql/core@npm:^3.0.3":
+  version: 3.1.1
+  resolution: "@urql/core@npm:3.1.1"
   dependencies:
-    "@graphql-typed-document-node/core": ^3.1.1
-    wonka: ^6.0.0
+    wonka: ^6.1.2
   peerDependencies:
     graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 5bc972422fc733e815d82f84b10daef05288d31c2b4958555ea982bd83dd42ec939165c66cc94eeed447c45b8798242971b3682714c7df21c25d6f9bad53303c
+  checksum: 8fa40d9d1e387ec50571f78df59beae7d0eb9f7f4297255ad1c1201e7fe45d8f8fc4d9ed23586b2ae25531e1c200dee7486d42ac120d8d258d420f22a947a612
   languageName: node
   linkType: hard
 
-"@urql/exchange-graphcache@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@urql/exchange-graphcache@npm:5.0.1"
+"@urql/exchange-graphcache@npm:^5.0.8":
+  version: 5.0.8
+  resolution: "@urql/exchange-graphcache@npm:5.0.8"
   dependencies:
-    "@urql/core": ">=3.0.0"
+    "@urql/core": ">=3.1.1"
     wonka: ^6.0.0
   peerDependencies:
     graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: ca937043e447d778bdec6e986066a57d0eaf7f99456cd2c246b42994a5396d198d21863da0fcb09c22e8bda5c143a4359364463694abd58dd7fce34d60b623b3
+  checksum: 2c8ad062c4363970eef2464b8deffd83232d6c6b342d93a9ed22e946ba7a2d96037a9f9bdc4a044a4c824d5cd63616971ef883da395e04ac6e241687bb6df1cd
   languageName: node
   linkType: hard
 
@@ -20678,10 +20677,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wonka@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "wonka@npm:6.0.0"
-  checksum: 1b026c9c7e172a017e2a863147069ff27c02bbb47dfa9ce9ecd5caf3debe2c45acf1382a50eb0023b561444b18186354188df9e222502757001f699c963777ea
+"wonka@npm:^6.0.0, wonka@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "wonka@npm:6.1.2"
+  checksum: 474dcffd3861faaf5df8f4ef1ea1e614eb0cf36f54003974ebd4ab43b8fd6aad26317ef75e55488e7a61d64922531ae3ca2890dac90922d46715e0dd795682ce
   languageName: node
   linkType: hard
 
