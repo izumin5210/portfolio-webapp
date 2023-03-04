@@ -2422,7 +2422,7 @@ __metadata:
     graphql: ^16.6.0
     next: 12.3.1
     next-linaria: 1.0.1-beta
-    next-urql: ^4.0.0
+    next-urql: ^4.0.3
     node-fetch: ^3.2.4
     npm-run-all: 4.1.5
     prettier: 2.7.1
@@ -15157,15 +15157,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-urql@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "next-urql@npm:4.0.0"
+"next-urql@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "next-urql@npm:4.0.3"
   dependencies:
     react-ssr-prepass: ^1.4.0
   peerDependencies:
     react: ">=16.8.0"
     urql: ^3.0.0
-  checksum: e3194ecb5fcf32122cf9c075a8305d64c432c688782886aeac35d929f10c97d7550b4f241eea79ad727ba0b87fb00530ef2d1719e44e77a3b0ae05a3979c7e92
+  checksum: 68029c2c6321c023dd8c520d434968c684fbb2b54ae2c96e52debeb32f3c395ff5577f47d976fa208def27f952567adcd90f2fd635495cd61bb5466d5e20de69
   languageName: node
   linkType: hard
 
