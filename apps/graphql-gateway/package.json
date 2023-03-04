@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@graphql-yoga/node": "^2.13.13",
-    "@pothos/core": "^3.22.5",
+    "@pothos/core": "^3.27.1",
     "@pothos/plugin-relay": "^3.28.4",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
