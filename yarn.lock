@@ -5336,12 +5336,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/open-graph-scraper@npm:4.8.1":
-  version: 4.8.1
-  resolution: "@types/open-graph-scraper@npm:4.8.1"
+"@types/open-graph-scraper@npm:4.8.2":
+  version: 4.8.2
+  resolution: "@types/open-graph-scraper@npm:4.8.2"
   dependencies:
     "@types/node": "*"
-  checksum: ebfebc531e3457fc8877401dfaca67ee29618363f6099af6c4fb235762ae59b7a957e143db6a85dcb5b8a0e33b710fc8c2fc41807c4230eb877eb6906b1cea98
+  checksum: 8b4d7d7f675d6e30356b7bab6230e80719f732de01e2067320e2fb63a23f6feb57fd667b3559a86df404d5a5eaeb1ee852557ce0666007484a8dbe915fae7e40
   languageName: node
   linkType: hard
 
@@ -18161,7 +18161,7 @@ __metadata:
   resolution: "scripts@workspace:packages/scripts"
   dependencies:
     "@types/glob": 8.0.0
-    "@types/open-graph-scraper": 4.8.1
+    "@types/open-graph-scraper": 4.8.2
     "@types/uuid": 9.0.1
     glob: 8.0.3
     open-graph-scraper: ^4.11.1
