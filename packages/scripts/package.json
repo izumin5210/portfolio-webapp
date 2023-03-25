@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "glob": "8.1.0",
-    "open-graph-scraper": "^4.11.1",
+    "open-graph-scraper": "^5.2.3",
     "remark-extract-frontmatter": "^3.2.0",
     "remark-frontmatter": "^4.0.1",
     "remark-h1-as-title": "workspace:^",
